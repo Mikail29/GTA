@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-const typeAccent = { Ratgeber: "pink", Mission: "teal", Geheimnis: "violet", News: "sunset", Frage: "teal" } as const;
+const typeAccent = { Ratgeber: "pink", Mission: "teal", Geheimnis: "violet", News: "sunset", Frage: "teal", Person: "violet", Laden: "sunset" } as const;
 
 export default async function SearchPage({ searchParams }: { searchParams: SearchParams }) {
   const q = param((await searchParams).q)?.trim() ?? "";

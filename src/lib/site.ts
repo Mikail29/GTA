@@ -16,13 +16,23 @@ export interface NavItem {
   label: string;
   /** Bereich ist angekündigt, aber noch nicht verfügbar („Bald“). */
   soon?: boolean;
+  /** Unterpunkte (Aufklappmenü). */
+  children?: { href: string; label: string; description?: string }[];
 }
 
 export const mainNav: NavItem[] = [
   { href: "/tipps", label: "Tipps" },
   { href: "/missionen", label: "Missionen" },
   { href: "/geheimnisse", label: "Geheimnisse" },
-  { href: "/karte", label: "Karte" },
+  {
+    href: "/karte",
+    label: "Spielwelt",
+    children: [
+      { href: "/karte", label: "Interaktive Karte", description: "Fundorte und Marker" },
+      { href: "/personen", label: "Personen & Kontakte", description: "Wer dir im Spiel hilft" },
+      { href: "/laeden", label: "Läden", description: "Waffen, Kleidung und mehr" },
+    ],
+  },
   { href: "/news", label: "News" },
   { href: "/online", label: "Online", soon: true },
   { href: "/community", label: "Community" },

@@ -49,7 +49,7 @@ export function MobileMenu({ loggedIn }: { loggedIn: boolean }) {
           </form>
           <nav aria-label="Mobile Navigation">
             <ul className="grid gap-1">
-              {[{ href: "/", label: "Startseite" } as NavItem, ...mainNav, { href: "/fragen", label: "Fragen" }].map((item) => (
+              {[{ href: "/", label: "Startseite" } as NavItem, ...mainNav.flatMap((i) => (i.children ? i.children.map((c) => ({ href: c.href, label: c.label }) as NavItem) : [i])), { href: "/fragen", label: "Fragen" }].map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

@@ -142,9 +142,37 @@ export interface MapLocation {
 
 /** Suchergebnis über alle Rubriken hinweg. */
 export interface SearchResult {
-  type: "Ratgeber" | "Mission" | "Geheimnis" | "News" | "Frage";
+  type: "Ratgeber" | "Mission" | "Geheimnis" | "News" | "Frage" | "Person" | "Laden";
   title: string;
   excerpt: string;
   href: string;
   status?: VerificationStatus;
+}
+
+/** Person/Kontakt im Spiel (z. B. Auftraggeber, Händler, Helfer). */
+export interface Contact {
+  slug: string;
+  name: string;
+  category: string;
+  /** Wobei die Person helfen kann. */
+  helpsWith: string;
+  /** Telefonnummer IM SPIEL (fiktiv), falls bekannt. */
+  phone?: string;
+  /** Wo man die Person trifft bzw. wie man sie freischaltet. */
+  location?: string;
+  mapLocationId?: string;
+  status: VerificationStatus;
+  source?: { label: string; url: string };
+}
+
+/** Laden im Spiel (z. B. Waffen, Kleidung). */
+export interface Shop {
+  slug: string;
+  name: string;
+  category: string;
+  description: string;
+  location?: string;
+  mapLocationId?: string;
+  status: VerificationStatus;
+  source?: { label: string; url: string };
 }

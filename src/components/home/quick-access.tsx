@@ -8,6 +8,8 @@ const tiles: { href: string; title: string; text: string; icon: IconName; accent
   { href: "/tipps", title: "Tipps & Tricks", text: "Ratgeber für Einsteiger und Profis – klar gekennzeichnet nach Verlässlichkeit.", icon: "lightbulb", accent: "pink" },
   { href: "/karte", title: "Interaktive Karte", text: "Fundorte, Sammelobjekte und Missionen auf einen Blick (in Vorbereitung).", icon: "map", accent: "teal" },
   { href: "/missionen", title: "Missionen", text: "Komplettlösungen Schritt für Schritt – mit Spoiler-Warnung.", icon: "target", accent: "sunset" },
+  { href: "/personen", title: "Personen & Kontakte", text: "Wer dir im Spiel hilft – mit Telefonnummern im Spiel (ab Release).", icon: "users", accent: "violet" },
+  { href: "/laeden", title: "Läden", text: "Waffen, Kleidung, Fahrzeuge und mehr – wo du was kaufst (ab Release).", icon: "building", accent: "sunset" },
   { href: "/geheimnisse", title: "Geheimnisse", text: "Easter Eggs, versteckte Orte und seltene Fahrzeuge.", icon: "key", accent: "violet" },
   { href: "/community", title: "Community", text: "Fragen stellen, Antworten geben und gemeinsam rätseln.", icon: "users", accent: "teal" },
   { href: "/community#starter", title: "GTA 6 Starter", text: "Neu dabei? Stell dich vor und stelle deine ersten Fragen.", icon: "rocket", accent: "pink" },
@@ -22,7 +24,7 @@ const accentStyles: Record<Accent, { icon: string; hover: string }> = {
 
 export function QuickAccess() {
   return (
-    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {tiles.map((t) => (
         <li key={t.href}>
           <Link href={t.href} className={cn("surface group flex h-full gap-4 p-5 transition duration-300 hover:-translate-y-1", accentStyles[t.accent].hover)}>

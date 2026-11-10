@@ -26,6 +26,8 @@
 | Tipps & Tricks: Übersicht, Kategorien, Suche, Filter, Sortierung, Artikelseiten mit Inhaltsverzeichnis, Lesedauer, verwandten Artikeln, Teilen, Bewertung | ✅ fertig (Demo-Inhalte) |
 | Missionen: Übersicht, Filter, Detailseiten mit Schritt-für-Schritt-Anleitung und Spoiler-Schutz | ✅ fertig (Vorlagen) |
 | Geheimnisse & Fundorte: Kategorien, Verifizierungsstatus, Spoiler-Kennzeichnung, Kartenverknüpfung | ✅ fertig (Vorlagen) |
+| Spielwelt: „Personen & Kontakte“ (Auftraggeber, Händler, Helfer, Bekannte – mit Telefonnummern im Spiel) und „Läden“ (Waffen, Kleidung, Fahrzeuge, Essen, Friseur & Tattoo, Sonstiges); Einträge in `src/data/contacts.ts` und `src/data/shops.ts` | ✅ Struktur fertig, Inhalte nach Release |
+| GTA 6 Online (`/online`) | ✅ Platzhalter „momentan noch nicht verfügbar“ |
 | Interaktive Karte (Leaflet): Kategorien, Filter, Suche, Detailansicht, Deep-Links | ✅ Demo mit eigener Platzhalter-Karte |
 | Community: Fragen, Antworten, Kommentare, Likes, Bearbeiten, Löschen, Melden, Suche, Kategorien | ✅ fertig (benötigt Supabase, sonst Demo-Modus) |
 | Konten: Registrierung, Login, Logout, Passwort zurücksetzen, Profil, Profilbild | ✅ fertig (benötigt Supabase) |

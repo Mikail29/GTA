@@ -47,6 +47,11 @@ Nach dem Release sollen Ratgeber, Missionen, Fundorte und Karte mit echten Infor
 - Jeder Eintrag bekommt den passenden Status: „verifiziert“ nur bei offizieller Quelle oder eigener Prüfung im Spiel, sonst „unbestätigt“.
 - Kartenmarker erst eintragen, wenn eine rechtlich nutzbare Karte vorliegt (z. B. selbst erstellt).
 
+Nach dem Release zu füllen (Struktur ist fertig):
+- `src/data/contacts.ts` – Personen & Kontakte (Name, Kategorie, wobei sie helfen, Telefonnummer im Spiel, Fundort, Status, Quelle)
+- `src/data/shops.ts` – Läden (Name, Kategorie, Beschreibung, Fundort, Status, Quelle)
+- `/online` – GTA 6 Online, sobald verfügbar („Bald“-Kennzeichnung im Menü dann entfernen: `soon` in `src/lib/site.ts`)
+
 ## Offene Funktionen / nächste Schritte
 
 ### Inhalte
