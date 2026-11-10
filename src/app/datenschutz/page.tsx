@@ -35,8 +35,7 @@ export default function DatenschutzPage() {
           <strong>Anmelde-Cookies</strong> (nur bei Nutzung eines Kontos): technisch notwendig, um dich angemeldet zu halten.
         </li>
         <li>
-          <strong>Lokaler Speicher im Browser</strong>: speichert, ob du den Datenschutz-Hinweis geschlossen hast, deine „Hilfreich?“-Bewertungen sowie den KI-Chatverlauf (nur für die Dauer des
-          Browser-Tabs). Diese Daten verlassen dein Gerät nicht.
+          <strong>Lokaler Speicher im Browser</strong>: speichert, ob du den Datenschutz-Hinweis geschlossen hast, sowie deine „Hilfreich?“-Bewertungen. Diese Daten verlassen dein Gerät nicht.
         </li>
       </ul>
 
@@ -49,25 +48,16 @@ export default function DatenschutzPage() {
         Datenbank, Authentifizierung und Dateispeicher werden über Supabase bereitgestellt: <Placeholder>Anbieterangaben, Serverstandort/Region, Auftragsverarbeitungsvertrag, Rechtsgrundlage</Placeholder>
       </p>
 
-      <h2 id="ki">6. KI-Assistent</h2>
-      <p>
-        Wenn du den KI-Assistenten nutzt, werden deine Nachrichten und der aktuelle Gesprächsverlauf an unseren Server und von dort an den eingesetzten KI-Anbieter übermittelt, um eine Antwort zu erzeugen. Bitte
-        gib keine personenbezogenen Daten ein. Zum Schutz vor Missbrauch wird deine IP-Adresse kurzzeitig im Arbeitsspeicher für das Anfragelimit verarbeitet.
-      </p>
-      <p>
-        Eingesetzter Anbieter: <Placeholder>Name des KI-Anbieters, Sitz, Datenübermittlung in Drittländer, Speicherdauer, Rechtsgrundlage</Placeholder>
-      </p>
-
-      <h2 id="kontakt">7. Kontaktaufnahme</h2>
+      <h2 id="kontakt">6. Kontaktaufnahme</h2>
       <p>Das Kontaktformular öffnet dein E-Mail-Programm; die Nachricht wird erst beim Absenden aus deinem E-Mail-Programm übertragen.</p>
 
-      <h2 id="rechte">8. Deine Rechte</h2>
+      <h2 id="rechte">7. Deine Rechte</h2>
       <p>
         Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht auf Beschwerde bei einer Aufsichtsbehörde.{" "}
         <Placeholder>Zuständige Aufsichtsbehörde und Kontaktweg für Anfragen</Placeholder>
       </p>
 
-      <h2 id="speicherdauer">9. Speicherdauer</h2>
+      <h2 id="speicherdauer">8. Speicherdauer</h2>
       <p>
         <Placeholder>Löschfristen für Konten, Beiträge, Meldungen und Logs festlegen</Placeholder>
       </p>

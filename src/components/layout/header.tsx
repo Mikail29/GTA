@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Bot, LogIn, UserPlus, Users } from "lucide-react";
+import { LogIn, Rocket, UserPlus, Users } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { LinkButton } from "@/components/ui/button";
 import { Logo } from "./logo";
@@ -26,8 +26,8 @@ export async function Header() {
           <Link href="/community" className="hidden items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-muted transition hover:bg-white/5 hover:text-white lg:inline-flex xl:hidden">
             <Users className="size-4" aria-hidden="true" /> Community
           </Link>
-          <Link href="/ki-assistent" className="hidden items-center gap-1.5 rounded-full border border-teal/30 bg-teal/5 px-3 py-2 text-sm font-medium text-teal transition hover:bg-teal/15 lg:inline-flex">
-            <Bot className="size-4" aria-hidden="true" /> KI-Assistent
+          <Link href="/community#starter" className="hidden items-center gap-1.5 rounded-full border border-teal/30 bg-teal/5 px-3 py-2 text-sm font-medium text-teal transition hover:bg-teal/15 lg:inline-flex">
+            <Rocket className="size-4" aria-hidden="true" /> GTA 6 Starter
           </Link>
           {user ? (
             <UserMenu user={user} />

@@ -28,7 +28,6 @@ export type IconName =
   | "target"
   | "key"
   | "users"
-  | "bot"
   | "newspaper"
   | "car"
   | "crosshair"

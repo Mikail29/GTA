@@ -29,7 +29,7 @@ export default async function FragenPage({ searchParams }: { searchParams: Searc
   const q = param(sp.q);
   const category = communityCategories.find((c) => c.slug === param(sp.kategorie))?.slug;
   const sort = (sortOptions.some((s) => s.value === param(sp.sort)) ? param(sp.sort) : "neu") as "neu" | "beliebt" | "unbeantwortet";
-  const { questions, demo, error } = await listQuestions({ q, category, sort });
+  const { questions, demo, error } = await listQuestions({ q, category, sort, pinnedFirst: true });
 
   return (
     <>

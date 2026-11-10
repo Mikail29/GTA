@@ -1,6 +1,9 @@
 -- Nur für lokale Tests mit reinem PostgreSQL (OHNE Supabase): bildet auth.uid(), auth.users und storage minimal nach.
 -- NIEMALS in einem echten Supabase-Projekt ausführen.
-create role anon nologin; create role authenticated nologin;
+do $$ begin
+  if not exists (select 1 from pg_roles where rolname = 'anon') then create role anon nologin; end if;
+  if not exists (select 1 from pg_roles where rolname = 'authenticated') then create role authenticated nologin; end if;
+end $$;
 create schema auth; create schema storage;
 grant usage on schema public, auth, storage to anon, authenticated;
 create table auth.users (id uuid primary key, raw_user_meta_data jsonb);

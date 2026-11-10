@@ -10,7 +10,7 @@ const tiles: { href: string; title: string; text: string; icon: IconName; accent
   { href: "/missionen", title: "Missionen", text: "Komplettlösungen Schritt für Schritt – mit Spoiler-Warnung.", icon: "target", accent: "sunset" },
   { href: "/geheimnisse", title: "Geheimnisse", text: "Easter Eggs, versteckte Orte und seltene Fahrzeuge.", icon: "key", accent: "violet" },
   { href: "/community", title: "Community", text: "Fragen stellen, Antworten geben und gemeinsam rätseln.", icon: "users", accent: "teal" },
-  { href: "/ki-assistent", title: "KI-Assistent", text: "Frag die GTA6-Kompass KI – ehrlich, wenn etwas unbekannt ist.", icon: "bot", accent: "pink" },
+  { href: "/community#starter", title: "GTA 6 Starter", text: "Neu dabei? Stell dich vor und stelle deine ersten Fragen.", icon: "rocket", accent: "pink" },
 ];
 
 const accentStyles: Record<Accent, { icon: string; hover: string }> = {

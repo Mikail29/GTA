@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Bot, CalendarDays, MessageSquarePlus } from "lucide-react";
+import { ArrowRight, CalendarDays, MessageSquarePlus, Rocket } from "lucide-react";
 import { Hero } from "@/components/home/hero";
 import { QuickAccess } from "@/components/home/quick-access";
 import { Container } from "@/components/ui/container";
@@ -103,20 +103,20 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-[#2a1450] via-card to-[#0f2a3a] p-8 sm:p-12" aria-labelledby="ki-teaser">
+        <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-[#2a1450] via-card to-[#0f2a3a] p-8 sm:p-12" aria-labelledby="starter-teaser">
           <div className="pointer-events-none absolute -right-20 -top-20 size-72 rounded-full bg-teal/20 blur-3xl" />
           <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
               <p className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-teal">
-                <Bot className="size-4" aria-hidden="true" /> GTA6-Kompass KI
+                <Rocket className="size-4" aria-hidden="true" /> GTA 6 Starter
               </p>
-              <h2 id="ki-teaser" className="text-2xl font-bold sm:text-3xl">
-                Stelle deine Fragen zu GTA 6 und erhalte hilfreiche Antworten.
+              <h2 id="starter-teaser" className="text-2xl font-bold sm:text-3xl">
+                Starte gemeinsam mit der Community in GTA 6.
               </h2>
-              <p className="mt-3 text-muted">Unser Assistent stützt sich auf die geprüfte Wissensdatenbank von GTA6-Kompass und sagt ehrlich, wenn etwas noch nicht bekannt ist.</p>
+              <p className="mt-3 text-muted">Stell dich vor, stell Einsteigerfragen und hilf anderen. Kostenlos, ohne Werbung und ohne Tracking.</p>
             </div>
-            <LinkButton href="/ki-assistent" size="lg">
-              KI-Assistent öffnen <ArrowRight className="size-5" aria-hidden="true" />
+            <LinkButton href="/community#starter" size="lg">
+              Jetzt einsteigen <ArrowRight className="size-5" aria-hidden="true" />
             </LinkButton>
           </div>
         </section>

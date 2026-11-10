@@ -19,7 +19,7 @@ const columns = [
     links: [
       { href: "/community", label: "Übersicht" },
       { href: "/fragen", label: "Fragen & Antworten" },
-      { href: "/ki-assistent", label: "GTA6-Kompass KI" },
+      { href: "/community#starter", label: "GTA 6 Starter" },
       { href: "/community-regeln", label: "Community-Regeln" },
     ],
   },

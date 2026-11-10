@@ -34,6 +34,18 @@ export async function setHiddenAction(table: "questions" | "answers" | "comments
   return { ok: true, message: hidden ? "Inhalt ausgeblendet." : "Inhalt wieder sichtbar." };
 }
 
+export async function setPinnedAction(id: string, pinned: boolean): Promise<AdminResult> {
+  if (!uuid.safeParse(id).success) return { ok: false, message: "Ungültige Anfrage." };
+  const ctx = await staff("moderator");
+  if (!ctx) return DENIED;
+  const { error } = await ctx.supabase.rpc("moderate_set_pinned", { target_id: id, pinned });
+  if (error) return { ok: false, message: "Aktion fehlgeschlagen." };
+  revalidatePath("/admin", "layout");
+  revalidatePath("/community");
+  revalidatePath("/fragen");
+  return { ok: true, message: pinned ? "Frage angeheftet." : "Frage gelöst." };
+}
+
 export async function setQuestionStatusAction(id: string, status: "offen" | "beantwortet" | "geschlossen"): Promise<AdminResult> {
   if (!uuid.safeParse(id).success || !["offen", "beantwortet", "geschlossen"].includes(status)) return { ok: false, message: "Ungültige Anfrage." };
   const ctx = await staff("moderator");

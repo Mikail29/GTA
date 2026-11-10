@@ -57,13 +57,13 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
         ) : results.length === 0 ? (
           <EmptyState
             title={`Keine Treffer für „${q}“`}
-            text="Versuche einen anderen Begriff – oder frag die Community bzw. unseren KI-Assistenten."
+            text="Versuche einen anderen Begriff – oder frag einfach die Community."
             action={
               <div className="flex flex-wrap justify-center gap-2">
-                <LinkButton href="/fragen/neu" variant="secondary">
-                  Frage stellen
+                <LinkButton href="/fragen/neu">Frage stellen</LinkButton>
+                <LinkButton href="/community#starter" variant="secondary">
+                  Zum Starter-Bereich
                 </LinkButton>
-                <LinkButton href="/ki-assistent">KI-Assistent fragen</LinkButton>
               </div>
             }
           />

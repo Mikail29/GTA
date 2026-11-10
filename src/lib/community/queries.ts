@@ -1,6 +1,7 @@
 import "server-only";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { demoAnswers, demoQuestions } from "@/data/demo-questions";
+import { starterThreads } from "@/data/starter-threads";
 import { matchesQuery } from "@/lib/utils/format";
 import type { Answer, Question } from "@/types/community";
 
@@ -12,7 +13,7 @@ import type { Answer, Question } from "@/types/community";
  */
 
 const QUESTION_SELECT =
-  "id, author_id, title, body, category, status, is_hidden, created_at, updated_at, likes_count, answers_count, author:profiles!questions_author_id_fkey(username, avatar_url)";
+  "id, author_id, title, body, category, status, is_hidden, created_at, updated_at, likes_count, answers_count, is_pinned, is_official, author:profiles!questions_author_id_fkey(username, avatar_url)";
 const ANSWER_SELECT =
   "id, question_id, author_id, body, created_at, updated_at, likes_count, author:profiles!answers_author_id_fkey(username, avatar_url)";
 
@@ -21,6 +22,8 @@ export interface QuestionQuery {
   category?: string;
   sort?: "neu" | "beliebt" | "unbeantwortet";
   limit?: number;
+  /** Angeheftete Threads zuerst anzeigen (Standard bei Sortierung „neu“). */
+  pinnedFirst?: boolean;
 }
 
 export async function listQuestions(opts: QuestionQuery = {}): Promise<{ questions: Question[]; demo: boolean; error?: string }> {
@@ -28,10 +31,10 @@ export async function listQuestions(opts: QuestionQuery = {}): Promise<{ questio
   const limit = Math.min(opts.limit ?? 30, 100);
 
   if (!supabase) {
-    let list = demoQuestions.filter((q) => (!opts.category || q.category === opts.category) && (!opts.q || matchesQuery(opts.q, q.title, q.body)));
+    let list = [...starterThreads, ...demoQuestions].filter((q) => (!opts.category || q.category === opts.category) && (!opts.q || matchesQuery(opts.q, q.title, q.body)));
     if (opts.sort === "beliebt") list = [...list].sort((a, b) => b.likes_count - a.likes_count);
     else if (opts.sort === "unbeantwortet") list = list.filter((q) => q.answers_count === 0);
-    else list = [...list].sort((a, b) => b.created_at.localeCompare(a.created_at));
+    else list = [...list].sort((a, b) => (opts.pinnedFirst ? Number(!!b.is_pinned) - Number(!!a.is_pinned) : 0) || b.created_at.localeCompare(a.created_at));
     return { questions: list.slice(0, limit), demo: true };
   }
 
@@ -44,7 +47,10 @@ export async function listQuestions(opts: QuestionQuery = {}): Promise<{ questio
   }
   if (opts.sort === "beliebt") query = query.order("likes_count", { ascending: false });
   else if (opts.sort === "unbeantwortet") query = query.eq("answers_count", 0).order("created_at", { ascending: false });
-  else query = query.order("created_at", { ascending: false });
+  else {
+    if (opts.pinnedFirst) query = query.order("is_pinned", { ascending: false });
+    query = query.order("created_at", { ascending: false });
+  }
 
   const { data, error } = await query.returns<Question[]>();
   if (error) return { questions: [], demo: false, error: "Die Fragen konnten nicht geladen werden." };
@@ -52,8 +58,8 @@ export async function listQuestions(opts: QuestionQuery = {}): Promise<{ questio
 }
 
 export async function getQuestion(id: string): Promise<{ question: Question | null; answers: Answer[]; demo: boolean }> {
-  if (id.startsWith("demo-")) {
-    const question = demoQuestions.find((q) => q.id === id) ?? null;
+  if (id.startsWith("demo-") || id.startsWith("starter-")) {
+    const question = [...starterThreads, ...demoQuestions].find((q) => q.id === id) ?? null;
     return { question, answers: demoAnswers[id] ?? [], demo: true };
   }
   const supabase = await createSupabaseServerClient();

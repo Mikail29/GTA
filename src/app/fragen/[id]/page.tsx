@@ -79,15 +79,16 @@ export default async function FragePage({ params }: Props) {
           <Link href={`/fragen?kategorie=${question.category}`}>
             <Badge accent="teal">{communityCategoryName(question.category)}</Badge>
           </Link>
+          {question.is_official && <Badge accent="pink">Offizieller Beitrag vom Team</Badge>}
           {question.status === "beantwortet" && <Badge accent="pink">Beantwortet</Badge>}
           {question.status === "geschlossen" && <Badge>Geschlossen</Badge>}
           {question.is_hidden && <Badge accent="sunset">Ausgeblendet (nur für Moderation sichtbar)</Badge>}
         </div>
         <h1 className="text-2xl font-bold sm:text-4xl">{question.title}</h1>
         <div className="mt-4 flex items-center gap-3 text-sm">
-          <Avatar name={question.author?.username ?? "?"} url={question.author?.avatar_url ?? null} size={36} />
+          <Avatar name={question.is_official ? "GTA6-Kompass Team" : (question.author?.username ?? "?")} url={question.is_official ? null : (question.author?.avatar_url ?? null)} size={36} />
           <div>
-            <p className="font-semibold">{question.author?.username ?? "Gelöschtes Konto"}</p>
+            <p className="font-semibold">{question.is_official ? "GTA6-Kompass Team" : (question.author?.username ?? "Gelöschtes Konto")}</p>
             <p className="text-xs text-muted">
               <time dateTime={question.created_at}>{formatDateTime(question.created_at)}</time>
               {question.updated_at && " · bearbeitet"}
@@ -127,7 +128,7 @@ export default async function FragePage({ params }: Props) {
           Deine Antwort
         </h2>
         {demo ? (
-          <p className="surface p-5 text-sm text-muted">Beispielfragen können nicht beantwortet werden. Sobald die Datenbank verbunden ist, sind Antworten möglich.</p>
+          <p className="surface p-5 text-sm text-muted">Antworten sind möglich, sobald die Community-Datenbank verbunden ist. Dann kannst du hier mit deinem Konto mitschreiben.</p>
         ) : !session ? (
           <div className="surface flex flex-col items-start gap-3 p-5">
             <p className="text-sm text-muted">Bitte melde dich an, um zu antworten.</p>

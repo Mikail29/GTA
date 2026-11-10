@@ -3,7 +3,7 @@ import { requireStaff } from "@/lib/admin/guard";
 import { ActionButton } from "@/components/admin/action-button";
 import { Badge } from "@/components/ui/badge";
 import { EmptyState } from "@/components/ui/empty-state";
-import { setHiddenAction, setQuestionStatusAction } from "@/lib/admin/actions";
+import { setHiddenAction, setPinnedAction, setQuestionStatusAction } from "@/lib/admin/actions";
 import { formatDateTime } from "@/lib/utils/format";
 
 interface Row {
@@ -11,6 +11,7 @@ interface Row {
   title: string;
   status: "offen" | "beantwortet" | "geschlossen";
   is_hidden: boolean;
+  is_pinned: boolean;
   created_at: string;
   answers_count: number;
   author: { username: string } | null;
@@ -21,7 +22,7 @@ export default async function BeitraegePage() {
   if (!supabase) return null;
   const { data, error } = await supabase
     .from("questions")
-    .select("id, title, status, is_hidden, created_at, answers_count, author:profiles!questions_author_id_fkey(username)")
+    .select("id, title, status, is_hidden, is_pinned, created_at, answers_count, author:profiles!questions_author_id_fkey(username)")
     .order("created_at", { ascending: false })
     .limit(100)
     .returns<Row[]>();
@@ -45,6 +46,7 @@ export default async function BeitraegePage() {
                   {q.title}
                 </Link>
                 {q.is_hidden && <Badge accent="sunset">ausgeblendet</Badge>}
+                {q.is_pinned && <Badge accent="teal">angeheftet</Badge>}
                 <Badge>{q.status}</Badge>
               </div>
               <p className="text-xs text-muted">
@@ -60,6 +62,7 @@ export default async function BeitraegePage() {
                     Ausblenden
                   </ActionButton>
                 )}
+                <ActionButton action={setPinnedAction.bind(null, q.id, !q.is_pinned)}>{q.is_pinned ? "Lösen" : "Anheften"}</ActionButton>
                 {q.status !== "geschlossen" ? (
                   <ActionButton action={setQuestionStatusAction.bind(null, q.id, "geschlossen")}>Schließen</ActionButton>
                 ) : (

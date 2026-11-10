@@ -2,6 +2,20 @@ import type { NewsItem } from "@/types/content";
 
 export const news: NewsItem[] = [
   {
+    slug: "gta-6-erscheint-am-19-november-2026",
+    title: "GTA 6 erscheint am 19. November 2026",
+    excerpt: "Laut Rockstar Games erscheint Grand Theft Auto VI am 19. November 2026 für PlayStation 5 und Xbox Series X|S.",
+    publishedAt: "2026-11-10",
+    status: "verifiziert",
+    sources: [{ label: "Rockstar Newswire: Grand Theft Auto VI is Now Set to Launch November 19, 2026", url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" }],
+    blocks: [
+      { type: "p", text: "Rockstar Games hat den Release von Grand Theft Auto VI für Donnerstag, den 19. November 2026 angekündigt. Das Spiel erscheint für PlayStation 5 und Xbox Series X|S." },
+      { type: "note", tone: "info", title: "Stand: 10. November 2026", text: "Termine können sich ändern. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games (siehe Quelle unten)." },
+      { type: "h2", id: "community", text: "Gemeinsam starten" },
+      { type: "p", text: "Im Bereich „GTA 6 Starter“ unserer Community kannst du dich schon jetzt vorstellen, Fragen stellen und dich mit anderen auf den Release vorbereiten." },
+    ],
+  },
+  {
     slug: "willkommen-bei-gta6-kompass",
     title: "Willkommen bei GTA6-Kompass",
     excerpt: "Unser unabhängiges, deutschsprachiges Hilfeportal startet – das erwartet dich.",
@@ -10,7 +24,7 @@ export const news: NewsItem[] = [
     blocks: [
       { type: "p", text: "GTA6-Kompass ist ein kostenloses Fanprojekt mit einem Ziel: dir verlässliche Hilfe rund um GTA 6 zu bieten – auf Deutsch, übersichtlich und ohne Clickbait." },
       { type: "h2", id: "was-dich-erwartet", text: "Was dich erwartet" },
-      { type: "ul", items: ["Ratgeber und Komplettlösungen", "Geheimnisse und Fundorte mit Verifizierungsstatus", "Eine interaktive Karte (in Vorbereitung)", "Eine Community für Fragen und Antworten", "Den KI-Assistenten GTA6-Kompass KI"] },
+      { type: "ul", items: ["Ratgeber und Komplettlösungen", "Geheimnisse und Fundorte mit Verifizierungsstatus", "Eine interaktive Karte (in Vorbereitung)", "Eine Community für Fragen und Antworten"] },
       { type: "h2", id: "unabhaengig", text: "Unabhängig" },
       { type: "p", text: "Wir sind keine offizielle Website von Rockstar Games und stehen in keiner Verbindung zu Rockstar Games oder Take-Two Interactive." },
     ],

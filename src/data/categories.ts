@@ -29,6 +29,7 @@ export const secretCategories: Category[] = [
 ];
 
 export const communityCategories: CommunityCategory[] = [
+  { slug: "starter", name: "GTA 6 Starter", description: "Neu hier? Stell dich vor und stelle Einsteigerfragen – keine Frage ist zu einfach." },
   { slug: "allgemein", name: "Allgemeine Fragen", description: "Alles rund um GTA 6, was sonst nirgends passt." },
   { slug: "missionen", name: "Missionen", description: "Hilfe bei Aufträgen und Komplettlösungen." },
   { slug: "fahrzeuge", name: "Fahrzeuge", description: "Autos, Boote, Flugzeuge und Tuning." },

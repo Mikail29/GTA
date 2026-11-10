@@ -24,7 +24,8 @@ Im Dashboard unter **Project Settings → API** findest du:
 **Variante A – SQL Editor (am einfachsten):**
 1. Im Dashboard **SQL Editor → New query** öffnen.
 2. Inhalt von `supabase/migrations/20261110000000_initial_schema.sql` einfügen und **Run** klicken.
-3. Danach `supabase/seed.sql` genauso ausführen (Kategorien + Demo-Entwurf).
+3. Danach `supabase/migrations/20261110120000_starter_community.sql` genauso ausführen.
+4. Zum Schluss `supabase/seed.sql` ausführen. Das legt die Kategorien, einen Demo-Entwurf und die **6 angehefteten Starter-Threads** der Community „GTA 6 Starter“ an. Erst damit ist die Community beim Start nicht leer.
 
 **Variante B – Supabase CLI:**
 ```bash
@@ -86,13 +87,17 @@ Nach dem Eintragen der Umgebungsvariablen die Website **neu bauen und starten** 
 | Gesperrte Konten | Können nicht posten, liken oder melden |
 | Meldungen | Nutzer sehen nur eigene, Moderation sieht alle |
 | Redaktionelle Inhalte | Lesen nur veröffentlicht; Schreiben nur Admins |
+| Angeheftete / Team-Beiträge | Nur Moderation darf anheften, nur Admins „offiziell“ markieren |
 | Karte | Öffentliche Marker nur durch Admins; Nutzer dürfen nur private eigene Marker anlegen |
 
-Die Regeln wurden mit `supabase/tests/01_rls_test.sql` gegen PostgreSQL 16 geprüft (19 Testfälle). So führst du die Tests lokal aus:
+Die Regeln wurden mit `supabase/tests/01_rls_test.sql` gegen PostgreSQL 16 geprüft (23 Testfälle). So führst du die Tests lokal aus:
 
 ```bash
 createdb gta_test
 psql -d gta_test -f supabase/tests/00_local_stubs.sql
 psql -d gta_test -f supabase/migrations/20261110000000_initial_schema.sql
-psql -d gta_test -f supabase/tests/01_rls_test.sql   # alle Zeilen "T.. : true"
+psql -d gta_test -f supabase/migrations/20261110120000_starter_community.sql
+psql -d gta_test -f supabase/tests/01_rls_test.sql      # alle Zeilen "T.. : true"
+psql -d gta_test -f supabase/seed.sql
+psql -d gta_test -f supabase/tests/02_starter_test.sql  # alle Zeilen "S.. : true"
 ```

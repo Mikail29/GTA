@@ -38,6 +38,10 @@ export interface Question {
   updated_at: string | null;
   likes_count: number;
   answers_count: number;
+  /** Oben angeheftet (z. B. Starter-Threads). */
+  is_pinned?: boolean;
+  /** Offizieller Beitrag des GTA6-Kompass-Teams. */
+  is_official?: boolean;
   author: QuestionAuthor | null;
   /** true für statische Beispieldaten (keine Datenbank verbunden). */
   demo?: boolean;

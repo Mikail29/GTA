@@ -3,7 +3,7 @@ export const siteConfig = {
   name: "GTA6-Kompass",
   claim: "Dein Weg durch GTA 6.",
   description:
-    "GTA6-Kompass ist das unabhängige, deutschsprachige und kostenlose Fan- und Hilfeportal zu GTA 6: Tipps, Missionen, Geheimnisse, Karte, Community und KI-Assistent.",
+    "GTA6-Kompass ist das unabhängige, deutschsprachige und kostenlose Fan- und Hilfeportal zu GTA 6: Tipps, Missionen, Geheimnisse, Karte und Community.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
   locale: "de_DE",
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "",

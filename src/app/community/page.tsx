@@ -8,6 +8,8 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { QuestionCard } from "@/components/cards/question-card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { CommunityDemoNotice } from "@/components/community/demo-notice";
+import { StarterSection } from "@/components/community/starter-section";
+import { getSession } from "@/lib/auth/session";
 import { communityCategories } from "@/data/categories";
 import { listQuestions } from "@/lib/community/queries";
 
@@ -18,7 +20,13 @@ export const metadata: Metadata = {
 };
 
 export default async function CommunityPage() {
-  const [{ questions: latest, demo }, { questions: popular }] = await Promise.all([listQuestions({ limit: 6 }), listQuestions({ limit: 4, sort: "beliebt" })]);
+  const [{ questions: latest, demo }, { questions: popular }, { questions: starter }, session] = await Promise.all([
+    listQuestions({ limit: 6 }),
+    listQuestions({ limit: 4, sort: "beliebt" }),
+    listQuestions({ category: "starter", pinnedFirst: true, limit: 6 }),
+    getSession(),
+  ]);
+  const pinnedStarter = starter.filter((q) => q.is_pinned);
 
   return (
     <>
@@ -33,9 +41,15 @@ export default async function CommunityPage() {
         </div>
       </PageHeader>
       <Container className="py-10">
-        {demo && <CommunityDemoNotice />}
+        <StarterSection threads={pinnedStarter} loggedIn={Boolean(session)} />
 
-        <section className="mt-8" aria-label="Kategorien">
+        {demo && (
+          <div className="mt-8">
+            <CommunityDemoNotice />
+          </div>
+        )}
+
+        <section className="mt-12" aria-label="Kategorien">
           <SectionHeading title="Kategorien" />
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {communityCategories.map((c) => (

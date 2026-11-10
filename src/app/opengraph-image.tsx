@@ -23,7 +23,7 @@ export default function OpengraphImage() {
         <div style={{ fontSize: 28, color: "#42E8D5", letterSpacing: 6, textTransform: "uppercase" }}>Unabhängiges Fanportal</div>
         <div style={{ fontSize: 96, fontWeight: 800, marginTop: 20 }}>GTA6-Kompass</div>
         <div style={{ fontSize: 44, marginTop: 10, color: "#FFFFFF" }}>Dein Weg durch GTA 6.</div>
-        <div style={{ fontSize: 24, marginTop: 40, color: "#B8B4D1" }}>Tipps · Missionen · Geheimnisse · Karte · Community · KI-Assistent</div>
+        <div style={{ fontSize: 24, marginTop: 40, color: "#B8B4D1" }}>Tipps · Missionen · Geheimnisse · Karte · Community</div>
       </div>
     ),
     size,
