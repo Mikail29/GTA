@@ -4,7 +4,7 @@ import type { Mission } from "@/types/content";
  * Beispiel-Missionen.
  * Es handelt sich ausdrücklich NICHT um offizielle GTA-6-Missionen.
  * Titel und Abläufe sind neutrale Vorlagen, die zeigen, wie eine
- * Komplettlösung auf GTA6-Kompass aufgebaut ist.
+ * Komplettlösung auf dem 5-Sterne-Kompass aufgebaut ist.
  */
 export const missions: Mission[] = [
   {

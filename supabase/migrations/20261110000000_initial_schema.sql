@@ -1,5 +1,5 @@
 -- =====================================================================
--- GTA6-Kompass – Initiales Datenbankschema (Supabase / PostgreSQL)
+-- 5-Sterne-Kompass – Initiales Datenbankschema (Supabase / PostgreSQL)
 --
 -- Sicherheitsprinzipien:
 --  * Row Level Security (RLS) auf ALLEN Tabellen aktiv.

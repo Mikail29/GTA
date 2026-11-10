@@ -54,7 +54,7 @@ export function MapExplorer({ locations, imageUrl, initialMarker }: { locations:
         });
         L.imageOverlay(imageUrl, bounds, { alt: "Selbst erstellte Platzhalter-Karte" }).addTo(map);
         map.attributionControl.setPrefix(false);
-        map.attributionControl.addAttribution("Platzhalter-Karte © GTA6-Kompass");
+        map.attributionControl.addAttribution("Platzhalter-Karte © 5-Sterne-Kompass");
         map.fitBounds(bounds);
 
         for (const loc of locations) {

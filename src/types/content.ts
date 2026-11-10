@@ -1,5 +1,5 @@
 /**
- * Zentrale Inhaltstypen von GTA6-Kompass.
+ * Zentrale Inhaltstypen des 5-Sterne-Kompass.
  * Die Strukturen entsprechen den Tabellen der Supabase-Migration,
  * damit statische Demo-Daten später 1:1 durch Datenbankdaten ersetzt werden können.
  */

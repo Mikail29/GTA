@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 /**
  * Datenschutz-Hinweis.
- * GTA6-Kompass setzt standardmäßig KEINE Tracking- oder Marketing-Cookies.
+ * 5-Sterne-Kompass setzt standardmäßig KEINE Tracking- oder Marketing-Cookies.
  * Es werden nur technisch notwendige Cookies (Anmeldung) verwendet – dafür ist
  * keine Einwilligung nötig, wir informieren aber transparent darüber.
  * Sollten später einwilligungspflichtige Dienste ergänzt werden, muss hier ein

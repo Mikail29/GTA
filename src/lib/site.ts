@@ -1,14 +1,14 @@
 /** Zentrale Seitenkonfiguration. */
 export const siteConfig = {
-  name: "GTA6-Kompass",
+  name: "5-Sterne-Kompass",
   claim: "Dein Weg durch GTA 6.",
   description:
-    "GTA6-Kompass ist das unabhängige, deutschsprachige und kostenlose Fan- und Hilfeportal zu GTA 6: Tipps, Missionen, Geheimnisse, Karte und Community.",
+    "Der 5-Sterne-Kompass ist das unabhängige, deutschsprachige und kostenlose Fan- und Hilfeportal zu GTA 6: Tipps, Missionen, Geheimnisse, Karte und Community.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
   locale: "de_DE",
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "",
   disclaimer:
-    "GTA6-Kompass ist ein unabhängiges Fanprojekt und steht in keiner Verbindung zu Rockstar Games oder Take-Two Interactive. Alle genannten Marken gehören ihren jeweiligen Inhabern.",
+    "Der 5-Sterne-Kompass ist ein unabhängiges Fanprojekt und steht in keiner Verbindung zu Rockstar Games oder Take-Two Interactive. Alle genannten Marken gehören ihren jeweiligen Inhabern.",
 };
 
 export const mainNav = [

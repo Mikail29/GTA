@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: "Datenschutzerklärung", alternates: 
 
 export default function DatenschutzPage() {
   return (
-    <LegalPage title="Datenschutzerklärung" text="Informationen zur Verarbeitung personenbezogener Daten auf GTA6-Kompass." crumb="Datenschutz">
+    <LegalPage title="Datenschutzerklärung" text="Informationen zur Verarbeitung personenbezogener Daten auf dem 5-Sterne-Kompass." crumb="Datenschutz">
       <p>
         Diese Vorlage beschreibt die technisch tatsächlich umgesetzten Datenverarbeitungen der Website. Rechtliche Formulierungen, Rechtsgrundlagen und Angaben zu Auftragsverarbeitern müssen vom Betreiber
         geprüft und ergänzt werden.

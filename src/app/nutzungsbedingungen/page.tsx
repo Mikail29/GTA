@@ -5,16 +5,16 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Nutzungsbedingungen",
-  description: "Die Nutzungsbedingungen der GTA6-Kompass-Community: Konto, Inhalte, Moderation, Meldungen und Löschung.",
+  description: "Die Nutzungsbedingungen der 5-Sterne-Kompass-Community: Konto, Inhalte, Moderation, Meldungen und Löschung.",
   alternates: { canonical: "/nutzungsbedingungen" },
 };
 
 export default function NutzungsbedingungenPage() {
   return (
-    <LegalPage title="Nutzungsbedingungen" text="Die Regeln für die Nutzung von GTA6-Kompass und der Community." crumb="Nutzungsbedingungen">
+    <LegalPage title="Nutzungsbedingungen" text="Die Regeln für die Nutzung vom 5-Sterne-Kompass und der Community." crumb="Nutzungsbedingungen">
       <h2 id="geltung">1. Geltungsbereich</h2>
       <p>
-        Diese Bedingungen gelten für die Nutzung der Website GTA6-Kompass, insbesondere der Community (Fragen, Antworten, Kommentare, Likes und Meldungen). Anbieter ist{" "}
+        Diese Bedingungen gelten für die Nutzung der Website 5-Sterne-Kompass, insbesondere der Community (Fragen, Antworten, Kommentare, Likes und Meldungen). Anbieter ist{" "}
         <Placeholder>Name und Anschrift wie im Impressum</Placeholder>. {siteConfig.disclaimer}
       </p>
 
@@ -32,7 +32,7 @@ export default function NutzungsbedingungenPage() {
       <ul>
         <li>Du bist für deine Beiträge selbst verantwortlich und darfst nur Inhalte veröffentlichen, an denen du die nötigen Rechte hast.</li>
         <li>
-          Mit dem Veröffentlichen erlaubst du uns, deine Beiträge kostenlos auf GTA6-Kompass anzuzeigen und zu speichern (einfaches Nutzungsrecht). Das Recht endet mit der Löschung des Beitrags. Bei
+          Mit dem Veröffentlichen erlaubst du uns, deine Beiträge kostenlos auf dem 5-Sterne-Kompass anzuzeigen und zu speichern (einfaches Nutzungsrecht). Das Recht endet mit der Löschung des Beitrags. Bei
           Fragen, auf die andere bereits geantwortet haben, bleibt der Beitrag nach einer Kontolöschung ohne deinen Namen erhalten.
         </li>
         <li>
@@ -87,7 +87,7 @@ export default function NutzungsbedingungenPage() {
 
       <h2 id="haftung">10. Verfügbarkeit und Haftung</h2>
       <p>
-        GTA6-Kompass ist ein kostenloses Fanprojekt. Wir bemühen uns um korrekte Informationen und eine gute Erreichbarkeit, können beides aber nicht garantieren.{" "}
+        Der 5-Sterne-Kompass ist ein kostenloses Fanprojekt. Wir bemühen uns um korrekte Informationen und eine gute Erreichbarkeit, können beides aber nicht garantieren.{" "}
         <Placeholder>Haftungsregelung – rechtlich prüfen lassen</Placeholder>
       </p>
 

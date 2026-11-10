@@ -13,7 +13,7 @@ const base = {
   updated_at: null,
   likes_count: 0,
   answers_count: 0,
-  author: { username: "GTA6-Kompass Team", avatar_url: null },
+  author: { username: "5-Sterne-Kompass Team", avatar_url: null },
   is_pinned: true,
   is_official: true,
   demo: true,
@@ -26,7 +26,7 @@ export const starterThreads: Question[] = [
     title: "Willkommen in der GTA-6-Community – hier startest du!",
     body: `Schön, dass du da bist! 🌴
 
-GTA6-Kompass ist eine kostenlose, deutschsprachige Community, in der sich Spielerinnen und Spieler gegenseitig bei GTA 6 helfen.
+Der 5-Sterne-Kompass ist eine kostenlose, deutschsprachige Community, in der sich Spielerinnen und Spieler gegenseitig bei GTA 6 helfen.
 
 So machst du mit:
 1. Kostenloses Konto erstellen (nur Benutzername, E-Mail und Passwort)
@@ -98,7 +98,7 @@ Für Story-Diskussionen bitte eine eigene Frage in der Kategorie „Missionen“
   {
     ...base,
     id: "starter-feedback",
-    title: "Feedback & Wünsche: Was soll GTA6-Kompass noch bieten?",
+    title: "Feedback & Wünsche: Was soll der 5-Sterne-Kompass noch bieten?",
     body: `Die Seite wächst mit der Community. Welche Ratgeber, Funktionen oder Karten-Kategorien wünschst du dir?
 
 Fehler auf der Website oder falsche Informationen gefunden? Schreib sie gerne hier hinein – jede Rückmeldung hilft.`,

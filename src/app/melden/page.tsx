@@ -9,7 +9,7 @@ import { param, type SearchParams } from "@/lib/utils/params";
 
 export const metadata: Metadata = {
   title: "Inhalt melden",
-  description: "Melde rechtswidrige oder regelwidrige Inhalte auf GTA6-Kompass – auch ohne Konto.",
+  description: "Melde rechtswidrige oder regelwidrige Inhalte auf dem 5-Sterne-Kompass – auch ohne Konto.",
   alternates: { canonical: "/melden" },
 };
 

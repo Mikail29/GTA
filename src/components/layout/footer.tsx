@@ -27,7 +27,7 @@ const columns = [
   {
     title: "Projekt",
     links: [
-      { href: "/ueber-uns", label: "Über GTA6-Kompass" },
+      { href: "/ueber-uns", label: "Über den 5-Sterne-Kompass" },
       { href: "/kontakt", label: "Kontakt" },
       { href: "/impressum", label: "Impressum" },
       { href: "/nutzungsbedingungen", label: "Nutzungsbedingungen" },
@@ -65,7 +65,7 @@ export function Footer() {
           <strong className="text-white">Hinweis zur Unabhängigkeit:</strong> {siteConfig.disclaimer} Es werden keine offiziellen Logos,
           Screenshots, Karten oder Texte von Rockstar Games verwendet.
         </div>
-        <p className="mt-6 text-xs text-muted">© {new Date().getFullYear()} GTA6-Kompass · Fanprojekt · Alle Grafiken selbst erstellt.</p>
+        <p className="mt-6 text-xs text-muted">© {new Date().getFullYear()} 5-Sterne-Kompass · Fanprojekt · Alle Grafiken selbst erstellt.</p>
       </Container>
     </footer>
   );

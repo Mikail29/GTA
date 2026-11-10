@@ -45,7 +45,7 @@ export function MobileMenu({ loggedIn }: { loggedIn: boolean }) {
         <div id="mobile-menu" className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-night/[0.98] px-4 pb-10 pt-4 backdrop-blur-xl">
           <form action="/suche" role="search" className="relative mb-4">
             <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted" aria-hidden="true" />
-            <input name="q" type="search" placeholder="GTA6-Kompass durchsuchen…" aria-label="Suchbegriff" className="h-12 w-full rounded-2xl border border-line bg-card pl-11 pr-4 text-sm outline-none focus:border-teal" />
+            <input name="q" type="search" placeholder="5-Sterne-Kompass durchsuchen…" aria-label="Suchbegriff" className="h-12 w-full rounded-2xl border border-line bg-card pl-11 pr-4 text-sm outline-none focus:border-teal" />
           </form>
           <nav aria-label="Mobile Navigation">
             <ul className="grid gap-1">

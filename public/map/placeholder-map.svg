@@ -41,7 +41,7 @@
   <g font-family="sans-serif" fill="#B8B4D1">
     <text x="500" y="60" text-anchor="middle" font-size="30" font-weight="700" fill="#FFFFFF" fill-opacity="0.85">PLATZHALTER-KARTE</text>
     <text x="500" y="95" text-anchor="middle" font-size="18">Fiktive Demo-Darstellung · keine echte GTA-6-Spielwelt</text>
-    <text x="500" y="965" text-anchor="middle" font-size="14" fill-opacity="0.8">© GTA6-Kompass – selbst erstellt</text>
+    <text x="500" y="965" text-anchor="middle" font-size="14" fill-opacity="0.8">© 5-Sterne-Kompass – selbst erstellt</text>
   </g>
   <!-- Kompassrose -->
   <g transform="translate(900 120)">

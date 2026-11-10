@@ -1,5 +1,5 @@
 -- =====================================================================
--- GTA6-Kompass – Community „GTA 6 Starter“
+-- 5-Sterne-Kompass – Community „GTA 6 Starter“
 --  * Neue Kategorie „starter“
 --  * Angeheftete (is_pinned) und offizielle Team-Beiträge (is_official)
 --  * Nur Moderation darf anheften; „offiziell“ setzen nur Admins/Server

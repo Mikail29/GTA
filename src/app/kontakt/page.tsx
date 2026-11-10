@@ -6,7 +6,7 @@ import { Notice } from "@/components/ui/notice";
 import { ContactForm } from "@/components/forms/contact-form";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Kontakt", description: "So erreichst du das Team von GTA6-Kompass.", alternates: { canonical: "/kontakt" } };
+export const metadata: Metadata = { title: "Kontakt", description: "So erreichst du das Team vom 5-Sterne-Kompass.", alternates: { canonical: "/kontakt" } };
 
 export default function KontaktPage() {
   return (

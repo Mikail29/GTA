@@ -5,8 +5,14 @@
       <stop offset="50%" stop-color="#FF55B8"/>
       <stop offset="100%" stop-color="#9565FF"/>
     </linearGradient>
+    <path id="s" d="M0 -6 L1.76 -2.43 L5.7 -1.85 L2.85 0.93 L3.53 4.85 L0 3 L-3.53 4.85 L-2.85 0.93 L-5.7 -1.85 L-1.76 -2.43 Z" fill="#42E8D5"/>
   </defs>
   <rect x="1" y="1" width="38" height="38" rx="11" fill="#19172E" stroke="url(#g)" stroke-width="2"/>
-  <path d="M20 7 L24 20 L20 33 L16 20 Z" fill="url(#g)"/>
-  <circle cx="20" cy="20" r="2" fill="#fff"/>
+  <use href="#s" transform="translate(8 13.5) scale(0.5)"/>
+  <use href="#s" transform="translate(13.5 9) scale(0.5)"/>
+  <use href="#s" transform="translate(20 7.2) scale(0.5)"/>
+  <use href="#s" transform="translate(26.5 9) scale(0.5)"/>
+  <use href="#s" transform="translate(32 13.5) scale(0.5)"/>
+  <path d="M20 15 L23.2 24.5 L20 34 L16.8 24.5 Z" fill="url(#g)"/>
+  <circle cx="20" cy="24.5" r="1.6" fill="#fff"/>
 </svg>

@@ -86,9 +86,9 @@ export default async function FragePage({ params }: Props) {
         </div>
         <h1 className="text-2xl font-bold sm:text-4xl">{question.title}</h1>
         <div className="mt-4 flex items-center gap-3 text-sm">
-          <Avatar name={question.is_official ? "GTA6-Kompass Team" : (question.author?.username ?? "?")} url={question.is_official ? null : (question.author?.avatar_url ?? null)} size={36} />
+          <Avatar name={question.is_official ? "5-Sterne-Kompass Team" : (question.author?.username ?? "?")} url={question.is_official ? null : (question.author?.avatar_url ?? null)} size={36} />
           <div>
-            <p className="font-semibold">{question.is_official ? "GTA6-Kompass Team" : (question.author?.username ?? "Gelöschtes Konto")}</p>
+            <p className="font-semibold">{question.is_official ? "5-Sterne-Kompass Team" : (question.author?.username ?? "Gelöschtes Konto")}</p>
             <p className="text-xs text-muted">
               <time dateTime={question.created_at}>{formatDateTime(question.created_at)}</time>
               {question.updated_at && " · bearbeitet"}

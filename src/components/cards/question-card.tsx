@@ -29,7 +29,7 @@ export function QuestionCard({ question }: { question: Question }) {
         </h3>
         <p className="mt-1 line-clamp-2 text-sm text-muted">{question.body}</p>
         <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-muted">
-          <span>{question.is_official ? "GTA6-Kompass Team" : (question.author?.username ?? "Gelöschtes Konto")}</span>
+          <span>{question.is_official ? "5-Sterne-Kompass Team" : (question.author?.username ?? "Gelöschtes Konto")}</span>
           <time dateTime={question.created_at}>{formatDate(question.created_at)}</time>
           <span className="inline-flex items-center gap-1">
             <MessageCircle className="size-3.5" aria-hidden="true" /> {question.answers_count}

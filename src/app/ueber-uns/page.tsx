@@ -3,13 +3,13 @@ import Link from "next/link";
 import { LegalPage } from "@/components/layout/legal-page";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Über GTA6-Kompass", description: "Wer wir sind und wie GTA6-Kompass arbeitet.", alternates: { canonical: "/ueber-uns" } };
+export const metadata: Metadata = { title: "Über den 5-Sterne-Kompass", description: "Wer wir sind und wie der 5-Sterne-Kompass arbeitet.", alternates: { canonical: "/ueber-uns" } };
 
 export default function UeberUnsPage() {
   return (
-    <LegalPage title="Über GTA6-Kompass" text={siteConfig.claim} crumb="Über uns" review={false}>
+    <LegalPage title="Über den 5-Sterne-Kompass" text={siteConfig.claim} crumb="Über uns" review={false}>
       <p>
-        GTA6-Kompass ist ein unabhängiges, deutschsprachiges und kostenloses Fan- und Hilfeportal rund um Grand Theft Auto VI. Unser Ziel: eine zentrale, verlässliche Anlaufstelle für Tipps, Komplettlösungen,
+        Der 5-Sterne-Kompass ist ein unabhängiges, deutschsprachiges und kostenloses Fan- und Hilfeportal rund um Grand Theft Auto VI. Unser Ziel: eine zentrale, verlässliche Anlaufstelle für Tipps, Komplettlösungen,
         Geheimnisse und Austausch – ohne Clickbait und ohne Gerüchte als Fakten zu verkaufen.
       </p>
       <h2 id="prinzipien">Unsere Prinzipien</h2>

@@ -1,4 +1,4 @@
-# PROJECT_STATUS – GTA6-Kompass
+# PROJECT_STATUS – 5-Sterne-Kompass
 
 Stand: 10.11.2026 · Version 0.3.0
 

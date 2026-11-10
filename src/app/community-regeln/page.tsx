@@ -4,7 +4,7 @@ import { LegalPage } from "@/components/layout/legal-page";
 
 export const metadata: Metadata = {
   title: "Community-Regeln",
-  description: "Die Regeln für ein faires und freundliches Miteinander in der GTA6-Kompass-Community.",
+  description: "Die Regeln für ein faires und freundliches Miteinander in der 5-Sterne-Kompass-Community.",
   alternates: { canonical: "/community-regeln" },
 };
 

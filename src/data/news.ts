@@ -16,13 +16,13 @@ export const news: NewsItem[] = [
     ],
   },
   {
-    slug: "willkommen-bei-gta6-kompass",
-    title: "Willkommen bei GTA6-Kompass",
+    slug: "willkommen-beim-5-sterne-kompass",
+    title: "Willkommen beim 5-Sterne-Kompass",
     excerpt: "Unser unabhängiges, deutschsprachiges Hilfeportal startet – das erwartet dich.",
     publishedAt: "2026-11-09",
     status: "verifiziert",
     blocks: [
-      { type: "p", text: "GTA6-Kompass ist ein kostenloses Fanprojekt mit einem Ziel: dir verlässliche Hilfe rund um GTA 6 zu bieten – auf Deutsch, übersichtlich und ohne Clickbait." },
+      { type: "p", text: "Der 5-Sterne-Kompass ist ein kostenloses Fanprojekt mit einem Ziel: dir verlässliche Hilfe rund um GTA 6 zu bieten – auf Deutsch, übersichtlich und ohne Clickbait." },
       { type: "h2", id: "was-dich-erwartet", text: "Was dich erwartet" },
       { type: "ul", items: ["Ratgeber und Komplettlösungen", "Geheimnisse und Fundorte mit Verifizierungsstatus", "Eine interaktive Karte (in Vorbereitung)", "Eine Community für Fragen und Antworten"] },
       { type: "h2", id: "unabhaengig", text: "Unabhängig" },

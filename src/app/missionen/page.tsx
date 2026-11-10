@@ -35,7 +35,7 @@ export default async function MissionenPage({ searchParams }: { searchParams: Se
       <PageHeader eyebrow="Komplettlösungen" title="Missionen" text="Schritt-für-Schritt-Hilfen für Story, Nebenaufträge und Herausforderungen – mit klaren Spoiler-Warnungen." crumbs={[{ label: "Missionen" }]} />
       <Container className="py-10">
         <Notice tone="research" title="Noch keine echten Missionen" className="mb-8">
-          Wir veröffentlichen keine erfundenen Missionstitel oder Abläufe. Die folgenden Einträge sind Vorlagen, die zeigen, wie Komplettlösungen auf GTA6-Kompass aufgebaut sein werden.
+          Wir veröffentlichen keine erfundenen Missionstitel oder Abläufe. Die folgenden Einträge sind Vorlagen, die zeigen, wie Komplettlösungen auf dem 5-Sterne-Kompass aufgebaut sein werden.
         </Notice>
         <ListingFilters
           basePath="/missionen"

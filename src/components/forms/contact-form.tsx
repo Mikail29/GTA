@@ -22,7 +22,7 @@ export function ContactForm({ email }: { email: string }) {
 
   const onSubmit = (v: ContactInput) => {
     const body = `${v.message}\n\n— ${v.name}`;
-    window.location.assign(`mailto:${email}?subject=${encodeURIComponent(`[GTA6-Kompass] ${v.subject}`)}&body=${encodeURIComponent(body)}`);
+    window.location.assign(`mailto:${email}?subject=${encodeURIComponent(`[5-Sterne-Kompass] ${v.subject}`)}&body=${encodeURIComponent(body)}`);
     setResult({ ok: true, message: "Dein E-Mail-Programm wurde geöffnet. Bitte sende die Nachricht dort ab." });
   };
 

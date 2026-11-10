@@ -9,7 +9,7 @@ import { param, type SearchParams } from "@/lib/utils/params";
 
 export const metadata: Metadata = {
   title: "Interaktive Karte",
-  description: "Die interaktive Karte von GTA6-Kompass: Fundorte, Geheimnisse, Sammelobjekte, Fahrzeuge und Missionen – aktuell als Demo mit eigener Platzhalter-Karte.",
+  description: "Die interaktive Karte vom 5-Sterne-Kompass: Fundorte, Geheimnisse, Sammelobjekte, Fahrzeuge und Missionen – aktuell als Demo mit eigener Platzhalter-Karte.",
   alternates: { canonical: "/karte" },
 };
 

@@ -23,7 +23,7 @@ export function Hero() {
 
         <form action="/suche" role="search" className="mt-9 w-full max-w-2xl animate-fade-up [animation-delay:180ms]">
           <label htmlFor="hero-search" className="sr-only">
-            GTA6-Kompass durchsuchen
+            5-Sterne-Kompass durchsuchen
           </label>
           <div className="group relative rounded-full bg-gradient-to-r from-sunset via-pink to-violet p-[1.5px] shadow-[0_20px_60px_-20px_rgb(255_85_184/0.6)]">
             <Search className="pointer-events-none absolute left-5 top-1/2 size-5 -translate-y-1/2 text-muted" aria-hidden="true" />

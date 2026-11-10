@@ -15,7 +15,7 @@ import { listQuestions } from "@/lib/community/queries";
 
 export const metadata: Metadata = {
   title: "Community",
-  description: "Die GTA6-Kompass-Community: Fragen stellen, Antworten geben, diskutieren und gemeinsam Geheimnisse lüften.",
+  description: "Die 5-Sterne-Kompass-Community: Fragen stellen, Antworten geben, diskutieren und gemeinsam Geheimnisse lüften.",
   alternates: { canonical: "/community" },
 };
 

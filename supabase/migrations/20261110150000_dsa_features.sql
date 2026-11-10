@@ -1,5 +1,5 @@
 -- =====================================================================
--- GTA6-Kompass – Pflichtfunktionen nach Digital Services Act (DSA) und DSGVO
+-- 5-Sterne-Kompass – Pflichtfunktionen nach Digital Services Act (DSA) und DSGVO
 --  1. Melden ohne Konto (Gast-Meldungen, Art. 16 DSA)
 --  2. Benachrichtigungen mit Begründung bei Moderationsmaßnahmen (Art. 17 DSA)
 --     und Rückmeldung an Meldende (Art. 16 Abs. 5 DSA)

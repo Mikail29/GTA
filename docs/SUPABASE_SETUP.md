@@ -1,6 +1,6 @@
 # Supabase einrichten – Schritt für Schritt
 
-Diese Anleitung erklärt, wie du die Datenbank, die Anmeldung und den Bildspeicher für GTA6-Kompass einrichtest. Supabase bietet einen kostenlosen Tarif („Free Plan“); prüfe die aktuellen Bedingungen selbst, bevor du ein Projekt anlegst.
+Diese Anleitung erklärt, wie du die Datenbank, die Anmeldung und den Bildspeicher für den 5-Sterne-Kompass einrichtest. Supabase bietet einen kostenlosen Tarif („Free Plan“); prüfe die aktuellen Bedingungen selbst, bevor du ein Projekt anlegst.
 
 ## 1. Projekt anlegen
 

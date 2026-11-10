@@ -14,7 +14,7 @@ import { param, type SearchParams } from "@/lib/utils/params";
 
 export const metadata: Metadata = {
   title: "Fragen & Antworten",
-  description: "Fragen und Antworten der GTA6-Kompass-Community zu Missionen, Fahrzeugen, Geheimnissen, Gameplay und Technik.",
+  description: "Fragen und Antworten der 5-Sterne-Kompass-Community zu Missionen, Fahrzeugen, Geheimnissen, Gameplay und Technik.",
   alternates: { canonical: "/fragen" },
 };
 

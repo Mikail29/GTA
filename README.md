@@ -1,8 +1,8 @@
-# GTA6-Kompass
+# 5-Sterne-Kompass
 
 **Dein Weg durch GTA 6.** – Ein unabhängiges, deutschsprachiges und kostenloses Fan- und Hilfeportal rund um Grand Theft Auto VI.
 
-> GTA6-Kompass ist ein Fanprojekt und steht in keiner Verbindung zu Rockstar Games oder Take-Two Interactive. Es werden keine geschützten Logos, Screenshots, Karten oder Texte verwendet. Alle Grafiken sind selbst erstellt (CSS/SVG).
+> Der 5-Sterne-Kompass ist ein Fanprojekt und steht in keiner Verbindung zu Rockstar Games oder Take-Two Interactive. Es werden keine geschützten Logos, Screenshots, Karten oder Texte verwendet. Alle Grafiken sind selbst erstellt (CSS/SVG).
 
 ## Inhalt
 

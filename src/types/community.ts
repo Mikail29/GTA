@@ -40,7 +40,7 @@ export interface Question {
   answers_count: number;
   /** Oben angeheftet (z. B. Starter-Threads). */
   is_pinned?: boolean;
-  /** Offizieller Beitrag des GTA6-Kompass-Teams. */
+  /** Offizieller Beitrag des 5-Sterne-Kompass-Teams. */
   is_official?: boolean;
   author: QuestionAuthor | null;
   /** true für statische Beispieldaten (keine Datenbank verbunden). */

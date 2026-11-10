@@ -13,7 +13,7 @@ import type { SearchResult } from "@/types/content";
 
 export const metadata: Metadata = {
   title: "Suche",
-  description: "Durchsuche Ratgeber, Missionen, Geheimnisse, News und Community-Fragen auf GTA6-Kompass.",
+  description: "Durchsuche Ratgeber, Missionen, Geheimnisse, News und Community-Fragen auf dem 5-Sterne-Kompass.",
   robots: { index: false, follow: true },
 };
 

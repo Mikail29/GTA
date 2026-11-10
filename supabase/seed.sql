@@ -1,5 +1,5 @@
 -- =====================================================================
--- GTA6-Kompass – Startdaten (Kategorien + ein Demo-Artikel als Entwurf)
+-- 5-Sterne-Kompass – Startdaten (Kategorien + ein Demo-Artikel als Entwurf)
 -- Ausführen NACH der Migration, z. B. im Supabase SQL Editor.
 -- Enthält bewusst KEINE erfundenen GTA-6-Spielinformationen.
 -- =====================================================================
@@ -49,7 +49,7 @@ select v.title, v.body, 'starter', true, true, v.created_at
 from (values
   ('Willkommen in der GTA-6-Community – hier startest du!', 'Schön, dass du da bist! 🌴
 
-GTA6-Kompass ist eine kostenlose, deutschsprachige Community, in der sich Spielerinnen und Spieler gegenseitig bei GTA 6 helfen.
+Der 5-Sterne-Kompass ist eine kostenlose, deutschsprachige Community, in der sich Spielerinnen und Spieler gegenseitig bei GTA 6 helfen.
 
 So machst du mit:
 1. Kostenloses Konto erstellen (nur Benutzername, E-Mail und Passwort)
@@ -92,7 +92,7 @@ Erlaubt: Grafik, Steuerung, Gefühl beim Fahren, Lieblingsorte (ohne Story-Bezug
 Nicht erlaubt: Story-Details, Wendungen, Enden, Missionsinhalte.
 
 Für Story-Diskussionen bitte eine eigene Frage in der Kategorie „Missionen“ erstellen und den Spoiler im Titel kennzeichnen.', now() - interval '4 minutes'),
-  ('Feedback & Wünsche: Was soll GTA6-Kompass noch bieten?', 'Die Seite wächst mit der Community. Welche Ratgeber, Funktionen oder Karten-Kategorien wünschst du dir?
+  ('Feedback & Wünsche: Was soll der 5-Sterne-Kompass noch bieten?', 'Die Seite wächst mit der Community. Welche Ratgeber, Funktionen oder Karten-Kategorien wünschst du dir?
 
 Fehler auf der Website oder falsche Informationen gefunden? Schreib sie gerne hier hinein – jede Rückmeldung hilft.', now() - interval '5 minutes')
 ) as v(title, body, created_at)
