@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   GTA6-Kompass Designsystem
+   Vice-City-inspirierte Farbwelt: Neon-Pink, Türkis, Violett, Sunset.
+   --------------------------------------------------------------- */
+
+@theme {
+  --color-night: #100f20;
+  --color-night-2: #19172e;
+  --color-card: #211e3b;
+  --color-card-hover: #29254a;
+  --color-line: #332e57;
+  --color-pink: #ff55b8;
+  --color-teal: #42e8d5;
+  --color-violet: #9565ff;
+  --color-sunset: #ff9b68;
+  --color-muted: #b8b4d1;
+  --color-danger: #ff6b7f;
+  --color-success: #42e8a0;
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1.25rem;
+
+  --shadow-glow-pink: 0 0 0 1px rgb(255 85 184 / 0.35), 0 10px 40px -12px rgb(255 85 184 / 0.45);
+  --shadow-glow-teal: 0 0 0 1px rgb(66 232 213 / 0.35), 0 10px 40px -12px rgb(66 232 213 / 0.4);
+  --shadow-card: 0 1px 0 0 rgb(255 255 255 / 0.04) inset, 0 20px 40px -24px rgb(0 0 0 / 0.6);
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-night);
+    color: #fff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgb(255 85 184 / 0.4);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Verlaufstext für große Überschriften */
+  .text-gradient {
+    background: linear-gradient(100deg, var(--color-sunset) 0%, var(--color-pink) 45%, var(--color-violet) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-cool {
+    background: linear-gradient(100deg, var(--color-teal) 0%, var(--color-violet) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Standard-Karte */
+  .surface {
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.025), transparent 60%), var(--color-card);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Leicht transparente Fläche mit Unschärfe (Header, Overlays) */
+  .glass {
+    background: rgb(16 15 32 / 0.72);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+
+  /* Dezentes Raster als Retro-Hintergrund */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgb(149 101 255 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(149 101 255 / 0.08) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* Artikel-Typografie für Fließtext */
+  .prose-kompass {
+    color: var(--color-muted);
+    line-height: 1.8;
+    font-size: 1.0625rem;
+  }
+  .prose-kompass h2 {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+  .prose-kompass h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    scroll-margin-top: 6rem;
+  }
+  .prose-kompass p {
+    margin-bottom: 1rem;
+  }
+  .prose-kompass ul,
+  .prose-kompass ol {
+    margin: 0 0 1.25rem 0;
+    padding-left: 1.25rem;
+  }
+  .prose-kompass ul {
+    list-style: disc;
+  }
+  .prose-kompass ol {
+    list-style: decimal;
+  }
+  .prose-kompass li {
+    margin-bottom: 0.4rem;
+  }
+  .prose-kompass li::marker {
+    color: var(--color-pink);
+  }
+  .prose-kompass strong {
+    color: #fff;
+  }
+  .prose-kompass a {
+    color: var(--color-teal);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Leaflet: Kartencontainer an das Farbschema anpassen */
+.leaflet-container {
+  background: var(--color-night-2) !important;
+  font-family: var(--font-sans) !important;
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--color-card) !important;
+  color: #fff !important;
+  border: 1px solid var(--color-line);
+}
+.leaflet-control-zoom a {
+  background: var(--color-card) !important;
+  color: #fff !important;
+  border-color: var(--color-line) !important;
+}
+.leaflet-control-attribution {
+  background: rgb(16 15 32 / 0.8) !important;
+  color: var(--color-muted) !important;
+}
+.leaflet-control-attribution a {
+  color: var(--color-teal) !important;
+}

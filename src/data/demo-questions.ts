@@ -1,0 +1,117 @@
+import type { Answer, Question } from "@/types/community";
+
+/**
+ * Beispiel-Fragen, die angezeigt werden, solange keine Datenbank verbunden ist.
+ * Sie sind als Demo gekennzeichnet und können nicht beantwortet werden.
+ */
+export const demoQuestions: Question[] = [
+  {
+    id: "demo-1",
+    author_id: null,
+    title: "Welche Einstellungen nutzt ihr für längere Spielsessions?",
+    body: "Ich bekomme bei langen Sessions schnell müde Augen. Welche Anzeige- oder Komfort-Einstellungen nutzt ihr generell in Open-World-Spielen?",
+    category: "technik",
+    status: "beantwortet",
+    is_hidden: false,
+    created_at: "2026-11-08T18:20:00Z",
+    updated_at: null,
+    likes_count: 12,
+    answers_count: 2,
+    author: { username: "NeonNavigator", avatar_url: null },
+    demo: true,
+  },
+  {
+    id: "demo-2",
+    author_id: null,
+    title: "Wie vermeidet ihr Story-Spoiler nach dem Release?",
+    body: "Habt ihr Tipps, wie man in den ersten Wochen spoilerfrei bleibt, wenn man nicht sofort durchspielen kann?",
+    category: "allgemein",
+    status: "offen",
+    is_hidden: false,
+    created_at: "2026-11-09T09:05:00Z",
+    updated_at: null,
+    likes_count: 8,
+    answers_count: 1,
+    author: { username: "SunsetRider", avatar_url: null },
+    demo: true,
+  },
+  {
+    id: "demo-3",
+    author_id: null,
+    title: "Wird es hier eine Karte mit eigenen Markierungen geben?",
+    body: "Die Kartenseite sieht spannend aus. Kann man später eigene Fundorte speichern?",
+    category: "geheimnisse",
+    status: "beantwortet",
+    is_hidden: false,
+    created_at: "2026-11-09T14:40:00Z",
+    updated_at: null,
+    likes_count: 5,
+    answers_count: 1,
+    author: { username: "PalmTreeExplorer", avatar_url: null },
+    demo: true,
+  },
+  {
+    id: "demo-4",
+    author_id: null,
+    title: "Tipps fürs Fahren mit Controller?",
+    body: "Ich spiele zum ersten Mal mit Controller. Habt ihr allgemeine Tipps für die Fahrzeugsteuerung?",
+    category: "fahrzeuge",
+    status: "offen",
+    is_hidden: false,
+    created_at: "2026-11-10T07:15:00Z",
+    updated_at: null,
+    likes_count: 3,
+    answers_count: 0,
+    author: { username: "CoastlineCruiser", avatar_url: null },
+    demo: true,
+  },
+];
+
+export const demoAnswers: Record<string, Answer[]> = {
+  "demo-1": [
+    {
+      id: "demo-a1",
+      question_id: "demo-1",
+      author_id: null,
+      body: "Ich stelle immer die Helligkeit nach der Kalibrierungsanzeige ein und mache regelmäßig kurze Pausen. Größere Untertitel helfen mir auch.",
+      created_at: "2026-11-08T19:00:00Z",
+      updated_at: null,
+      likes_count: 6,
+      author: { username: "PixelPilot", avatar_url: null },
+    },
+    {
+      id: "demo-a2",
+      question_id: "demo-1",
+      author_id: null,
+      body: "Bewegungsunschärfe ausschalten, falls das Spiel die Option anbietet. Das macht für mich viel aus.",
+      created_at: "2026-11-08T20:30:00Z",
+      updated_at: null,
+      likes_count: 4,
+      author: { username: "MiamiNights", avatar_url: null },
+    },
+  ],
+  "demo-2": [
+    {
+      id: "demo-a3",
+      question_id: "demo-2",
+      author_id: null,
+      body: "Stichwörter in sozialen Netzwerken stummschalten und Videovorschläge eine Weile meiden. Hier auf der Seite sind Spoiler zum Glück markiert.",
+      created_at: "2026-11-09T10:00:00Z",
+      updated_at: null,
+      likes_count: 3,
+      author: { username: "NeonNavigator", avatar_url: null },
+    },
+  ],
+  "demo-3": [
+    {
+      id: "demo-a4",
+      question_id: "demo-3",
+      author_id: null,
+      body: "Laut Projektplan sind eigene Fundorte für angemeldete Nutzer vorgesehen. Die Datenbankstruktur dafür ist schon vorbereitet.",
+      created_at: "2026-11-09T15:10:00Z",
+      updated_at: null,
+      likes_count: 2,
+      author: { username: "Redaktion", avatar_url: null },
+    },
+  ],
+};

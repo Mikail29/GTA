@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!-- Eigene, frei erfundene Platzhalter-Karte. KEINE Darstellung der GTA-6-Spielwelt. -->
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14123a"/>
+      <stop offset="1" stop-color="#1b1446"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a2552"/>
+      <stop offset="1" stop-color="#231f45"/>
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#9565FF" stroke-opacity="0.12" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#sea)"/>
+  <rect width="1000" height="1000" fill="url(#grid)"/>
+  <!-- Hauptinsel (fiktiv) -->
+  <path d="M210 160 C320 110 470 130 560 170 C650 210 720 190 790 250 C850 300 830 380 800 440 C770 500 820 560 800 640 C780 720 700 790 610 820 C520 850 430 830 360 790 C290 750 220 760 180 690 C140 620 170 560 160 490 C150 420 110 360 130 290 C150 220 160 185 210 160 Z"
+        fill="url(#land)" stroke="#42E8D5" stroke-opacity="0.45" stroke-width="3"/>
+  <!-- Kleine Inseln -->
+  <path d="M860 760 C900 740 940 770 930 810 C920 850 870 860 845 830 C825 805 835 775 860 760 Z" fill="url(#land)" stroke="#42E8D5" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M90 820 C120 800 160 815 160 845 C160 875 120 890 95 870 C75 855 72 832 90 820 Z" fill="url(#land)" stroke="#42E8D5" stroke-opacity="0.45" stroke-width="2"/>
+  <!-- See und Fluss -->
+  <path d="M420 380 C470 360 520 390 515 440 C510 490 450 500 420 470 C395 445 390 395 420 380 Z" fill="#1b1446" stroke="#42E8D5" stroke-opacity="0.3" stroke-width="2"/>
+  <path d="M515 440 C560 520 600 560 640 640 C660 680 690 720 720 760" fill="none" stroke="#1b1446" stroke-width="10" stroke-linecap="round"/>
+  <!-- Straßen -->
+  <g fill="none" stroke="#FF55B8" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round">
+    <path d="M220 300 C330 280 430 300 560 300 C650 300 720 320 780 360"/>
+    <path d="M300 250 C320 400 330 520 300 700"/>
+    <path d="M250 560 C380 560 520 600 760 600"/>
+    <path d="M560 300 C560 420 600 520 610 800"/>
+  </g>
+  <!-- Bezirke (abstrakt) -->
+  <g fill="#FF9B68" fill-opacity="0.12" stroke="#FF9B68" stroke-opacity="0.35" stroke-width="1.5">
+    <rect x="520" y="230" width="140" height="110" rx="14"/>
+    <rect x="230" y="480" width="120" height="120" rx="14"/>
+    <rect x="600" y="620" width="130" height="110" rx="14"/>
+  </g>
+  <!-- Kennzeichnung -->
+  <g font-family="sans-serif" fill="#B8B4D1">
+    <text x="500" y="60" text-anchor="middle" font-size="30" font-weight="700" fill="#FFFFFF" fill-opacity="0.85">PLATZHALTER-KARTE</text>
+    <text x="500" y="95" text-anchor="middle" font-size="18">Fiktive Demo-Darstellung · keine echte GTA-6-Spielwelt</text>
+    <text x="500" y="965" text-anchor="middle" font-size="14" fill-opacity="0.8">© GTA6-Kompass – selbst erstellt</text>
+  </g>
+  <!-- Kompassrose -->
+  <g transform="translate(900 120)">
+    <circle r="42" fill="#19172E" stroke="#9565FF" stroke-opacity="0.6" stroke-width="2"/>
+    <path d="M0 -34 L8 0 L0 34 L-8 0 Z" fill="#FF55B8"/>
+    <text y="-48" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#FFFFFF">N</text>
+  </g>
+</svg>
