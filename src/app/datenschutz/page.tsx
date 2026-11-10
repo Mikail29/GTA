@@ -48,16 +48,32 @@ export default function DatenschutzPage() {
         Datenbank, Authentifizierung und Dateispeicher werden über Supabase bereitgestellt: <Placeholder>Anbieterangaben, Serverstandort/Region, Auftragsverarbeitungsvertrag, Rechtsgrundlage</Placeholder>
       </p>
 
-      <h2 id="kontakt">6. Kontaktaufnahme</h2>
+      <h2 id="meldungen">6. Meldungen und Moderation</h2>
+      <p>
+        Wenn du einen Inhalt meldest, speichern wir den gemeldeten Inhalt, den Grund, deine Erklärung und – falls angemeldet – dein Konto. Bei Meldungen ohne Konto speichern wir optional deine E-Mail-Adresse,
+        um dich über das Ergebnis zu informieren. Zum Schutz vor Missbrauch wird deine IP-Adresse kurzzeitig im Arbeitsspeicher verarbeitet (nicht gespeichert). Rechtsgrundlage ist die Erfüllung
+        gesetzlicher Pflichten aus dem Digital Services Act. <Placeholder>Speicherdauer für Meldungen festlegen</Placeholder>
+      </p>
+      <p>
+        Bei Moderationsentscheidungen (z. B. Ausblenden eines Beitrags oder Sperre) erhältst du eine Benachrichtigung mit Begründung in deinem Konto. Benachrichtigungen werden mit deinem Konto gelöscht.
+      </p>
+
+      <h2 id="loeschen">7. Konto löschen</h2>
+      <p>
+        Du kannst dein Konto jederzeit selbst im Profil löschen. Dabei werden Konto, Profil, Profilbild, Antworten, Kommentare, Likes, Benachrichtigungen und Fragen ohne Antworten gelöscht. Fragen, auf
+        die andere bereits geantwortet haben, bleiben ohne Bezug zu deiner Person erhalten.
+      </p>
+
+      <h2 id="kontakt">8. Kontaktaufnahme</h2>
       <p>Das Kontaktformular öffnet dein E-Mail-Programm; die Nachricht wird erst beim Absenden aus deinem E-Mail-Programm übertragen.</p>
 
-      <h2 id="rechte">7. Deine Rechte</h2>
+      <h2 id="rechte">9. Deine Rechte</h2>
       <p>
         Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht auf Beschwerde bei einer Aufsichtsbehörde.{" "}
         <Placeholder>Zuständige Aufsichtsbehörde und Kontaktweg für Anfragen</Placeholder>
       </p>
 
-      <h2 id="speicherdauer">8. Speicherdauer</h2>
+      <h2 id="speicherdauer">10. Speicherdauer</h2>
       <p>
         <Placeholder>Löschfristen für Konten, Beiträge, Meldungen und Logs festlegen</Placeholder>
       </p>

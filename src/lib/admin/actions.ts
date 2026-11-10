@@ -23,11 +23,12 @@ async function staff(minimum: UserRole) {
 const DENIED: AdminResult = { ok: false, message: "Keine Berechtigung." };
 
 /** Inhalte aus- oder einblenden (Moderation). */
-export async function setHiddenAction(table: "questions" | "answers" | "comments", id: string, hidden: boolean): Promise<AdminResult> {
+export async function setHiddenAction(table: "questions" | "answers" | "comments", id: string, hidden: boolean, reason?: string): Promise<AdminResult> {
   if (!["questions", "answers", "comments"].includes(table) || !uuid.safeParse(id).success) return { ok: false, message: "Ungültige Anfrage." };
+  if (reason && reason.length > 500) return { ok: false, message: "Die Begründung ist zu lang." };
   const ctx = await staff("moderator");
   if (!ctx) return DENIED;
-  const { error } = await ctx.supabase.rpc("moderate_set_hidden", { target_table: table, target_id: id, hidden });
+  const { error } = await ctx.supabase.rpc("moderate_set_hidden", { target_table: table, target_id: id, hidden, reason: reason?.trim() || null });
   if (error) return { ok: false, message: "Aktion fehlgeschlagen." };
   revalidatePath("/admin", "layout");
   revalidatePath("/fragen");

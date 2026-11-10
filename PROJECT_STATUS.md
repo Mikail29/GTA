@@ -1,6 +1,6 @@
 # PROJECT_STATUS – GTA6-Kompass
 
-Stand: 10.11.2026 · Version 0.2.0
+Stand: 10.11.2026 · Version 0.3.0
 
 ## Phasen
 
@@ -17,18 +17,19 @@ Stand: 10.11.2026 · Version 0.2.0
 | 9 | Datenbankmigration, Seed, Dokumentation | ✅ |
 | 10 | Tests | ✅ |
 | 11 | Community-Einstieg „GTA 6 Starter“ + Release-News | ✅ |
+| 12 | DSA/DSGVO: Melden ohne Konto, Benachrichtigungen mit Begründung, Nutzungsbedingungen, Konto löschen | ✅ |
 
 ## Durchgeführte Tests
 
 - `npm run typecheck` – ohne Fehler
 - `npm run lint` – ohne Fehler und Warnungen
 - `npm run build` – erfolgreich
-- Automatischer Link-Crawler (Playwright): **91 Seiten**, keine kaputten Links, keine Konsolenfehler
-- Funktionstests (Playwright, 35 Prüfungen): Hero-Suche, leere Suche, Filter, Sortierung, Spoiler-Schutz, Bewertung, Karte (Marker, Kategorien, Suche, Detailansicht, Deep-Link), KI vollständig entfernt, Starter-Bereich und angeheftete Threads, Release-News mit Quelle, Login-/Profil-/Admin-Schutz ohne Datenbank, 404-Seiten, mobiles Menü, Tastenkürzel-Suche, Sicherheits-Header, robots.txt, Sitemap
+- Automatischer Link-Crawler (Playwright): **94 Seiten**, keine kaputten Links, keine Konsolenfehler
+- Funktionstests (Playwright, 42 Prüfungen): Hero-Suche, leere Suche, Filter, Sortierung, Spoiler-Schutz, Bewertung, Karte (Marker, Kategorien, Suche, Detailansicht, Deep-Link), KI vollständig entfernt, Starter-Bereich und angeheftete Threads, Release-News mit Quelle, Login-/Profil-/Admin-Schutz ohne Datenbank, 404-Seiten, mobiles Menü, Tastenkürzel-Suche, Sicherheits-Header, robots.txt, Sitemap
 - Responsive Prüfung: Desktop (1440 px), iPad Pro 11 und iPhone 13 – kein horizontales Scrollen auf den geprüften Seiten
-- Datenbank: Migration gegen PostgreSQL 16 eingespielt, **23 Sicherheitstests** für RLS/Trigger erfolgreich (`supabase/tests/01_rls_test.sql`, `02_starter_test.sql`)
+- Datenbank: Migration gegen PostgreSQL 16 eingespielt, **34 Sicherheitstests** für RLS/Trigger erfolgreich (`supabase/tests/01_rls_test.sql`, `02_starter_test.sql`, `03_dsa_test.sql`)
 
-**Nicht getestet** (externe Dienste nicht verbunden): echte Anmeldung/Registrierung gegen ein Supabase-Projekt, Profilbild-Upload, Community-Schreibaktionen im Browser. Die zugehörigen Datenbankregeln sind getestet; der End-to-End-Test steht aus, sobald Zugangsdaten vorliegen.
+**Nicht getestet** (externe Dienste nicht verbunden): echte Anmeldung/Registrierung gegen ein Supabase-Projekt, Profilbild-Upload, Community-Schreibaktionen, Melde-Dialog für Gäste, Benachrichtigungsliste und Konto-Löschung im Browser. Die zugehörigen Datenbankregeln sind getestet; der End-to-End-Test steht aus, sobald Zugangsdaten vorliegen.
 
 ## Was vom Betreiber noch benötigt wird
 
@@ -61,10 +62,10 @@ Nach dem Release sollen Ratgeber, Missionen, Fundorte und Karte mit echten Infor
 - [ ] Kartenkacheln für große Karten (`L.tileLayer`)
 
 ### Community
+- [ ] E-Mail-Versand für Benachrichtigungen und Rückmeldungen an Gast-Meldende (aktuell manuell)
 - [ ] Benachrichtigungen bei Antworten
 - [ ] „Beste Antwort“ auswählen
 - [ ] Öffentliche Profilseiten
-- [ ] Konto selbst löschen (aktuell über Kontaktseite)
 - [ ] Zentrale Bewertungsstatistik für Artikel (aktuell nur lokal im Browser gespeichert)
 
 ### Technik
@@ -80,6 +81,7 @@ Nach dem Release sollen Ratgeber, Missionen, Fundorte und Karte mit echten Infor
 - **Inhalte als strukturierte Blöcke** statt HTML/Markdown → kein XSS-Risiko, Inhaltsverzeichnis automatisch.
 - **KI-Assistent entfernt** (Version 0.2.0) auf Wunsch des Betreibers; Datenschutzerklärung und Umgebungsvariablen entsprechend bereinigt.
 - **Community-Start:** 6 angeheftete Team-Threads in der Kategorie „GTA 6 Starter“ (ohne Datenbank direkt sichtbar, mit Datenbank über `seed.sql`).
+- **Fehlerbehebung (0.3.0):** Zwei Datenbankfehler behoben: Konten mit Beiträgen ließen sich nicht löschen, und das Ausblenden von Antworten brach ab (Zugriff auf ein nur bei Fragen vorhandenes Feld).
 - **Kein Tracking**, daher kein einwilligungspflichtiges Cookie-Banner nötig; nur ein Informationshinweis.
 - **Next.js 16:** Middleware heißt jetzt `proxy.ts`.
 - **404 bei dynamischen Seiten:** Die Ladeanzeige (`loading.tsx`) liegt nur unter `/community` und `/suche`, damit unbekannte Fragen einen echten 404-Status liefern.

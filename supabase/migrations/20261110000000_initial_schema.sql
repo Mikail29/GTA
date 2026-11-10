@@ -435,9 +435,13 @@ begin
     end if;
   end if;
 
-  if (new.body is distinct from old.body)
-     or (tg_table_name = 'questions' and (new.title is distinct from old.title or new.category is distinct from old.category)) then
+  -- Hinweis: PL/pgSQL wertet Bedingungen nicht verkürzt aus, daher getrennte Prüfungen
+  if new.body is distinct from old.body then
     new.updated_at := now();
+  elsif tg_table_name = 'questions' then
+    if new.title is distinct from old.title or new.category is distinct from old.category then
+      new.updated_at := now();
+    end if;
   end if;
   return new;
 end;

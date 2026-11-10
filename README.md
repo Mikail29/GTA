@@ -31,8 +31,9 @@
 | Konten: Registrierung, Login, Logout, Passwort zurücksetzen, Profil, Profilbild | ✅ fertig (benötigt Supabase) |
 | Admin-Bereich: Dashboard, Meldungen, Beiträge, Nutzer & Rollen, Artikel & Kategorien | ✅ Grundlage fertig (benötigt Supabase) |
 | Community-Einstieg „GTA 6 Starter“: Einsteiger-Kategorie, 3-Schritte-Anleitung, 6 angeheftete Team-Threads (Willkommen, Vorstellung, Einsteigerfragen, Release-Countdown, spoilerfreie Eindrücke, Feedback) | ✅ fertig |
+| Rechtliche Pflichtfunktionen (DSA/DSGVO): Melden ohne Konto, Meldeformular `/melden`, Benachrichtigungen mit Begründung bei Moderation, Rückmeldung an Meldende, Widerspruchsweg, Konto selbst löschen, Nutzungsbedingungen | ✅ fertig (benötigt Supabase) |
 | SEO: Titel, Meta-Descriptions, Open Graph, Sitemap, robots.txt, Canonicals, strukturierte Daten | ✅ fertig |
-| Rechtliches: Impressum, Datenschutz, Kontakt, Community-Regeln | ✅ Vorlagen mit Platzhaltern (rechtlich zu prüfen) |
+| Rechtliches: Impressum, Datenschutz, Nutzungsbedingungen, Kontakt, Community-Regeln | ✅ Vorlagen mit Platzhaltern (rechtlich zu prüfen) |
 
 Ohne Supabase läuft die Website vollständig im **Demo-Modus**: alle Seiten funktionieren, Community-Funktionen zeigen gekennzeichnete Beispielbeiträge und verständliche Hinweise.
 
@@ -95,7 +96,7 @@ Kurzfassung (ausführlich in **[docs/SUPABASE_SETUP.md](docs/SUPABASE_SETUP.md)*
 
 1. Projekt auf supabase.com anlegen (EU-Region wählen).
 2. URL und `anon`-Key in `.env.local` eintragen.
-3. Beide Dateien aus `supabase/migrations/` (in Reihenfolge) im SQL Editor ausführen, danach `supabase/seed.sql` (legt auch die Starter-Threads an).
+3. Alle drei Dateien aus `supabase/migrations/` (in Reihenfolge) im SQL Editor ausführen, danach `supabase/seed.sql` (legt auch die Starter-Threads an).
 4. Unter *Authentication → URL Configuration* die Site-URL und `…/auth/callback` als Redirect-URL eintragen.
 5. Registrieren, E-Mail bestätigen und den ersten Admin per SQL festlegen (siehe Anleitung).
 

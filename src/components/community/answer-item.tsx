@@ -106,7 +106,7 @@ export function AnswerItem({ answer, comments, liked, viewer, demo }: { answer: 
               <p className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
                 {c.author?.username ?? "Gelöschtes Konto"} · <time dateTime={c.created_at}>{formatDateTime(c.created_at)}</time>
                 {canInteract && (viewer.id === c.author_id || viewer.isModerator) && <DeleteButton action={() => deleteCommentAction(c.id, answer.question_id)} />}
-                {canInteract && <ReportButton targetType="comment" targetId={c.id} canInteract={canInteract} />}
+                {!demo && <ReportButton targetType="comment" targetId={c.id} canInteract={canInteract} />}
               </p>
             </div>
           ))}

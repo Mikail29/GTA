@@ -67,9 +67,14 @@ export function MobileMenu({ loggedIn }: { loggedIn: boolean }) {
               <Rocket className="size-5" aria-hidden="true" /> GTA 6 Starter
             </Link>
             {loggedIn ? (
-              <Link href="/profil" className={buttonClasses("primary", "lg", "w-full")}>
-                Mein Profil
-              </Link>
+              <div className="grid grid-cols-2 gap-3">
+                <Link href="/benachrichtigungen" className={buttonClasses("secondary", "lg")}>
+                  Benachrichtigungen
+                </Link>
+                <Link href="/profil" className={buttonClasses("primary", "lg")}>
+                  Mein Profil
+                </Link>
+              </div>
             ) : (
               <div className="grid grid-cols-2 gap-3">
                 <Link href="/login" className={buttonClasses("secondary", "lg")}>

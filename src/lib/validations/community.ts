@@ -39,7 +39,24 @@ export const reportSchema = z.object({
   targetId: z.string().uuid(),
   reason: z.enum(reportReasons),
   details: z.string().transform(clean).pipe(z.string().max(500)).optional(),
+  goodFaith: z.literal(true, { message: "Bitte bestätige, dass deine Angaben nach bestem Wissen richtig sind." }),
 });
+
+/** Meldung ohne Konto (Digital Services Act, Art. 16). */
+export const guestReportSchema = reportSchema.extend({
+  email: z.union([z.literal(""), z.string().trim().email("Bitte gib eine gültige E-Mail-Adresse ein.").max(254)]).optional(),
+  website: z.string().max(0).optional(),
+});
+
+/** Gründe, die Moderatoren beim Ausblenden angeben können. */
+export const moderationReasons = [
+  "Spam oder Werbung",
+  "Beleidigung oder Belästigung",
+  "Unmarkierte Spoiler",
+  "Bewusste Falschinformation",
+  "Rechtswidriger Inhalt",
+  "Verstoß gegen die Community-Regeln",
+] as const;
 
 export type QuestionInput = z.input<typeof questionSchema>;
 export type AnswerInput = z.input<typeof answerSchema>;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LogIn, Rocket, UserPlus, Users } from "lucide-react";
+import { Bell, LogIn, Rocket, UserPlus, Users } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { LinkButton } from "@/components/ui/button";
 import { Logo } from "./logo";
@@ -8,9 +8,11 @@ import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { HeaderSearch } from "@/components/search/header-search";
 import { UserMenu } from "@/components/navigation/user-menu";
 import { getSession } from "@/lib/auth/session";
+import { countUnread } from "@/lib/community/notifications";
 
 export async function Header() {
   const session = await getSession();
+  const unread = session ? await countUnread(session.userId) : 0;
   const user = session ? { username: session.profile?.username ?? "Profil", avatarUrl: session.profile?.avatar_url ?? null, role: session.profile?.role ?? "user" } : null;
 
   return (
@@ -29,6 +31,18 @@ export async function Header() {
           <Link href="/community#starter" className="hidden items-center gap-1.5 rounded-full border border-teal/30 bg-teal/5 px-3 py-2 text-sm font-medium text-teal transition hover:bg-teal/15 lg:inline-flex">
             <Rocket className="size-4" aria-hidden="true" /> GTA 6 Starter
           </Link>
+          {user && (
+            <Link
+              href="/benachrichtigungen"
+              aria-label={unread ? `Benachrichtigungen, ${unread} ungelesen` : "Benachrichtigungen"}
+              className="relative grid size-10 place-items-center rounded-full border border-line bg-card text-muted transition hover:border-pink/50 hover:text-white"
+            >
+              <Bell className="size-4" aria-hidden="true" />
+              {unread > 0 && (
+                <span className="absolute -right-1 -top-1 grid min-w-5 place-items-center rounded-full bg-pink px-1 text-[10px] font-bold text-night">{unread > 9 ? "9+" : unread}</span>
+              )}
+            </Link>
+          )}
           {user ? (
             <UserMenu user={user} />
           ) : (

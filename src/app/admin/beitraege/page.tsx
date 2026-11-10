@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { requireStaff } from "@/lib/admin/guard";
 import { ActionButton } from "@/components/admin/action-button";
+import { HideButton } from "@/components/admin/hide-button";
 import { Badge } from "@/components/ui/badge";
 import { EmptyState } from "@/components/ui/empty-state";
 import { setHiddenAction, setPinnedAction, setQuestionStatusAction } from "@/lib/admin/actions";
@@ -58,9 +59,7 @@ export default async function BeitraegePage() {
                     Wieder einblenden
                   </ActionButton>
                 ) : (
-                  <ActionButton action={setHiddenAction.bind(null, "questions", q.id, true)} tone="danger">
-                    Ausblenden
-                  </ActionButton>
+                  <HideButton table="questions" id={q.id} />
                 )}
                 <ActionButton action={setPinnedAction.bind(null, q.id, !q.is_pinned)}>{q.is_pinned ? "Lösen" : "Anheften"}</ActionButton>
                 {q.status !== "geschlossen" ? (

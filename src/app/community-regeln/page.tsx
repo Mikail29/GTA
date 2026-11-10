@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalPage } from "@/components/layout/legal-page";
 
 export const metadata: Metadata = {
@@ -27,7 +28,8 @@ export default function RegelnPage() {
       <h2 id="moderation">6. Moderation</h2>
       <p>
         Moderatoren können Beiträge ausblenden, Fragen schließen und Konten bei wiederholten Verstößen sperren. Nutze die Melden-Funktion, wenn dir ein Beitrag auffällt – das Moderationsteam prüft jede
-        Meldung.
+        Meldung. Melden geht auch ohne Konto über das <Link href="/melden">Meldeformular</Link>. Bei Moderationsentscheidungen erhältst du eine Begründung und kannst widersprechen – Details in den{" "}
+        <Link href="/nutzungsbedingungen">Nutzungsbedingungen</Link>.
       </p>
     </LegalPage>
   );

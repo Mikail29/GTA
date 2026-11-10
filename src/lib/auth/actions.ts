@@ -153,6 +153,26 @@ export async function updateProfileAction(input: ProfileInput): Promise<ActionRe
   return { ok: true, message: "Profil gespeichert." };
 }
 
+/** Konto selbst löschen (Recht auf Löschung, Art. 17 DSGVO). */
+export async function deleteAccountAction(confirmation: string): Promise<ActionResult> {
+  if (confirmation.trim().toUpperCase() !== "KONTO LÖSCHEN") return { ok: false, message: "Bitte tippe zur Bestätigung genau „KONTO LÖSCHEN“ ein." };
+  const supabase = await createSupabaseServerClient();
+  if (!supabase) return NOT_CONFIGURED;
+  const session = await getSession();
+  if (!session) return { ok: false, message: "Bitte melde dich erneut an." };
+
+  // Profilbilder aus dem Speicher entfernen
+  const { data: files } = await supabase.storage.from("avatars").list(session.userId);
+  if (files?.length) await supabase.storage.from("avatars").remove(files.map((f) => `${session.userId}/${f.name}`));
+
+  const { error } = await supabase.rpc("delete_own_account");
+  if (error) return { ok: false, message: "Das Konto konnte nicht gelöscht werden. Bitte kontaktiere uns über die Kontaktseite." };
+
+  await supabase.auth.signOut();
+  revalidatePath("/", "layout");
+  redirect("/konto-geloescht");
+}
+
 const AVATAR_TYPES: Record<string, string> = { "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp" };
 const AVATAR_MAX_BYTES = 2 * 1024 * 1024;
 

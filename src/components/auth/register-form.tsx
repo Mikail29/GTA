@@ -59,15 +59,19 @@ export function RegisterForm() {
         <label className="flex items-start gap-3 text-sm text-muted">
           <input type="checkbox" {...register("acceptRules")} className="mt-1 size-4 accent-pink" aria-invalid={!!errors.acceptRules} />
           <span>
-            Ich akzeptiere die{" "}
+            Ich bin mindestens 18 Jahre alt und akzeptiere die{" "}
+            <Link href="/nutzungsbedingungen" className="text-teal underline" target="_blank">
+              Nutzungsbedingungen
+            </Link>{" "}
+            und{" "}
             <Link href="/community-regeln" className="text-teal underline" target="_blank">
               Community-Regeln
-            </Link>{" "}
-            und habe die{" "}
+            </Link>
+            . Die{" "}
             <Link href="/datenschutz" className="text-teal underline" target="_blank">
               Datenschutzerklärung
             </Link>{" "}
-            gelesen.
+            habe ich gelesen.
           </span>
         </label>
         {errors.acceptRules && (

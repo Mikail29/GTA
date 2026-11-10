@@ -24,7 +24,7 @@ Im Dashboard unter **Project Settings → API** findest du:
 **Variante A – SQL Editor (am einfachsten):**
 1. Im Dashboard **SQL Editor → New query** öffnen.
 2. Inhalt von `supabase/migrations/20261110000000_initial_schema.sql` einfügen und **Run** klicken.
-3. Danach `supabase/migrations/20261110120000_starter_community.sql` genauso ausführen.
+3. Danach `supabase/migrations/20261110120000_starter_community.sql` und `supabase/migrations/20261110150000_dsa_features.sql` genauso ausführen (in dieser Reihenfolge).
 4. Zum Schluss `supabase/seed.sql` ausführen. Das legt die Kategorien, einen Demo-Entwurf und die **6 angehefteten Starter-Threads** der Community „GTA 6 Starter“ an. Erst damit ist die Community beim Start nicht leer.
 
 **Variante B – Supabase CLI:**
@@ -88,16 +88,28 @@ Nach dem Eintragen der Umgebungsvariablen die Website **neu bauen und starten** 
 | Meldungen | Nutzer sehen nur eigene, Moderation sieht alle |
 | Redaktionelle Inhalte | Lesen nur veröffentlicht; Schreiben nur Admins |
 | Angeheftete / Team-Beiträge | Nur Moderation darf anheften, nur Admins „offiziell“ markieren |
+| Melden ohne Konto | Nur über die Funktion `submit_guest_report` (prüft Ziel, Bestätigung, Flutschutz); Gäste können Meldungen nicht lesen |
+| Benachrichtigungen | Werden nur von der Datenbank selbst erzeugt; Nutzer sehen nur eigene und dürfen nur „gelesen“ setzen |
+| Konto löschen | `delete_own_account()` löscht nur das eigene Konto (anonymisiert Fragen mit fremden Antworten) |
 | Karte | Öffentliche Marker nur durch Admins; Nutzer dürfen nur private eigene Marker anlegen |
 
-Die Regeln wurden mit `supabase/tests/01_rls_test.sql` gegen PostgreSQL 16 geprüft (23 Testfälle). So führst du die Tests lokal aus:
+Die Regeln wurden mit `supabase/tests/01_rls_test.sql` gegen PostgreSQL 16 geprüft (34 Testfälle). So führst du die Tests lokal aus:
 
 ```bash
 createdb gta_test
 psql -d gta_test -f supabase/tests/00_local_stubs.sql
 psql -d gta_test -f supabase/migrations/20261110000000_initial_schema.sql
 psql -d gta_test -f supabase/migrations/20261110120000_starter_community.sql
+psql -d gta_test -f supabase/migrations/20261110150000_dsa_features.sql
 psql -d gta_test -f supabase/tests/01_rls_test.sql      # alle Zeilen "T.. : true"
 psql -d gta_test -f supabase/seed.sql
 psql -d gta_test -f supabase/tests/02_starter_test.sql  # alle Zeilen "S.. : true"
+psql -d gta_test -f supabase/tests/03_dsa_test.sql      # alle Zeilen "D.. : true"
 ```
+
+## Pflichten als Betreiber im Alltag (Digital Services Act)
+
+- **Meldungen regelmäßig prüfen** unter `/admin/meldungen` und zügig entscheiden.
+- **Gast-Meldungen mit E-Mail-Adresse:** Die Website verschickt keine E-Mails. Bitte bestätige den Eingang und teile das Ergebnis per E-Mail selbst mit (die Adresse steht bei der Meldung).
+- **Begründungen:** Beim Ausblenden wählst du einen Grund – die Person wird automatisch benachrichtigt. Bei Löschungen durch Moderatoren wird automatisch eine allgemeine Begründung verschickt.
+- **Widersprüche** kommen über die Kontaktseite; prüfe sie erneut, möglichst durch eine andere Person.

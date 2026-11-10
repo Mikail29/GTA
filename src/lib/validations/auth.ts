@@ -27,7 +27,7 @@ export const registerSchema = z
     email: emailSchema,
     password: passwordSchema,
     passwordConfirm: z.string(),
-    acceptRules: z.boolean().refine((v) => v, "Bitte akzeptiere die Community-Regeln und die Datenschutzerklärung."),
+    acceptRules: z.boolean().refine((v) => v, "Bitte bestätige dein Alter und akzeptiere die Nutzungsbedingungen."),
     // Honeypot gegen Spam-Bots: muss leer bleiben
     website: z.string().max(0).optional(),
   })

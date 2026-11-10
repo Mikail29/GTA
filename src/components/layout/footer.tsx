@@ -21,6 +21,7 @@ const columns = [
       { href: "/fragen", label: "Fragen & Antworten" },
       { href: "/community#starter", label: "GTA 6 Starter" },
       { href: "/community-regeln", label: "Community-Regeln" },
+      { href: "/melden", label: "Inhalt melden" },
     ],
   },
   {
@@ -29,6 +30,7 @@ const columns = [
       { href: "/ueber-uns", label: "Über GTA6-Kompass" },
       { href: "/kontakt", label: "Kontakt" },
       { href: "/impressum", label: "Impressum" },
+      { href: "/nutzungsbedingungen", label: "Nutzungsbedingungen" },
       { href: "/datenschutz", label: "Datenschutz" },
     ],
   },

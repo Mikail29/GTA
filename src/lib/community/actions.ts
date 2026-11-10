@@ -6,7 +6,9 @@ import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getSession, hasRole } from "@/lib/auth/session";
 import { rateLimit } from "@/lib/utils/rate-limit";
-import { answerSchema, commentSchema, questionSchema, reportSchema, type AnswerInput, type QuestionInput } from "@/lib/validations/community";
+import { headers } from "next/headers";
+import { answerSchema, commentSchema, guestReportSchema, questionSchema, reportSchema, type AnswerInput, type QuestionInput } from "@/lib/validations/community";
+import { clientKey } from "@/lib/utils/rate-limit";
 
 export interface CommunityResult {
   ok: boolean;
@@ -187,9 +189,9 @@ export async function toggleLikeAction(targetType: "question" | "answer", target
   return { ok: true, message: existing ? "Like entfernt." : "Gefällt dir.", liked: !existing };
 }
 
-export async function reportAction(input: { targetType: string; targetId: string; reason: string; details?: string }): Promise<CommunityResult> {
+export async function reportAction(input: { targetType: string; targetId: string; reason: string; details?: string; goodFaith: boolean }): Promise<CommunityResult> {
   const parsed = reportSchema.safeParse(input);
-  if (!parsed.success) return { ok: false, message: "Bitte wähle einen Grund aus." };
+  if (!parsed.success) return { ok: false, message: parsed.error.issues[0]?.message ?? "Bitte wähle einen Grund aus." };
   const ctx = await requireWriter();
   if ("error" in ctx) return { ok: false, message: ctx.error! };
   if (tooFast(ctx.session.userId, "report", 10, 60 * 60_000)) return { ok: false, message: "Du hast bereits viele Meldungen gesendet. Danke! Bitte versuche es später erneut." };
@@ -200,8 +202,54 @@ export async function reportAction(input: { targetType: string; targetId: string
     target_id: parsed.data.targetId,
     reason: parsed.data.reason,
     details: parsed.data.details || null,
+    good_faith: true,
   });
   if (error?.code === "23505") return { ok: true, message: "Du hast diesen Inhalt bereits gemeldet. Danke!" };
   if (error) return { ok: false, message: "Die Meldung konnte nicht gesendet werden." };
   return { ok: true, message: "Danke! Das Moderationsteam prüft die Meldung." };
+}
+
+/**
+ * Meldung ohne Konto (Pflicht nach Digital Services Act).
+ * Schutz: Honeypot, Rate-Limit pro IP, Prüfung des Ziels und Flutschutz in der Datenbank.
+ */
+export async function guestReportAction(input: {
+  targetType: string;
+  targetId: string;
+  reason: string;
+  details?: string;
+  email?: string;
+  goodFaith: boolean;
+  website?: string;
+}): Promise<CommunityResult> {
+  const parsed = guestReportSchema.safeParse(input);
+  if (!parsed.success) return { ok: false, message: parsed.error.issues[0]?.message ?? "Bitte prüfe deine Angaben." };
+  if (input.website) return { ok: false, message: "Ungültige Anfrage." };
+  if (!rateLimit(`guest-report:${clientKey(await headers())}`, 5, 60 * 60_000).ok) {
+    return { ok: false, message: "Du hast bereits mehrere Meldungen gesendet. Bitte versuche es später erneut." };
+  }
+  const supabase = await createSupabaseServerClient();
+  if (!supabase) return { ok: false, message: "Die Meldefunktion ist erst nach Einrichtung der Datenbank verfügbar. Bitte nutze bis dahin die Kontaktseite." };
+
+  const { error } = await supabase.rpc("submit_guest_report", {
+    p_target_type: parsed.data.targetType,
+    p_target_id: parsed.data.targetId,
+    p_reason: parsed.data.reason,
+    p_details: parsed.data.details ?? "",
+    p_email: parsed.data.email ?? "",
+    p_good_faith: true,
+  });
+  if (error?.message?.includes("nicht gefunden")) return { ok: false, message: "Der gemeldete Inhalt wurde nicht gefunden – eventuell wurde er bereits entfernt." };
+  if (error) return { ok: false, message: "Die Meldung konnte nicht gesendet werden. Bitte versuche es später erneut." };
+  return { ok: true, message: "Danke! Deine Meldung ist eingegangen. Das Moderationsteam prüft sie so schnell wie möglich." };
+}
+
+export async function markNotificationsReadAction(): Promise<CommunityResult> {
+  const supabase = await createSupabaseServerClient();
+  const session = await getSession();
+  if (!supabase || !session) return { ok: false, message: "Bitte melde dich an." };
+  const { error } = await supabase.from("notifications").update({ read_at: new Date().toISOString() }).eq("user_id", session.userId).is("read_at", null);
+  if (error) return { ok: false, message: "Aktion fehlgeschlagen." };
+  revalidatePath("/", "layout");
+  return { ok: true, message: "Alle Benachrichtigungen als gelesen markiert." };
 }

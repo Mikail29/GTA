@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { requireStaff } from "@/lib/admin/guard";
 import { ActionButton } from "@/components/admin/action-button";
+import { HideButton } from "@/components/admin/hide-button";
 import { Badge } from "@/components/ui/badge";
 import { EmptyState } from "@/components/ui/empty-state";
-import { resolveReportAction, setHiddenAction } from "@/lib/admin/actions";
-import { reportReasonLabels } from "@/lib/validations/community";
+import { resolveReportAction } from "@/lib/admin/actions";
+import { moderationReasons, reportReasonLabels } from "@/lib/validations/community";
 import { formatDateTime } from "@/lib/utils/format";
 import { param, type SearchParams } from "@/lib/utils/params";
 
@@ -15,6 +16,8 @@ interface ReportRow {
   reason: keyof typeof reportReasonLabels;
   details: string | null;
   status: string;
+  is_guest: boolean;
+  reporter_email: string | null;
   created_at: string;
   reporter: { username: string } | null;
 }
@@ -29,7 +32,7 @@ export default async function MeldungenPage({ searchParams }: { searchParams: Se
 
   let query = supabase
     .from("reports")
-    .select("id, target_type, target_id, reason, details, status, created_at, reporter:profiles!reports_reporter_id_fkey(username)")
+    .select("id, target_type, target_id, reason, details, status, is_guest, reporter_email, created_at, reporter:profiles!reports_reporter_id_fkey(username)")
     .order("created_at", { ascending: false })
     .limit(100);
   if (status === "offen") query = query.eq("status", "offen");
@@ -74,7 +77,7 @@ export default async function MeldungenPage({ searchParams }: { searchParams: Se
                   <Badge>{typeLabel[r.target_type]}</Badge>
                   <Badge accent={r.status === "offen" ? "pink" : "teal"}>{r.status}</Badge>
                   <span className="text-xs text-muted">
-                    von {r.reporter?.username ?? "unbekannt"} · {formatDateTime(r.created_at)}
+                    von {r.is_guest ? `Gast${r.reporter_email ? ` (${r.reporter_email})` : ""}` : (r.reporter?.username ?? "gelöschtes Konto")} · {formatDateTime(r.created_at)}
                   </span>
                 </div>
                 {r.details && <p className="whitespace-pre-wrap text-sm text-white/85">„{r.details}“</p>}
@@ -84,9 +87,7 @@ export default async function MeldungenPage({ searchParams }: { searchParams: Se
                       Inhalt ansehen
                     </Link>
                   )}
-                  <ActionButton action={setHiddenAction.bind(null, tableFor[r.target_type], r.target_id, true)} tone="danger">
-                    Inhalt ausblenden
-                  </ActionButton>
+                  <HideButton table={tableFor[r.target_type]} id={r.target_id} defaultReason={moderationReasons.find((m) => m.startsWith(reportReasonLabels[r.reason]?.split(" ")[0] ?? "-"))} />
                   {r.status === "offen" && (
                     <>
                       <ActionButton action={resolveReportAction.bind(null, r.id, "erledigt")} tone="success">

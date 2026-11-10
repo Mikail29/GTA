@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CalendarDays, KeyRound, LayoutDashboard, LogOut, ShieldCheck } from "lucide-react";
+import { Bell, CalendarDays, KeyRound, LayoutDashboard, LogOut, ShieldCheck } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Button, LinkButton } from "@/components/ui/button";
 import { Notice } from "@/components/ui/notice";
 import { AvatarForm, ProfileForm } from "@/components/auth/profile-forms";
+import { DeleteAccount } from "@/components/auth/delete-account";
 import { requireUser, hasRole } from "@/lib/auth/session";
 import { listUserQuestions } from "@/lib/community/queries";
 import { signOutAction } from "@/lib/auth/actions";
@@ -54,6 +55,9 @@ export default async function ProfilPage() {
                 <LayoutDashboard className="size-4" aria-hidden="true" /> Verwaltung
               </LinkButton>
             )}
+            <LinkButton href="/benachrichtigungen" variant="secondary">
+              <Bell className="size-4" aria-hidden="true" /> Benachrichtigungen
+            </LinkButton>
             <LinkButton href="/passwort-neu" variant="secondary">
               <KeyRound className="size-4" aria-hidden="true" /> Passwort ändern
             </LinkButton>
@@ -98,8 +102,15 @@ export default async function ProfilPage() {
               </p>
             )}
           </section>
+          <section className="surface border-danger/30 p-6" aria-labelledby="konto-loeschen">
+            <h2 id="konto-loeschen" className="mb-2 text-xl font-bold">
+              Konto löschen
+            </h2>
+            <p className="mb-4 text-sm text-muted">Du kannst dein Konto jederzeit selbst löschen.</p>
+            <DeleteAccount />
+          </section>
           <Notice tone="info" title="Deine Daten">
-            Du kannst jederzeit Auskunft über deine gespeicherten Daten oder die Löschung deines Kontos verlangen. Nutze dafür die{" "}
+            Du kannst jederzeit Auskunft über deine gespeicherten Daten verlangen. Nutze dafür die{" "}
             <Link href="/kontakt" className="text-teal underline">
               Kontaktseite
             </Link>
