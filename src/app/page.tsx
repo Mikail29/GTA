@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CalendarDays, MessageSquarePlus, Rocket } from "lucide-react";
+import { ArrowRight, CalendarDays, Clock, Globe, MessageSquarePlus, Rocket } from "lucide-react";
 import { Hero } from "@/components/home/hero";
 import { QuickAccess } from "@/components/home/quick-access";
 import { Container } from "@/components/ui/container";
@@ -29,6 +29,21 @@ export default async function HomePage() {
             Schnellzugriff
           </h2>
           <QuickAccess />
+          <Link
+            href="/online"
+            className="surface group mt-4 flex flex-col gap-3 border-sunset/30 p-5 transition hover:border-sunset/60 sm:flex-row sm:items-center"
+          >
+            <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-sunset/12 text-sunset">
+              <Globe className="size-6" aria-hidden="true" />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-lg font-bold">GTA 6 Online</span>
+              <span className="block text-sm text-muted">Der Bereich für den Online-Modus entsteht, sobald GTA 6 Online erscheint.</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 self-start rounded-full border border-sunset/40 bg-sunset/10 px-3 py-1.5 text-xs font-semibold text-sunset sm:self-center">
+              <Clock className="size-3.5" aria-hidden="true" /> Momentan noch nicht verfügbar
+            </span>
+          </Link>
         </section>
 
         <section className="mt-24" aria-label="Beliebte Ratgeber">

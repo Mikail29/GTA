@@ -11,14 +11,22 @@ export const siteConfig = {
     "Der 5-Sterne-Kompass ist ein unabhängiges Fanprojekt und steht in keiner Verbindung zu Rockstar Games oder Take-Two Interactive. Alle genannten Marken gehören ihren jeweiligen Inhabern.",
 };
 
-export const mainNav = [
+export interface NavItem {
+  href: string;
+  label: string;
+  /** Bereich ist angekündigt, aber noch nicht verfügbar („Bald“). */
+  soon?: boolean;
+}
+
+export const mainNav: NavItem[] = [
   { href: "/tipps", label: "Tipps" },
   { href: "/missionen", label: "Missionen" },
   { href: "/geheimnisse", label: "Geheimnisse" },
   { href: "/karte", label: "Karte" },
   { href: "/news", label: "News" },
+  { href: "/online", label: "Online", soon: true },
   { href: "/community", label: "Community" },
-] as const;
+];
 
 export function absoluteUrl(path = "/") {
   return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;

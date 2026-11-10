@@ -43,7 +43,7 @@ export function Logo({ className }: { className?: string }) {
   return (
     <Link href="/" className={cn("group flex items-center gap-2.5", className)} aria-label="5-Sterne-Kompass – zur Startseite">
       <LogoMark className="transition-transform duration-300 group-hover:rotate-6" />
-      <span className="font-display text-lg font-bold leading-none tracking-tight">
+      <span className="whitespace-nowrap font-display text-lg font-bold leading-none tracking-tight">
         5-Sterne<span className="text-gradient">-Kompass</span>
       </span>
     </Link>

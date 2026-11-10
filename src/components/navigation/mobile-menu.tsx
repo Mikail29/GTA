@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Rocket, Search, X } from "lucide-react";
-import { mainNav } from "@/lib/site";
+import { mainNav, type NavItem } from "@/lib/site";
 import { buttonClasses } from "@/components/ui/button";
 
 export function MobileMenu({ loggedIn }: { loggedIn: boolean }) {
@@ -49,7 +49,7 @@ export function MobileMenu({ loggedIn }: { loggedIn: boolean }) {
           </form>
           <nav aria-label="Mobile Navigation">
             <ul className="grid gap-1">
-              {[{ href: "/", label: "Startseite" }, ...mainNav, { href: "/fragen", label: "Fragen" }].map((item) => (
+              {[{ href: "/", label: "Startseite" } as NavItem, ...mainNav, { href: "/fragen", label: "Fragen" }].map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -57,6 +57,7 @@ export function MobileMenu({ loggedIn }: { loggedIn: boolean }) {
                     className="block rounded-xl px-4 py-3 text-lg font-semibold text-white transition hover:bg-white/5 aria-[current=page]:bg-white/5 aria-[current=page]:text-pink"
                   >
                     {item.label}
+                    {item.soon && <span className="ml-2 rounded-full bg-sunset/15 px-2 py-0.5 align-middle text-xs font-semibold text-sunset">Bald</span>}
                   </Link>
                 </li>
               ))}

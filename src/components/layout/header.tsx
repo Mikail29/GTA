@@ -22,13 +22,13 @@ export async function Header() {
       </a>
       <Container className="flex h-16 items-center gap-4">
         <Logo />
-        <NavLinks className="ml-4 hidden xl:flex" />
+        <NavLinks className="ml-2 hidden xl:flex" />
         <div className="ml-auto flex items-center gap-2">
           <HeaderSearch />
           <Link href="/community" className="hidden items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-muted transition hover:bg-white/5 hover:text-white lg:inline-flex xl:hidden">
             <Users className="size-4" aria-hidden="true" /> Community
           </Link>
-          <Link href="/community#starter" className="hidden items-center gap-1.5 rounded-full border border-teal/30 bg-teal/5 px-3 py-2 text-sm font-medium text-teal transition hover:bg-teal/15 lg:inline-flex">
+          <Link href="/community#starter" className="hidden items-center gap-1.5 whitespace-nowrap rounded-full border border-teal/30 bg-teal/5 px-3 py-2 text-sm font-medium text-teal transition hover:bg-teal/15 lg:inline-flex xl:hidden 2xl:inline-flex">
             <Rocket className="size-4" aria-hidden="true" /> GTA 6 Starter
           </Link>
           {user && (
