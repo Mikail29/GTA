@@ -110,7 +110,7 @@ export function MapExplorer({ locations, imageUrl, initialMarker }: { locations:
 
   return (
     <div className="grid gap-4 lg:grid-cols-[320px_1fr]">
-      <aside className="surface flex max-h-none flex-col gap-4 p-4 lg:max-h-[640px]">
+      <aside className="surface order-2 flex flex-col gap-4 p-4 lg:order-1 lg:max-h-[640px]">
         <div className="relative">
           <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted" aria-hidden="true" />
           <input
@@ -167,7 +167,7 @@ export function MapExplorer({ locations, imageUrl, initialMarker }: { locations:
         </div>
       </aside>
 
-      <div className="relative">
+      <div className="relative order-1 lg:order-2">
         <div ref={containerRef} className="h-[460px] w-full overflow-hidden rounded-[1.25rem] border border-line sm:h-[640px]" role="application" aria-label="Interaktive Platzhalter-Karte" />
         {!ready && !loadError && (
           <div className="absolute inset-0 grid place-items-center rounded-[1.25rem] bg-night-2 text-sm text-muted">
