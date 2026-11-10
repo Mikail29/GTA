@@ -131,10 +131,15 @@ export default async function FragePage({ params }: Props) {
           <p className="surface p-5 text-sm text-muted">Antworten sind möglich, sobald die Community-Datenbank verbunden ist. Dann kannst du hier mit deinem Konto mitschreiben.</p>
         ) : !session ? (
           <div className="surface flex flex-col items-start gap-3 p-5">
-            <p className="text-sm text-muted">Bitte melde dich an, um zu antworten.</p>
-            <LinkButton href={`/login?next=/fragen/${question.id}`} size="sm">
-              Anmelden
-            </LinkButton>
+            <p className="text-sm text-muted">Lesen kannst du alles ohne Konto. Um zu antworten, brauchst du ein kostenloses Konto – das dauert nur eine Minute.</p>
+            <div className="flex flex-wrap gap-2">
+              <LinkButton href="/registrieren" size="sm">
+                Kostenloses Konto erstellen
+              </LinkButton>
+              <LinkButton href={`/login?next=/fragen/${question.id}`} size="sm" variant="secondary">
+                Anmelden
+              </LinkButton>
+            </div>
           </div>
         ) : question.status === "geschlossen" ? (
           <p className="surface p-5 text-sm text-muted">Diese Frage ist geschlossen.</p>

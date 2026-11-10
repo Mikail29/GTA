@@ -23,7 +23,7 @@ export default async function NeueFragePage() {
           <CommunityDemoNotice />
         ) : !session ? (
           <div className="surface flex flex-col items-start gap-4 p-6">
-            <p className="text-muted">Nur angemeldete Mitglieder können Fragen veröffentlichen. Das schützt die Community vor Spam.</p>
+            <p className="text-muted">Lesen kannst du alles ohne Konto. Um eine Frage zu stellen, brauchst du ein kostenloses Konto – das schützt die Community vor Spam.</p>
             <div className="flex flex-wrap gap-3">
               <LinkButton href="/login?next=/fragen/neu">
                 <LogIn className="size-4" aria-hidden="true" /> Anmelden
