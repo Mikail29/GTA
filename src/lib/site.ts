@@ -21,7 +21,6 @@ export interface NavItem {
 }
 
 export const mainNav: NavItem[] = [
-  { href: "/tipps", label: "Tipps" },
   { href: "/missionen", label: "Missionen" },
   { href: "/geheimnisse", label: "Geheimnisse" },
   {

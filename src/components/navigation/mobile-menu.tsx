@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Rocket, Search, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { mainNav, type NavItem } from "@/lib/site";
 import { buttonClasses } from "@/components/ui/button";
 
@@ -64,9 +64,6 @@ export function MobileMenu({ loggedIn }: { loggedIn: boolean }) {
             </ul>
           </nav>
           <div className="mt-6 grid gap-3">
-            <Link href="/community#starter" className={buttonClasses("secondary", "lg", "w-full")}>
-              <Rocket className="size-5" aria-hidden="true" /> GTA 6 Starter
-            </Link>
             {loggedIn ? (
               <div className="grid grid-cols-2 gap-3">
                 <Link href="/benachrichtigungen" className={buttonClasses("secondary", "lg")}>
