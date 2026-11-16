@@ -1,11 +1,10 @@
-import { articles } from "@/data/articles";
 import { missions } from "@/data/missions";
 import { secrets } from "@/data/secrets";
 import { news } from "@/data/news";
 import { contacts } from "@/data/contacts";
 import { shops } from "@/data/shops";
 import { blocksToText, matchesQuery } from "@/lib/utils/format";
-import type { Article, Mission, SearchResult, Secret } from "@/types/content";
+import type { Mission, SearchResult, Secret, VerificationStatus } from "@/types/content";
 
 /**
  * Datenzugriff auf redaktionelle Inhalte.
@@ -16,30 +15,22 @@ import type { Article, Mission, SearchResult, Secret } from "@/types/content";
 
 const byDateDesc = <T extends { publishedAt: string }>(a: T, b: T) => b.publishedAt.localeCompare(a.publishedAt);
 
-export type ArticleSort = "neu" | "alt" | "titel";
-
-export function getArticles(opts: { q?: string; category?: string; sort?: ArticleSort; status?: string } = {}) {
-  let list = articles.filter(
-    (a) =>
-      (!opts.category || a.category === opts.category) &&
-      (!opts.status || a.status === opts.status) &&
-      (!opts.q || matchesQuery(opts.q, a.title, a.excerpt, a.tags.join(" "), blocksToText(a.blocks))),
-  );
-  list = [...list];
-  if (opts.sort === "alt") list.sort((a, b) => a.publishedAt.localeCompare(b.publishedAt));
-  else if (opts.sort === "titel") list.sort((a, b) => a.title.localeCompare(b.title, "de"));
-  else list.sort(byDateDesc);
-  return list;
+/** Neueste Beiträge aus Missionen und Geheimnissen (für die Startseite). */
+export interface LatestEntry {
+  type: "Mission" | "Geheimnis";
+  title: string;
+  href: string;
+  publishedAt: string;
+  status: VerificationStatus;
 }
 
-export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);
-export const getPopularArticles = (limit = 3) => articles.filter((a) => a.popular).sort(byDateDesc).slice(0, limit);
-export const getLatestArticles = (limit = 3) => [...articles].sort(byDateDesc).slice(0, limit);
-
-export function getRelatedArticles(article: Article, limit = 3) {
-  const sameCategory = articles.filter((a) => a.slug !== article.slug && a.category === article.category);
-  const others = articles.filter((a) => a.slug !== article.slug && a.category !== article.category);
-  return [...sameCategory, ...others.sort(byDateDesc)].slice(0, limit);
+export function getLatestEntries(limit = 3): LatestEntry[] {
+  return [
+    ...missions.map((m) => ({ type: "Mission" as const, title: m.title, href: `/missionen/${m.slug}`, publishedAt: m.publishedAt, status: m.status })),
+    ...secrets.map((s) => ({ type: "Geheimnis" as const, title: s.title, href: `/geheimnisse/${s.slug}`, publishedAt: s.publishedAt, status: s.status })),
+  ]
+    .sort(byDateDesc)
+    .slice(0, limit);
 }
 
 export function getMissions(opts: { q?: string; category?: string; difficulty?: string } = {}) {
@@ -79,7 +70,6 @@ export const getNewsItem = (slug: string) => news.find((n) => n.slug === slug);
 export function searchContent(q: string): SearchResult[] {
   if (!q.trim()) return [];
   const results: SearchResult[] = [];
-  for (const a of getArticles({ q })) results.push({ type: "Ratgeber", title: a.title, excerpt: a.excerpt, href: `/tipps/${a.slug}`, status: a.status });
   for (const m of getMissions({ q })) results.push({ type: "Mission", title: m.title, excerpt: m.excerpt, href: `/missionen/${m.slug}`, status: m.status });
   for (const s of getSecrets({ q })) results.push({ type: "Geheimnis", title: s.title, excerpt: s.excerpt, href: `/geheimnisse/${s.slug}`, status: s.status });
   for (const n of news.filter((n) => matchesQuery(q, n.title, n.excerpt, blocksToText(n.blocks))))
@@ -91,4 +81,4 @@ export function searchContent(q: string): SearchResult[] {
   return results;
 }
 
-export { articles, missions, secrets, news };
+export { missions, secrets, news };

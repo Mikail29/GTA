@@ -5,14 +5,12 @@ import { cn } from "@/lib/utils/cn";
 import type { Accent, IconName } from "@/types/content";
 
 const tiles: { href: string; title: string; text: string; icon: IconName; accent: Accent }[] = [
-  { href: "/tipps", title: "Tipps & Tricks", text: "Ratgeber für Einsteiger und Profis – klar gekennzeichnet nach Verlässlichkeit.", icon: "lightbulb", accent: "pink" },
   { href: "/karte", title: "Interaktive Karte", text: "Fundorte, Sammelobjekte und Missionen auf einen Blick (in Vorbereitung).", icon: "map", accent: "teal" },
+  { href: "/community", title: "Community", text: "Fragen stellen, Antworten geben und gemeinsam rätseln.", icon: "users", accent: "pink" },
   { href: "/missionen", title: "Missionen", text: "Komplettlösungen Schritt für Schritt – mit Spoiler-Warnung.", icon: "target", accent: "sunset" },
   { href: "/personen", title: "Personen & Kontakte", text: "Wer dir im Spiel hilft – mit Telefonnummern im Spiel (ab Release).", icon: "users", accent: "violet" },
   { href: "/laeden", title: "Läden", text: "Waffen, Kleidung, Fahrzeuge und mehr – wo du was kaufst (ab Release).", icon: "building", accent: "sunset" },
   { href: "/geheimnisse", title: "Geheimnisse", text: "Easter Eggs, versteckte Orte und seltene Fahrzeuge.", icon: "key", accent: "violet" },
-  { href: "/community", title: "Community", text: "Fragen stellen, Antworten geben und gemeinsam rätseln.", icon: "users", accent: "teal" },
-  { href: "/community#starter", title: "GTA 6 Starter", text: "Neu dabei? Stell dich vor und stelle deine ersten Fragen.", icon: "rocket", accent: "pink" },
 ];
 
 const accentStyles: Record<Accent, { icon: string; hover: string }> = {
@@ -24,19 +22,19 @@ const accentStyles: Record<Accent, { icon: string; hover: string }> = {
 
 export function QuickAccess() {
   return (
-    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {tiles.map((t) => (
         <li key={t.href}>
-          <Link href={t.href} className={cn("surface group flex h-full gap-4 p-5 transition duration-300 hover:-translate-y-1", accentStyles[t.accent].hover)}>
-            <span className={cn("grid size-12 shrink-0 place-items-center rounded-2xl", accentStyles[t.accent].icon)}>
-              <Icon name={t.icon} className="size-6" />
+          <Link href={t.href} className={cn("surface group flex h-full items-start gap-3 p-4 transition duration-300 hover:-translate-y-0.5", accentStyles[t.accent].hover)}>
+            <span className={cn("grid size-10 shrink-0 place-items-center rounded-xl", accentStyles[t.accent].icon)}>
+              <Icon name={t.icon} className="size-5" />
             </span>
             <span className="min-w-0">
-              <span className="flex items-center gap-1 text-lg font-bold">
+              <span className="flex items-center gap-1 font-bold">
                 {t.title}
                 <ArrowUpRight className="size-4 text-muted opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100" aria-hidden="true" />
               </span>
-              <span className="mt-1 block text-sm text-muted">{t.text}</span>
+              <span className="mt-0.5 block text-sm leading-snug text-muted">{t.text}</span>
             </span>
           </Link>
         </li>

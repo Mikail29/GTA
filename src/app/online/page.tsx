@@ -57,7 +57,7 @@ export default function OnlinePage() {
         <section className="mt-10 grid gap-4 sm:grid-cols-3" aria-label="Bis dahin">
           {[
             { Icon: Newspaper, title: "News verfolgen", text: "Neuigkeiten erfährst du zuerst in unseren News.", href: "/news", label: "Zu den News" },
-            { Icon: Users, title: "Community", text: "Tausch dich schon jetzt mit anderen Spielern aus.", href: "/community#starter", label: "Zur Community" },
+            { Icon: Users, title: "Community", text: "Tausch dich schon jetzt mit anderen Spielern aus.", href: "/community", label: "Zur Community" },
             { Icon: Bell, title: "Dabei sein", text: "Mit einem kostenlosen Konto bist du ab dem ersten Tag dabei.", href: "/registrieren", label: "Konto erstellen" },
           ].map(({ Icon, title, text, href, label }) => (
             <div key={title} className="surface flex flex-col p-5">

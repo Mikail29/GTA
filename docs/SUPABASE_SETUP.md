@@ -24,8 +24,10 @@ Im Dashboard unter **Project Settings → API** findest du:
 **Variante A – SQL Editor (am einfachsten):**
 1. Im Dashboard **SQL Editor → New query** öffnen.
 2. Inhalt von `supabase/migrations/20261110000000_initial_schema.sql` einfügen und **Run** klicken.
-3. Danach `supabase/migrations/20261110120000_starter_community.sql` und `supabase/migrations/20261110150000_dsa_features.sql` genauso ausführen (in dieser Reihenfolge).
-4. Zum Schluss `supabase/seed.sql` ausführen. Das legt die Kategorien, einen Demo-Entwurf und die **6 angehefteten Starter-Threads** der Community „GTA 6 Starter“ an. Erst damit ist die Community beim Start nicht leer.
+3. Danach `supabase/migrations/20261110120000_starter_community.sql`, `supabase/migrations/20261110150000_dsa_features.sql` und `supabase/migrations/20261116120000_remove_starter.sql` genauso ausführen (in dieser Reihenfolge).
+4. Zum Schluss `supabase/seed.sql` ausführen. Das legt die Kategorien und einen Demo-Entwurf für den Admin-Bereich an.
+
+> **Datenbank schon eingerichtet?** Dann führe nur noch `supabase/migrations/20261116120000_remove_starter.sql` aus. Sie entfernt den früheren Bereich „GTA 6 Starter“: Die 6 Team-Threads werden gelöscht, eigene Fragen von Nutzern aus diesem Bereich wandern nach „Allgemeine Fragen“. Die Datei kann gefahrlos mehrfach ausgeführt werden.
 
 **Variante B – Supabase CLI:**
 ```bash
@@ -101,9 +103,10 @@ psql -d gta_test -f supabase/tests/00_local_stubs.sql
 psql -d gta_test -f supabase/migrations/20261110000000_initial_schema.sql
 psql -d gta_test -f supabase/migrations/20261110120000_starter_community.sql
 psql -d gta_test -f supabase/migrations/20261110150000_dsa_features.sql
+psql -d gta_test -f supabase/migrations/20261116120000_remove_starter.sql
 psql -d gta_test -f supabase/tests/01_rls_test.sql      # alle Zeilen "T.. : true"
 psql -d gta_test -f supabase/seed.sql
-psql -d gta_test -f supabase/tests/02_starter_test.sql  # alle Zeilen "S.. : true"
+psql -d gta_test -f supabase/tests/02_pinned_test.sql   # alle Zeilen "P.. : true"
 psql -d gta_test -f supabase/tests/03_dsa_test.sql      # alle Zeilen "D.. : true"
 ```
 

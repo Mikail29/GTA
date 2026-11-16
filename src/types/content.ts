@@ -63,20 +63,6 @@ export interface Category {
   accent: Accent;
 }
 
-export interface Article {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  publishedAt: string;
-  updatedAt?: string;
-  author: string;
-  status: VerificationStatus;
-  popular?: boolean;
-  tags: string[];
-  blocks: ContentBlock[];
-}
-
 export type MissionDifficulty = "leicht" | "mittel" | "schwer";
 
 export interface MissionStep {
@@ -142,7 +128,7 @@ export interface MapLocation {
 
 /** Suchergebnis über alle Rubriken hinweg. */
 export interface SearchResult {
-  type: "Ratgeber" | "Mission" | "Geheimnis" | "News" | "Frage" | "Person" | "Laden";
+  type: "Mission" | "Geheimnis" | "News" | "Frage" | "Person" | "Laden";
   title: string;
   excerpt: string;
   href: string;

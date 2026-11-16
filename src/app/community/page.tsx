@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, MessageSquarePlus, ShieldCheck, Users } from "lucide-react";
+import { MessageSquarePlus, Search, ShieldCheck, Users } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Container } from "@/components/ui/container";
 import { LinkButton } from "@/components/ui/button";
@@ -8,8 +8,6 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { QuestionCard } from "@/components/cards/question-card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { CommunityDemoNotice } from "@/components/community/demo-notice";
-import { StarterSection } from "@/components/community/starter-section";
-import { getSession } from "@/lib/auth/session";
 import { communityCategories } from "@/data/categories";
 import { listQuestions } from "@/lib/community/queries";
 
@@ -20,13 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default async function CommunityPage() {
-  const [{ questions: latest, demo }, { questions: popular }, { questions: starter }, session] = await Promise.all([
-    listQuestions({ limit: 6 }),
-    listQuestions({ limit: 4, sort: "beliebt" }),
-    listQuestions({ category: "starter", pinnedFirst: true, limit: 6 }),
-    getSession(),
-  ]);
-  const pinnedStarter = starter.filter((q) => q.is_pinned);
+  const [{ questions: latest, demo }, { questions: popular }] = await Promise.all([listQuestions({ limit: 6, pinnedFirst: true }), listQuestions({ limit: 4, sort: "beliebt" })]);
 
   return (
     <>
@@ -41,15 +33,9 @@ export default async function CommunityPage() {
         </div>
       </PageHeader>
       <Container className="py-10">
-        <StarterSection threads={pinnedStarter} loggedIn={Boolean(session)} />
+        {demo && <CommunityDemoNotice />}
 
-        {demo && (
-          <div className="mt-8">
-            <CommunityDemoNotice />
-          </div>
-        )}
-
-        <section className="mt-12" aria-label="Kategorien">
+        <section className={demo ? "mt-10" : undefined} aria-label="Kategorien">
           <SectionHeading title="Kategorien" />
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {communityCategories.map((c) => (
@@ -94,7 +80,7 @@ export default async function CommunityPage() {
             </section>
             {[
               { Icon: ShieldCheck, title: "Fair & sicher", text: "Beiträge werden moderiert. Melde Inhalte, die gegen die Regeln verstoßen.", href: "/community-regeln", link: "Community-Regeln" },
-              { Icon: BookOpen, title: "Erst nachlesen?", text: "Viele Antworten findest du bereits in unseren Ratgebern.", href: "/tipps", link: "Zu den Ratgebern" },
+              { Icon: Search, title: "Erst suchen?", text: "Vielleicht wurde deine Frage schon beantwortet – die Suche findet Fragen, Missionen und Geheimnisse.", href: "/suche", link: "Zur Suche" },
               { Icon: Users, title: "Mitmachen", text: "Mit einem kostenlosen Konto kannst du Fragen stellen, antworten und liken.", href: "/registrieren", link: "Konto erstellen" },
             ].map(({ Icon, title, text, href, link }) => (
               <div key={title} className="surface p-5">

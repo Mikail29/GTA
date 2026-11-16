@@ -1,29 +1,27 @@
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Clock, Globe, MessageSquarePlus, Rocket } from "lucide-react";
+import { Clock, Globe, MessageSquarePlus } from "lucide-react";
 import { Hero } from "@/components/home/hero";
 import { QuickAccess } from "@/components/home/quick-access";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { ArticleCard } from "@/components/cards/article-card";
 import { QuestionCard } from "@/components/cards/question-card";
 import { LinkButton } from "@/components/ui/button";
 import { StatusBadge } from "@/components/ui/badge";
 import { EmptyState } from "@/components/ui/empty-state";
-import { getLatestArticles, getNews, getPopularArticles } from "@/lib/content";
+import { getLatestEntries, getNews } from "@/lib/content";
 import { listQuestions } from "@/lib/community/queries";
 import { formatDate } from "@/lib/utils/format";
 
 export default async function HomePage() {
-  const popular = getPopularArticles(3);
-  const latest = getLatestArticles(4);
-  const latestNews = getNews().slice(0, 3);
-  const { questions, demo } = await listQuestions({ limit: 4 });
+  const latest = getLatestEntries(2);
+  const latestNews = getNews().slice(0, 2);
+  const { questions, demo } = await listQuestions({ limit: 4, pinnedFirst: true });
 
   return (
     <>
       <Hero />
 
-      <Container className="relative -mt-10 sm:-mt-16">
+      <Container className="relative -mt-10 pb-4 sm:-mt-16">
         <section aria-labelledby="schnellzugriff">
           <h2 id="schnellzugriff" className="sr-only">
             Schnellzugriff
@@ -31,13 +29,13 @@ export default async function HomePage() {
           <QuickAccess />
           <Link
             href="/online"
-            className="surface group mt-4 flex flex-col gap-3 border-sunset/30 p-5 transition hover:border-sunset/60 sm:flex-row sm:items-center"
+            className="surface group mt-3 flex flex-col gap-3 border-sunset/30 p-4 transition hover:border-sunset/60 sm:flex-row sm:items-center"
           >
-            <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-sunset/12 text-sunset">
-              <Globe className="size-6" aria-hidden="true" />
+            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-sunset/12 text-sunset">
+              <Globe className="size-5" aria-hidden="true" />
             </span>
             <span className="min-w-0 flex-1">
-              <span className="block text-lg font-bold">GTA 6 Online</span>
+              <span className="block font-bold">GTA 6 Online</span>
               <span className="block text-sm text-muted">Der Bereich für den Online-Modus entsteht, sobald GTA 6 Online erscheint.</span>
             </span>
             <span className="inline-flex items-center gap-1.5 self-start rounded-full border border-sunset/40 bg-sunset/10 px-3 py-1.5 text-xs font-semibold text-sunset sm:self-center">
@@ -46,55 +44,7 @@ export default async function HomePage() {
           </Link>
         </section>
 
-        <section className="mt-24" aria-label="Beliebte Ratgeber">
-          <SectionHeading eyebrow="Beliebt" title="Beliebte Ratgeber" text="Die meistgelesenen Guides der Community." href="/tipps" linkLabel="Alle Ratgeber" />
-          <div className="grid gap-6 md:grid-cols-3">
-            {popular.map((a, i) => (
-              <ArticleCard key={a.slug} article={a} priority={i === 0} />
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-24 grid gap-10 lg:grid-cols-[1.5fr_1fr]" aria-label="Neueste Beiträge und News">
-          <div>
-            <SectionHeading eyebrow="Neu" title="Neueste Beiträge" href="/tipps?sort=neu" linkLabel="Mehr Beiträge" />
-            <ul className="grid gap-3">
-              {latest.map((a) => (
-                <li key={a.slug}>
-                  <Link href={`/tipps/${a.slug}`} className="surface group flex items-center gap-4 p-4 transition hover:border-pink/40">
-                    <div className="min-w-0 flex-1">
-                      <div className="mb-1 flex items-center gap-2 text-xs text-muted">
-                        <CalendarDays className="size-3.5" aria-hidden="true" />
-                        <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time>
-                        <StatusBadge status={a.status} />
-                      </div>
-                      <p className="font-semibold group-hover:text-pink">{a.title}</p>
-                    </div>
-                    <ArrowRight className="size-5 shrink-0 text-muted transition group-hover:translate-x-1 group-hover:text-pink" aria-hidden="true" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <SectionHeading eyebrow="News" title="Neuigkeiten" href="/news" linkLabel="Alle News" />
-            <ul className="surface divide-y divide-line/70">
-              {latestNews.map((n) => (
-                <li key={n.slug}>
-                  <Link href={`/news/${n.slug}`} className="group block p-4">
-                    <time dateTime={n.publishedAt} className="text-xs text-teal">
-                      {formatDate(n.publishedAt)}
-                    </time>
-                    <p className="mt-1 font-semibold group-hover:text-teal">{n.title}</p>
-                    <p className="mt-1 line-clamp-2 text-sm text-muted">{n.excerpt}</p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="mt-24" aria-label="Community-Vorschau">
+        <section className="mt-16" aria-label="Community-Vorschau">
           <SectionHeading
             eyebrow="Community"
             title="Aktuelle Fragen & Diskussionen"
@@ -118,21 +68,39 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-[#2a1450] via-card to-[#0f2a3a] p-8 sm:p-12" aria-labelledby="starter-teaser">
-          <div className="pointer-events-none absolute -right-20 -top-20 size-72 rounded-full bg-teal/20 blur-3xl" />
-          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-xl">
-              <p className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-teal">
-                <Rocket className="size-4" aria-hidden="true" /> GTA 6 Starter
-              </p>
-              <h2 id="starter-teaser" className="text-2xl font-bold sm:text-3xl">
-                Starte gemeinsam mit der Community in GTA 6.
-              </h2>
-              <p className="mt-3 text-muted">Stell dich vor, stell Einsteigerfragen und hilf anderen. Kostenlos, ohne Werbung und ohne Tracking.</p>
-            </div>
-            <LinkButton href="/community#starter" size="lg">
-              Jetzt einsteigen <ArrowRight className="size-5" aria-hidden="true" />
-            </LinkButton>
+        <section className="mt-16 grid gap-8 lg:grid-cols-2" aria-label="Neueste Beiträge und News">
+          <div>
+            <SectionHeading compact eyebrow="Neu" title="Neueste Beiträge" />
+            <ul className="grid gap-2">
+              {latest.map((e) => (
+                <li key={e.href}>
+                  <Link href={e.href} className="surface group flex items-center gap-3 px-4 py-3 transition hover:border-pink/40">
+                    <span className="min-w-0 flex-1">
+                      <span className="line-clamp-2 text-sm font-semibold group-hover:text-pink">{e.title}</span>
+                      <span className="mt-0.5 block text-xs text-muted">
+                        {e.type} · <time dateTime={e.publishedAt}>{formatDate(e.publishedAt)}</time>
+                      </span>
+                    </span>
+                    <StatusBadge status={e.status} className="hidden shrink-0 sm:inline-flex" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <SectionHeading compact eyebrow="News" title="Neuigkeiten" href="/news" linkLabel="Alle News" />
+            <ul className="grid gap-2">
+              {latestNews.map((n) => (
+                <li key={n.slug}>
+                  <Link href={`/news/${n.slug}`} className="surface group block px-4 py-3 transition hover:border-teal/40">
+                    <span className="line-clamp-2 text-sm font-semibold group-hover:text-teal">{n.title}</span>
+                    <time dateTime={n.publishedAt} className="mt-0.5 block text-xs text-teal">
+                      {formatDate(n.publishedAt)}
+                    </time>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </Container>

@@ -1,17 +1,6 @@
 import type { Category } from "@/types/content";
 import type { CommunityCategory } from "@/types/community";
 
-export const articleCategories: Category[] = [
-  { slug: "anfaenger", name: "Anfänger-Tipps", description: "Der leichte Einstieg: Grundlagen, Orientierung und erste Schritte.", icon: "rocket", accent: "teal" },
-  { slug: "fahrzeuge", name: "Fahrzeuge", description: "Rund um Autos, Boote und alles, was fährt, fliegt oder schwimmt.", icon: "car", accent: "pink" },
-  { slug: "waffen", name: "Waffen", description: "Ausrüstung, Taktik und Kampf – sobald verlässliche Infos vorliegen.", icon: "crosshair", accent: "sunset" },
-  { slug: "geld", name: "Geld & Wirtschaft", description: "Sinnvoll sparen, investieren und Ressourcen planen.", icon: "wallet", accent: "violet" },
-  { slug: "gameplay", name: "Gameplay", description: "Spielmechaniken, Systeme und clevere Spielweisen.", icon: "gamepad", accent: "teal" },
-  { slug: "charaktere", name: "Charaktere", description: "Hintergründe zu den Figuren – mit klarer Quellenangabe.", icon: "user", accent: "pink" },
-  { slug: "einstellungen", name: "Einstellungen", description: "Grafik, Steuerung, Barrierefreiheit und Komfort-Optionen.", icon: "settings", accent: "violet" },
-  { slug: "fortgeschritten", name: "Fortgeschrittene Tipps", description: "Für alle, die mehr aus jeder Spielsitzung herausholen wollen.", icon: "trophy", accent: "sunset" },
-];
-
 export const missionCategories: Category[] = [
   { slug: "hauptstory", name: "Hauptstory", description: "Missionen der Haupthandlung.", icon: "scroll", accent: "pink" },
   { slug: "nebenmissionen", name: "Nebenmissionen", description: "Optionale Aufträge und Nebengeschichten.", icon: "target", accent: "teal" },
@@ -29,7 +18,6 @@ export const secretCategories: Category[] = [
 ];
 
 export const communityCategories: CommunityCategory[] = [
-  { slug: "starter", name: "GTA 6 Starter", description: "Neu hier? Stell dich vor und stelle Einsteigerfragen – keine Frage ist zu einfach." },
   { slug: "allgemein", name: "Allgemeine Fragen", description: "Alles rund um GTA 6, was sonst nirgends passt." },
   { slug: "missionen", name: "Missionen", description: "Hilfe bei Aufträgen und Komplettlösungen." },
   { slug: "fahrzeuge", name: "Fahrzeuge", description: "Autos, Boote, Flugzeuge und Tuning." },

@@ -36,7 +36,7 @@ export default async function InhaltePage() {
       <section>
         <h1 className="text-3xl font-bold">Artikel & Kategorien</h1>
         <Notice tone="info" className="mt-4">
-          Die öffentlichen Ratgeber stammen aktuell aus statischen Demo-Daten (<code>src/data</code>). Artikel in der Datenbank-Tabelle <code>articles</code> können hier veröffentlicht oder
+          Die öffentlichen Inhalte (Missionen, Geheimnisse, News) stammen aktuell aus statischen Dateien (<code>src/data</code>). Artikel in der Datenbank-Tabelle <code>articles</code> können hier veröffentlicht oder
           zurückgezogen werden. Ein vollständiger Artikel-Editor ist als offene Funktion dokumentiert.
         </Notice>
         <h2 className="mt-8 mb-3 text-xl font-bold">Artikel in der Datenbank</h2>

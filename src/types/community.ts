@@ -38,7 +38,7 @@ export interface Question {
   updated_at: string | null;
   likes_count: number;
   answers_count: number;
-  /** Oben angeheftet (z. B. Starter-Threads). */
+  /** Oben angeheftet (durch die Moderation). */
   is_pinned?: boolean;
   /** Offizieller Beitrag des 5-Sterne-Kompass-Teams. */
   is_official?: boolean;

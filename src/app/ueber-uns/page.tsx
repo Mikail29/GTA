@@ -9,14 +9,14 @@ export default function UeberUnsPage() {
   return (
     <LegalPage title="Über den 5-Sterne-Kompass" text={siteConfig.claim} crumb="Über uns" review={false}>
       <p>
-        Der 5-Sterne-Kompass ist ein unabhängiges, deutschsprachiges und kostenloses Fan- und Hilfeportal rund um Grand Theft Auto VI. Unser Ziel: eine zentrale, verlässliche Anlaufstelle für Tipps, Komplettlösungen,
+        Der 5-Sterne-Kompass ist ein unabhängiges, deutschsprachiges und kostenloses Fan- und Hilfeportal rund um Grand Theft Auto VI. Unser Ziel: eine zentrale, verlässliche Anlaufstelle für Komplettlösungen,
         Geheimnisse und Austausch – ohne Clickbait und ohne Gerüchte als Fakten zu verkaufen.
       </p>
       <h2 id="prinzipien">Unsere Prinzipien</h2>
       <ul>
         <li>
-          <strong>Transparenz:</strong> Jeder Inhalt trägt einen Status – verifiziert, unbestätigt oder Demo. Mehr dazu im{" "}
-          <Link href="/tipps/gameplay-wie-wir-informationen-pruefen">Ratgeber zur Prüfung</Link>.
+          <strong>Transparenz:</strong> Jeder Inhalt trägt einen Status – verifiziert, unbestätigt oder Demo. Mehr dazu in der{" "}
+          <Link href="/news/so-kennzeichnen-wir-informationen">News zur Kennzeichnung</Link>.
         </li>
         <li>
           <strong>Datenschutz:</strong> Kein Tracking, keine Werbe-Cookies.

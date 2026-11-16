@@ -7,7 +7,6 @@ const columns = [
   {
     title: "Inhalte",
     links: [
-      { href: "/tipps", label: "Tipps & Tricks" },
       { href: "/missionen", label: "Missionen" },
       { href: "/geheimnisse", label: "Geheimnisse" },
       { href: "/karte", label: "Interaktive Karte" },
@@ -22,7 +21,6 @@ const columns = [
     links: [
       { href: "/community", label: "Übersicht" },
       { href: "/fragen", label: "Fragen & Antworten" },
-      { href: "/community#starter", label: "GTA 6 Starter" },
       { href: "/community-regeln", label: "Community-Regeln" },
       { href: "/melden", label: "Inhalt melden" },
     ],

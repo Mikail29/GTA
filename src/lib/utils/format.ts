@@ -18,19 +18,6 @@ export function formatDateTime(value: string | Date) {
   return dateTimeFormatter.format(typeof value === "string" ? new Date(value) : value);
 }
 
-/** Berechnet die Lesedauer in Minuten (ca. 200 Wörter pro Minute). */
-export function readingMinutes(blocks: ContentBlock[]) {
-  const words = blocks
-    .flatMap((b) => {
-      if (b.type === "ul" || b.type === "ol") return b.items;
-      if (b.type === "note") return [b.title ?? "", b.text];
-      return [b.text];
-    })
-    .join(" ")
-    .split(/\s+/)
-    .filter(Boolean).length;
-  return Math.max(1, Math.round(words / 200));
-}
 
 /** Normalisiert Text für eine einfache, tolerante Suche. */
 export function normalize(text: string) {

@@ -18,7 +18,7 @@ export function Hero() {
           durch <span className="text-gradient">GTA 6.</span>
         </h1>
         <p className="mt-6 max-w-2xl animate-fade-up text-base text-white/85 [animation-delay:100ms] sm:text-xl">
-          Entdecke Tipps, Geheimnisse, Missionen und alles, was du über GTA 6 wissen möchtest.
+          Entdecke Missionen, Geheimnisse, die Karte und alles, was du über GTA 6 wissen möchtest.
         </p>
 
         <form action="/suche" role="search" className="mt-9 w-full max-w-2xl animate-fade-up [animation-delay:180ms]">
@@ -43,8 +43,8 @@ export function Hero() {
         </form>
 
         <div className="mt-7 flex w-full animate-fade-up flex-col justify-center gap-3 [animation-delay:240ms] sm:w-auto sm:flex-row">
-          <LinkButton href="/tipps" size="lg">
-            Tipps entdecken <ArrowRight className="size-5" aria-hidden="true" />
+          <LinkButton href="/missionen" size="lg">
+            Missionen entdecken <ArrowRight className="size-5" aria-hidden="true" />
           </LinkButton>
           <LinkButton href="/community" variant="secondary" size="lg" className="bg-night/60 backdrop-blur">
             <Users className="size-5" aria-hidden="true" /> Community besuchen

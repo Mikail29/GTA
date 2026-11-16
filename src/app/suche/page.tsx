@@ -13,11 +13,11 @@ import type { SearchResult } from "@/types/content";
 
 export const metadata: Metadata = {
   title: "Suche",
-  description: "Durchsuche Ratgeber, Missionen, Geheimnisse, News und Community-Fragen auf dem 5-Sterne-Kompass.",
+  description: "Durchsuche Missionen, Geheimnisse, News, Personen, Läden und Community-Fragen auf dem 5-Sterne-Kompass.",
   robots: { index: false, follow: true },
 };
 
-const typeAccent = { Ratgeber: "pink", Mission: "teal", Geheimnis: "violet", News: "sunset", Frage: "teal", Person: "violet", Laden: "sunset" } as const;
+const typeAccent = { Mission: "teal", Geheimnis: "violet", News: "sunset", Frage: "teal", Person: "violet", Laden: "sunset" } as const;
 
 export default async function SearchPage({ searchParams }: { searchParams: SearchParams }) {
   const q = param((await searchParams).q)?.trim() ?? "";
@@ -32,7 +32,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
 
   return (
     <>
-      <PageHeader title="Suche" text="Finde Ratgeber, Missionen, Geheimnisse, News und Fragen aus der Community." crumbs={[{ label: "Suche" }]}>
+      <PageHeader title="Suche" text="Finde Missionen, Geheimnisse, News und Fragen aus der Community." crumbs={[{ label: "Suche" }]}>
         <form action="/suche" role="search" className="relative max-w-2xl">
           <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted" aria-hidden="true" />
           <input
@@ -61,8 +61,8 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
             action={
               <div className="flex flex-wrap justify-center gap-2">
                 <LinkButton href="/fragen/neu">Frage stellen</LinkButton>
-                <LinkButton href="/community#starter" variant="secondary">
-                  Zum Starter-Bereich
+                <LinkButton href="/community" variant="secondary">
+                  Zur Community
                 </LinkButton>
               </div>
             }

@@ -1,7 +1,7 @@
--- Tests für Gast-Meldungen, Benachrichtigungen und Konto-Löschung. Ausführen NACH 02_starter_test.sql.
+-- Tests für Gast-Meldungen, Benachrichtigungen und Konto-Löschung. Ausführen NACH 02_pinned_test.sql.
 \pset tuples_only on
 \set ON_ERROR_STOP off
--- Ausgangslage: carla (5555) hat eine Starter-Frage und eine Antwort auf einen Team-Thread
+-- Ausgangslage: carla (5555) hat eine eigene Frage und eine Antwort auf einen Team-Thread
 insert into auth.users values ('66666666-6666-6666-6666-666666666666', '{"username":"dave"}');
 set role authenticated; set request.jwt.claim.sub = '66666666-6666-6666-6666-666666666666';
 insert into public.answers (question_id, author_id, body) select id, auth.uid(), 'Antwort von Dave' from public.questions where author_id = '55555555-5555-5555-5555-555555555555';
@@ -38,7 +38,7 @@ select 'D7 Benachrichtigung selbst erzeugen blockiert: ' || (count(*) = 0) from 
 select public.delete_own_account();
 reset role;
 select 'D8 Konto + Profil gelöscht: ' || (not exists (select 1 from auth.users where id = '55555555-5555-5555-5555-555555555555') and not exists (select 1 from public.profiles where id = '55555555-5555-5555-5555-555555555555'));
-select 'D9 Frage mit fremder Antwort bleibt anonym erhalten: ' || (count(*) = 1 and bool_and(author_id is null)) from public.questions where title = 'Meine Starter-Frage hier';
+select 'D9 Frage mit fremder Antwort bleibt anonym erhalten: ' || (count(*) = 1 and bool_and(author_id is null)) from public.questions where title = 'Meine erste Frage hier';
 select 'D10 Eigene Antworten gelöscht, fremde Antwort bleibt: ' || ((select count(*) from public.answers where body = 'Hallo zusammen!') = 0 and (select count(*) from public.answers where body = 'Antwort von Dave') = 1);
 -- Bugfix: Löschen eines Nutzers mit Beiträgen direkt (z. B. im Dashboard)
 delete from auth.users where id = '66666666-6666-6666-6666-666666666666';

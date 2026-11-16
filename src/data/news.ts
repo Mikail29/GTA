@@ -12,7 +12,7 @@ export const news: NewsItem[] = [
       { type: "p", text: "Rockstar Games hat den Release von Grand Theft Auto VI für Donnerstag, den 19. November 2026 angekündigt. Das Spiel erscheint für PlayStation 5 und Xbox Series X|S." },
       { type: "note", tone: "info", title: "Stand: 10. November 2026", text: "Termine können sich ändern. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games (siehe Quelle unten)." },
       { type: "h2", id: "community", text: "Gemeinsam starten" },
-      { type: "p", text: "Im Bereich „GTA 6 Starter“ unserer Community kannst du dich schon jetzt vorstellen, Fragen stellen und dich mit anderen auf den Release vorbereiten." },
+      { type: "p", text: "In unserer Community kannst du schon jetzt Fragen stellen und dich mit anderen auf den Release vorbereiten." },
     ],
   },
   {
@@ -24,7 +24,7 @@ export const news: NewsItem[] = [
     blocks: [
       { type: "p", text: "Der 5-Sterne-Kompass ist ein kostenloses Fanprojekt mit einem Ziel: dir verlässliche Hilfe rund um GTA 6 zu bieten – auf Deutsch, übersichtlich und ohne Clickbait." },
       { type: "h2", id: "was-dich-erwartet", text: "Was dich erwartet" },
-      { type: "ul", items: ["Ratgeber und Komplettlösungen", "Geheimnisse und Fundorte mit Verifizierungsstatus", "Eine interaktive Karte (in Vorbereitung)", "Eine Community für Fragen und Antworten"] },
+      { type: "ul", items: ["Komplettlösungen zu Missionen", "Geheimnisse und Fundorte mit Verifizierungsstatus", "Eine interaktive Karte (in Vorbereitung)", "Eine Community für Fragen und Antworten"] },
       { type: "h2", id: "unabhaengig", text: "Unabhängig" },
       { type: "p", text: "Wir sind keine offizielle Website von Rockstar Games und stehen in keiner Verbindung zu Rockstar Games oder Take-Two Interactive." },
     ],
@@ -36,8 +36,7 @@ export const news: NewsItem[] = [
     publishedAt: "2026-11-08",
     status: "verifiziert",
     blocks: [
-      { type: "p", text: "Jeder Ratgeber, jede Mission und jedes Geheimnis trägt einen sichtbaren Status. So erkennst du sofort, ob eine Information belegt ist." },
-      { type: "p", text: "Mehr dazu erfährst du im Ratgeber „So prüfen wir Informationen“." },
+      { type: "p", text: "Jede Mission, jedes Geheimnis und jede News trägt einen sichtbaren Status. So erkennst du sofort, ob eine Information belegt ist." },
     ],
   },
   {

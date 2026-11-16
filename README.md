@@ -22,8 +22,7 @@
 
 | Bereich | Stand |
 | --- | --- |
-| Startseite (Hero, Suche, Schnellzugriff, beliebte & neueste Beiträge, News, Community-Vorschau) | ✅ fertig |
-| Tipps & Tricks: Übersicht, Kategorien, Suche, Filter, Sortierung, Artikelseiten mit Inhaltsverzeichnis, Lesedauer, verwandten Artikeln, Teilen, Bewertung | ✅ fertig (Demo-Inhalte) |
+| Startseite (Hero, Suche, Schnellzugriff, Community-Vorschau, kompakte Liste neuester Beiträge und News) | ✅ fertig |
 | Missionen: Übersicht, Filter, Detailseiten mit Schritt-für-Schritt-Anleitung und Spoiler-Schutz | ✅ fertig (Vorlagen) |
 | Geheimnisse & Fundorte: Kategorien, Verifizierungsstatus, Spoiler-Kennzeichnung, Kartenverknüpfung | ✅ fertig (Vorlagen) |
 | Spielwelt: „Personen & Kontakte“ (Auftraggeber, Händler, Helfer, Bekannte – mit Telefonnummern im Spiel) und „Läden“ (Waffen, Kleidung, Fahrzeuge, Essen, Friseur & Tattoo, Sonstiges); Einträge in `src/data/contacts.ts` und `src/data/shops.ts` | ✅ Struktur fertig, Inhalte nach Release |
@@ -32,7 +31,6 @@
 | Community: Fragen, Antworten, Kommentare, Likes, Bearbeiten, Löschen, Melden, Suche, Kategorien | ✅ fertig (benötigt Supabase, sonst Demo-Modus) |
 | Konten: Registrierung, Login, Logout, Passwort zurücksetzen, Profil, Profilbild | ✅ fertig (benötigt Supabase) |
 | Admin-Bereich: Dashboard, Meldungen, Beiträge, Nutzer & Rollen, Artikel & Kategorien | ✅ Grundlage fertig (benötigt Supabase) |
-| Community-Einstieg „GTA 6 Starter“: Einsteiger-Kategorie, 3-Schritte-Anleitung, 6 angeheftete Team-Threads (Willkommen, Vorstellung, Einsteigerfragen, Release-Countdown, spoilerfreie Eindrücke, Feedback) | ✅ fertig |
 | Rechtliche Pflichtfunktionen (DSA/DSGVO): Melden ohne Konto, Meldeformular `/melden`, Benachrichtigungen mit Begründung bei Moderation, Rückmeldung an Meldende, Widerspruchsweg, Konto selbst löschen, Nutzungsbedingungen | ✅ fertig (benötigt Supabase) |
 | SEO: Titel, Meta-Descriptions, Open Graph, Sitemap, robots.txt, Canonicals, strukturierte Daten | ✅ fertig |
 | Rechtliches: Impressum, Datenschutz, Nutzungsbedingungen, Kontakt, Community-Regeln | ✅ Vorlagen mit Platzhaltern (rechtlich zu prüfen) |
@@ -98,7 +96,7 @@ Kurzfassung (ausführlich in **[docs/SUPABASE_SETUP.md](docs/SUPABASE_SETUP.md)*
 
 1. Projekt auf supabase.com anlegen (EU-Region wählen).
 2. URL und `anon`-Key in `.env.local` eintragen.
-3. Alle drei Dateien aus `supabase/migrations/` (in Reihenfolge) im SQL Editor ausführen, danach `supabase/seed.sql` (legt auch die Starter-Threads an).
+3. Alle vier Dateien aus `supabase/migrations/` (in Reihenfolge) im SQL Editor ausführen, danach `supabase/seed.sql`.
 4. Unter *Authentication → URL Configuration* die Site-URL und `…/auth/callback` als Redirect-URL eintragen.
 5. Registrieren, E-Mail bestätigen und den ersten Admin per SQL festlegen (siehe Anleitung).
 
@@ -129,7 +127,7 @@ src/
     admin/             Geschützter Verwaltungsbereich
     auth/callback/     Bestätigungs- und Passwort-Links
   components/          Wiederverwendbare Komponenten (ui, layout, cards, community, map …)
-  data/                Inhalte (Ratgeber, Missionen, Geheimnisse, News, Karte, Starter-Threads)
+  data/                Inhalte (Missionen, Geheimnisse, News, Karte, Personen, Läden, Demo-Fragen)
   lib/
     auth/              Session-Prüfung & Auth-Server-Actions
     admin/             Admin-Zugriffsschutz & Aktionen
