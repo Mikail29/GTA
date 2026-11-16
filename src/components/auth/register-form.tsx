@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2, MailCheck, UserPlus } from "lucide-react";
+import { CheckCircle2, Loader2, MailCheck, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Field, FormMessage, Honeypot, inputClass } from "@/components/forms/field";
 import { PasswordInput } from "./password-input";
@@ -13,13 +13,27 @@ import { signUpAction } from "@/lib/auth/actions";
 
 export function RegisterForm() {
   const [pending, startTransition] = useTransition();
-  const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
+  const [result, setResult] = useState<{ ok: boolean; message: string; loggedIn?: boolean } | null>(null);
   const {
     register,
     handleSubmit,
     setError,
     formState: { errors },
   } = useForm<RegisterInput>({ resolver: zodResolver(registerSchema), defaultValues: { acceptRules: false, website: "" } });
+
+  if (result?.ok && result.loggedIn) {
+    return (
+      <div className="grid justify-items-center gap-3 text-center" role="status">
+        <CheckCircle2 className="size-12 text-teal" aria-hidden="true" />
+        <p className="font-semibold">Konto erstellt</p>
+        <p className="text-sm text-muted">{result.message}</p>
+        <div className="flex flex-wrap justify-center gap-4 text-sm font-semibold">
+          <Link href="/profil" className="text-teal underline">Zu deinem Profil</Link>
+          <Link href="/community" className="text-teal underline">Zur Community</Link>
+        </div>
+      </div>
+    );
+  }
 
   if (result?.ok) {
     return (

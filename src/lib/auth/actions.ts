@@ -24,6 +24,8 @@ export interface ActionResult {
   ok: boolean;
   message: string;
   fieldErrors?: Record<string, string>;
+  /** true, wenn das Konto sofort angemeldet ist (E-Mail-Bestätigung in Supabase ausgeschaltet). */
+  loggedIn?: boolean;
 }
 
 const NOT_CONFIGURED: ActionResult = {
@@ -79,7 +81,7 @@ export async function signUpAction(input: RegisterInput): Promise<ActionResult> 
   const { data: available } = await supabase.rpc("username_available", { name: parsed.data.username });
   if (available === false) return { ok: false, message: "Dieser Benutzername ist bereits vergeben.", fieldErrors: { username: "Dieser Benutzername ist bereits vergeben." } };
 
-  const { error } = await supabase.auth.signUp({
+  const { data, error } = await supabase.auth.signUp({
     email: parsed.data.email,
     password: parsed.data.password,
     options: {
@@ -90,6 +92,11 @@ export async function signUpAction(input: RegisterInput): Promise<ActionResult> 
   if (error) {
     if (error.code === "weak_password") return { ok: false, message: "Das Passwort ist zu schwach.", fieldErrors: { password: "Bitte wähle ein stärkeres Passwort." } };
     return { ok: false, message: "Die Registrierung ist fehlgeschlagen. Bitte versuche es später erneut." };
+  }
+  // Ist „Confirm email“ in Supabase ausgeschaltet, gibt es sofort eine Sitzung: Nutzer ist direkt angemeldet.
+  if (data.session) {
+    revalidatePath("/", "layout");
+    return { ok: true, loggedIn: true, message: "Willkommen beim 5-Sterne-Kompass! Dein Konto ist fertig und du bist angemeldet." };
   }
   return { ok: true, message: "Fast geschafft! Wir haben dir eine E-Mail geschickt. Bitte bestätige deine Adresse über den Link darin." };
 }
