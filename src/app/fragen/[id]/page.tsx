@@ -79,6 +79,7 @@ export default async function FragePage({ params }: Props) {
           <Link href={`/fragen?kategorie=${question.category}`}>
             <Badge accent="teal">{communityCategoryName(question.category)}</Badge>
           </Link>
+          {question.kind === "mitteilung" && <Badge accent="violet">Mitteilung</Badge>}
           {question.is_official && <Badge accent="pink">Offizieller Beitrag vom Team</Badge>}
           {question.status === "beantwortet" && <Badge accent="pink">Beantwortet</Badge>}
           {question.status === "geschlossen" && <Badge>Geschlossen</Badge>}

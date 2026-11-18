@@ -42,6 +42,8 @@ export interface Question {
   is_pinned?: boolean;
   /** Offizieller Beitrag des 5-Sterne-Kompass-Teams. */
   is_official?: boolean;
+  /** Art des Beitrags: Frage oder Mitteilung („Etwas mitteilen“). Fehlt bei älteren Datenbanken. */
+  kind?: "frage" | "mitteilung";
   author: QuestionAuthor | null;
   /** true für statische Beispieldaten (keine Datenbank verbunden). */
   demo?: boolean;

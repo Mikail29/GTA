@@ -96,7 +96,7 @@ Kurzfassung (ausführlich in **[docs/SUPABASE_SETUP.md](docs/SUPABASE_SETUP.md)*
 
 1. Projekt auf supabase.com anlegen (EU-Region wählen).
 2. URL und `anon`-Key in `.env.local` eintragen.
-3. Alle fünf Dateien aus `supabase/migrations/` (in Reihenfolge) im SQL Editor ausführen, danach `supabase/seed.sql`.
+3. Alle sechs Dateien aus `supabase/migrations/` (in Reihenfolge) im SQL Editor ausführen, danach `supabase/seed.sql`.
 4. Unter *Authentication → URL Configuration* die Site-URL und `…/auth/callback` als Redirect-URL eintragen.
 5. Registrieren, E-Mail bestätigen und den ersten Admin per SQL festlegen (siehe Anleitung).
 

@@ -18,6 +18,7 @@ export function QuestionCard({ question }: { question: Question }) {
             </Badge>
           )}
           <Badge accent="teal">{communityCategoryName(question.category)}</Badge>
+          {question.kind === "mitteilung" && <Badge accent="violet">Mitteilung</Badge>}
           {question.is_official && <Badge accent="pink">Team</Badge>}
           {question.status === "beantwortet" && <Badge accent="pink">Beantwortet</Badge>}
           {question.demo && !question.is_official && <Badge accent="violet">Demo</Badge>}

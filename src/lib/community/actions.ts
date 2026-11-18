@@ -61,10 +61,21 @@ export async function createQuestionAction(input: QuestionInput): Promise<Commun
 
   const { data, error } = await ctx.supabase
     .from("questions")
-    .insert({ title: parsed.data.title, body: parsed.data.body, category: parsed.data.category, author_id: ctx.session.userId })
+    .insert({
+      title: parsed.data.title,
+      body: parsed.data.body,
+      category: parsed.data.category,
+      author_id: ctx.session.userId,
+      // „kind“ nur mitschicken, wenn nötig – so klappt „Frage stellen“ auch vor dem Datenbank-Update (Teil 3)
+      ...(parsed.data.kind === "mitteilung" ? { kind: "mitteilung" } : {}),
+    })
     .select("id")
     .single();
-  if (error || !data) return { ok: false, message: dbMessage(error, "Die Frage konnte nicht gespeichert werden.") };
+  if (error && parsed.data.kind === "mitteilung" && (error.code === "PGRST204" || error.code === "42703")) {
+    console.error("[community] Spalte „kind“ fehlt – „Datenbank aktualisieren – Teil 3“ ausführen", error);
+    return { ok: false, message: "„Etwas mitteilen“ ist gleich verfügbar. Bitte stelle deinen Beitrag vorerst als Frage." };
+  }
+  if (error || !data) return { ok: false, message: dbMessage(error, parsed.data.kind === "mitteilung" ? "Die Mitteilung konnte nicht gespeichert werden." : "Die Frage konnte nicht gespeichert werden.") };
 
   revalidatePath("/fragen");
   revalidatePath("/community");

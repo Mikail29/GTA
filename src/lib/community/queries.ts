@@ -11,8 +11,13 @@ import type { Answer, Question } from "@/types/community";
  * Demo-Fragen geliefert.
  */
 
-const QUESTION_SELECT =
-  "id, author_id, title, body, category, status, is_hidden, created_at, updated_at, likes_count, answers_count, is_pinned, is_official, author:profiles!questions_author_id_fkey(username, avatar_url)";
+const QUESTION_FIELDS = "id, author_id, title, body, category, status, is_hidden, created_at, updated_at, likes_count, answers_count, is_pinned, is_official";
+const QUESTION_AUTHOR = "author:profiles!questions_author_id_fkey(username, avatar_url)";
+/** Mit „kind“ (Frage/Mitteilung) – die Spalte gibt es erst nach „Datenbank aktualisieren – Teil 3“. */
+const QUESTION_SELECT = `${QUESTION_FIELDS}, kind, ${QUESTION_AUTHOR}`;
+const QUESTION_SELECT_BASIC = `${QUESTION_FIELDS}, ${QUESTION_AUTHOR}`;
+/** true, wenn die Datenbank die Spalte „kind“ noch nicht kennt. */
+const missingKind = (e: { code?: string; message?: string } | null) => Boolean(e && (e.code === "42703" || e.code === "PGRST204" || /kind/.test(e.message ?? "")));
 const ANSWER_SELECT =
   "id, question_id, author_id, body, created_at, updated_at, likes_count, author:profiles!answers_author_id_fkey(username, avatar_url)";
 
@@ -37,7 +42,8 @@ export async function listQuestions(opts: QuestionQuery = {}): Promise<{ questio
     return { questions: list.slice(0, limit), demo: true };
   }
 
-  let query = supabase.from("questions").select(QUESTION_SELECT).eq("is_hidden", false).limit(limit);
+  const build = (select: string) => {
+  let query = supabase.from("questions").select(select).eq("is_hidden", false).limit(limit);
   if (opts.category) query = query.eq("category", opts.category);
   if (opts.q) {
     // Sonderzeichen entfernen, die die PostgREST-Filtersyntax stören könnten
@@ -50,8 +56,11 @@ export async function listQuestions(opts: QuestionQuery = {}): Promise<{ questio
     if (opts.pinnedFirst) query = query.order("is_pinned", { ascending: false });
     query = query.order("created_at", { ascending: false });
   }
+  return query.returns<Question[]>();
+  };
 
-  const { data, error } = await query.returns<Question[]>();
+  let { data, error } = await build(QUESTION_SELECT);
+  if (missingKind(error)) ({ data, error } = await build(QUESTION_SELECT_BASIC));
   if (error) return { questions: [], demo: false, error: "Die Fragen konnten nicht geladen werden." };
   return { questions: data ?? [], demo: false };
 }
@@ -64,7 +73,9 @@ export async function getQuestion(id: string): Promise<{ question: Question | nu
   const supabase = await createSupabaseServerClient();
   if (!supabase || !/^[0-9a-f-]{36}$/i.test(id)) return { question: null, answers: [], demo: !supabase };
 
-  const { data: question } = await supabase.from("questions").select(QUESTION_SELECT).eq("id", id).maybeSingle<Question>();
+  const one = (select: string) => supabase.from("questions").select(select).eq("id", id).maybeSingle<Question>();
+  let { data: question, error } = await one(QUESTION_SELECT);
+  if (missingKind(error)) ({ data: question, error } = await one(QUESTION_SELECT_BASIC));
   if (!question) return { question: null, answers: [], demo: false };
 
   const { data: answers } = await supabase

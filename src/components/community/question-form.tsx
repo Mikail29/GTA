@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2, Send } from "lucide-react";
+import { Loader2, Megaphone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Field, FormMessage, Honeypot, inputClass } from "@/components/forms/field";
 import { communityCategories } from "@/data/categories";
@@ -13,6 +13,7 @@ import { createQuestionAction, updateQuestionAction } from "@/lib/community/acti
 export function QuestionForm({ initial, questionId }: { initial?: Partial<QuestionInput>; questionId?: string }) {
   const [pending, startTransition] = useTransition();
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
+  const [sending, setSending] = useState<"frage" | "mitteilung" | null>(null);
   const {
     register,
     handleSubmit,
@@ -27,6 +28,7 @@ export function QuestionForm({ initial, questionId }: { initial?: Partial<Questi
 
   const onSubmit = (values: QuestionInput) =>
     startTransition(async () => {
+      setSending(values.kind ?? "frage");
       const res = questionId ? await updateQuestionAction(questionId, values) : await createQuestionAction(values);
       // Bei Erfolg leitet die Server Action weiter; hier landen nur Fehler
       if (res) {
@@ -37,7 +39,7 @@ export function QuestionForm({ initial, questionId }: { initial?: Partial<Questi
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="relative grid gap-5" noValidate>
-      <Field label="Titel deiner Frage" htmlFor="title" error={errors.title?.message} hint="Kurz und konkret, z. B. „Welche Einstellungen helfen bei Ruckeln?“">
+      <Field label="Titel" htmlFor="title" error={errors.title?.message} hint="Deine Frage oder das, was du mitteilen möchtest – kurz und konkret.">
         <input id="title" {...register("title")} maxLength={140} aria-invalid={!!errors.title} className={inputClass} />
       </Field>
       <Field label="Kategorie" htmlFor="category" error={errors.category?.message}>
@@ -50,16 +52,22 @@ export function QuestionForm({ initial, questionId }: { initial?: Partial<Questi
           ))}
         </select>
       </Field>
-      <Field label="Beschreibung" htmlFor="body" error={errors.body?.message} hint={`${bodyLength}/5000 Zeichen · Bitte Spoiler im Text kenntlich machen.`}>
+      <Field label="Beschreibung (optional)" htmlFor="body" error={errors.body?.message} hint={`${bodyLength}/5000 Zeichen · Bitte Spoiler im Text kenntlich machen.`}>
         <textarea id="body" rows={8} {...register("body")} maxLength={5000} aria-invalid={!!errors.body} className={inputClass} />
       </Field>
       <Honeypot {...register("website")} />
       <FormMessage result={result} />
-      <div>
+      <div className="flex flex-wrap gap-3">
         <Button type="submit" disabled={pending} size="lg">
-          {pending ? <Loader2 className="size-5 animate-spin" aria-hidden="true" /> : <Send className="size-5" aria-hidden="true" />}
+          {pending && sending !== "mitteilung" ? <Loader2 className="size-5 animate-spin" aria-hidden="true" /> : <Send className="size-5" aria-hidden="true" />}
           {questionId ? "Änderungen speichern" : "Frage veröffentlichen"}
         </Button>
+        {!questionId && (
+          <Button type="button" variant="secondary" disabled={pending} size="lg" onClick={handleSubmit((v) => onSubmit({ ...v, kind: "mitteilung" }))}>
+            {pending && sending === "mitteilung" ? <Loader2 className="size-5 animate-spin" aria-hidden="true" /> : <Megaphone className="size-5" aria-hidden="true" />}
+            Etwas mitteilen
+          </Button>
+        )}
       </div>
     </form>
   );

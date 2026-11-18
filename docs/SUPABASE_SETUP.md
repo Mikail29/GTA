@@ -24,10 +24,10 @@ Im Dashboard unter **Project Settings → API** findest du:
 **Variante A – SQL Editor (am einfachsten):**
 1. Im Dashboard **SQL Editor → New query** öffnen.
 2. Inhalt von `supabase/migrations/20261110000000_initial_schema.sql` einfügen und **Run** klicken.
-3. Danach `supabase/migrations/20261110120000_starter_community.sql`, `supabase/migrations/20261110150000_dsa_features.sql` `supabase/migrations/20261116120000_remove_starter.sql` und `supabase/migrations/20261118120000_retention.sql` genauso ausführen (in dieser Reihenfolge).
+3. Danach `supabase/migrations/20261110120000_starter_community.sql`, `supabase/migrations/20261110150000_dsa_features.sql` `supabase/migrations/20261116120000_remove_starter.sql`, `supabase/migrations/20261118120000_retention.sql` und `supabase/migrations/20261119120000_mitteilungen_ohne_mindestlaenge.sql` genauso ausführen (in dieser Reihenfolge).
 4. Zum Schluss `supabase/seed.sql` ausführen. Das legt die Kategorien und einen Demo-Entwurf für den Admin-Bereich an.
 
-> **Datenbank schon eingerichtet?** Dann führe nur noch `supabase/migrations/20261116120000_remove_starter.sql` und danach `supabase/migrations/20261118120000_retention.sql` aus. Die zweite Datei setzt die Speicherfristen aus der Datenschutzerklärung um (alte Meldungen und ausgeblendete Beiträge nach 6 Monaten, Benachrichtigungen nach 12 Monaten; das Löschen läuft automatisch, wenn ein Admin „Verwaltung → Meldungen“ öffnet).
+> **Datenbank schon eingerichtet?** Dann führe nur noch die Dateien aus, die noch fehlen: `20261116120000_remove_starter.sql`, `20261118120000_retention.sql` und `20261119120000_mitteilungen_ohne_mindestlaenge.sql` (Knopf „Etwas mitteilen“, keine Mindestlänge mehr für Titel, Text und Antworten). Die zweite Datei setzt die Speicherfristen aus der Datenschutzerklärung um (alte Meldungen und ausgeblendete Beiträge nach 6 Monaten, Benachrichtigungen nach 12 Monaten; das Löschen läuft automatisch, wenn ein Admin „Verwaltung → Meldungen“ öffnet).
 >
 > Zur ersten Datei: Sie entfernt den früheren Bereich „GTA 6 Starter“: Die 6 Team-Threads werden gelöscht, eigene Fragen von Nutzern aus diesem Bereich wandern nach „Allgemeine Fragen“. Die Datei kann gefahrlos mehrfach ausgeführt werden.
 
@@ -107,6 +107,7 @@ psql -d gta_test -f supabase/migrations/20261110120000_starter_community.sql
 psql -d gta_test -f supabase/migrations/20261110150000_dsa_features.sql
 psql -d gta_test -f supabase/migrations/20261116120000_remove_starter.sql
 psql -d gta_test -f supabase/migrations/20261118120000_retention.sql
+psql -d gta_test -f supabase/migrations/20261119120000_mitteilungen_ohne_mindestlaenge.sql
 psql -d gta_test -f supabase/tests/01_rls_test.sql      # alle Zeilen "T.. : true"
 psql -d gta_test -f supabase/seed.sql
 psql -d gta_test -f supabase/tests/02_pinned_test.sql   # alle Zeilen "P.. : true"

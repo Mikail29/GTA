@@ -7,21 +7,23 @@ const categorySlugs = communityCategories.map((c) => c.slug) as [string, ...stri
 const clean = (s: string) => s.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "").trim();
 
 export const questionSchema = z.object({
-  title: z.string().transform(clean).pipe(z.string().min(10, "Der Titel muss mindestens 10 Zeichen lang sein.").max(140, "Der Titel darf höchstens 140 Zeichen lang sein.")),
-  body: z.string().transform(clean).pipe(z.string().min(20, "Bitte beschreibe deine Frage mit mindestens 20 Zeichen.").max(5000, "Die Frage darf höchstens 5000 Zeichen lang sein.")),
+  title: z.string().transform(clean).pipe(z.string().min(1, "Bitte gib einen Titel ein.").max(140, "Der Titel darf höchstens 140 Zeichen lang sein.")),
+  body: z.string().transform(clean).pipe(z.string().max(5000, "Der Text darf höchstens 5000 Zeichen lang sein.")),
   category: z.enum(categorySlugs, { message: "Bitte wähle eine Kategorie." }),
+  /** „frage“ oder „mitteilung“ (Knopf „Etwas mitteilen“). */
+  kind: z.enum(["frage", "mitteilung"]).optional(),
   website: z.string().max(0).optional(),
 });
 
 export const answerSchema = z.object({
   questionId: z.string().uuid("Ungültige Frage."),
-  body: z.string().transform(clean).pipe(z.string().min(5, "Die Antwort muss mindestens 5 Zeichen lang sein.").max(5000, "Die Antwort darf höchstens 5000 Zeichen lang sein.")),
+  body: z.string().transform(clean).pipe(z.string().min(1, "Bitte schreib eine Antwort.").max(5000, "Die Antwort darf höchstens 5000 Zeichen lang sein.")),
   website: z.string().max(0).optional(),
 });
 
 export const commentSchema = z.object({
   answerId: z.string().uuid(),
-  body: z.string().transform(clean).pipe(z.string().min(2, "Der Kommentar ist zu kurz.").max(1000, "Der Kommentar darf höchstens 1000 Zeichen lang sein.")),
+  body: z.string().transform(clean).pipe(z.string().min(1, "Bitte schreib eine Antwort.").max(1000, "Der Kommentar darf höchstens 1000 Zeichen lang sein.")),
 });
 
 export const reportReasons = ["spam", "beleidigung", "spoiler", "falschinfo", "illegal", "sonstiges"] as const;

@@ -19,7 +19,7 @@ export interface ClipChannel {
 }
 
 export const clipChannels: ClipChannel[] = [
-  { platform: "youtube", name: "YouTube", text: "Längere Videos, Trailer, Erklärungen und Highlights." },
-  { platform: "instagram", name: "Instagram", text: "Kurze Clips, Reels und Bilder aus Vice City." },
-  { platform: "tiktok", name: "TikTok", text: "Schnelle Clips, Tricks und lustige Momente." },
+  { platform: "youtube", name: "YouTube", text: "Längere Videos, Trailer, Erklärungen und Highlights.", url: "https://www.youtube.com/@5SterneKompass" },
+  { platform: "instagram", name: "Instagram", text: "Kurze Clips, Reels und Bilder aus Vice City.", url: "https://www.instagram.com/5sternekompass" },
+  { platform: "tiktok", name: "TikTok", text: "Schnelle Clips, Tricks und lustige Momente.", url: "https://www.tiktok.com/@5sternekompass" },
 ];

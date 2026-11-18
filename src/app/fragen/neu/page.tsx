@@ -17,7 +17,7 @@ export default async function NeueFragePage() {
 
   return (
     <>
-      <PageHeader title="Frage stellen" text="Beschreibe dein Anliegen möglichst genau – so bekommst du schneller hilfreiche Antworten." crumbs={[{ href: "/fragen", label: "Fragen" }, { label: "Neue Frage" }]} />
+      <PageHeader title="Frage stellen" text="Stell eine Frage – oder tippe unten auf „Etwas mitteilen“, wenn du einfach etwas mit der Community teilen möchtest." crumbs={[{ href: "/fragen", label: "Fragen" }, { label: "Neue Frage" }]} />
       <Container className="grid max-w-3xl gap-6 py-10">
         {!configured ? (
           <CommunityDemoNotice />
