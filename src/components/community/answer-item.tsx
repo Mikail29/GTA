@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import Link from "next/link";
 import { Loader2, MessageCircle, Pencil } from "lucide-react";
 import { Avatar } from "./avatar";
 import { LikeButton } from "./like-button";
@@ -78,10 +79,16 @@ export function AnswerItem({ answer, comments, liked, viewer, demo }: { answer: 
 
       <div className="mt-4 flex flex-wrap items-center gap-1">
         <LikeButton targetType="answer" targetId={answer.id} questionId={answer.question_id} count={answer.likes_count} liked={liked} canInteract={canInteract} />
-        {canInteract && (
+        {canInteract ? (
           <button type="button" onClick={() => setCommentOpen((v) => !v)} className="inline-flex h-8 items-center gap-1.5 rounded-full px-2 text-xs text-muted hover:text-white" aria-expanded={commentOpen}>
-            <MessageCircle className="size-3.5" aria-hidden="true" /> Kommentieren
+            <MessageCircle className="size-3.5" aria-hidden="true" /> Antworten
           </button>
+        ) : (
+          !demo && (
+            <Link href={`/login?next=/fragen/${answer.question_id}`} className="inline-flex h-8 items-center gap-1.5 rounded-full px-2 text-xs text-muted hover:text-white">
+              <MessageCircle className="size-3.5" aria-hidden="true" /> Antworten
+            </Link>
+          )
         )}
         {canEdit && !editing && (
           <button type="button" onClick={() => setEditing(true)} className="inline-flex h-8 items-center gap-1.5 rounded-full px-2 text-xs text-muted hover:text-white">
@@ -113,12 +120,12 @@ export function AnswerItem({ answer, comments, liked, viewer, demo }: { answer: 
           {commentOpen && (
             <div className="grid gap-2">
               <label htmlFor={`comment-${answer.id}`} className="sr-only">
-                Kommentar schreiben
+                Auf diese Antwort antworten
               </label>
-              <textarea id={`comment-${answer.id}`} value={comment} onChange={(e) => setComment(e.target.value.slice(0, 1000))} rows={2} placeholder="Kurzer Kommentar…" className={inputClass} />
+              <textarea id={`comment-${answer.id}`} value={comment} onChange={(e) => setComment(e.target.value.slice(0, 1000))} rows={2} placeholder={`Antwort an ${answer.author?.username ?? "diese Antwort"}…`} className={inputClass} />
               <div>
                 <Button size="sm" onClick={sendComment} disabled={pending || comment.trim().length < 2}>
-                  Kommentar senden
+                  Antwort senden
                 </Button>
               </div>
             </div>

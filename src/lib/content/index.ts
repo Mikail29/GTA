@@ -67,9 +67,28 @@ export const getNews = () => [...news].sort(byDateDesc);
 export const getNewsItem = (slug: string) => news.find((n) => n.slug === slug);
 
 /** Durchsucht alle redaktionellen Inhalte. */
+
+/** Menüpunkte und wichtige Seiten, damit die Suche auch direkt dorthin führt. */
+const sitePages: { title: string; href: string; excerpt: string; keywords: string }[] = [
+  { title: "Missionen", href: "/missionen", excerpt: "Komplettlösungen zu Haupt- und Nebenmissionen.", keywords: "mission auftrag lösung komplettlösung walkthrough story nebenmission" },
+  { title: "Geheimnisse", href: "/geheimnisse", excerpt: "Easter Eggs, versteckte Orte und Sammelobjekte.", keywords: "geheimnis easter egg versteckt sammelobjekt" },
+  { title: "Interaktive Karte", href: "/karte", excerpt: "Fundorte und Marker in Leonida.", keywords: "karte map orte fundorte leonida vice city" },
+  { title: "Personen & Kontakte", href: "/personen", excerpt: "Hauptfiguren und Kontakte im Spiel.", keywords: "personen figuren charaktere kontakte jason lucia hauptfigur" },
+  { title: "Symbole", href: "/symbole", excerpt: "Symbole auf Karte, Radar und Anzeige erklärt.", keywords: "symbol icon zeichen radar minimap hud anzeige" },
+  { title: "News", href: "/news", excerpt: "Neuigkeiten rund um GTA 6.", keywords: "news neuigkeiten nachrichten aktuell release" },
+  { title: "GTA Online", href: "/online", excerpt: "Infos zum Online-Modus (folgt).", keywords: "online multiplayer mehrspieler" },
+  { title: "Community", href: "/community", excerpt: "Fragen stellen, antworten und mitdiskutieren.", keywords: "community forum fragen antworten hilfe diskussion" },
+  { title: "Frage stellen", href: "/fragen/neu", excerpt: "Eigene Frage an die Community stellen.", keywords: "frage stellen hilfe" },
+  { title: "GTA 6 Clips", href: "/clips", excerpt: "Unsere Kanäle auf YouTube, Instagram und TikTok.", keywords: "clips videos youtube instagram tiktok kanal" },
+  { title: "Kontakt", href: "/kontakt", excerpt: "So erreichst du das Team.", keywords: "kontakt email e-mail team" },
+  { title: "Impressum", href: "/impressum", excerpt: "Wer hinter der Seite steht.", keywords: "impressum betreiber anbieter" },
+  { title: "Datenschutz", href: "/datenschutz", excerpt: "Welche Daten gespeichert werden.", keywords: "datenschutz dsgvo daten privatsphäre" },
+];
+
 export function searchContent(q: string): SearchResult[] {
   if (!q.trim()) return [];
   const results: SearchResult[] = [];
+  for (const p of sitePages.filter((p) => matchesQuery(q, p.title, p.excerpt, p.keywords))) results.push({ type: "Seite", title: p.title, excerpt: p.excerpt, href: p.href });
   for (const m of getMissions({ q })) results.push({ type: "Mission", title: m.title, excerpt: m.excerpt, href: `/missionen/${m.slug}`, status: m.status });
   for (const s of getSecrets({ q })) results.push({ type: "Geheimnis", title: s.title, excerpt: s.excerpt, href: `/geheimnisse/${s.slug}`, status: s.status });
   for (const n of news.filter((n) => matchesQuery(q, n.title, n.excerpt, blocksToText(n.blocks))))

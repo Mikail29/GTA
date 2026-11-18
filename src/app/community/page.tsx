@@ -59,7 +59,7 @@ export default async function CommunityPage() {
                 ))}
               </div>
             ) : (
-              <EmptyState title="Noch keine Fragen" text="Stelle die erste Frage!" action={<LinkButton href="/fragen/neu">Frage stellen</LinkButton>} />
+              <EmptyState title="Noch keine Fragen" text="Stelle die erste Frage – oben über „Frage stellen“." />
             )}
           </section>
           <aside className="grid content-start gap-6">

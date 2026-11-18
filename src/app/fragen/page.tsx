@@ -58,7 +58,7 @@ export default async function FragenPage({ searchParams }: { searchParams: Searc
             </div>
           </>
         ) : (
-          <EmptyState title="Keine Fragen gefunden" text="Ändere die Suche – oder stelle die Frage einfach selbst." action={<LinkButton href="/fragen/neu">Frage stellen</LinkButton>} />
+          <EmptyState title="Keine Fragen gefunden" text="Ändere die Suche – oder stelle die Frage oben über „Frage stellen“ einfach selbst." />
         )}
       </Container>
     </>

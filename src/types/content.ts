@@ -133,7 +133,7 @@ export interface MapLocation {
 
 /** Suchergebnis über alle Rubriken hinweg. */
 export interface SearchResult {
-  type: "Mission" | "Geheimnis" | "News" | "Frage" | "Person" | "Symbol";
+  type: "Seite" | "Mission" | "Geheimnis" | "News" | "Frage" | "Person" | "Symbol";
   title: string;
   excerpt: string;
   href: string;

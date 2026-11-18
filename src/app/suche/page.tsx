@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-const typeAccent = { Mission: "teal", Geheimnis: "violet", News: "sunset", Frage: "teal", Person: "violet", Symbol: "sunset" } as const;
+const typeAccent = { Seite: "pink", Mission: "teal", Geheimnis: "violet", News: "sunset", Frage: "teal", Person: "violet", Symbol: "sunset" } as const;
 
 export default async function SearchPage({ searchParams }: { searchParams: SearchParams }) {
   const q = param((await searchParams).q)?.trim() ?? "";
@@ -43,7 +43,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
             required
             autoFocus
             aria-label="Suchbegriff"
-            placeholder="Suchbegriff eingeben…"
+            placeholder="Suchbegriff eingeben, z. B. „Auto“, „Release“ oder „Map“…"
             className="h-14 w-full rounded-2xl border border-line bg-card pl-12 pr-28 text-base outline-none focus:border-teal"
           />
           <button type="submit" className="absolute right-2 top-1/2 h-10 -translate-y-1/2 rounded-xl bg-gradient-to-r from-pink to-violet px-5 text-sm font-semibold">
@@ -74,7 +74,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
             </p>
             <ul className="grid gap-3">
               {results.map((r) => (
-                <li key={r.href}>
+                <li key={`${r.type}-${r.href}-${r.title}`}>
                   <Link href={r.href} className="surface group block p-5 transition hover:border-pink/40">
                     <div className="mb-2 flex flex-wrap gap-2">
                       <Badge accent={typeAccent[r.type]}>{r.type}</Badge>

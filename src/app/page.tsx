@@ -61,11 +61,13 @@ export default async function HomePage() {
           ) : (
             <EmptyState title="Noch keine Fragen" text="Sei die erste Person, die eine Frage stellt!" action={<LinkButton href="/fragen/neu">Frage stellen</LinkButton>} />
           )}
-          <div className="mt-6 flex justify-center">
-            <LinkButton href="/fragen/neu" variant="secondary">
-              <MessageSquarePlus className="size-4" aria-hidden="true" /> Eigene Frage stellen
-            </LinkButton>
-          </div>
+          {questions.length > 0 && (
+            <div className="mt-6 flex justify-center">
+              <LinkButton href="/fragen/neu" variant="secondary">
+                <MessageSquarePlus className="size-4" aria-hidden="true" /> Frage stellen
+              </LinkButton>
+            </div>
+          )}
         </section>
 
         <section className="mt-16 grid gap-8 lg:grid-cols-2" aria-label="Neueste Beiträge und News">

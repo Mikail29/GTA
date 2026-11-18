@@ -1,0 +1,32 @@
+/**
+ * Gleichbedeutende Wörter für die Suche.
+ * Sucht jemand nach einem Wort aus einer Gruppe, zählen alle Wörter der Gruppe als Treffer.
+ * Alles klein schreiben, ohne Umlaute-Sonderfälle (die Suche gleicht das selbst an).
+ * Neue Gruppen einfach unten ergänzen.
+ */
+export const synonymGroups: string[][] = [
+  ["mission", "auftrag", "quest", "aufgabe", "job", "einsatz"],
+  ["losung", "loesung", "komplettlosung", "walkthrough", "guide", "anleitung", "hilfe", "tipp", "trick"],
+  ["geheimnis", "easter egg", "easteregg", "versteckt", "geheim", "secret", "mysterium"],
+  ["sammelobjekt", "collectible", "sammeln", "fundstuck", "fundort"],
+  ["karte", "map", "landkarte", "ort", "orte", "standort", "gegend", "region"],
+  ["person", "personen", "figur", "charakter", "character", "kontakt", "npc", "hauptfigur", "protagonist"],
+  ["symbol", "icon", "zeichen", "markierung", "marker", "blip", "radar", "minimap", "hud", "anzeige"],
+  ["news", "neuigkeit", "nachricht", "aktuell", "meldung", "update"],
+  ["release", "erscheinen", "erscheint", "erscheinungsdatum", "veroffentlichung", "start", "launch", "wann"],
+  ["vorladen", "preload", "pre-load", "download", "herunterladen", "speicher", "speicherplatz", "gb"],
+  ["edition", "ultimate", "standard", "vorbestellen", "vorbestellung", "pre-order", "preorder", "bonus", "preis", "kaufen"],
+  ["fahrzeug", "auto", "wagen", "car", "motorrad", "boot", "flugzeug", "helikopter"],
+  ["waffe", "weapon", "gewehr", "pistole"],
+  ["polizei", "fahndung", "sterne", "wanted", "cops"],
+  ["geld", "dollar", "cash", "verdienen"],
+  ["online", "multiplayer", "mehrspieler", "gta online"],
+  ["community", "forum", "frage", "fragen", "diskussion"],
+  ["clip", "clips", "video", "youtube", "tiktok", "instagram", "kanal"],
+  ["konsole", "plattform", "ps5", "playstation", "xbox", "pc", "cloud"],
+  ["leonida", "florida", "spielwelt", "vice city", "miami"],
+  ["jason", "jason duval"],
+  ["lucia", "lucia caminos"],
+  ["kontakt", "e-mail", "email", "impressum", "betreiber"],
+  ["datenschutz", "privatsphare", "dsgvo", "daten"],
+];

@@ -7,6 +7,7 @@ import { NavLinks } from "@/components/navigation/nav-links";
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { HeaderSearch } from "@/components/search/header-search";
 import { UserMenu } from "@/components/navigation/user-menu";
+import { BackButton } from "@/components/navigation/back-button";
 import { getSession } from "@/lib/auth/session";
 import { countUnread } from "@/lib/community/notifications";
 
@@ -20,7 +21,8 @@ export async function Header() {
       <a href="#inhalt" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-pink focus:px-4 focus:py-2 focus:text-night">
         Zum Inhalt springen
       </a>
-      <Container className="flex h-16 items-center gap-4">
+      <Container className="flex h-16 items-center gap-3 sm:gap-4">
+        <BackButton />
         <Logo />
         <NavLinks className="ml-2 hidden xl:flex" />
         <div className="ml-auto flex items-center gap-2">

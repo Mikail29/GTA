@@ -2,6 +2,81 @@ import type { NewsItem } from "@/types/content";
 
 export const news: NewsItem[] = [
   {
+    slug: "gta-6-vorladen-und-start",
+    title: "GTA 6 vorladen: So bist du am 19. November startklar",
+    excerpt: "Seit dem 10. November kannst du GTA 6 vorab herunterladen. Der Download ist sehr groß – plane genug Speicherplatz ein.",
+    publishedAt: "2026-11-18",
+    status: "verifiziert",
+    sources: [
+      { label: "Rockstar Newswire: Grand Theft Auto VI Pre-Load Begins on November 10", url: "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10" },
+      { label: "Rockstar Support: Grand Theft Auto VI Platforms, Editions, and Versions", url: "https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions" },
+    ],
+    blocks: [
+      { type: "p", text: "Vorladen heißt: Du lädst das Spiel schon vor dem Start auf deine Konsole. Am Erscheinungstag kannst du dann sofort loslegen, statt erst stundenlang zu warten." },
+      { type: "h2", id: "wann", text: "Ab wann geht das?" },
+      { type: "ul", items: ["PlayStation 5: seit dem 10. November, ab Mitternacht Ortszeit", "Xbox Series X|S: seit dem 10. November, ab 0 Uhr GMT (bei uns 1 Uhr nachts)", "Voraussetzung: Du hast das Spiel digital vorbestellt – oder den Code aus der Box schon eingelöst."] },
+      { type: "h2", id: "speicher", text: "Wie viel Speicher brauche ich?" },
+      { type: "p", text: "Laut Rockstar bis zu 212 GB, je nach Gerät. Mach also vorher genug Platz frei." },
+      { type: "note", tone: "info", title: "Gut zu wissen", text: "In der Box aus dem Laden steckt keine Disc, sondern ein Download-Code. Du brauchst also auch dann eine Internetverbindung und genug Speicher." },
+    ],
+  },
+  {
+    slug: "gta-6-editionen-und-vorbesteller-bonus",
+    title: "Standard oder Ultimate? Die Editionen von GTA 6",
+    excerpt: "GTA 6 gibt es in zwei Editionen. Wer bis zum 20. November digital kauft, bekommt zusätzlich einen Bonus.",
+    publishedAt: "2026-11-18",
+    status: "verifiziert",
+    sources: [
+      { label: "Rockstar Games: Grand Theft Auto VI Editionen", url: "https://www.rockstargames.com/VI/editions" },
+      { label: "Rockstar Support: Grand Theft Auto VI Platforms, Editions, and Versions", url: "https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions" },
+    ],
+    blocks: [
+      { type: "p", text: "Rockstar bietet GTA 6 als Standard Edition und als Ultimate Edition an. Die Ultimate Edition enthält zusätzliche Inhalte im Spiel, zum Beispiel Fahrzeuge, Waffen, Kleidung und Geschäfte." },
+      { type: "ul", items: ["Die Ultimate Edition gibt es nur digital.", "Wer die Standard Edition hat, kann später auf Ultimate aufrüsten (über den PlayStation Store bzw. den Microsoft Store).", "Die Standard Edition aus dem Laden enthält einen Download-Code, keine Disc."] },
+      { type: "h2", id: "bonus", text: "Bonus für schnelle Käufer" },
+      { type: "p", text: "Wer digital vorbestellt oder vor dem 20. November digital kauft, erhält laut Rockstar das „Vintage Vice City Pack“ (ein Oldtimer mit Garage, Outfits, Frisuren und ein besonderes Waffenmuster) und einen Monat GTA+." },
+      { type: "note", tone: "info", title: "Preise", text: "Die Preise unterscheiden sich je nach Land und Händler. Bitte direkt im Store deiner Konsole nachsehen." },
+    ],
+  },
+  {
+    slug: "gta-6-xbox-cloud-gaming",
+    title: "GTA 6 auch per Xbox Cloud Gaming spielbar",
+    excerpt: "Laut Microsoft läuft GTA 6 ab dem ersten Tag auch über Xbox Cloud Gaming – sogar auf der älteren Xbox One.",
+    publishedAt: "2026-11-18",
+    status: "verifiziert",
+    sources: [{ label: "Xbox Wire: Grand Theft Auto VI Comes to Xbox One and Xbox Series X|S Through Xbox Cloud Gaming on November 19", url: "https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/" }],
+    blocks: [
+      { type: "p", text: "Bei Cloud Gaming läuft das Spiel auf einem Rechner im Internet. Deine Konsole zeigt nur das Bild an. So kannst du GTA 6 laut Microsoft ab dem 19. November auch auf einer Xbox One spielen, auf der es sonst nicht läuft." },
+      { type: "note", tone: "info", title: "Was du brauchst", text: "Eine schnelle und stabile Internetverbindung und ein passendes Xbox-Abo. Die genauen Bedingungen stehen bei Microsoft (siehe Quelle)." },
+    ],
+  },
+  {
+    slug: "gta-6-the-festival-miami",
+    title: "„GTA VI: The Festival“ – Konzert zum Start in Miami",
+    excerpt: "Zum Start feiert Rockstar am 21. November mit einem Musikfestival in Miami. Tickets gab es nur per Verlosung.",
+    publishedAt: "2026-11-18",
+    status: "verifiziert",
+    sources: [{ label: "Rockstar Games: Grand Theft Auto VI – The Festival", url: "https://rockstargames.com/VI/gtavi-thefestival" }],
+    blocks: [
+      { type: "p", text: "Rockstar Games und PlayStation veranstalten am Samstag, 21. November 2026, ein eintägiges Musikfestival in Miami (Mana Wynwood). Auf der Bühne stehen unter anderem Travis Scott und Cardi B." },
+      { type: "p", text: "Tickets wurden nur verlost. Die Anmeldung ist bereits geschlossen. Ob es einen Livestream gibt, hat Rockstar bisher nicht angekündigt." },
+    ],
+  },
+  {
+    slug: "leonida-die-spielwelt-von-gta-6",
+    title: "Leonida: Das ist über die Spielwelt bekannt",
+    excerpt: "GTA 6 spielt im erfundenen Bundesstaat Leonida, angelehnt an Florida. Rockstar hat sechs Gegenden offiziell vorgestellt.",
+    publishedAt: "2026-11-18",
+    status: "verifiziert",
+    sources: [{ label: "Rockstar Games – offizielle Seite zu GTA VI", url: "https://www.rockstargames.com/VI" }],
+    blocks: [
+      { type: "p", text: "Leonida ist ein erfundener Bundesstaat der USA, der stark an Florida erinnert. Mittelpunkt ist die Großstadt Vice City." },
+      { type: "h2", id: "gegenden", text: "Die sechs offiziellen Gegenden" },
+      { type: "ul", items: ["Vice City – die große Stadt", "Leonida Keys – eine Inselkette", "Grassrivers", "Port Gellhorn", "Ambrosia", "Mount Kalaga National Park – Nationalpark"] },
+      { type: "note", tone: "warning", title: "Vorsicht bei Karten aus dem Netz", text: "Im Internet kursieren „komplette Karten“ aus Leaks. Sie sind nicht offiziell und können vom fertigen Spiel abweichen. Unsere eigene Karte füllen wir erst nach dem Release mit geprüften Orten." },
+    ],
+  },
+  {
     slug: "gta-6-erscheint-am-19-november-2026",
     title: "GTA 6 erscheint am 19. November 2026",
     excerpt: "Laut Rockstar Games erscheint Grand Theft Auto VI am 19. November 2026 für PlayStation 5 und Xbox Series X|S.",
@@ -10,7 +85,7 @@ export const news: NewsItem[] = [
     sources: [{ label: "Rockstar Newswire: Grand Theft Auto VI is Now Set to Launch November 19, 2026", url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" }],
     blocks: [
       { type: "p", text: "Rockstar Games hat den Release von Grand Theft Auto VI für Donnerstag, den 19. November 2026 angekündigt. Das Spiel erscheint für PlayStation 5 und Xbox Series X|S." },
-      { type: "note", tone: "info", title: "Stand: 10. November 2026", text: "Termine können sich ändern. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games (siehe Quelle unten)." },
+      { type: "note", tone: "info", title: "Stand: 18. November 2026", text: "Eine weitere Verschiebung ist nicht angekündigt. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games (siehe Quelle unten)." },
       { type: "h2", id: "community", text: "Gemeinsam starten" },
       { type: "p", text: "In unserer Community kannst du schon jetzt Fragen stellen und dich mit anderen auf den Release vorbereiten." },
     ],
