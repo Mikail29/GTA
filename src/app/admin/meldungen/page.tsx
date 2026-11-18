@@ -8,6 +8,7 @@ import { resolveReportAction } from "@/lib/admin/actions";
 import { moderationReasons, reportReasonLabels } from "@/lib/validations/community";
 import { formatDateTime } from "@/lib/utils/format";
 import { param, type SearchParams } from "@/lib/utils/params";
+import { hasRole } from "@/lib/auth/session";
 
 interface ReportRow {
   id: string;
@@ -26,8 +27,14 @@ const tableFor = { question: "questions", answer: "answers", comment: "comments"
 const typeLabel = { question: "Frage", answer: "Antwort", comment: "Kommentar" } as const;
 
 export default async function MeldungenPage({ searchParams }: { searchParams: SearchParams }) {
-  const { supabase } = await requireStaff("moderator");
+  const { supabase, session } = await requireStaff("moderator");
   if (!supabase) return null;
+
+  // Speicherfristen aus der Datenschutzerklärung umsetzen: alte erledigte Meldungen und
+  // ausgeblendete Beiträge (6 Monate) sowie Benachrichtigungen (12 Monate) löschen.
+  // Nur für Admins; ein Fehler (z. B. Migration noch nicht eingespielt) blockiert die Seite nicht.
+  const isAdmin = hasRole(session, "admin");
+  if (isAdmin) await supabase.rpc("cleanup_old_data");
   const status = param((await searchParams).status) === "alle" ? "alle" : "offen";
 
   let query = supabase
@@ -49,6 +56,11 @@ export default async function MeldungenPage({ searchParams }: { searchParams: Se
         <div>
           <h1 className="text-3xl font-bold">Gemeldete Inhalte</h1>
           <p className="mt-1 text-muted">Prüfe Meldungen, blende Inhalte aus oder lehne Meldungen ab.</p>
+          {isAdmin && (
+            <p className="mt-1 text-xs text-muted">
+              Beim Öffnen dieser Seite werden alte Daten automatisch gelöscht: erledigte Meldungen und ausgeblendete Beiträge nach 6 Monaten, Benachrichtigungen nach 12 Monaten.
+            </p>
+          )}
         </div>
         <div className="flex gap-2 text-sm">
           <Link href="/admin/meldungen" className={status === "offen" ? "text-pink" : "text-muted hover:text-white"}>

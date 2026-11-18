@@ -2,7 +2,7 @@ import { missions } from "@/data/missions";
 import { secrets } from "@/data/secrets";
 import { news } from "@/data/news";
 import { contacts } from "@/data/contacts";
-import { shops } from "@/data/shops";
+import { symbols } from "@/data/symbols";
 import { blocksToText, matchesQuery } from "@/lib/utils/format";
 import type { Mission, SearchResult, Secret, VerificationStatus } from "@/types/content";
 
@@ -76,8 +76,8 @@ export function searchContent(q: string): SearchResult[] {
     results.push({ type: "News", title: n.title, excerpt: n.excerpt, href: `/news/${n.slug}`, status: n.status });
   for (const c of contacts.filter((c) => matchesQuery(q, c.name, c.helpsWith, c.location, c.phone)))
     results.push({ type: "Person", title: c.name, excerpt: c.helpsWith, href: `/personen#${c.category}`, status: c.status });
-  for (const s of shops.filter((s) => matchesQuery(q, s.name, s.description, s.location)))
-    results.push({ type: "Laden", title: s.name, excerpt: s.description, href: `/laeden#${s.category}`, status: s.status });
+  for (const s of symbols.filter((s) => matchesQuery(q, s.name, s.meaning, s.looks, s.where)))
+    results.push({ type: "Symbol", title: s.name, excerpt: s.meaning, href: `/symbole#${s.category}`, status: s.status });
   return results;
 }
 

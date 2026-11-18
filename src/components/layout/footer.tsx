@@ -11,7 +11,7 @@ const columns = [
       { href: "/geheimnisse", label: "Geheimnisse" },
       { href: "/karte", label: "Interaktive Karte" },
       { href: "/personen", label: "Personen & Kontakte" },
-      { href: "/laeden", label: "Läden" },
+      { href: "/symbole", label: "Symbole" },
       { href: "/news", label: "News" },
       { href: "/online", label: "GTA 6 Online (bald)" },
     ],

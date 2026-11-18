@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 
 export default function NutzungsbedingungenPage() {
   return (
-    <LegalPage title="Nutzungsbedingungen" text="Die Regeln für die Nutzung vom 5-Sterne-Kompass und der Community." crumb="Nutzungsbedingungen">
+    <LegalPage title="Nutzungsbedingungen" text="Die Regeln für die Nutzung vom 5-Sterne-Kompass und der Community." crumb="Nutzungsbedingungen" review={false}>
       <h2 id="geltung">1. Geltungsbereich</h2>
       <p>
-        Diese Bedingungen gelten für die Nutzung der Website 5-Sterne-Kompass, insbesondere der Community (Fragen, Antworten, Kommentare, Likes und Meldungen). Anbieter ist{" "}
-        <Placeholder>Name und Anschrift wie im Impressum</Placeholder>. {siteConfig.disclaimer}
+        Diese Bedingungen gelten für die Nutzung der Website 5-Sterne-Kompass, insbesondere der Community (Fragen, Antworten, Kommentare, Likes und Meldungen). Anbieter ist der 5-Sterne-Kompass, vertreten durch Mikail Koyun und Jamie Can Koyun, Mühlenweg 35, 57555 Mudersbach (siehe{" "}
+        <Link href="/impressum">Impressum</Link>). {siteConfig.disclaimer}
       </p>
 
       <h2 id="konto">2. Benutzerkonto und Mindestalter</h2>
@@ -87,8 +87,13 @@ export default function NutzungsbedingungenPage() {
 
       <h2 id="haftung">10. Verfügbarkeit und Haftung</h2>
       <p>
-        Der 5-Sterne-Kompass ist ein kostenloses Fanprojekt. Wir bemühen uns um korrekte Informationen und eine gute Erreichbarkeit, können beides aber nicht garantieren.{" "}
-        <Placeholder>Haftungsregelung – rechtlich prüfen lassen</Placeholder>
+        Der 5-Sterne-Kompass ist ein kostenloses Fanprojekt. Wir bemühen uns um korrekte Informationen und eine gute Erreichbarkeit, können beides aber nicht garantieren. Einen Anspruch auf eine
+        bestimmte Verfügbarkeit oder darauf, dass die Website dauerhaft bestehen bleibt, gibt es nicht.
+      </p>
+      <p>
+        Wir haften unbeschränkt für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit sowie für Schäden, die wir vorsätzlich oder grob fahrlässig verursachen. Bei leichter
+        Fahrlässigkeit haften wir nur, wenn wir eine wesentliche Pflicht verletzen, auf deren Einhaltung du regelmäßig vertrauen darfst, und dann nur für den typischen, vorhersehbaren Schaden. Im Übrigen
+        ist die Haftung ausgeschlossen. Zwingende gesetzliche Haftungsregeln, etwa nach dem Produkthaftungsgesetz, bleiben unberührt.
       </p>
 
       <h2 id="aenderungen">11. Änderungen</h2>
@@ -96,9 +101,7 @@ export default function NutzungsbedingungenPage() {
         Wir können diese Bedingungen ändern, zum Beispiel bei neuen Funktionen oder geänderter Rechtslage. Über wesentliche Änderungen informieren wir rechtzeitig vorher.
       </p>
 
-      <p>
-        Stand: <Placeholder>Datum</Placeholder>
-      </p>
+      <p>Gültig ab 19. November 2026</p>
     </LegalPage>
   );
 }

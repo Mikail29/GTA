@@ -9,7 +9,7 @@ const tiles: { href: string; title: string; text: string; icon: IconName; accent
   { href: "/community", title: "Community", text: "Fragen stellen, Antworten geben und gemeinsam rätseln.", icon: "users", accent: "pink" },
   { href: "/missionen", title: "Missionen", text: "Komplettlösungen Schritt für Schritt – mit Spoiler-Warnung.", icon: "target", accent: "sunset" },
   { href: "/personen", title: "Personen & Kontakte", text: "Wer dir im Spiel hilft – mit Telefonnummern im Spiel (ab Release).", icon: "users", accent: "violet" },
-  { href: "/laeden", title: "Läden", text: "Waffen, Kleidung, Fahrzeuge und mehr – wo du was kaufst (ab Release).", icon: "building", accent: "sunset" },
+  { href: "/symbole", title: "Symbole", text: "Was bedeutet welches Zeichen auf Karte, Radar und Anzeige? Alle Symbole erklärt (ab Release).", icon: "shapes", accent: "sunset" },
   { href: "/geheimnisse", title: "Geheimnisse", text: "Easter Eggs, versteckte Orte und seltene Fahrzeuge.", icon: "key", accent: "violet" },
 ];
 

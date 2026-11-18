@@ -29,7 +29,7 @@ export const mainNav: NavItem[] = [
     children: [
       { href: "/karte", label: "Interaktive Karte", description: "Fundorte und Marker" },
       { href: "/personen", label: "Personen & Kontakte", description: "Wer dir im Spiel hilft" },
-      { href: "/laeden", label: "Läden", description: "Waffen, Kleidung und mehr" },
+      { href: "/symbole", label: "Symbole", description: "Karte, Radar und Anzeige erklärt" },
     ],
   },
   { href: "/news", label: "News" },

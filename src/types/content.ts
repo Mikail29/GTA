@@ -50,7 +50,12 @@ export type IconName =
   | "plane"
   | "anchor"
   | "flame"
-  | "eye";
+  | "eye"
+  | "star"
+  | "shield"
+  | "heart"
+  | "compass"
+  | "shapes";
 
 /** Farbschema für Platzhalter-Vorschaubilder. */
 export type Accent = "pink" | "teal" | "violet" | "sunset";
@@ -128,7 +133,7 @@ export interface MapLocation {
 
 /** Suchergebnis über alle Rubriken hinweg. */
 export interface SearchResult {
-  type: "Mission" | "Geheimnis" | "News" | "Frage" | "Person" | "Laden";
+  type: "Mission" | "Geheimnis" | "News" | "Frage" | "Person" | "Symbol";
   title: string;
   excerpt: string;
   href: string;
@@ -151,14 +156,23 @@ export interface Contact {
   source?: { label: string; url: string };
 }
 
-/** Laden im Spiel (z. B. Waffen, Kleidung). */
-export interface Shop {
+/**
+ * Symbol im Spiel (Karte, Radar, Anzeige).
+ * Wir zeigen keine Original-Grafiken aus dem Spiel, sondern beschreiben das Symbol
+ * und stellen es mit einem eigenen, vereinfachten Zeichen dar.
+ */
+export interface GameSymbol {
   slug: string;
   name: string;
   category: string;
-  description: string;
-  location?: string;
-  mapLocationId?: string;
+  /** Eigenes, vereinfachtes Zeichen für die Darstellung auf der Website. */
+  icon: IconName;
+  /** So sieht das Symbol im Spiel aus (Beschreibung in eigenen Worten). */
+  looks: string;
+  /** Das bedeutet das Symbol. */
+  meaning: string;
+  /** Wo es auftaucht, z. B. Karte, Radar oder Anzeige. */
+  where?: string;
   status: VerificationStatus;
   source?: { label: string; url: string };
 }

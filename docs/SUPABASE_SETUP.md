@@ -24,10 +24,12 @@ Im Dashboard unter **Project Settings → API** findest du:
 **Variante A – SQL Editor (am einfachsten):**
 1. Im Dashboard **SQL Editor → New query** öffnen.
 2. Inhalt von `supabase/migrations/20261110000000_initial_schema.sql` einfügen und **Run** klicken.
-3. Danach `supabase/migrations/20261110120000_starter_community.sql`, `supabase/migrations/20261110150000_dsa_features.sql` und `supabase/migrations/20261116120000_remove_starter.sql` genauso ausführen (in dieser Reihenfolge).
+3. Danach `supabase/migrations/20261110120000_starter_community.sql`, `supabase/migrations/20261110150000_dsa_features.sql` `supabase/migrations/20261116120000_remove_starter.sql` und `supabase/migrations/20261118120000_retention.sql` genauso ausführen (in dieser Reihenfolge).
 4. Zum Schluss `supabase/seed.sql` ausführen. Das legt die Kategorien und einen Demo-Entwurf für den Admin-Bereich an.
 
-> **Datenbank schon eingerichtet?** Dann führe nur noch `supabase/migrations/20261116120000_remove_starter.sql` aus. Sie entfernt den früheren Bereich „GTA 6 Starter“: Die 6 Team-Threads werden gelöscht, eigene Fragen von Nutzern aus diesem Bereich wandern nach „Allgemeine Fragen“. Die Datei kann gefahrlos mehrfach ausgeführt werden.
+> **Datenbank schon eingerichtet?** Dann führe nur noch `supabase/migrations/20261116120000_remove_starter.sql` und danach `supabase/migrations/20261118120000_retention.sql` aus. Die zweite Datei setzt die Speicherfristen aus der Datenschutzerklärung um (alte Meldungen und ausgeblendete Beiträge nach 6 Monaten, Benachrichtigungen nach 12 Monaten; das Löschen läuft automatisch, wenn ein Admin „Verwaltung → Meldungen“ öffnet).
+>
+> Zur ersten Datei: Sie entfernt den früheren Bereich „GTA 6 Starter“: Die 6 Team-Threads werden gelöscht, eigene Fragen von Nutzern aus diesem Bereich wandern nach „Allgemeine Fragen“. Die Datei kann gefahrlos mehrfach ausgeführt werden.
 
 **Variante B – Supabase CLI:**
 ```bash
@@ -47,7 +49,7 @@ Unter **Authentication → URL Configuration**:
 
 Unter **Authentication → Providers → Email**:
 
-- „Confirm email“ **aktiviert** lassen (E-Mail-Bestätigung schützt vor Spam).
+- „Confirm email“: Die Website funktioniert mit und ohne Bestätigungs-Mail. Ohne Bestätigung ist ein neues Konto sofort angemeldet (aktuelle Einstellung des Betreibers); mit Bestätigung ist der Schutz vor Spam-Konten größer.
 - Empfehlung: minimale Passwortlänge auf 10 setzen (entspricht der Prüfung im Formular).
 
 Unter **Authentication → Emails → SMTP Settings**: Für den Live-Betrieb einen eigenen SMTP-Anbieter eintragen. Der eingebaute E-Mail-Versand von Supabase ist nur für Tests gedacht und stark begrenzt.
@@ -104,10 +106,12 @@ psql -d gta_test -f supabase/migrations/20261110000000_initial_schema.sql
 psql -d gta_test -f supabase/migrations/20261110120000_starter_community.sql
 psql -d gta_test -f supabase/migrations/20261110150000_dsa_features.sql
 psql -d gta_test -f supabase/migrations/20261116120000_remove_starter.sql
+psql -d gta_test -f supabase/migrations/20261118120000_retention.sql
 psql -d gta_test -f supabase/tests/01_rls_test.sql      # alle Zeilen "T.. : true"
 psql -d gta_test -f supabase/seed.sql
 psql -d gta_test -f supabase/tests/02_pinned_test.sql   # alle Zeilen "P.. : true"
 psql -d gta_test -f supabase/tests/03_dsa_test.sql      # alle Zeilen "D.. : true"
+psql -d gta_test -f supabase/tests/04_retention_test.sql # alle Zeilen "R.. : true"
 ```
 
 ## Pflichten als Betreiber im Alltag (Digital Services Act)

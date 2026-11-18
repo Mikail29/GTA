@@ -1,6 +1,6 @@
 # PROJECT_STATUS – 5-Sterne-Kompass
 
-Stand: 16.11.2026 · Version 0.4.0
+Stand: 18.11.2026 · Version 0.5.0
 
 ## Phasen
 
@@ -49,7 +49,7 @@ Nach dem Release sollen Ratgeber, Missionen, Fundorte und Karte mit echten Infor
 
 Nach dem Release zu füllen (Struktur ist fertig):
 - `src/data/contacts.ts` – Personen & Kontakte (Name, Kategorie, wobei sie helfen, Telefonnummer im Spiel, Fundort, Status, Quelle)
-- `src/data/shops.ts` – Läden (Name, Kategorie, Beschreibung, Fundort, Status, Quelle)
+- `src/data/symbols.ts` – Symbole (Name, Kategorie, eigenes Zeichen, Aussehen im Spiel in eigenen Worten, Bedeutung, Fundort, Status, Quelle). **Keine Original-Grafiken aus dem Spiel verwenden.**
 - `/online` – GTA 6 Online, sobald verfügbar („Bald“-Kennzeichnung im Menü dann entfernen: `soon` in `src/lib/site.ts`)
 
 ## Offene Funktionen / nächste Schritte
@@ -85,6 +85,9 @@ Nach dem Release zu füllen (Struktur ist fertig):
 - **Demo-Modus ohne externe Dienste:** Die Seite ist ohne Supabase/KI voll navigierbar und zeigt verständliche Hinweise.
 - **Inhalte als strukturierte Blöcke** statt HTML/Markdown → kein XSS-Risiko, Inhaltsverzeichnis automatisch.
 - **KI-Assistent entfernt** (Version 0.2.0) auf Wunsch des Betreibers; Datenschutzerklärung und Umgebungsvariablen entsprechend bereinigt.
+- **Rechtstexte ausgefüllt (0.5.0):** Impressum, Datenschutzerklärung und Nutzungsbedingungen enthalten die Betreiberangaben, die Dienstleister (Netlify, Supabase, IONOS), die zuständige Aufsichtsbehörde (LfDI Rheinland-Pfalz) und die Speicherfristen. Die externe Prüfung (Generator oder Anwalt) bleibt Aufgabe des Betreibers.
+- **Speicherfristen technisch umgesetzt (0.5.0):** Migration `20261118120000_retention.sql` – `hidden_at` merkt sich das Ausblenden; `cleanup_old_data()` löscht erledigte Meldungen und ausgeblendete Beiträge nach 6 Monaten sowie Benachrichtigungen nach 12 Monaten. Läuft automatisch, wenn ein Admin „Verwaltung → Meldungen“ öffnet. IP-Adressen im Rate-Limit werden spätestens nach etwa einer Stunde aus dem Arbeitsspeicher entfernt.
+- **Symbole statt Läden (0.5.0):** Der Bereich „Läden“ wurde durch „Symbole“ ersetzt (Karte, Radar, Anzeige). Läden erscheinen dort als Kategorie „Läden & Dienste“.
 - **Kompaktere Startseite (0.4.0):** Auf Wunsch des Betreibers wurden „Tipps & Tricks“ (alle Ratgeber-Seiten) und der Bereich „GTA 6 Starter“ komplett entfernt. Die Community steht auf der Startseite direkt unter dem Schnellzugriff; „Neueste Beiträge“ (aus Missionen und Geheimnissen) und News sind kürzer. Die Migration `20261116120000_remove_starter.sql` löscht die 6 Team-Threads und verschiebt eigene Fragen von Nutzern nach „Allgemeine Fragen“ (getestet mit frischer und bereits befüllter Datenbank). Die Datenbank-Tabelle `articles` und das Anheften durch Moderation bleiben bestehen.
 - **Fehlerbehebung (0.3.0):** Zwei Datenbankfehler behoben: Konten mit Beiträgen ließen sich nicht löschen, und das Ausblenden von Antworten brach ab (Zugriff auf ein nur bei Fragen vorhandenes Feld).
 - **Kein Tracking**, daher kein einwilligungspflichtiges Cookie-Banner nötig; nur ein Informationshinweis.

@@ -9,6 +9,15 @@ import "server-only";
  */
 const buckets = new Map<string, number[]>();
 
+/** Längstes verwendetes Zeitfenster. Einträge (sie enthalten z. B. die IP-Adresse) werden danach gelöscht. */
+const MAX_AGE_MS = 60 * 60_000;
+let lastSweep = 0;
+
+function sweep(now: number) {
+  for (const [k, v] of buckets) if (v.every((t) => now - t >= MAX_AGE_MS)) buckets.delete(k);
+  lastSweep = now;
+}
+
 export function rateLimit(key: string, limit: number, windowMs: number) {
   const now = Date.now();
   const hits = (buckets.get(key) ?? []).filter((t) => now - t < windowMs);
@@ -20,10 +29,8 @@ export function rateLimit(key: string, limit: number, windowMs: number) {
   hits.push(now);
   buckets.set(key, hits);
 
-  // Speicher gelegentlich aufräumen
-  if (buckets.size > 5000) {
-    for (const [k, v] of buckets) if (v.every((t) => now - t >= windowMs)) buckets.delete(k);
-  }
+  // Alte Einträge spätestens jede Minute aufräumen (Datenschutz: IP-Adressen nur kurzzeitig im Speicher)
+  if (now - lastSweep > 60_000 || buckets.size > 5000) sweep(now);
   return { ok: true as const, remaining: limit - hits.length };
 }
 

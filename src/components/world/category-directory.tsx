@@ -3,13 +3,17 @@ import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
 import { StatusBadge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils/cn";
-import type { Accent, Category, VerificationStatus } from "@/types/content";
+import type { Accent, Category, IconName, VerificationStatus } from "@/types/content";
 
 export interface DirectoryEntry {
   slug: string;
   title: string;
   category: string;
   text: string;
+  /** Eigenes, vereinfachtes Zeichen (z. B. für Symbole). */
+  icon?: IconName;
+  /** Beschreibung, wie es im Spiel aussieht. */
+  looks?: string;
   phone?: string;
   location?: string;
   mapLocationId?: string;
@@ -50,10 +54,25 @@ export function CategoryDirectory({ categories, entries, emptyText }: { categori
                 {items.map((e) => (
                   <li key={e.slug} className="rounded-2xl border border-line bg-night-2/60 p-4">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <p className="font-semibold">{e.title}</p>
+                      <p className="flex items-center gap-2 font-semibold">
+                        {e.icon && (
+                          <span className={cn("grid size-8 shrink-0 place-items-center rounded-xl", accentIcon[cat.accent])}>
+                            <Icon name={e.icon} className="size-4" />
+                          </span>
+                        )}
+                        {e.title}
+                      </p>
                       <StatusBadge status={e.status} />
                     </div>
-                    <p className="mt-1 text-sm text-muted">{e.text}</p>
+                    {e.looks && (
+                      <p className="mt-2 text-sm">
+                        <span className="font-semibold">Aussehen im Spiel:</span> <span className="text-muted">{e.looks}</span>
+                      </p>
+                    )}
+                    <p className="mt-1 text-sm text-muted">
+                      {e.looks && <span className="font-semibold text-white">Bedeutung: </span>}
+                      {e.text}
+                    </p>
                     <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
                       {e.phone && (
                         <span className="inline-flex items-center gap-1">
