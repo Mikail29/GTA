@@ -8,3 +8,4 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 ## November 2026
 - bis 18.11.: geschätzt 7 Neubauten (Einrichtung, Probelauf, Startseite, Rechtstexte, Clips, Zurück-Knopf/News) – mit Netlify Usage abgleichen
 - 18.11.: Neubau, damit die Registrierung den genauen Fehlergrund (Code) anzeigt (Fehlersuche Registrierung)
+- 18.11.: Neubau mit Fix: Supabase-Adresse wird auf den Grundteil gekürzt (Registrierung scheiterte mit HTTP 404)

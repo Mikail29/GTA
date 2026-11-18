@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils/cn";
+import { supabaseUrl } from "@/lib/env";
 
 const palette = ["from-pink to-violet", "from-teal to-violet", "from-sunset to-pink", "from-violet to-teal"];
 
 /** Nur Bilder aus dem eigenen Supabase-Speicher anzeigen (Schutz vor fremden URLs). */
 function isTrustedAvatar(url: string) {
-  const base = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  return Boolean(base && url.startsWith(`${base.replace(/\/$/, "")}/storage/v1/object/public/avatars/`));
+  const base = supabaseUrl();
+  return Boolean(base && url.startsWith(`${base}/storage/v1/object/public/avatars/`));
 }
 
 export function Avatar({ name, url, size = 40, className }: { name: string; url: string | null; size?: number; className?: string }) {

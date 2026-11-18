@@ -1,7 +1,7 @@
 import "server-only";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
-import { isSupabaseConfigured } from "@/lib/env";
+import { isSupabaseConfigured, supabaseUrl } from "@/lib/env";
 
 /**
  * Supabase-Client für Server Components, Server Actions und Route Handler.
@@ -13,7 +13,7 @@ export async function createSupabaseServerClient() {
   if (!isSupabaseConfigured()) return null;
   const cookieStore = await cookies();
 
-  return createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
+  return createServerClient(supabaseUrl()!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
     cookies: {
       getAll() {
         return cookieStore.getAll();
