@@ -79,6 +79,7 @@ const sitePages: { title: string; href: string; excerpt: string; keywords: strin
   { title: "GTA Online", href: "/online", excerpt: "Infos zum Online-Modus (folgt).", keywords: "online multiplayer mehrspieler" },
   { title: "Community", href: "/community", excerpt: "Fragen stellen, antworten und mitdiskutieren.", keywords: "community forum fragen antworten hilfe diskussion" },
   { title: "Frage stellen", href: "/fragen/neu", excerpt: "Eigene Frage an die Community stellen.", keywords: "frage stellen hilfe" },
+  { title: "Etwas mitteilen", href: "/fragen/neu?art=mitteilung", excerpt: "Tipp, Entdeckung oder Info mit der Community teilen.", keywords: "mitteilen mitteilung teilen tipp entdeckung info beitrag" },
   { title: "GTA 6 Clips", href: "/clips", excerpt: "Unsere Kanäle auf YouTube, Instagram und TikTok.", keywords: "clips videos youtube instagram tiktok kanal" },
   { title: "Kontakt", href: "/kontakt", excerpt: "So erreichst du das Team.", keywords: "kontakt email e-mail team" },
   { title: "Impressum", href: "/impressum", excerpt: "Wer hinter der Seite steht.", keywords: "impressum betreiber anbieter" },

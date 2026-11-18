@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Clock, Globe, MessageSquarePlus } from "lucide-react";
+import { Clock, Globe } from "lucide-react";
 import { Hero } from "@/components/home/hero";
 import { QuickAccess } from "@/components/home/quick-access";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { QuestionCard } from "@/components/cards/question-card";
-import { LinkButton } from "@/components/ui/button";
 import { StatusBadge } from "@/components/ui/badge";
+import { AskButtons } from "@/components/community/ask-buttons";
 import { EmptyState } from "@/components/ui/empty-state";
 import { getLatestEntries, getNews } from "@/lib/content";
 import { listQuestions } from "@/lib/community/queries";
@@ -59,15 +59,9 @@ export default async function HomePage() {
               ))}
             </div>
           ) : (
-            <EmptyState title="Noch keine Fragen" text="Sei die erste Person, die eine Frage stellt!" action={<LinkButton href="/fragen/neu">Frage stellen</LinkButton>} />
+            <EmptyState title="Noch keine Fragen" text="Sei die erste Person, die etwas schreibt!" action={<AskButtons center />} />
           )}
-          {questions.length > 0 && (
-            <div className="mt-6 flex justify-center">
-              <LinkButton href="/fragen/neu" variant="secondary">
-                <MessageSquarePlus className="size-4" aria-hidden="true" /> Frage stellen
-              </LinkButton>
-            </div>
-          )}
+          {questions.length > 0 && <AskButtons center className="mt-6" />}
         </section>
 
         <section className="mt-16 grid gap-8 lg:grid-cols-2" aria-label="Neueste Beiträge und News">

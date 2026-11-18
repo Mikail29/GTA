@@ -10,3 +10,4 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 - 18.11.: Neubau, damit die Registrierung den genauen Fehlergrund (Code) anzeigt (Fehlersuche Registrierung)
 - 18.11.: Neubau mit Fix: Supabase-Adresse wird auf den Grundteil gekürzt (Registrierung scheiterte mit HTTP 404)
 - 18.11.: Neubau: Kanal-Links bei „GTA 6 Clips“, Knopf „Etwas mitteilen“, keine Mindestlänge mehr (Datenbank Teil 3 nötig)
+- 18.11.: Neubau: Knöpfe „Ich habe eine Frage…“ / „Ich möchte etwas mitteilen…“ auf Startseite, Community und Fragen

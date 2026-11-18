@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MessageSquarePlus, Search, ShieldCheck, Users } from "lucide-react";
+import { Search, ShieldCheck, Users } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Container } from "@/components/ui/container";
 import { LinkButton } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { QuestionCard } from "@/components/cards/question-card";
 import { EmptyState } from "@/components/ui/empty-state";
+import { AskButtons } from "@/components/community/ask-buttons";
 import { CommunityDemoNotice } from "@/components/community/demo-notice";
 import { communityCategories } from "@/data/categories";
 import { listQuestions } from "@/lib/community/queries";
@@ -24,10 +25,8 @@ export default async function CommunityPage() {
     <>
       <PageHeader eyebrow="Gemeinsam" title="Community" text="Stelle Fragen, teile dein Wissen und hilf anderen Spielern – fair, freundlich und spoilerbewusst." crumbs={[{ label: "Community" }]}>
         <div className="flex flex-wrap gap-3">
-          <LinkButton href="/fragen/neu">
-            <MessageSquarePlus className="size-4" aria-hidden="true" /> Frage stellen
-          </LinkButton>
-          <LinkButton href="/fragen" variant="secondary">
+          <AskButtons />
+          <LinkButton href="/fragen" variant="ghost">
             Alle Fragen
           </LinkButton>
         </div>
@@ -59,7 +58,7 @@ export default async function CommunityPage() {
                 ))}
               </div>
             ) : (
-              <EmptyState title="Noch keine Fragen" text="Stelle die erste Frage – oben über „Frage stellen“." />
+              <EmptyState title="Noch keine Fragen" text="Schreib den ersten Beitrag – oben über „Ich habe eine Frage…“ oder „Ich möchte etwas mitteilen…“." />
             )}
           </section>
           <aside className="grid content-start gap-6">

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { MessageSquarePlus } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Container } from "@/components/ui/container";
 import { ListingFilters } from "@/components/search/listing-filters";
 import { QuestionCard } from "@/components/cards/question-card";
 import { EmptyState } from "@/components/ui/empty-state";
-import { LinkButton } from "@/components/ui/button";
+import { AskButtons } from "@/components/community/ask-buttons";
 import { Notice } from "@/components/ui/notice";
 import { CommunityDemoNotice } from "@/components/community/demo-notice";
 import { communityCategories } from "@/data/categories";
@@ -34,9 +33,7 @@ export default async function FragenPage({ searchParams }: { searchParams: Searc
   return (
     <>
       <PageHeader eyebrow="Community" title="Fragen & Antworten" text="Durchsuche die Fragen der Community oder stelle deine eigene." crumbs={[{ href: "/community", label: "Community" }, { label: "Fragen" }]}>
-        <LinkButton href="/fragen/neu">
-          <MessageSquarePlus className="size-4" aria-hidden="true" /> Frage stellen
-        </LinkButton>
+        <AskButtons />
       </PageHeader>
       <Container className="grid gap-6 py-10">
         {param(sp.geloescht) && <Notice tone="success">Die Frage wurde gelöscht.</Notice>}
@@ -58,7 +55,7 @@ export default async function FragenPage({ searchParams }: { searchParams: Searc
             </div>
           </>
         ) : (
-          <EmptyState title="Keine Fragen gefunden" text="Ändere die Suche – oder stelle die Frage oben über „Frage stellen“ einfach selbst." />
+          <EmptyState title="Keine Fragen gefunden" text="Ändere die Suche – oder stell die Frage oben über „Ich habe eine Frage…“ einfach selbst." />
         )}
       </Container>
     </>

@@ -10,10 +10,9 @@ import { communityCategories } from "@/data/categories";
 import { questionSchema, type QuestionInput } from "@/lib/validations/community";
 import { createQuestionAction, updateQuestionAction } from "@/lib/community/actions";
 
-export function QuestionForm({ initial, questionId }: { initial?: Partial<QuestionInput>; questionId?: string }) {
+export function QuestionForm({ initial, questionId, kind = "frage" }: { initial?: Partial<QuestionInput>; questionId?: string; kind?: "frage" | "mitteilung" }) {
   const [pending, startTransition] = useTransition();
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
-  const [sending, setSending] = useState<"frage" | "mitteilung" | null>(null);
   const {
     register,
     handleSubmit,
@@ -28,8 +27,7 @@ export function QuestionForm({ initial, questionId }: { initial?: Partial<Questi
 
   const onSubmit = (values: QuestionInput) =>
     startTransition(async () => {
-      setSending(values.kind ?? "frage");
-      const res = questionId ? await updateQuestionAction(questionId, values) : await createQuestionAction(values);
+      const res = questionId ? await updateQuestionAction(questionId, values) : await createQuestionAction({ ...values, kind });
       // Bei Erfolg leitet die Server Action weiter; hier landen nur Fehler
       if (res) {
         setResult(res);
@@ -39,7 +37,7 @@ export function QuestionForm({ initial, questionId }: { initial?: Partial<Questi
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="relative grid gap-5" noValidate>
-      <Field label="Titel" htmlFor="title" error={errors.title?.message} hint="Deine Frage oder das, was du mitteilen möchtest – kurz und konkret.">
+      <Field label={kind === "mitteilung" ? "Worum geht es?" : "Deine Frage"} htmlFor="title" error={errors.title?.message} hint={kind === "mitteilung" ? "Kurz und knapp, z. B. „Versteckter Ort am Strand gefunden“" : "Kurz und konkret, z. B. „Wo finde ich das erste Safehouse?“"}>
         <input id="title" {...register("title")} maxLength={140} aria-invalid={!!errors.title} className={inputClass} />
       </Field>
       <Field label="Kategorie" htmlFor="category" error={errors.category?.message}>
@@ -57,17 +55,17 @@ export function QuestionForm({ initial, questionId }: { initial?: Partial<Questi
       </Field>
       <Honeypot {...register("website")} />
       <FormMessage result={result} />
-      <div className="flex flex-wrap gap-3">
+      <div>
         <Button type="submit" disabled={pending} size="lg">
-          {pending && sending !== "mitteilung" ? <Loader2 className="size-5 animate-spin" aria-hidden="true" /> : <Send className="size-5" aria-hidden="true" />}
-          {questionId ? "Änderungen speichern" : "Frage veröffentlichen"}
+          {pending ? (
+            <Loader2 className="size-5 animate-spin" aria-hidden="true" />
+          ) : kind === "mitteilung" && !questionId ? (
+            <Megaphone className="size-5" aria-hidden="true" />
+          ) : (
+            <Send className="size-5" aria-hidden="true" />
+          )}
+          {questionId ? "Änderungen speichern" : kind === "mitteilung" ? "Mitteilung veröffentlichen" : "Frage veröffentlichen"}
         </Button>
-        {!questionId && (
-          <Button type="button" variant="secondary" disabled={pending} size="lg" onClick={handleSubmit((v) => onSubmit({ ...v, kind: "mitteilung" }))}>
-            {pending && sending === "mitteilung" ? <Loader2 className="size-5 animate-spin" aria-hidden="true" /> : <Megaphone className="size-5" aria-hidden="true" />}
-            Etwas mitteilen
-          </Button>
-        )}
       </div>
     </form>
   );
