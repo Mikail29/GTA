@@ -3,7 +3,7 @@ import { missions, news, secrets } from "@/lib/content";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["/", "/missionen", "/geheimnisse", "/karte", "/personen", "/symbole", "/online", "/news", "/community", "/fragen", "/ueber-uns", "/kontakt", "/community-regeln", "/nutzungsbedingungen", "/melden", "/impressum", "/datenschutz", "/registrieren"];
+  const staticRoutes = ["/", "/missionen", "/geheimnisse", "/karte", "/personen", "/symbole", "/online", "/news", "/clips", "/community", "/fragen", "/ueber-uns", "/kontakt", "/community-regeln", "/nutzungsbedingungen", "/melden", "/impressum", "/datenschutz", "/registrieren"];
   return [
     ...staticRoutes.map((path) => ({ url: absoluteUrl(path), changeFrequency: "weekly" as const, priority: path === "/" ? 1 : 0.7 })),
     ...missions.map((m) => ({ url: absoluteUrl(`/missionen/${m.slug}`), lastModified: m.publishedAt, priority: 0.5 })),

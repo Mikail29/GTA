@@ -13,6 +13,7 @@ const columns = [
       { href: "/personen", label: "Personen & Kontakte" },
       { href: "/symbole", label: "Symbole" },
       { href: "/news", label: "News" },
+      { href: "/clips", label: "GTA 6 Clips" },
       { href: "/online", label: "GTA 6 Online (bald)" },
     ],
   },

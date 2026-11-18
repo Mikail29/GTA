@@ -1,4 +1,4 @@
-import { ArrowRight, Search, Users } from "lucide-react";
+import { ArrowRight, Clapperboard, Search } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { LinkButton } from "@/components/ui/button";
 import { HeroBackdrop } from "./hero-backdrop";
@@ -43,11 +43,8 @@ export function Hero() {
         </form>
 
         <div className="mt-7 flex w-full animate-fade-up flex-col justify-center gap-3 [animation-delay:240ms] sm:w-auto sm:flex-row">
-          <LinkButton href="/missionen" size="lg">
-            Missionen entdecken <ArrowRight className="size-5" aria-hidden="true" />
-          </LinkButton>
-          <LinkButton href="/community" variant="secondary" size="lg" className="bg-night/60 backdrop-blur">
-            <Users className="size-5" aria-hidden="true" /> Community besuchen
+          <LinkButton href="/clips" size="lg">
+            <Clapperboard className="size-5" aria-hidden="true" /> GTA 6 Clips <ArrowRight className="size-5" aria-hidden="true" />
           </LinkButton>
         </div>
       </Container>
