@@ -35,6 +35,7 @@ export function rateLimit(key: string, limit: number, windowMs: number) {
 }
 
 export function clientKey(headers: Headers) {
+  // Netlify liefert die echte Besucher-IP in x-nf-client-connection-ip.
   const forwarded = headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-  return forwarded || headers.get("x-real-ip") || "unbekannt";
+  return headers.get("x-nf-client-connection-ip") || forwarded || headers.get("x-real-ip") || "unbekannt";
 }

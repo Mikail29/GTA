@@ -33,6 +33,33 @@ const NOT_CONFIGURED: ActionResult = {
   message: "Die Anmeldung ist noch nicht eingerichtet. Bitte Supabase konfigurieren (siehe README).",
 };
 
+/**
+ * Übersetzt Fehler von Supabase in verständliche Meldungen.
+ * Details (Code, Status) landen im Server-Log (Netlify → Logs & metrics → Functions),
+ * der Code steht zusätzlich in der Meldung, damit man die Ursache auf einem Screenshot erkennt.
+ */
+function authFailure(kind: "Registrierung" | "Anmeldung", error: { code?: string; status?: number; message?: string; name?: string }): ActionResult {
+  console.error(`[auth] ${kind} fehlgeschlagen`, { code: error.code, status: error.status, name: error.name, message: error.message });
+  const code = error.code ?? "";
+  const text = (error.message ?? "").toLowerCase();
+  const ref = code || (error.status ? `HTTP ${error.status}` : error.name || "unbekannt");
+  if (code === "user_already_exists" || code === "email_exists")
+    return { ok: false, message: "Mit dieser E-Mail-Adresse gibt es schon ein Konto. Bitte melde dich an – oder nutze „Passwort vergessen“." };
+  if (code === "signup_disabled" || code === "email_provider_disabled")
+    return { ok: false, message: `Neue Registrierungen sind gerade abgeschaltet. (Code: ${ref})` };
+  if (code === "email_address_invalid" || code === "email_address_not_authorized")
+    return { ok: false, message: "Diese E-Mail-Adresse wird nicht angenommen. Bitte nutze eine andere." };
+  if (code === "over_request_rate_limit" || code === "over_email_send_rate_limit")
+    return { ok: false, message: "Gerade gibt es zu viele Versuche. Bitte warte ein paar Minuten und versuche es dann erneut." };
+  if (text.includes("database error"))
+    return { ok: false, message: `Das Konto konnte in der Datenbank nicht angelegt werden. (Code: ${ref})` };
+  if (text.includes("email") && (text.includes("sending") || text.includes("send")))
+    return { ok: false, message: `Die E-Mail an dich konnte nicht verschickt werden. (Code: ${ref})` };
+  if (error.name === "AuthRetryableFetchError" || error.status === 0)
+    return { ok: false, message: `Die Datenbank ist gerade nicht erreichbar. Bitte versuche es gleich noch einmal. (Code: ${ref})` };
+  return { ok: false, message: `Die ${kind} ist fehlgeschlagen. Bitte versuche es später erneut. (Code: ${ref})` };
+}
+
 function fieldErrors(issues: { path: PropertyKey[]; message: string }[]) {
   const out: Record<string, string> = {};
   for (const i of issues) {
@@ -64,7 +91,8 @@ export async function signInAction(input: LoginInput, next?: string): Promise<Ac
   if (error) {
     // Bewusst allgemeine Meldung, um keine Konten-Existenz preiszugeben
     if (error.code === "email_not_confirmed") return { ok: false, message: "Bitte bestätige zuerst deine E-Mail-Adresse über den Link in unserer E-Mail." };
-    return { ok: false, message: "E-Mail-Adresse oder Passwort ist falsch." };
+    if (error.code === "invalid_credentials" || error.status === 400) return { ok: false, message: "E-Mail-Adresse oder Passwort ist falsch." };
+    return authFailure("Anmeldung", error);
   }
   revalidatePath("/", "layout");
   redirect(safeNext(next));
@@ -91,7 +119,7 @@ export async function signUpAction(input: RegisterInput): Promise<ActionResult> 
   });
   if (error) {
     if (error.code === "weak_password") return { ok: false, message: "Das Passwort ist zu schwach.", fieldErrors: { password: "Bitte wähle ein stärkeres Passwort." } };
-    return { ok: false, message: "Die Registrierung ist fehlgeschlagen. Bitte versuche es später erneut." };
+    return authFailure("Registrierung", error);
   }
   // Ist „Confirm email“ in Supabase ausgeschaltet, gibt es sofort eine Sitzung: Nutzer ist direkt angemeldet.
   if (data.session) {
