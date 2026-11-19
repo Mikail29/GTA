@@ -70,7 +70,7 @@ export const news: NewsItem[] = [
     sources: [{ label: "Xbox Wire: Grand Theft Auto VI Comes to Xbox One and Xbox Series X|S Through Xbox Cloud Gaming on November 19", url: "https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/" }],
     blocks: [
       { type: "p", text: "Bei Cloud Gaming läuft das Spiel auf einem Rechner im Internet. Deine Konsole zeigt nur das Bild an. So kannst du GTA 6 laut Microsoft ab dem 19. November auch auf einer Xbox One spielen, auf der es sonst nicht läuft." },
-      { type: "note", tone: "info", title: "Was du brauchst", text: "Eine schnelle und stabile Internetverbindung und ein passendes Xbox-Abo. Die genauen Bedingungen stehen bei Microsoft (siehe Quelle)." },
+      { type: "note", tone: "info", title: "Was du brauchst", text: "Eine schnelle und stabile Internetverbindung und ein passendes Xbox-Abo. Die genauen Bedingungen nennt Microsoft auf der Xbox-Website." },
     ],
   },
   {
@@ -108,7 +108,7 @@ export const news: NewsItem[] = [
     sources: [{ label: "Rockstar Newswire: Grand Theft Auto VI is Now Set to Launch November 19, 2026", url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" }],
     blocks: [
       { type: "p", text: "Rockstar Games hat den Release von Grand Theft Auto VI für Donnerstag, den 19. November 2026 angekündigt. Das Spiel erscheint für PlayStation 5 und Xbox Series X|S." },
-      { type: "note", tone: "info", title: "Stand: 19. November 2026", text: "GTA 6 ist wie angekündigt am 19. November 2026 erschienen. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games (siehe Quelle unten)." },
+      { type: "note", tone: "info", title: "Stand: 19. November 2026", text: "GTA 6 ist wie angekündigt am 19. November 2026 erschienen. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games." },
       { type: "h2", id: "community", text: "Gemeinsam starten" },
       { type: "p", text: "In unserer Community kannst du schon jetzt Fragen stellen und dich mit anderen auf den Release vorbereiten." },
     ],
@@ -140,13 +140,13 @@ export const news: NewsItem[] = [
   {
     slug: "offizielle-informationen-quellen",
     title: "Offizielle Informationen: Wo du sie findest",
-    excerpt: "Neuigkeiten zu GTA 6 veröffentlicht Rockstar Games über eigene Kanäle. Wir verlinken dorthin, statt Gerüchte zu verbreiten.",
+    excerpt: "Neuigkeiten zu GTA 6 veröffentlicht Rockstar Games über eigene Kanäle, vor allem auf rockstargames.com. Wir berichten erst, wenn eine Info geprüft ist.",
     publishedAt: "2026-11-07",
     status: "unbestaetigt",
     sources: [{ label: "Rockstar Games – offizielle Website", url: "https://www.rockstargames.com/" }],
     blocks: [
       { type: "note", tone: "warning", title: "Stand prüfen", text: "Termine und Details können sich ändern. Bitte prüfe offizielle Angaben immer direkt beim Hersteller." },
-      { type: "p", text: "Wir berichten über offizielle Ankündigungen erst, wenn wir sie anhand der Originalquelle überprüft haben. Bis dahin verweisen wir direkt auf die Kanäle von Rockstar Games." },
+      { type: "p", text: "Wir berichten über offizielle Ankündigungen erst, wenn wir sie überprüft haben. Die offiziellen Neuigkeiten findest du direkt bei Rockstar Games auf rockstargames.com." },
     ],
   },
 ];

@@ -43,7 +43,7 @@ export default function OnlinePage() {
               "Einsteiger-Ratgeber für den Online-Modus",
               "Tipps, wie man legal und fair vorankommt",
               "Crew-Suche: Mitspieler aus der Community finden",
-              "Aktuelle Events und Updates – mit Quellenangabe",
+              "Aktuelle Events und Updates – geprüft",
             ].map((t) => (
               <li key={t} className="surface flex items-start gap-3 p-4 text-sm">
                 <span className="mt-1.5 size-2 shrink-0 rounded-full bg-teal" aria-hidden="true" />

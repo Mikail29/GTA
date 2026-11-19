@@ -22,7 +22,7 @@ export default async function KartePage({ searchParams }: { searchParams: Search
       <PageHeader eyebrow="Karte" title="Interaktive Karte" text="Wo liegen Vice City, die Keys und die anderen Regionen von Leonida? Marker antippen für Details – weitere geprüfte Orte folgen." crumbs={[{ label: "Karte" }]} />
       <Container className="py-10">
         <Notice tone="info" title="Eigene Karte im Stil der Spielkarte" className="mb-6">
-          Diese Karte haben wir selbst gestaltet: Die Küste stammt aus frei nutzbaren Kartendaten (Natural Earth) nach dem Vorbild Florida, auf dem Leonida beruht. Sie zeigt, wo die von
+          Diese Karte haben wir selbst gestaltet: Die Küste beruht auf frei nutzbaren Kartendaten nach dem Vorbild Florida, auf dem Leonida beruht. Sie zeigt, wo die von
           Rockstar genannten Regionen ungefähr liegen – nicht maßstabsgetreu und ohne Daten aus der Spielkarte. Wo die Lage noch nicht offiziell bestätigt ist, steht das beim Marker.
           Weitere Orte tragen wir ein, sobald sie geprüft sind.
         </Notice>

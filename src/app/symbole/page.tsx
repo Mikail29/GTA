@@ -23,8 +23,6 @@ export default function SymbolePage() {
     text: s.meaning,
     location: s.where,
     status: s.status,
-    source: s.source,
-    sources: s.sources,
   }));
   return (
     <>

@@ -9,7 +9,7 @@ import { formatDate } from "@/lib/utils/format";
 
 export const metadata: Metadata = {
   title: "News",
-  description: "Neuigkeiten rund um GTA 6 und 5-Sterne-Kompass – geprüft und mit Quellenangabe.",
+  description: "Neuigkeiten rund um GTA 6 und 5-Sterne-Kompass – geprüft und verständlich erklärt.",
   alternates: { canonical: "/news" },
 };
 

@@ -100,7 +100,7 @@ export interface Mission {
   tips: string[];
   related: string[];
   publishedAt: string;
-  /** Quellen für die Fakten (für „verifiziert“ mindestens zwei unabhängige). */
+  /** Quellen für die Fakten (für „verifiziert“ mindestens zwei unabhängige). Nur intern – wird auf der Website nicht angezeigt. */
   sources?: { label: string; url: string }[];
 }
 
@@ -187,6 +187,6 @@ export interface GameSymbol {
   where?: string;
   status: VerificationStatus;
   source?: { label: string; url: string };
-  /** Mehrere unabhängige Quellen (für „verifiziert“ mindestens zwei). */
+  /** Mehrere unabhängige Quellen (für „verifiziert“ mindestens zwei). Nur intern – wird auf der Website nicht angezeigt. */
   sources?: { label: string; url: string }[];
 }

@@ -16,4 +16,4 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 - 19.11.: Neubau (dritter heute, auf ausdrücklichen Wunsch des Betreibers „sehr echt nachbauen“): Symbole als eigene Zeichnungen im Spiel-Look, eigene Leonida-Karte aus gemeinfreien Natural-Earth-Daten, Missionen Prolog, Gear Up, Lab Fees → Stand geschätzt 14 (ca. 210 Credits + Besucher). Im November nur noch nach Rücksprache.
 
 ## Wartet auf den nächsten Neubau (schon im Code, noch nicht online)
-- (zurzeit nichts)
+- 19.11.: Quellen auf der Website ausgeblendet (Symbole, Personen, Missionen, News, Karte) – Wunsch des Betreibers; Quellen bleiben intern in den Daten. Mit [skip netlify] hochgeladen, geht beim nächsten Neubau online (oder sofort per Netlify „Trigger deploy“).

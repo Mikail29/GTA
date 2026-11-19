@@ -54,7 +54,7 @@ export function MapExplorer({ locations, imageUrl, initialMarker }: { locations:
         });
         L.imageOverlay(imageUrl, bounds, { alt: "Eigene Karte von Leonida" }).addTo(map);
         map.attributionControl.setPrefix(false);
-        map.attributionControl.addAttribution("Eigene Karte © 5-Sterne-Kompass · Küste: Natural Earth");
+        map.attributionControl.addAttribution("Eigene Karte © 5-Sterne-Kompass");
         map.fitBounds(bounds);
 
         for (const loc of locations) {

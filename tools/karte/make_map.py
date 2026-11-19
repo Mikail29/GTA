@@ -174,7 +174,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width=
 
   <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#f4f1ff" fill-opacity="0.55">
     <text x="24" y="972">Eigene Karte · nicht maßstabsgetreu · Lage der Regionen ungefähr</text>
-    <text x="24" y="990">Küstenlinie: Natural Earth (gemeinfrei), Vorbild Florida · © 5-Sterne-Kompass</text>
+    <text x="24" y="990">Vorbild Florida · © 5-Sterne-Kompass</text>
   </g>
 </svg>
 '''

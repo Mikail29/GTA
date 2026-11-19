@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function PersonenPage() {
-  const entries = contacts.map((c) => ({ slug: c.slug, title: c.name, category: c.category, text: c.helpsWith, phone: c.phone, location: c.location, mapLocationId: c.mapLocationId, status: c.status, source: c.source }));
+  const entries = contacts.map((c) => ({ slug: c.slug, title: c.name, category: c.category, text: c.helpsWith, phone: c.phone, location: c.location, mapLocationId: c.mapLocationId, status: c.status }));
   return (
     <>
       <PageHeader
