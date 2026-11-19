@@ -51,6 +51,7 @@ export default async function MissionenPage({ searchParams }: { searchParams: Se
         </p>
         {list.length ? (
           <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <h2 className="sr-only">Gefundene Missionen</h2>
             {list.map((m) => (
               <MissionCard key={m.slug} mission={m} />
             ))}

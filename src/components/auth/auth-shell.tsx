@@ -9,7 +9,7 @@ export function AuthShell({ title, text, children, footer }: { title: string; te
       <Container className="relative flex justify-center py-14 sm:py-20">
         <div className="w-full max-w-md">
           <div className="mb-8 text-center">
-            <LogoMark className="mx-auto mb-4 size-12" />
+            <LogoMark gradientId="logo-g-anmeldung" className="mx-auto mb-4 size-12" />
             <h1 className="text-3xl font-bold">{title}</h1>
             {text && <p className="mt-2 text-muted">{text}</p>}
           </div>

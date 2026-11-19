@@ -17,7 +17,7 @@ export default function NewsPage() {
   const items = getNews();
   return (
     <>
-      <PageHeader eyebrow="Aktuell" title="News" text="Neuigkeiten zu GTA 6 und zum Portal. Offizielle Angaben verlinken wir immer zur Originalquelle." crumbs={[{ label: "News" }]} />
+      <PageHeader eyebrow="Aktuell" title="News" text="Neuigkeiten zu GTA 6 und zum Portal – geprüft und verständlich erklärt." crumbs={[{ label: "News" }]} />
       <Container className="grid max-w-4xl gap-4 py-10">
         {items.map((n) => (
           <article key={n.slug} className="surface group relative p-6 transition hover:border-teal/40">

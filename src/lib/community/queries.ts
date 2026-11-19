@@ -66,11 +66,13 @@ export async function listQuestions(opts: QuestionQuery = {}): Promise<{ questio
 }
 
 export async function getQuestion(id: string): Promise<{ question: Question | null; answers: Answer[]; demo: boolean }> {
+  const supabase = await createSupabaseServerClient();
   if (id.startsWith("demo-")) {
+    // Beispiel-Fragen gibt es nur ohne verbundene Datenbank (lokale Vorschau)
+    if (supabase) return { question: null, answers: [], demo: false };
     const question = demoQuestions.find((q) => q.id === id) ?? null;
     return { question, answers: demoAnswers[id] ?? [], demo: true };
   }
-  const supabase = await createSupabaseServerClient();
   if (!supabase || !/^[0-9a-f-]{36}$/i.test(id)) return { question: null, answers: [], demo: !supabase };
 
   const one = (select: string) => supabase.from("questions").select(select).eq("id", id).maybeSingle<Question>();

@@ -10,7 +10,7 @@ const tiles: { href: string; title: string; text: string; icon: IconName; accent
   { href: "/missionen", title: "Missionen", text: "Komplettlösungen Schritt für Schritt – mit Spoiler-Warnung.", icon: "target", accent: "sunset" },
   { href: "/personen", title: "Personen & Kontakte", text: "Wer dir im Spiel hilft – mit Telefonnummern im Spiel (wird gerade ergänzt).", icon: "users", accent: "violet" },
   { href: "/symbole", title: "Symbole", text: "Was bedeuten Fahndungssterne, Fokus & Co.? Die ersten Symbole sind schon erklärt – weitere folgen.", icon: "shapes", accent: "sunset" },
-  { href: "/geheimnisse", title: "Geheimnisse", text: "Easter Eggs, versteckte Orte und seltene Fahrzeuge.", icon: "key", accent: "violet" },
+  { href: "/geheimnisse", title: "Geheimnisse", text: "Easter Eggs, versteckte Orte und seltene Fahrzeuge – geprüfte Einträge folgen in Kürze.", icon: "key", accent: "violet" },
 ];
 
 const accentStyles: Record<Accent, { icon: string; hover: string }> = {

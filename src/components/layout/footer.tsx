@@ -45,7 +45,7 @@ export function Footer() {
       <Container className="py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div className="max-w-sm">
-            <Logo />
+            <Logo gradientId="logo-g-fuss" />
             <p className="mt-4 text-sm text-muted">{siteConfig.claim} Das unabhängige, deutschsprachige und kostenlose Hilfeportal rund um Grand Theft Auto VI.</p>
           </div>
           {columns.map((col) => (

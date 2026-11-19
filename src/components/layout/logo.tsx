@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils/cn";
  * Eigenes Grafiklogo: Kompassnadel im Sunset-Verlauf, darüber ein Bogen aus
  * fünf Sternen (Anspielung auf die höchste Fahndungsstufe).
  */
-export function LogoMark({ className }: { className?: string }) {
+export function LogoMark({ className, gradientId = "logo-g" }: { className?: string; gradientId?: string }) {
   // Fünf Sterne auf einem Bogen über der Nadel
   const stars = [
     [8, 13.5],
@@ -17,13 +17,13 @@ export function LogoMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 40" className={cn("size-9", className)} aria-hidden="true">
       <defs>
-        <linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#FF9B68" />
           <stop offset="50%" stopColor="#FF55B8" />
           <stop offset="100%" stopColor="#9565FF" />
         </linearGradient>
       </defs>
-      <rect x="1" y="1" width="38" height="38" rx="11" fill="#19172E" stroke="url(#logo-g)" strokeWidth="2" />
+      <rect x="1" y="1" width="38" height="38" rx="11" fill="#19172E" stroke={`url(#${gradientId})`} strokeWidth="2" />
       {stars.map(([x, y], i) => (
         <path
           key={i}
@@ -32,7 +32,7 @@ export function LogoMark({ className }: { className?: string }) {
           fill="#42E8D5"
         />
       ))}
-      <path d="M20 15 L23.2 24.5 L20 34 L16.8 24.5 Z" fill="url(#logo-g)" />
+      <path d="M20 15 L23.2 24.5 L20 34 L16.8 24.5 Z" fill={`url(#${gradientId})`} />
       <path d="M20 24.5 L23.2 24.5 L20 34 Z" fill="#100F20" fillOpacity="0.35" />
       <circle cx="20" cy="24.5" r="1.6" fill="#fff" />
     </svg>
@@ -40,10 +40,10 @@ export function LogoMark({ className }: { className?: string }) {
 }
 
 /** `compactOnMobile`: Auf dem Handy nur das Zeichen zeigen, damit oben Platz für Login/Registrieren bleibt. */
-export function Logo({ className, compactOnMobile = false }: { className?: string; compactOnMobile?: boolean }) {
+export function Logo({ className, compactOnMobile = false, gradientId }: { className?: string; compactOnMobile?: boolean; gradientId?: string }) {
   return (
     <Link href="/" className={cn("group flex shrink-0 items-center gap-2.5", className)} aria-label="5-Sterne-Kompass – zur Startseite">
-      <LogoMark className="transition-transform duration-300 group-hover:rotate-6" />
+      <LogoMark gradientId={gradientId} className="transition-transform duration-300 group-hover:rotate-6" />
       <span className={cn("whitespace-nowrap font-display text-lg font-bold leading-none tracking-tight", compactOnMobile && "hidden sm:inline")}>
         5-Sterne<span className="text-gradient">-Kompass</span>
       </span>

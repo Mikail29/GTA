@@ -48,6 +48,7 @@ export default async function FragenPage({ searchParams }: { searchParams: Searc
             <p className="text-sm text-muted" role="status">
               {questions.length} {questions.length === 1 ? "Frage" : "Fragen"}
             </p>
+            <h2 className="sr-only">Gefundene Fragen</h2>
             <div className="grid gap-4">
               {questions.map((qu) => (
                 <QuestionCard key={qu.id} question={qu} />

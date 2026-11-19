@@ -96,7 +96,7 @@ export const news: NewsItem[] = [
       { type: "p", text: "Leonida ist ein erfundener Bundesstaat der USA, der stark an Florida erinnert. Mittelpunkt ist die Großstadt Vice City." },
       { type: "h2", id: "gegenden", text: "Die sechs offiziellen Gegenden" },
       { type: "ul", items: ["Vice City – die große Stadt", "Leonida Keys – eine Inselkette", "Grassrivers", "Port Gellhorn", "Ambrosia", "Mount Kalaga National Park – Nationalpark"] },
-      { type: "note", tone: "warning", title: "Vorsicht bei Karten aus dem Netz", text: "Im Internet kursieren „komplette Karten“ aus Leaks. Sie sind nicht offiziell und können vom fertigen Spiel abweichen. Unsere eigene Karte füllen wir erst nach dem Release mit geprüften Orten." },
+      { type: "note", tone: "warning", title: "Vorsicht bei Karten aus dem Netz", text: "Im Internet kursieren „komplette Karten“ aus Leaks. Sie sind nicht offiziell und können vom fertigen Spiel abweichen. Auf unserer eigenen Karte stehen die Regionen; weitere geprüfte Orte tragen wir nach und nach ein." },
     ],
   },
   {
