@@ -16,7 +16,7 @@ const categories = Object.keys(mapCategoryMeta) as MapCategory[];
 
 /**
  * Interaktive Karte auf Basis von Leaflet (CRS.Simple = eigenes Pixel-Koordinatensystem).
- * Das Kartenbild ist eine selbst gezeichnete, schematische Skizze (nicht von der Spielkarte abgezeichnet).
+ * Das Kartenbild ist selbst gestaltet (Küste aus Natural Earth, gemeinfrei) und nicht von der Spielkarte abgezeichnet.
  * Sobald rechtlich nutzbare Kartendaten vorliegen, kann imageUrl ausgetauscht werden (oder Kacheln per L.tileLayer).
  */
 export function MapExplorer({ locations, imageUrl, initialMarker }: { locations: MapLocation[]; imageUrl: string; initialMarker?: string }) {
@@ -52,9 +52,9 @@ export function MapExplorer({ locations, imageUrl, initialMarker }: { locations:
           maxBounds: bounds.pad(0.2),
           attributionControl: true,
         });
-        L.imageOverlay(imageUrl, bounds, { alt: "Eigene, schematische Karte von Leonida" }).addTo(map);
+        L.imageOverlay(imageUrl, bounds, { alt: "Eigene Karte von Leonida" }).addTo(map);
         map.attributionControl.setPrefix(false);
-        map.attributionControl.addAttribution("Eigene Skizze © 5-Sterne-Kompass");
+        map.attributionControl.addAttribution("Eigene Karte © 5-Sterne-Kompass · Küste: Natural Earth");
         map.fitBounds(bounds);
 
         for (const loc of locations) {

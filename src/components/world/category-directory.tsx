@@ -1,6 +1,7 @@
 import { ExternalLink, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
+import { SymbolArt, hasSymbolArt } from "@/components/world/symbol-art";
 import { StatusBadge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils/cn";
 import type { Accent, Category, IconName, VerificationStatus } from "@/types/content";
@@ -12,6 +13,8 @@ export interface DirectoryEntry {
   text: string;
   /** Eigenes, vereinfachtes Zeichen (z. B. für Symbole). */
   icon?: IconName;
+  /** Eigene Zeichnung im Spiel-Look (Name aus symbol-art.tsx), falls vorhanden. */
+  art?: string;
   /** Beschreibung, wie es im Spiel aussieht. */
   looks?: string;
   phone?: string;
@@ -32,7 +35,7 @@ const accentIcon: Record<Accent, string> = {
 /** Kategorien als Karten; darin die Einträge oder ein Leer-Hinweis. */
 export function CategoryDirectory({ categories, entries, emptyText }: { categories: Category[]; entries: DirectoryEntry[]; emptyText: string }) {
   return (
-    <div className="grid gap-6 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
       {categories.map((cat) => {
         const items = entries.filter((e) => e.category === cat.slug);
         return (
@@ -55,14 +58,18 @@ export function CategoryDirectory({ categories, entries, emptyText }: { categori
                 {items.map((e) => (
                   <li key={e.slug} className="rounded-2xl border border-line bg-night-2/60 p-4">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <p className="flex items-center gap-2 font-semibold">
-                        {e.icon && (
-                          <span className={cn("grid size-8 shrink-0 place-items-center rounded-xl", accentIcon[cat.accent])}>
-                            <Icon name={e.icon} className="size-4" />
-                          </span>
+                      <div className="flex min-w-0 items-center gap-3">
+                        {hasSymbolArt(e.art) ? (
+                          <SymbolArt name={e.art} className="h-11 w-[76px]" />
+                        ) : (
+                          e.icon && (
+                            <span className={cn("grid size-8 shrink-0 place-items-center rounded-xl", accentIcon[cat.accent])}>
+                              <Icon name={e.icon} className="size-4" />
+                            </span>
+                          )
                         )}
-                        {e.title}
-                      </p>
+                        <p className="min-w-0 hyphens-auto font-semibold [overflow-wrap:anywhere]">{e.title}</p>
+                      </div>
                       <StatusBadge status={e.status} />
                     </div>
                     {e.looks && (

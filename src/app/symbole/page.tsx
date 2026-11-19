@@ -18,6 +18,7 @@ export default function SymbolePage() {
     title: s.name,
     category: s.category,
     icon: s.icon,
+    art: s.slug,
     looks: s.looks,
     text: s.meaning,
     location: s.where,
@@ -38,8 +39,8 @@ export default function SymbolePage() {
         <CategoryDirectory categories={symbolCategories} entries={entries} emptyText="Noch keine Einträge – wird gerade ergänzt." />
         <p className="flex items-start gap-2 text-xs text-muted">
           <Info className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-          Wir zeigen keine Original-Grafiken aus dem Spiel. Jedes Symbol wird in eigenen Worten beschrieben und mit einem eigenen, vereinfachten Zeichen dargestellt – im Spiel kann es anders
-          aussehen. Die Kategorien sind unsere eigene Gliederung.
+          Wir zeigen keine Original-Grafiken aus dem Spiel. Die Bilder hier haben wir selbst gezeichnet – in den Farben und Grundformen der Spielanzeige, damit du sie sofort wiedererkennst. Im Spiel
+          können sie im Detail anders aussehen. Die Texte sind in eigenen Worten geschrieben, die Kategorien sind unsere eigene Gliederung.
         </p>
       </Container>
     </>

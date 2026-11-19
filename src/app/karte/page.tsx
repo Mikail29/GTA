@@ -9,7 +9,7 @@ import { param, type SearchParams } from "@/lib/utils/params";
 
 export const metadata: Metadata = {
   title: "Interaktive Karte",
-  description: "Die Karte vom 5-Sterne-Kompass: eine eigene, schematische Übersicht über Leonida mit den Regionen aus GTA 6 – weitere geprüfte Orte folgen.",
+  description: "Die Karte vom 5-Sterne-Kompass: eine eigene Karte von Leonida im Stil der Spielkarte, mit den Regionen aus GTA 6 – weitere geprüfte Orte folgen.",
   alternates: { canonical: "/karte" },
 };
 
@@ -21,11 +21,12 @@ export default async function KartePage({ searchParams }: { searchParams: Search
     <>
       <PageHeader eyebrow="Karte" title="Interaktive Karte" text="Wo liegen Vice City, die Keys und die anderen Regionen von Leonida? Marker antippen für Details – weitere geprüfte Orte folgen." crumbs={[{ label: "Karte" }]} />
       <Container className="py-10">
-        <Notice tone="info" title="Eigene, schematische Karte" className="mb-6">
-          Diese Karte haben wir selbst gezeichnet. Sie zeigt grob, wo die von Rockstar genannten Regionen liegen – nicht maßstabsgetreu und ohne Daten aus der Spielkarte. Wo die Lage noch
-          nicht offiziell bestätigt ist, steht das beim Marker. Weitere Orte tragen wir ein, sobald sie geprüft sind.
+        <Notice tone="info" title="Eigene Karte im Stil der Spielkarte" className="mb-6">
+          Diese Karte haben wir selbst gestaltet: Die Küste stammt aus frei nutzbaren Kartendaten (Natural Earth) nach dem Vorbild Florida, auf dem Leonida beruht. Sie zeigt, wo die von
+          Rockstar genannten Regionen ungefähr liegen – nicht maßstabsgetreu und ohne Daten aus der Spielkarte. Wo die Lage noch nicht offiziell bestätigt ist, steht das beim Marker.
+          Weitere Orte tragen wir ein, sobald sie geprüft sind.
         </Notice>
-        <MapExplorer locations={mapLocations} imageUrl="/map/leonida-schema.svg" initialMarker={initialMarker} />
+        <MapExplorer locations={mapLocations} imageUrl="/map/leonida.svg" initialMarker={initialMarker} />
 
         <section className="mt-12 grid gap-4 md:grid-cols-3" aria-label="Geplante Kartenfunktionen">
           {[

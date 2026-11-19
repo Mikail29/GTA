@@ -13,6 +13,7 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 - 18.11.: Neubau: Knöpfe „Ich habe eine Frage…“ / „Ich möchte etwas mitteilen…“ auf Startseite, Community und Fragen
 - 19.11.: Neubau: Handy-/iPad-Menü repariert (Safari zeigte nur das Suchfeld), Login/Registrieren auf Handy und iPad sofort sichtbar → Stand geschätzt 12 von 12
 - 19.11.: Neubau (zweiter heute, auf ausdrücklichen Wunsch des Betreibers): 21 Symbole (Anzeige, Fahndung, Kampf), eigene Skizze von Leonida mit den 6 Regionen, erste Mission „Gone Fishing“, Release-News, Zurück-Knopf überall → Stand geschätzt 13 (ca. 195 Credits + Besucher). Ab jetzt nur noch nach Rücksprache mit dem Betreiber.
+- 19.11.: Neubau (dritter heute, auf ausdrücklichen Wunsch des Betreibers „sehr echt nachbauen“): Symbole als eigene Zeichnungen im Spiel-Look, eigene Leonida-Karte aus gemeinfreien Natural-Earth-Daten, Missionen Prolog, Gear Up, Lab Fees → Stand geschätzt 14 (ca. 210 Credits + Besucher). Im November nur noch nach Rücksprache.
 
 ## Wartet auf den nächsten Neubau (schon im Code, noch nicht online)
 - (zurzeit nichts)

@@ -1,8 +1,9 @@
 import type { MapCategory, MapLocation } from "@/types/content";
 
 /**
- * Marker auf unserer eigenen, schematischen Karte von Leonida (public/map/leonida-schema.svg).
- * Die Karte ist selbst gezeichnet, nicht maßstabsgetreu und NICHT von der Spielkarte abgezeichnet.
+ * Marker auf unserer eigenen Karte von Leonida (public/map/leonida.svg).
+ * Die Karte ist selbst gestaltet: Küstenlinie aus Natural Earth (gemeinfrei, Vorbild Florida),
+ * nicht maßstabsgetreu und NICHT von der Spielkarte abgezeichnet.
  * Die Lage ist nur ungefähr: „verifiziert“ nur, wenn Rockstar die Lage selbst nennt.
  * Quellen: Rockstar Games („Only in Leonida“, rockstargames.com/VI) und mehrere unabhängige Guides (Stand 19.11.2026).
  */
@@ -13,8 +14,8 @@ export const mapLocations: MapLocation[] = [
     category: "region",
     description: "Die große Stadt von Leonida mit Stränden und Nachtleben. Laut Rockstar liegt sie im Südosten des Bundesstaats.",
     status: "verifiziert",
-    x: 735,
-    y: 640,
+    x: 838,
+    y: 727,
   },
   {
     id: "region-mount-kalaga",
@@ -22,8 +23,8 @@ export const mapLocations: MapLocation[] = [
     category: "region",
     description: "Ein Nationalpark mit Wäldern und Bergen. Laut Rockstar das Hinterland ganz im Norden von Leonida.",
     status: "verifiziert",
-    x: 620,
-    y: 195,
+    x: 599,
+    y: 271,
   },
   {
     id: "region-leonida-keys",
@@ -31,8 +32,8 @@ export const mapLocations: MapLocation[] = [
     category: "region",
     description: "Eine Kette aus kleinen Inseln. Rockstar nennt sie das „Tor zum Paradies“. Lage auf unserer Skizze ungefähr: im Süden, vor der Spitze des Festlands.",
     status: "unbestaetigt",
-    x: 560,
-    y: 890,
+    x: 758,
+    y: 854,
   },
   {
     id: "region-grassrivers",
@@ -40,8 +41,8 @@ export const mapLocations: MapLocation[] = [
     category: "region",
     description: "Ein wildes Sumpf- und Flussgebiet mit Alligatoren und Mangroven. Lage auf unserer Skizze ungefähr: im Süden, westlich von Vice City.",
     status: "unbestaetigt",
-    x: 585,
-    y: 690,
+    x: 750,
+    y: 707,
   },
   {
     id: "region-ambrosia",
@@ -49,8 +50,8 @@ export const mapLocations: MapLocation[] = [
     category: "region",
     description: "Das Industrie- und Landwirtschaftsgebiet von Leonida, unter anderem mit einer großen Zuckerraffinerie. Lage auf unserer Skizze ungefähr: in der Mitte des Bundesstaats.",
     status: "unbestaetigt",
-    x: 600,
-    y: 440,
+    x: 729,
+    y: 589,
   },
   {
     id: "region-port-gellhorn",
@@ -58,8 +59,8 @@ export const mapLocations: MapLocation[] = [
     category: "region",
     description: "Ein heruntergekommener früherer Urlaubsort an der Küste – Rockstar spricht von Leonidas „vergessener Küste“. Lage auf unserer Skizze ungefähr: im Nordwesten.",
     status: "unbestaetigt",
-    x: 200,
-    y: 185,
+    x: 259,
+    y: 192,
   },
 ];
 
