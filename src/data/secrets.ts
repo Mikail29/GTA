@@ -14,7 +14,6 @@ export const secrets: Secret[] = [
     status: "demo",
     spoiler: true,
     location: "Platzhalter – kein echter Fundort",
-    mapLocationId: "demo-geheimnis-1",
     publishedAt: "2026-11-02",
     blocks: [
       { type: "p", text: "Hier steht später die Beschreibung des Easter Eggs: was man sieht, worauf es anspielt und wie man es auslöst." },
@@ -29,7 +28,6 @@ export const secrets: Secret[] = [
     status: "demo",
     spoiler: false,
     location: "Platzhalter – kein echter Fundort",
-    mapLocationId: "demo-fundort-1",
     publishedAt: "2026-11-03",
     blocks: [
       { type: "p", text: "Platzhalter für die Wegbeschreibung. Später ergänzt mit Bildern aus eigener Aufnahme und einem Marker auf der Karte." },
@@ -43,7 +41,6 @@ export const secrets: Secret[] = [
     status: "demo",
     spoiler: false,
     location: "Platzhalter – kein echter Fundort",
-    mapLocationId: "demo-sammelobjekt-1",
     publishedAt: "2026-11-04",
     blocks: [
       { type: "p", text: "Platzhalter: Beschreibung des Sammelobjekts, Anzahl insgesamt und mögliche Belohnungen – erst nach Prüfung." },
@@ -57,7 +54,6 @@ export const secrets: Secret[] = [
     status: "demo",
     spoiler: false,
     location: "Platzhalter – kein echter Fundort",
-    mapLocationId: "demo-fahrzeug-1",
     publishedAt: "2026-11-05",
     blocks: [
       { type: "p", text: "Platzhalter: Fahrzeugbeschreibung und Bedingungen für das Erscheinen. Wir erfinden keine Fahrzeugnamen oder Fundorte." },

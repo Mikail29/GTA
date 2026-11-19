@@ -12,6 +12,7 @@ import { MissionCard } from "@/components/cards/mission-card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { findCategory, missionCategories } from "@/data/categories";
 import { getMission, getRelatedMissions, missions } from "@/lib/content";
+import { formatDate } from "@/lib/utils/format";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -109,6 +110,23 @@ export default async function MissionPage({ params }: Props) {
 
         <div className="mt-8 max-w-3xl">
           {mission.spoiler === "keine" ? walkthrough : <SpoilerGate level={mission.spoiler}>{walkthrough}</SpoilerGate>}
+          {mission.sources && mission.sources.length > 0 && (
+            <section aria-labelledby="quellen" className="mt-8 text-sm text-muted">
+              <h2 id="quellen" className="mb-2 font-semibold text-white">
+                Quellen
+              </h2>
+              <p className="mb-2">Fakten aus mehreren unabhängigen Quellen, in eigenen Worten zusammengefasst (Stand: {formatDate(mission.publishedAt)}).</p>
+              <ul className="grid gap-1">
+                {mission.sources.map((s) => (
+                  <li key={s.url}>
+                    <a href={s.url} target="_blank" rel="noopener noreferrer nofollow" className="text-teal underline">
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
           <div className="mt-8 grid gap-4">
             <Rating id={`mission:${mission.slug}`} />
             <ShareButtons title={mission.title} path={`/missionen/${mission.slug}`} />

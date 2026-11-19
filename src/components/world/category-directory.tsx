@@ -19,6 +19,7 @@ export interface DirectoryEntry {
   mapLocationId?: string;
   status: VerificationStatus;
   source?: { label: string; url: string };
+  sources?: { label: string; url: string }[];
 }
 
 const accentIcon: Record<Accent, string> = {
@@ -89,10 +90,20 @@ export function CategoryDirectory({ categories, entries, emptyText }: { categori
                           Auf der Karte
                         </Link>
                       )}
-                      {e.source && (
+                      {e.source && !e.sources?.length && (
                         <a href={e.source.url} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-1 text-teal underline">
                           Quelle <ExternalLink className="size-3" aria-hidden="true" />
                         </a>
+                      )}
+                      {e.sources && e.sources.length > 0 && (
+                        <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
+                          {e.sources.length > 1 ? "Quellen:" : "Quelle:"}
+                          {e.sources.map((s) => (
+                            <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-1 text-teal underline">
+                              {s.label} <ExternalLink className="size-3" aria-hidden="true" />
+                            </a>
+                          ))}
+                        </span>
                       )}
                     </div>
                   </li>

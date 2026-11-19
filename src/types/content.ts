@@ -55,7 +55,17 @@ export type IconName =
   | "shield"
   | "heart"
   | "compass"
-  | "shapes";
+  | "shapes"
+  | "zap"
+  | "cctv"
+  | "shirt"
+  | "landmark"
+  | "drama"
+  | "hit"
+  | "wind"
+  | "gauge"
+  | "mountain"
+  | "factory";
 
 /** Farbschema für Platzhalter-Vorschaubilder. */
 export type Accent = "pink" | "teal" | "violet" | "sunset";
@@ -90,6 +100,8 @@ export interface Mission {
   tips: string[];
   related: string[];
   publishedAt: string;
+  /** Quellen für die Fakten (für „verifiziert“ mindestens zwei unabhängige). */
+  sources?: { label: string; url: string }[];
 }
 
 export interface Secret {
@@ -117,7 +129,7 @@ export interface NewsItem {
   sources?: { label: string; url: string }[];
 }
 
-export type MapCategory = "geheimnis" | "sammelobjekt" | "fahrzeug" | "mission" | "fundort";
+export type MapCategory = "region" | "geheimnis" | "sammelobjekt" | "fahrzeug" | "mission" | "fundort";
 
 export interface MapLocation {
   id: string;
@@ -125,7 +137,7 @@ export interface MapLocation {
   category: MapCategory;
   description: string;
   status: VerificationStatus;
-  /** Koordinaten im eigenen Platzhalter-Kartensystem (0–1000). */
+  /** Koordinaten auf unserer eigenen, schematischen Karte (0–1000). */
   x: number;
   y: number;
   href?: string;
@@ -175,4 +187,6 @@ export interface GameSymbol {
   where?: string;
   status: VerificationStatus;
   source?: { label: string; url: string };
+  /** Mehrere unabhängige Quellen (für „verifiziert“ mindestens zwei). */
+  sources?: { label: string; url: string }[];
 }

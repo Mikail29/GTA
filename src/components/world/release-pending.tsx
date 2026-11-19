@@ -1,7 +1,7 @@
 import { CalendarClock, MessageSquarePlus } from "lucide-react";
 import { LinkButton } from "@/components/ui/button";
 
-/** Hinweis: Inhalte folgen nach dem Release. */
+/** Hinweis: Inhalte werden nach dem Release (19.11.2026) Schritt für Schritt ergänzt. */
 export function ReleasePending({ what }: { what: string }) {
   return (
     <section className="surface relative overflow-hidden border-sunset/30 p-6 sm:p-8" aria-labelledby="folgt-titel">
@@ -12,10 +12,10 @@ export function ReleasePending({ what }: { what: string }) {
         </span>
         <div className="flex-1">
           <h2 id="folgt-titel" className="text-xl font-bold">
-            Inhalte folgen nach dem Release
+            Inhalte folgen in Kürze
           </h2>
           <p className="mt-1 text-muted">
-            GTA 6 erscheint am 19. November 2026. {what} tragen wir in den ersten Tagen danach ein – sobald wir sie geprüft haben. Bis dahin gibt es hier bewusst keine Vermutungen.
+            GTA 6 ist seit dem 19. November 2026 erhältlich. {what} tragen wir jetzt Schritt für Schritt ein – sobald wir sie geprüft haben. Bis dahin gibt es hier bewusst keine Vermutungen.
           </p>
         </div>
         <LinkButton href="/fragen/neu" variant="secondary" className="self-start sm:self-center">

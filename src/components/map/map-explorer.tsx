@@ -16,8 +16,8 @@ const categories = Object.keys(mapCategoryMeta) as MapCategory[];
 
 /**
  * Interaktive Karte auf Basis von Leaflet (CRS.Simple = eigenes Pixel-Koordinatensystem).
- * Das Kartenbild ist ein selbst erstellter Platzhalter. Sobald rechtlich nutzbare
- * Kartendaten vorliegen, kann imageUrl ausgetauscht werden (oder Kacheln per L.tileLayer).
+ * Das Kartenbild ist eine selbst gezeichnete, schematische Skizze (nicht von der Spielkarte abgezeichnet).
+ * Sobald rechtlich nutzbare Kartendaten vorliegen, kann imageUrl ausgetauscht werden (oder Kacheln per L.tileLayer).
  */
 export function MapExplorer({ locations, imageUrl, initialMarker }: { locations: MapLocation[]; imageUrl: string; initialMarker?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -52,9 +52,9 @@ export function MapExplorer({ locations, imageUrl, initialMarker }: { locations:
           maxBounds: bounds.pad(0.2),
           attributionControl: true,
         });
-        L.imageOverlay(imageUrl, bounds, { alt: "Selbst erstellte Platzhalter-Karte" }).addTo(map);
+        L.imageOverlay(imageUrl, bounds, { alt: "Eigene, schematische Karte von Leonida" }).addTo(map);
         map.attributionControl.setPrefix(false);
-        map.attributionControl.addAttribution("Platzhalter-Karte © 5-Sterne-Kompass");
+        map.attributionControl.addAttribution("Eigene Skizze © 5-Sterne-Kompass");
         map.fitBounds(bounds);
 
         for (const loc of locations) {
@@ -168,7 +168,7 @@ export function MapExplorer({ locations, imageUrl, initialMarker }: { locations:
       </aside>
 
       <div className="relative order-1 lg:order-2">
-        <div ref={containerRef} className="h-[460px] w-full overflow-hidden rounded-[1.25rem] border border-line sm:h-[640px]" role="application" aria-label="Interaktive Platzhalter-Karte" />
+        <div ref={containerRef} className="h-[460px] w-full overflow-hidden rounded-[1.25rem] border border-line sm:h-[640px]" role="application" aria-label="Interaktive Karte von Leonida" />
         {!ready && !loadError && (
           <div className="absolute inset-0 grid place-items-center rounded-[1.25rem] bg-night-2 text-sm text-muted">
             <span className="inline-flex items-center gap-2">

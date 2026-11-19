@@ -24,7 +24,7 @@ export default function PersonenPage() {
       />
       <Container className="grid gap-8 py-10">
         {contacts.length === 0 && <ReleasePending what="Personen, Kontakte und Telefonnummern" />}
-        <CategoryDirectory categories={contactCategories} entries={entries} emptyText="Noch keine Einträge – folgt nach dem Release." />
+        <CategoryDirectory categories={contactCategories} entries={entries} emptyText="Noch keine Einträge – wird gerade ergänzt." />
         <p className="flex items-start gap-2 text-xs text-muted">
           <Info className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
           Telefonnummern auf dieser Seite sind fiktive Nummern innerhalb des Spiels. Bitte rufe sie nicht mit deinem echten Telefon an. Die Kategorien sind unsere eigene Gliederung.

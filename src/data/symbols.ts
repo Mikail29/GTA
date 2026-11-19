@@ -2,20 +2,275 @@ import type { Category, GameSymbol } from "@/types/content";
 
 /**
  * Symbole im Spiel – Karte, Radar und Anzeige.
- * Noch leer: Einträge werden nach dem Release (19.11.2026) ergänzt, sobald sie
- * geprüft sind. Die Kategorien sind unsere eigene Gliederung.
+ * Seit dem Release (19.11.2026) werden hier geprüfte Einträge ergänzt.
+ * „verifiziert“ = mindestens zwei unabhängige Quellen (oder offizielle Angabe bzw. selbst im Spiel gesehen).
+ * Die Kategorien sind unsere eigene Gliederung.
  *
- * Wichtig (Urheberrecht): Keine Original-Grafiken aus dem Spiel verwenden.
- * Jedes Symbol wird in eigenen Worten beschrieben („looks“) und auf der Website
- * mit einem eigenen, vereinfachten Zeichen („icon“) dargestellt.
+ * Wichtig (Urheberrecht): Keine Original-Grafiken aus dem Spiel verwenden und keine Texte
+ * fremder Seiten übernehmen. Jedes Symbol wird in eigenen Worten beschrieben („looks“) und
+ * auf der Website mit einem eigenen, vereinfachten Zeichen („icon“) dargestellt.
  */
+
+// Quellen (Stand: 19.11.2026)
+const Q = {
+  beebomAnzeige: { label: "Beebom (Anzeige)", url: "https://beebom.com/gta-6-icons-meters-meanings-explained/" },
+  beebomFahndung: { label: "Beebom (Fahndung)", url: "https://beebom.com/gta-6-wanted-system-explained/" },
+  allThingsHow: { label: "All Things How", url: "https://allthings.how/gta-6-hud-icons-and-meters-explained-extended-look/" },
+  gamesRadarFahndung: { label: "GamesRadar", url: "https://www.gamesradar.com/games/grand-theft-auto/gta-6-wanted-system-goes-up-to-6-stars-and-lets-police-track-your-face-your-clothes-and-your-car/" },
+  gamesRadarProfil: { label: "GamesRadar", url: "https://www.gamesradar.com/games/grand-theft-auto/gta-6-criminal-profiles/" },
+  grandTheft: { label: "grandtheft.gg", url: "https://grandtheft.gg/gta-6-icons/" },
+  grandTheftProfil: { label: "grandtheft.gg", url: "https://grandtheft.gg/gta-6-criminal-profile-system/" },
+  redBull: { label: "Red Bull", url: "https://www.redbull.com/int-en/gta-6-beginners-guide" },
+  gmtreks: { label: "gmtreks", url: "https://gmtreks.com/gta6/page/01M7Q1521K4RV2A6ZR9R09VP55" },
+  skycoach: { label: "Skycoach", url: "https://skycoach.gg/blog/gta-6/articles/wanted-system-guide" },
+  kuber: { label: "kuber.studio", url: "https://gta.kuber.studio/gameplay/gta-6-wanted-system-and-heat" },
+  gtaBase: { label: "GTA Base", url: "https://www.gtabase.com/de/artikel/gta-6/gta-6-wanted-level-explained-police-system-guide" },
+};
+
 export const symbolCategories: Category[] = [
+  { slug: "anzeige", name: "Anzeige & Geld", description: "Balken und Zahlen am Bildschirmrand: Gesundheit, Ausdauer, Fokus, Luft und Geld. Viele davon blenden sich aus, solange nichts passiert.", icon: "heart", accent: "teal" },
+  { slug: "fahndung", name: "Fahndung & Polizei", description: "Bis zu sechs Fahndungssterne. Die roten Symbole darunter zeigen, was die Polizei über dich weiß – auch dann noch, wenn die Sterne weg sind.", icon: "star", accent: "pink" },
+  { slug: "kampf", name: "Kampf & Kriminellenprofil", description: "Treffer am Fadenkreuz und wie das Spiel bewertet, wie du vorgehst.", icon: "crosshair", accent: "violet" },
   { slug: "karte", name: "Karte & Navigation", description: "Ziele, Wegpunkte und Orte auf der Karte und dem Radar.", icon: "compass", accent: "teal" },
   { slug: "missionen", name: "Missionen & Kontakte", description: "Woran du Aufträge, Auftraggeber und Story-Ereignisse erkennst.", icon: "target", accent: "pink" },
   { slug: "laeden", name: "Läden & Dienste", description: "Waffen, Kleidung, Werkstätten und andere Anlaufstellen.", icon: "building", accent: "sunset" },
   { slug: "aktivitaeten", name: "Aktivitäten & Sammelobjekte", description: "Freizeit, Nebenbeschäftigungen und Dinge zum Finden.", icon: "palm", accent: "violet" },
-  { slug: "anzeige", name: "Anzeige & Status", description: "Symbole am Bildschirmrand, z. B. für Gesundheit, Geld und Waffen.", icon: "heart", accent: "teal" },
-  { slug: "fahndung", name: "Fahndung & Polizei", description: "Alles rund um Fahndungsstufe und Einsatzkräfte.", icon: "star", accent: "pink" },
 ];
 
-export const symbols: GameSymbol[] = [];
+export const symbols: GameSymbol[] = [
+  // ---- Anzeige & Geld ----
+  {
+    slug: "gesundheit",
+    name: "Gesundheit",
+    category: "anzeige",
+    icon: "heart",
+    looks: "Ein Herz neben einem rosa Balken. Im Balken sitzt eine kleine Trennlinie.",
+    meaning: "Zeigt, wie viel Gesundheit du noch hast. Nimmst du Schaden, wird der Balken kürzer. Was die Trennlinie genau bedeutet, prüfen wir noch.",
+    where: "Oben links",
+    status: "verifiziert",
+    sources: [Q.allThingsHow, Q.beebomAnzeige],
+  },
+  {
+    slug: "ausdauer",
+    name: "Ausdauer",
+    category: "anzeige",
+    icon: "zap",
+    looks: "Ein Blitz neben einem Balken.",
+    meaning: "Sinkt, wenn du sprintest, schwimmst oder dich anders stark anstrengst. Machst du langsamer, füllt sie sich wieder auf.",
+    where: "Oben links",
+    status: "verifiziert",
+    sources: [Q.beebomAnzeige, Q.allThingsHow],
+  },
+  {
+    slug: "fokus",
+    name: "Fokus",
+    category: "anzeige",
+    icon: "eye",
+    looks: "Ein Auge neben einem violetten Balken.",
+    meaning: "Mit Fokus läuft die Zeit im Kampf langsamer. So kannst du genauer zielen und Schwachstellen von Gegnern erkennen. Wie sich der Balken wieder auffüllt, ist noch nicht eindeutig geklärt.",
+    where: "Oben links",
+    status: "verifiziert",
+    sources: [Q.beebomAnzeige, Q.allThingsHow],
+  },
+  {
+    slug: "atemluft",
+    name: "Atemluft (Lunge)",
+    category: "anzeige",
+    icon: "wind",
+    looks: "Ein grünes Lungen-Symbol, das unter Wasser erscheint.",
+    meaning: "Zeigt beim Tauchen ohne Ausrüstung, wie lange du noch die Luft anhalten kannst.",
+    where: "Unter Wasser",
+    status: "verifiziert",
+    sources: [Q.allThingsHow, Q.beebomAnzeige],
+  },
+  {
+    slug: "sauerstofftank",
+    name: "Sauerstofftank (O2)",
+    category: "anzeige",
+    icon: "gauge",
+    looks: "Eine grüne Anzeige mit der Aufschrift „O2“.",
+    meaning: "Zeigt beim Gerätetauchen mit Tauchflasche, wie viel Luft noch im Tank ist.",
+    where: "Unter Wasser",
+    status: "verifiziert",
+    sources: [Q.allThingsHow, Q.beebomAnzeige],
+  },
+  {
+    slug: "bankguthaben",
+    name: "Bankguthaben",
+    category: "anzeige",
+    icon: "landmark",
+    looks: "Ein violetter Kreis mit einem „B“ darin, daneben eine Zahl.",
+    meaning: "Die Zahl zeigt, wie viel Geld auf deinem Bankkonto liegt. Dieses Geld ist sicher – auch wenn du stirbst oder festgenommen wirst.",
+    status: "verifiziert",
+    sources: [Q.allThingsHow, Q.beebomAnzeige],
+  },
+  {
+    slug: "bargeld",
+    name: "Bargeld",
+    category: "anzeige",
+    icon: "wallet",
+    looks: "Ein Geldbörsen- bzw. Karten-Symbol mit einer Zahl daneben.",
+    meaning: "Zeigt das Bargeld, das du gerade bei dir trägst. Stirbst du oder wirst du festgenommen, kann es verloren gehen. Größere Summen sind auf der Bank sicherer.",
+    status: "verifiziert",
+    sources: [Q.allThingsHow, Q.beebomAnzeige],
+  },
+
+  // ---- Fahndung & Polizei: Sterne ----
+  {
+    slug: "sterne-umriss",
+    name: "Sterne nur als Umriss",
+    category: "fahndung",
+    icon: "star",
+    looks: "Fahndungssterne, die nur umrandet und innen leer sind.",
+    meaning: "Eine Straftat wurde gemeldet, aber die Polizei weiß noch nicht, wer du bist. Gemeldet wird eine Tat laut Rockstar nur, wenn jemand sie beobachtet oder ein Alarm losgeht.",
+    where: "Oben rechts",
+    status: "verifiziert",
+    sources: [Q.beebomFahndung, Q.grandTheft, Q.gamesRadarFahndung],
+  },
+  {
+    slug: "sterne-grau",
+    name: "Graue Sterne",
+    category: "fahndung",
+    icon: "star",
+    looks: "Grau gefüllte Fahndungssterne.",
+    meaning: "Die Polizei hat den Tatort untersucht oder eine Beschreibung von dir und sucht aktiv nach dir. Je mehr Sterne, desto mehr Polizisten suchen dich und desto länger.",
+    where: "Oben rechts",
+    status: "unbestaetigt",
+    sources: [Q.skycoach],
+  },
+  {
+    slug: "sterne-weiss",
+    name: "Weiße Sterne",
+    category: "fahndung",
+    icon: "star",
+    looks: "Weiß gefüllte Fahndungssterne.",
+    meaning: "Die Polizei sieht dich und verfolgt dich. Je mehr Sterne, desto mehr und stärkere Einsatzkräfte schickt sie. Es gibt bis zu sechs Sterne – einen mehr als in GTA 5.",
+    where: "Oben rechts",
+    status: "verifiziert",
+    sources: [Q.beebomFahndung, Q.gamesRadarFahndung],
+  },
+  {
+    slug: "sterne-blinkend",
+    name: "Blinkende Sterne",
+    category: "fahndung",
+    icon: "star",
+    looks: "Weiße Fahndungssterne, die blinken.",
+    meaning: "Die Polizei hat dich aus den Augen verloren und sucht dich. Bleib außer Sicht, um sie abzuschütteln.",
+    where: "Oben rechts",
+    status: "verifiziert",
+    sources: [Q.beebomFahndung, Q.gmtreks],
+  },
+  {
+    slug: "sterne-rot",
+    name: "Rote Sterne",
+    category: "fahndung",
+    icon: "star",
+    looks: "Rot gefüllte Fahndungssterne.",
+    meaning: "Die Verfolgung ist vorbei, aber die Polizei sucht in der Gegend weiter. Erkennt sie dich dort wieder, zum Beispiel an Kleidung oder Auto, kann die Jagd von vorn beginnen.",
+    where: "Oben rechts",
+    status: "verifiziert",
+    sources: [Q.beebomFahndung, Q.grandTheft, Q.gamesRadarFahndung],
+  },
+
+  // ---- Fahndung & Polizei: was die Polizei über dich weiß ----
+  {
+    slug: "merkmal-kleidung",
+    name: "Merkmal: Kleidung",
+    category: "fahndung",
+    icon: "shirt",
+    looks: "Ein rotes Symbol mit einem Kleidungs-Motiv unter den Sternen.",
+    meaning: "Die Polizei kennt deine Kleidung. Zieh dich um, am besten dort, wo dich keine Polizei sieht – dann erkennt sie dich nicht mehr daran.",
+    where: "Unter den Fahndungssternen",
+    status: "verifiziert",
+    sources: [Q.gamesRadarFahndung, Q.beebomFahndung],
+  },
+  {
+    slug: "merkmal-aussehen",
+    name: "Merkmal: Aussehen",
+    category: "fahndung",
+    icon: "user",
+    looks: "Ein rotes Symbol mit einer Person unter den Sternen.",
+    meaning: "Die Polizei kennt dein Gesicht bzw. dein Aussehen. Verändere dein Aussehen, am besten außer Sichtweite der Polizei.",
+    where: "Unter den Fahndungssternen",
+    status: "verifiziert",
+    sources: [Q.gamesRadarFahndung, Q.beebomFahndung],
+  },
+  {
+    slug: "merkmal-fahrzeug",
+    name: "Merkmal: Fahrzeug",
+    category: "fahndung",
+    icon: "car",
+    looks: "Ein rotes Symbol mit einem Auto unter den Sternen.",
+    meaning: "Die Polizei kennt dein Fahrzeug. Wechsle das Auto, wenn dich keine Polizei sieht – dann fährt eine Streife an dir vorbei, ohne dich zu erkennen.",
+    where: "Unter den Fahndungssternen",
+    status: "verifiziert",
+    sources: [Q.gamesRadarFahndung, Q.beebomFahndung],
+  },
+  {
+    slug: "merkmal-zu-zweit",
+    name: "Merkmal: zu zweit unterwegs",
+    category: "fahndung",
+    icon: "users",
+    looks: "Ein rotes Symbol unter den Sternen, das für euch beide steht.",
+    meaning: "Die Polizei weiß, dass Jason und Lucia zusammen unterwegs sind. Trennt euch außer Sichtweite der Polizei.",
+    where: "Unter den Fahndungssternen",
+    status: "verifiziert",
+    sources: [Q.gamesRadarFahndung, Q.beebomFahndung, Q.kuber],
+  },
+  {
+    slug: "merkmal-kamera",
+    name: "Merkmal: Überwachungskamera",
+    category: "fahndung",
+    icon: "cctv",
+    looks: "Ein rotes Symbol mit einer Überwachungskamera unter den Sternen.",
+    meaning: "Eine Überwachungskamera hat dich bei der Tat gefilmt. Wie du dieses Merkmal wieder loswirst, ist noch nicht sicher bestätigt.",
+    where: "Unter den Fahndungssternen",
+    status: "verifiziert",
+    sources: [Q.beebomFahndung, Q.gtaBase],
+  },
+
+  // ---- Kampf & Kriminellenprofil ----
+  {
+    slug: "kriminellenprofil",
+    name: "Kriminellenprofil",
+    category: "kampf",
+    icon: "drama",
+    looks: "Ein kleines Gesicht zwischen Engel und Teufel. Je nach deinem Verhalten wirkt es freundlich, neutral oder grimmig.",
+    meaning: "Jason und Lucia haben jeweils ein eigenes Kriminellenprofil. Es merkt sich, wie gewalttätig du vorgehst und wie du mit Menschen und Tieren umgehst. Gegner nur auszuschalten statt zu töten wirkt sich positiv aus, unnötiges Töten negativ.",
+    status: "verifiziert",
+    sources: [Q.redBull, Q.grandTheftProfil, Q.gamesRadarProfil],
+  },
+  {
+    slug: "treffer-normal",
+    name: "Treffermarker: Treffer",
+    category: "kampf",
+    icon: "hit",
+    looks: "Weiße Striche rund um das Fadenkreuz, wie ein X.",
+    meaning: "Du hast einen Gegner getroffen, aber er kämpft noch weiter.",
+    where: "Am Fadenkreuz",
+    status: "unbestaetigt",
+    sources: [Q.grandTheft],
+  },
+  {
+    slug: "treffer-ausgeschaltet",
+    name: "Treffermarker: ausgeschaltet",
+    category: "kampf",
+    icon: "hit",
+    looks: "Gelbe Striche rund um das Fadenkreuz.",
+    meaning: "Dein Treffer hat den Gegner kampfunfähig gemacht, ohne ihn zu töten. Das wirkt sich positiv auf dein Kriminellenprofil aus.",
+    where: "Am Fadenkreuz",
+    status: "verifiziert",
+    sources: [Q.redBull, Q.grandTheft],
+  },
+  {
+    slug: "treffer-toedlich",
+    name: "Treffermarker: tödlich",
+    category: "kampf",
+    icon: "hit",
+    looks: "Rote Striche rund um das Fadenkreuz.",
+    meaning: "Dein Treffer war tödlich. Töten statt Ausschalten wirkt sich negativ auf dein Kriminellenprofil aus.",
+    where: "Am Fadenkreuz",
+    status: "verifiziert",
+    sources: [Q.redBull, Q.grandTheft],
+  },
+];

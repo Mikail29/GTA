@@ -1,21 +1,70 @@
 import type { MapCategory, MapLocation } from "@/types/content";
 
 /**
- * Demo-Marker für die Platzhalter-Karte.
- * Die Koordinaten beziehen sich auf eine selbst gezeichnete, fiktive Karte
- * (public/map/placeholder-map.svg) und NICHT auf die echte GTA-6-Spielwelt.
+ * Marker auf unserer eigenen, schematischen Karte von Leonida (public/map/leonida-schema.svg).
+ * Die Karte ist selbst gezeichnet, nicht maßstabsgetreu und NICHT von der Spielkarte abgezeichnet.
+ * Die Lage ist nur ungefähr: „verifiziert“ nur, wenn Rockstar die Lage selbst nennt.
+ * Quellen: Rockstar Games („Only in Leonida“, rockstargames.com/VI) und mehrere unabhängige Guides (Stand 19.11.2026).
  */
 export const mapLocations: MapLocation[] = [
-  { id: "demo-geheimnis-1", title: "Demo-Geheimnis", category: "geheimnis", description: "Beispielmarker für ein Geheimnis. Kein echter Fundort.", status: "demo", x: 620, y: 410, href: "/geheimnisse/demo-easter-egg-vorlage" },
-  { id: "demo-fundort-1", title: "Demo-Fundort", category: "fundort", description: "Beispielmarker für einen versteckten Ort. Kein echter Fundort.", status: "demo", x: 300, y: 260, href: "/geheimnisse/demo-versteckter-ort-vorlage" },
-  { id: "demo-sammelobjekt-1", title: "Demo-Sammelobjekt", category: "sammelobjekt", description: "Beispielmarker für ein Sammelobjekt. Kein echter Fundort.", status: "demo", x: 480, y: 640, href: "/geheimnisse/demo-sammelobjekt-vorlage" },
-  { id: "demo-sammelobjekt-2", title: "Demo-Sammelobjekt 2", category: "sammelobjekt", description: "Zweiter Beispielmarker für Sammelobjekte.", status: "demo", x: 720, y: 700 },
-  { id: "demo-fahrzeug-1", title: "Demo-Fahrzeug", category: "fahrzeug", description: "Beispielmarker für ein seltenes Fahrzeug. Kein echter Fundort.", status: "demo", x: 380, y: 520, href: "/geheimnisse/demo-seltenes-fahrzeug-vorlage" },
-  { id: "demo-mission-1", title: "Demo-Missionsstart", category: "mission", description: "Beispielmarker für einen Missionsstart.", status: "demo", x: 560, y: 300, href: "/missionen/demo-mission-hauptstory-vorlage" },
-  { id: "demo-mission-2", title: "Demo-Nebenauftrag", category: "mission", description: "Beispielmarker für einen Nebenauftrag.", status: "demo", x: 250, y: 720, href: "/missionen/demo-mission-nebenauftrag-vorlage" },
+  {
+    id: "region-vice-city",
+    title: "Vice City",
+    category: "region",
+    description: "Die große Stadt von Leonida mit Stränden und Nachtleben. Laut Rockstar liegt sie im Südosten des Bundesstaats.",
+    status: "verifiziert",
+    x: 735,
+    y: 640,
+  },
+  {
+    id: "region-mount-kalaga",
+    title: "Mount Kalaga",
+    category: "region",
+    description: "Ein Nationalpark mit Wäldern und Bergen. Laut Rockstar das Hinterland ganz im Norden von Leonida.",
+    status: "verifiziert",
+    x: 620,
+    y: 195,
+  },
+  {
+    id: "region-leonida-keys",
+    title: "Leonida Keys",
+    category: "region",
+    description: "Eine Kette aus kleinen Inseln. Rockstar nennt sie das „Tor zum Paradies“. Lage auf unserer Skizze ungefähr: im Süden, vor der Spitze des Festlands.",
+    status: "unbestaetigt",
+    x: 560,
+    y: 890,
+  },
+  {
+    id: "region-grassrivers",
+    title: "Grassrivers",
+    category: "region",
+    description: "Ein wildes Sumpf- und Flussgebiet mit Alligatoren und Mangroven. Lage auf unserer Skizze ungefähr: im Süden, westlich von Vice City.",
+    status: "unbestaetigt",
+    x: 585,
+    y: 690,
+  },
+  {
+    id: "region-ambrosia",
+    title: "Ambrosia",
+    category: "region",
+    description: "Das Industrie- und Landwirtschaftsgebiet von Leonida, unter anderem mit einer großen Zuckerraffinerie. Lage auf unserer Skizze ungefähr: in der Mitte des Bundesstaats.",
+    status: "unbestaetigt",
+    x: 600,
+    y: 440,
+  },
+  {
+    id: "region-port-gellhorn",
+    title: "Port Gellhorn",
+    category: "region",
+    description: "Ein heruntergekommener früherer Urlaubsort an der Küste – Rockstar spricht von Leonidas „vergessener Küste“. Lage auf unserer Skizze ungefähr: im Nordwesten.",
+    status: "unbestaetigt",
+    x: 200,
+    y: 185,
+  },
 ];
 
 export const mapCategoryMeta: Record<MapCategory, { label: string; color: string }> = {
+  region: { label: "Regionen", color: "#FFD166" },
   geheimnis: { label: "Geheimnisse", color: "#9565FF" },
   sammelobjekt: { label: "Sammelobjekte", color: "#FF9B68" },
   fahrzeug: { label: "Fahrzeuge", color: "#42E8D5" },

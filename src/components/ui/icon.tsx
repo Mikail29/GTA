@@ -1,7 +1,8 @@
 import {
   Anchor, Building2, Car, CircleHelp, Crosshair, Eye, Flame, Gamepad2, Gem, KeyRound, Lightbulb, Map, MapPin,
   Newspaper, Plane, Rocket, ScrollText, Settings, Sparkles, Sunset, Target, TreePalm, Trophy, UserRound, Users, Wallet,
-  Waves, Wrench, Star, Shield, Heart, Compass, Shapes, type LucideIcon, type LucideProps,
+  Waves, Wrench, Star, Shield, Heart, Compass, Shapes, Zap, Cctv, Shirt, Landmark, Drama, X, Wind, Gauge, Mountain, Factory,
+  type LucideIcon, type LucideProps,
 } from "lucide-react";
 import type { IconName } from "@/types/content";
 
@@ -10,7 +11,8 @@ const icons: Record<IconName, LucideIcon> = {
   crosshair: Crosshair, wallet: Wallet, gamepad: Gamepad2, user: UserRound, settings: Settings, rocket: Rocket,
   sparkles: Sparkles, gem: Gem, trophy: Trophy, help: CircleHelp, wrench: Wrench, scroll: ScrollText, mappin: MapPin,
   palm: TreePalm, waves: Waves, sunset: Sunset, building: Building2, plane: Plane, anchor: Anchor, flame: Flame, eye: Eye,
-  star: Star, shield: Shield, heart: Heart, compass: Compass, shapes: Shapes,
+  star: Star, shield: Shield, heart: Heart, compass: Compass, shapes: Shapes, zap: Zap, cctv: Cctv, shirt: Shirt,
+  landmark: Landmark, drama: Drama, hit: X, wind: Wind, gauge: Gauge, mountain: Mountain, factory: Factory,
 };
 
 export function Icon({ name, ...props }: { name: IconName } & LucideProps) {

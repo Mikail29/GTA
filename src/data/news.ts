@@ -2,6 +2,29 @@ import type { NewsItem } from "@/types/content";
 
 export const news: NewsItem[] = [
   {
+    slug: "gta-6-ist-da-99-punkte-bei-metacritic",
+    title: "GTA 6 ist da – und holt 99 von 100 Punkten",
+    excerpt: "Seit dem 19. November ist GTA 6 für PlayStation 5 und Xbox Series X|S erhältlich. Bei Metacritic steht es bei 99 Punkten – gleichauf mit dem bisherigen Rekord.",
+    publishedAt: "2026-11-19",
+    status: "verifiziert",
+    sources: [
+      { label: "Rockstar Newswire: Grand Theft Auto VI is Now Set to Launch November 19, 2026", url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" },
+      { label: "OpenCritic: GTA 6 Is Officially The Best-Reviewed Game Of All-Time On Metacritic", url: "https://opencritic.com/news/39914/gta-6-is-officially-the-best-reviewed-game-of-all-time-on-metacritic" },
+      { label: "Technobezz: GTA 6 Scores 99 on Metacritic", url: "https://www.technobezz.com/news/gta-6-reviews-metacritic-opencritic-scores" },
+      { label: "Happy Gamer: GTA 6 Reviews – 99 on Metacritic", url: "https://happygamer.com/gta-6-reviews-metacritic-opencritic-scores-175596/" },
+    ],
+    blocks: [
+      { type: "p", text: "Am 19. November 2026 ist Grand Theft Auto VI erschienen – für PlayStation 5 und Xbox Series X|S. Auf der älteren Xbox One läuft es nur über Xbox Cloud Gaming." },
+      { type: "h2", id: "wertung", text: "So gut kommt GTA 6 an" },
+      { type: "p", text: "Metacritic ist eine Website, die viele Testberichte zu einer Gesamtnote zusammenfasst. Dort steht die PS5-Version von GTA 6 bei 99 von 100 Punkten. Das ist gleichauf mit dem bisherigen Rekord der Seite." },
+      { type: "note", tone: "info", title: "Stand: 19. November 2026", text: "Die Gesamtnote kann sich in den nächsten Tagen noch leicht ändern, wenn weitere Tests dazukommen." },
+      { type: "h2", id: "online", text: "Und der Online-Modus?" },
+      { type: "p", text: "Für den neuen Online-Modus hat Rockstar noch keinen Termin genannt. Sobald es offizielle Infos gibt, findest du sie bei uns unter „Online“." },
+      { type: "h2", id: "mitmachen", text: "Du spielst schon?" },
+      { type: "p", text: "Dann hilf mit: Stell deine Fragen oder teile Tipps in unserer Community. Was mehrere Spieler bestätigen, nehmen wir nach und nach in Missionen, Karte und Symbole auf." },
+    ],
+  },
+  {
     slug: "gta-6-vorladen-und-start",
     title: "GTA 6 vorladen: So bist du am 19. November startklar",
     excerpt: "Seit dem 10. November kannst du GTA 6 vorab herunterladen. Der Download ist sehr groß – plane genug Speicherplatz ein.",
@@ -23,7 +46,7 @@ export const news: NewsItem[] = [
   {
     slug: "gta-6-editionen-und-vorbesteller-bonus",
     title: "Standard oder Ultimate? Die Editionen von GTA 6",
-    excerpt: "GTA 6 gibt es in zwei Editionen. Wer bis zum 20. November digital kauft, bekommt zusätzlich einen Bonus.",
+    excerpt: "GTA 6 gibt es in zwei Editionen. Wer vor dem 20. November digital kauft, bekommt zusätzlich einen Bonus.",
     publishedAt: "2026-11-18",
     status: "verifiziert",
     sources: [
@@ -85,7 +108,7 @@ export const news: NewsItem[] = [
     sources: [{ label: "Rockstar Newswire: Grand Theft Auto VI is Now Set to Launch November 19, 2026", url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" }],
     blocks: [
       { type: "p", text: "Rockstar Games hat den Release von Grand Theft Auto VI für Donnerstag, den 19. November 2026 angekündigt. Das Spiel erscheint für PlayStation 5 und Xbox Series X|S." },
-      { type: "note", tone: "info", title: "Stand: 18. November 2026", text: "Eine weitere Verschiebung ist nicht angekündigt. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games (siehe Quelle unten)." },
+      { type: "note", tone: "info", title: "Stand: 19. November 2026", text: "GTA 6 ist wie angekündigt am 19. November 2026 erschienen. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games (siehe Quelle unten)." },
       { type: "h2", id: "community", text: "Gemeinsam starten" },
       { type: "p", text: "In unserer Community kannst du schon jetzt Fragen stellen und dich mit anderen auf den Release vorbereiten." },
     ],

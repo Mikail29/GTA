@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils/cn";
 import type { Accent, IconName } from "@/types/content";
 
 const tiles: { href: string; title: string; text: string; icon: IconName; accent: Accent }[] = [
-  { href: "/karte", title: "Interaktive Karte", text: "Fundorte, Sammelobjekte und Missionen auf einen Blick (in Vorbereitung).", icon: "map", accent: "teal" },
+  { href: "/karte", title: "Interaktive Karte", text: "Eigene Übersicht über Leonida mit allen Regionen – weitere geprüfte Orte folgen.", icon: "map", accent: "teal" },
   { href: "/community", title: "Community", text: "Fragen stellen, Antworten geben und gemeinsam rätseln.", icon: "users", accent: "pink" },
   { href: "/missionen", title: "Missionen", text: "Komplettlösungen Schritt für Schritt – mit Spoiler-Warnung.", icon: "target", accent: "sunset" },
-  { href: "/personen", title: "Personen & Kontakte", text: "Wer dir im Spiel hilft – mit Telefonnummern im Spiel (ab Release).", icon: "users", accent: "violet" },
-  { href: "/symbole", title: "Symbole", text: "Was bedeutet welches Zeichen auf Karte, Radar und Anzeige? Alle Symbole erklärt (ab Release).", icon: "shapes", accent: "sunset" },
+  { href: "/personen", title: "Personen & Kontakte", text: "Wer dir im Spiel hilft – mit Telefonnummern im Spiel (wird gerade ergänzt).", icon: "users", accent: "violet" },
+  { href: "/symbole", title: "Symbole", text: "Was bedeuten Fahndungssterne, Fokus & Co.? Die ersten Symbole sind schon erklärt – weitere folgen.", icon: "shapes", accent: "sunset" },
   { href: "/geheimnisse", title: "Geheimnisse", text: "Easter Eggs, versteckte Orte und seltene Fahrzeuge.", icon: "key", accent: "violet" },
 ];
 

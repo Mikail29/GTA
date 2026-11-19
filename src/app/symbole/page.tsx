@@ -23,6 +23,7 @@ export default function SymbolePage() {
     location: s.where,
     status: s.status,
     source: s.source,
+    sources: s.sources,
   }));
   return (
     <>
@@ -34,7 +35,7 @@ export default function SymbolePage() {
       />
       <Container className="grid gap-8 py-10">
         {symbols.length === 0 && <ReleasePending what="Symbole und ihre Bedeutung" />}
-        <CategoryDirectory categories={symbolCategories} entries={entries} emptyText="Noch keine Einträge – folgt nach dem Release." />
+        <CategoryDirectory categories={symbolCategories} entries={entries} emptyText="Noch keine Einträge – wird gerade ergänzt." />
         <p className="flex items-start gap-2 text-xs text-muted">
           <Info className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
           Wir zeigen keine Original-Grafiken aus dem Spiel. Jedes Symbol wird in eigenen Worten beschrieben und mit einem eigenen, vereinfachten Zeichen dargestellt – im Spiel kann es anders

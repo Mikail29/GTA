@@ -34,8 +34,9 @@ export default async function MissionenPage({ searchParams }: { searchParams: Se
     <>
       <PageHeader eyebrow="Komplettlösungen" title="Missionen" text="Schritt-für-Schritt-Hilfen für Story, Nebenaufträge und Herausforderungen – mit klaren Spoiler-Warnungen." crumbs={[{ label: "Missionen" }]} />
       <Container className="py-10">
-        <Notice tone="research" title="Noch keine echten Missionen" className="mb-8">
-          Wir veröffentlichen keine erfundenen Missionstitel oder Abläufe. Die folgenden Einträge sind Vorlagen, die zeigen, wie Komplettlösungen auf dem 5-Sterne-Kompass aufgebaut sein werden.
+        <Notice tone="research" title="Die ersten Missionen sind da" className="mb-8">
+          Die Geschichte ist laut Rockstar – wie bei Red Dead Redemption 2 – in Kapitel aufgeteilt. Wir tragen die Missionen Schritt für Schritt ein: nur mit geprüften Fakten aus mehreren
+          Quellen oder aus eigenem Spielen, in eigenen Worten. Du hast eine Mission schon gespielt? Teile deine Tipps in der Community.
         </Notice>
         <ListingFilters
           basePath="/missionen"
