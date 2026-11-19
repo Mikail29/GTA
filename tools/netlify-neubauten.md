@@ -15,3 +15,4 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 
 ## Wartet auf den nächsten Neubau (schon im Code, noch nicht online)
 - 19.11.: Zurück-Knopf auf jeder Seite (auch Startseite, dort ausgegraut ohne vorherige Seite), ab Tablet mit Schrift „Zurück“ – mit [skip netlify] hochgeladen, geht beim nächsten Neubau mit online (oder sofort per Netlify „Trigger deploy“)
+- 19.11.: Release-News „GTA 6 ist da – 99 von 100 Punkten“, Bonus-Frist korrigiert („vor dem 20. November“), Texte „folgt nach dem Release“ → „wird gerade ergänzt“ – fertig als tools/entwuerfe/2026-11-19-release-news.patch, wartet auf Freigabe des Betreibers

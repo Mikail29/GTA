@@ -1,0 +1,119 @@
+diff --git a/src/app/personen/page.tsx b/src/app/personen/page.tsx
+index a9423aa..bb31c16 100644
+--- a/src/app/personen/page.tsx
++++ b/src/app/personen/page.tsx
+@@ -24,7 +24,7 @@ export default function PersonenPage() {
+       />
+       <Container className="grid gap-8 py-10">
+         {contacts.length === 0 && <ReleasePending what="Personen, Kontakte und Telefonnummern" />}
+-        <CategoryDirectory categories={contactCategories} entries={entries} emptyText="Noch keine Einträge – folgt nach dem Release." />
++        <CategoryDirectory categories={contactCategories} entries={entries} emptyText="Noch keine Einträge – wird gerade ergänzt." />
+         <p className="flex items-start gap-2 text-xs text-muted">
+           <Info className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+           Telefonnummern auf dieser Seite sind fiktive Nummern innerhalb des Spiels. Bitte rufe sie nicht mit deinem echten Telefon an. Die Kategorien sind unsere eigene Gliederung.
+diff --git a/src/app/symbole/page.tsx b/src/app/symbole/page.tsx
+index 4044419..414340d 100644
+--- a/src/app/symbole/page.tsx
++++ b/src/app/symbole/page.tsx
+@@ -34,7 +34,7 @@ export default function SymbolePage() {
+       />
+       <Container className="grid gap-8 py-10">
+         {symbols.length === 0 && <ReleasePending what="Symbole und ihre Bedeutung" />}
+-        <CategoryDirectory categories={symbolCategories} entries={entries} emptyText="Noch keine Einträge – folgt nach dem Release." />
++        <CategoryDirectory categories={symbolCategories} entries={entries} emptyText="Noch keine Einträge – wird gerade ergänzt." />
+         <p className="flex items-start gap-2 text-xs text-muted">
+           <Info className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+           Wir zeigen keine Original-Grafiken aus dem Spiel. Jedes Symbol wird in eigenen Worten beschrieben und mit einem eigenen, vereinfachten Zeichen dargestellt – im Spiel kann es anders
+diff --git a/src/components/home/quick-access.tsx b/src/components/home/quick-access.tsx
+index 3749451..c8a6fb1 100644
+--- a/src/components/home/quick-access.tsx
++++ b/src/components/home/quick-access.tsx
+@@ -8,8 +8,8 @@ const tiles: { href: string; title: string; text: string; icon: IconName; accent
+   { href: "/karte", title: "Interaktive Karte", text: "Fundorte, Sammelobjekte und Missionen auf einen Blick (in Vorbereitung).", icon: "map", accent: "teal" },
+   { href: "/community", title: "Community", text: "Fragen stellen, Antworten geben und gemeinsam rätseln.", icon: "users", accent: "pink" },
+   { href: "/missionen", title: "Missionen", text: "Komplettlösungen Schritt für Schritt – mit Spoiler-Warnung.", icon: "target", accent: "sunset" },
+-  { href: "/personen", title: "Personen & Kontakte", text: "Wer dir im Spiel hilft – mit Telefonnummern im Spiel (ab Release).", icon: "users", accent: "violet" },
+-  { href: "/symbole", title: "Symbole", text: "Was bedeutet welches Zeichen auf Karte, Radar und Anzeige? Alle Symbole erklärt (ab Release).", icon: "shapes", accent: "sunset" },
++  { href: "/personen", title: "Personen & Kontakte", text: "Wer dir im Spiel hilft – mit Telefonnummern im Spiel (wird gerade ergänzt).", icon: "users", accent: "violet" },
++  { href: "/symbole", title: "Symbole", text: "Was bedeutet welches Zeichen auf Karte, Radar und Anzeige? Alle Symbole erklärt (wird gerade ergänzt).", icon: "shapes", accent: "sunset" },
+   { href: "/geheimnisse", title: "Geheimnisse", text: "Easter Eggs, versteckte Orte und seltene Fahrzeuge.", icon: "key", accent: "violet" },
+ ];
+ 
+diff --git a/src/components/world/release-pending.tsx b/src/components/world/release-pending.tsx
+index 5ef1349..3de0c41 100644
+--- a/src/components/world/release-pending.tsx
++++ b/src/components/world/release-pending.tsx
+@@ -1,7 +1,7 @@
+ import { CalendarClock, MessageSquarePlus } from "lucide-react";
+ import { LinkButton } from "@/components/ui/button";
+ 
+-/** Hinweis: Inhalte folgen nach dem Release. */
++/** Hinweis: Inhalte werden nach dem Release (19.11.2026) Schritt für Schritt ergänzt. */
+ export function ReleasePending({ what }: { what: string }) {
+   return (
+     <section className="surface relative overflow-hidden border-sunset/30 p-6 sm:p-8" aria-labelledby="folgt-titel">
+@@ -12,10 +12,10 @@ export function ReleasePending({ what }: { what: string }) {
+         </span>
+         <div className="flex-1">
+           <h2 id="folgt-titel" className="text-xl font-bold">
+-            Inhalte folgen nach dem Release
++            Inhalte folgen in Kürze
+           </h2>
+           <p className="mt-1 text-muted">
+-            GTA 6 erscheint am 19. November 2026. {what} tragen wir in den ersten Tagen danach ein – sobald wir sie geprüft haben. Bis dahin gibt es hier bewusst keine Vermutungen.
++            GTA 6 ist seit dem 19. November 2026 erhältlich. {what} tragen wir jetzt Schritt für Schritt ein – sobald wir sie geprüft haben. Bis dahin gibt es hier bewusst keine Vermutungen.
+           </p>
+         </div>
+         <LinkButton href="/fragen/neu" variant="secondary" className="self-start sm:self-center">
+diff --git a/src/data/news.ts b/src/data/news.ts
+index 93d7d2b..0db729b 100644
+--- a/src/data/news.ts
++++ b/src/data/news.ts
+@@ -1,6 +1,29 @@
+ import type { NewsItem } from "@/types/content";
+ 
+ export const news: NewsItem[] = [
++  {
++    slug: "gta-6-ist-da-99-punkte-bei-metacritic",
++    title: "GTA 6 ist da – und holt 99 von 100 Punkten",
++    excerpt: "Seit dem 19. November ist GTA 6 für PlayStation 5 und Xbox Series X|S erhältlich. Bei Metacritic steht es bei 99 Punkten – gleichauf mit dem bisherigen Rekord.",
++    publishedAt: "2026-11-19",
++    status: "verifiziert",
++    sources: [
++      { label: "Rockstar Newswire: Grand Theft Auto VI is Now Set to Launch November 19, 2026", url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" },
++      { label: "OpenCritic: GTA 6 Is Officially The Best-Reviewed Game Of All-Time On Metacritic", url: "https://opencritic.com/news/39914/gta-6-is-officially-the-best-reviewed-game-of-all-time-on-metacritic" },
++      { label: "Technobezz: GTA 6 Scores 99 on Metacritic", url: "https://www.technobezz.com/news/gta-6-reviews-metacritic-opencritic-scores" },
++      { label: "Happy Gamer: GTA 6 Reviews – 99 on Metacritic", url: "https://happygamer.com/gta-6-reviews-metacritic-opencritic-scores-175596/" },
++    ],
++    blocks: [
++      { type: "p", text: "Am 19. November 2026 ist Grand Theft Auto VI erschienen – für PlayStation 5 und Xbox Series X|S. Auf der älteren Xbox One läuft es nur über Xbox Cloud Gaming." },
++      { type: "h2", id: "wertung", text: "So gut kommt GTA 6 an" },
++      { type: "p", text: "Metacritic ist eine Website, die viele Testberichte zu einer Gesamtnote zusammenfasst. Dort steht die PS5-Version von GTA 6 bei 99 von 100 Punkten. Das ist gleichauf mit dem bisherigen Rekord der Seite." },
++      { type: "note", tone: "info", title: "Stand: 19. November 2026", text: "Die Gesamtnote kann sich in den nächsten Tagen noch leicht ändern, wenn weitere Tests dazukommen." },
++      { type: "h2", id: "online", text: "Und der Online-Modus?" },
++      { type: "p", text: "Für den neuen Online-Modus hat Rockstar noch keinen Termin genannt. Sobald es offizielle Infos gibt, findest du sie bei uns unter „Online“." },
++      { type: "h2", id: "mitmachen", text: "Du spielst schon?" },
++      { type: "p", text: "Dann hilf mit: Stell deine Fragen oder teile Tipps in unserer Community. Was mehrere Spieler bestätigen, nehmen wir nach und nach in Missionen, Karte und Symbole auf." },
++    ],
++  },
+   {
+     slug: "gta-6-vorladen-und-start",
+     title: "GTA 6 vorladen: So bist du am 19. November startklar",
+@@ -23,7 +46,7 @@ export const news: NewsItem[] = [
+   {
+     slug: "gta-6-editionen-und-vorbesteller-bonus",
+     title: "Standard oder Ultimate? Die Editionen von GTA 6",
+-    excerpt: "GTA 6 gibt es in zwei Editionen. Wer bis zum 20. November digital kauft, bekommt zusätzlich einen Bonus.",
++    excerpt: "GTA 6 gibt es in zwei Editionen. Wer vor dem 20. November digital kauft, bekommt zusätzlich einen Bonus.",
+     publishedAt: "2026-11-18",
+     status: "verifiziert",
+     sources: [
+@@ -85,7 +108,7 @@ export const news: NewsItem[] = [
+     sources: [{ label: "Rockstar Newswire: Grand Theft Auto VI is Now Set to Launch November 19, 2026", url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" }],
+     blocks: [
+       { type: "p", text: "Rockstar Games hat den Release von Grand Theft Auto VI für Donnerstag, den 19. November 2026 angekündigt. Das Spiel erscheint für PlayStation 5 und Xbox Series X|S." },
+-      { type: "note", tone: "info", title: "Stand: 18. November 2026", text: "Eine weitere Verschiebung ist nicht angekündigt. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games (siehe Quelle unten)." },
++      { type: "note", tone: "info", title: "Stand: 19. November 2026", text: "GTA 6 ist wie angekündigt am 19. November 2026 erschienen. Maßgeblich sind immer die offiziellen Angaben von Rockstar Games (siehe Quelle unten)." },
+       { type: "h2", id: "community", text: "Gemeinsam starten" },
+       { type: "p", text: "In unserer Community kannst du schon jetzt Fragen stellen und dich mit anderen auf den Release vorbereiten." },
+     ],
