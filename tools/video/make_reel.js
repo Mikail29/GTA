@@ -1,4 +1,5 @@
 // Rendert Folien (1080x1920) als PNG. Aufruf: node make_reel.js slides.json outdir
+// Optional je Folie: art = [{ svg: "<svg…>", label: "…" }] mit layout "rows" | "grid" | "row3" (eigene Zeichnungen).
 const { chromium } = require('playwright');
 const fs = require('fs');
 const [, , slidesFile, outDir] = process.argv;
@@ -24,12 +25,21 @@ p.text{margin-top:56px;font-size:48px;line-height:1.35;color:#d8d4f0}
 .foot{display:flex;justify-content:space-between;align-items:flex-end;font-size:28px;color:#b8b4d1}
 .dots{display:flex;gap:12px}.dots i{width:18px;height:18px;border-radius:50%;background:#332e57}.dots i.on{background:#42e8d5}
 .src{max-width:720px;line-height:1.35}
+.art{margin-top:56px;display:grid;gap:30px}
+.art.rows .it{display:flex;align-items:center;gap:34px}
+.art.grid{grid-template-columns:1fr 1fr;gap:44px 34px}
+.art.grid .it{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.art.row3{grid-template-columns:1fr 1fr 1fr;gap:26px}
+.art svg{width:280px;height:163px;border-radius:26px;border:3px solid rgba(255,255,255,.12);background:#0b0a16;flex-shrink:0}
+.art.grid svg,.art.row3 svg{width:100%;height:auto;aspect-ratio:96/56}
+.art span{font-size:44px;font-weight:700;line-height:1.25;color:#f1eeff}
 </style></head><body><div class="wrap">
 <div class="brand">${logo}<span>5-Sterne-<b>Kompass</b></span></div>
 <div class="mid">${s.tag ? `<div class="tag">${esc(s.tag)}</div>` : ''}
 <h1>${s.title}</h1>
 ${s.text ? `<p class="text">${esc(s.text)}</p>` : ''}
-${s.items ? `<ul>${s.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}</div>
+${s.items ? `<ul>${s.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+${s.art ? `<div class="art ${esc(s.layout || 'rows')}">${s.art.map((a) => `<div class="it">${a.svg}${a.label ? `<span>${esc(a.label)}</span>` : ''}</div>`).join('')}</div>` : ''}</div>
 <div class="foot"><div class="src">${esc(s.source || 'Unabhängiges Fanprojekt · nicht von Rockstar Games')}</div><div class="dots">${Array.from({ length: n }, (_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('')}</div></div>
 </div></body></html>`;
 (async () => {
