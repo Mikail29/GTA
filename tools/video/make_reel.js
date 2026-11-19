@@ -1,6 +1,7 @@
 // Rendert Folien (1080x1920) als PNG. Aufruf: node make_reel.js slides.json outdir
 // Optional je Folie: art = [{ svg: "<svg…>", label: "…" }] mit layout "rows" | "grid" | "row3" (eigene Zeichnungen).
 // Optional: menu = { section, rows: [{ label, value, count, on }], to } – nachgebaute Einstellungs-Tafel (eigene Gestaltung).
+// Optional: art-Einträge mit sub (kleine Erklärzeile), handle (Kanal-Name als Pille), nodots: true (ohne Fortschrittspunkte, z. B. für Einzelbilder).
 const { chromium } = require('playwright');
 const fs = require('fs');
 const [, , slidesFile, outDir] = process.argv;
@@ -34,23 +35,26 @@ p.text{margin-top:56px;font-size:48px;line-height:1.35;color:#d8d4f0}
 .art svg{width:280px;height:163px;border-radius:26px;border:3px solid rgba(255,255,255,.12);background:#0b0a16;flex-shrink:0}
 .art.grid svg,.art.row3 svg{width:100%;height:auto;aspect-ratio:96/56}
 .art span{font-size:44px;font-weight:700;line-height:1.25;color:#f1eeff}
+.art span small{display:block;margin-top:8px;font-size:34px;font-weight:500;line-height:1.3;color:#cfc9ee}
+.handle{margin-top:40px;display:inline-flex;align-self:flex-start;padding:16px 30px;border-radius:999px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.14);font-size:40px;font-weight:700;color:#fff}
 .menu{margin-top:60px;border-radius:30px;background:linear-gradient(180deg,rgba(74,52,128,.92),rgba(40,28,74,.95));border:2px solid rgba(255,255,255,.10);padding:30px 0 34px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
-.menu .mh{padding:0 36px 20px;font-weight:800;font-size:30px;letter-spacing:2.5px;color:#f1ecff;text-transform:uppercase}
-.menu .row{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 36px;font-size:36px;color:#ece6ff}
+.menu .mh{padding:0 40px 22px;font-weight:800;font-size:33px;letter-spacing:2.5px;color:#f1ecff;text-transform:uppercase}
+.menu .row{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 40px;font-size:40px;color:#ece6ff}
 .menu .row.on{background:#f6f3ff;color:#1b1430;font-weight:600}
 .menu .row .v{display:flex;gap:18px;align-items:center;white-space:nowrap}
-.menu .row .v i{font-style:normal;opacity:.6;font-size:28px}
-.menu .row .v b{font-weight:700;opacity:.55;font-size:30px}
-.menu .to{margin:28px 36px 0;display:inline-flex;align-items:center;gap:16px;padding:16px 30px;border-radius:999px;background:linear-gradient(90deg,#ff55b8,#9565ff);font-weight:800;font-size:40px;color:#fff}
+.menu .row .v i{font-style:normal;opacity:.6;font-size:31px}
+.menu .row .v b{font-weight:700;opacity:.55;font-size:33px}
+.menu .to{margin:32px 40px 0;display:inline-flex;align-items:center;gap:16px;padding:18px 34px;border-radius:999px;background:linear-gradient(90deg,#ff55b8,#9565ff);font-weight:800;font-size:44px;color:#fff}
 </style></head><body><div class="wrap">
 <div class="brand">${logo}<span>5-Sterne-<b>Kompass</b></span></div>
 <div class="mid">${s.tag ? `<div class="tag">${esc(s.tag)}</div>` : ''}
 <h1>${s.title}</h1>
 ${s.text ? `<p class="text">${esc(s.text)}</p>` : ''}
+${s.handle ? `<div class="handle">${esc(s.handle)}</div>` : ''}
 ${s.items ? `<ul>${s.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
 ${s.menu ? `<div class="menu"><div class="mh">${esc(s.menu.section)}</div>${s.menu.rows.map((r) => `<div class="row${r.on ? ' on' : ''}"><span>${esc(r.label)}</span><span class="v">${esc(r.value)}${r.count ? ` <i>${esc(r.count)}</i>` : ''} <b>‹ ›</b></span></div>`).join('')}${s.menu.to ? `<div class="to">→ ${esc(s.menu.to)}</div>` : ''}</div>` : ''}
-${s.art ? `<div class="art ${esc(s.layout || 'rows')}">${s.art.map((a) => `<div class="it">${a.svg}${a.label ? `<span>${esc(a.label)}</span>` : ''}</div>`).join('')}</div>` : ''}</div>
-<div class="foot"><div class="src">${esc(s.source || 'Unabhängiges Fanprojekt · nicht von Rockstar Games')}</div><div class="dots">${Array.from({ length: n }, (_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('')}</div></div>
+${s.art ? `<div class="art ${esc(s.layout || 'rows')}">${s.art.map((a) => `<div class="it">${a.svg}${a.label ? `<span>${esc(a.label)}${a.sub ? `<small>${esc(a.sub)}</small>` : ''}</span>` : ''}</div>`).join('')}</div>` : ''}</div>
+<div class="foot"><div class="src">${esc(s.source || 'Unabhängiges Fanprojekt · nicht von Rockstar Games')}</div>${s.nodots ? '' : `<div class="dots">${Array.from({ length: n }, (_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('')}</div>`}</div>
 </div></body></html>`;
 (async () => {
   const b = await chromium.launch();
