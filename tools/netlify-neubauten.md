@@ -11,3 +11,4 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 - 18.11.: Neubau mit Fix: Supabase-Adresse wird auf den Grundteil gekürzt (Registrierung scheiterte mit HTTP 404)
 - 18.11.: Neubau: Kanal-Links bei „GTA 6 Clips“, Knopf „Etwas mitteilen“, keine Mindestlänge mehr (Datenbank Teil 3 nötig)
 - 18.11.: Neubau: Knöpfe „Ich habe eine Frage…“ / „Ich möchte etwas mitteilen…“ auf Startseite, Community und Fragen
+- 19.11.: Neubau: Handy-/iPad-Menü repariert (Safari zeigte nur das Suchfeld), Login/Registrieren auf Handy und iPad sofort sichtbar → Stand geschätzt 12 von 12

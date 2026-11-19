@@ -76,10 +76,26 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
     text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  /* Lange deutsche Wörter („Verbraucherstreitbeilegung“) auf schmalen Handys trennen */
+  @media (max-width: 639.98px) {
+    h1,
+    h2,
+    h3,
+    h4 {
+      hyphens: auto;
+    }
   }
 
   p {
     text-wrap: pretty;
+  }
+
+  /* Lange Fachbegriffe dürfen auf schmalen Handys umbrechen */
+  code {
+    overflow-wrap: anywhere;
   }
 
   ::selection {
@@ -132,8 +148,9 @@
   /* Leicht transparente Fläche mit Unschärfe (Header, Overlays) */
   .glass {
     background: rgb(16 15 32 / 0.72);
-    backdrop-filter: blur(14px) saturate(140%);
+    /* Reihenfolge wichtig: erst mit -webkit-, dann ohne – sonst fällt die normale Angabe beim Bauen weg */
     -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
   }
 
   /* Dezentes Raster als Retro-Hintergrund */
@@ -227,4 +244,17 @@
 }
 .leaflet-control-attribution a {
   color: var(--color-teal) !important;
+}
+
+/*
+ * iPhone: Eingabefelder mit weniger als 16 px Schrift lassen Safari beim Antippen
+ * heranzoomen (die Seite bleibt danach vergrößert). Auf schmalen Bildschirmen
+ * deshalb mindestens 16 px. Bewusst außerhalb von @layer, damit es Vorrang hat.
+ */
+@media (max-width: 767.98px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  textarea,
+  select {
+    font-size: 16px;
+  }
 }

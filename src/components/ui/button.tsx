@@ -2,7 +2,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils/cn";
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";
-type Size = "sm" | "md" | "lg";
+type Size = "xs" | "sm" | "md" | "lg";
 
 const base =
   "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 whitespace-nowrap";
@@ -16,6 +16,7 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
+  xs: "h-9 px-3 text-[13px]",
   sm: "h-9 px-4 text-sm",
   md: "h-11 px-5 text-sm",
   lg: "h-13 px-7 text-base",

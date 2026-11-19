@@ -24,17 +24,19 @@ export function UserMenu({ user }: { user: { username: string; avatarUrl: string
   }, [open]);
 
   return (
-    <div ref={ref} className="relative hidden md:block">
+    <div ref={ref} className="relative">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="menu"
-        className="flex items-center gap-2 rounded-full border border-line bg-card py-1 pl-1 pr-3 text-sm transition hover:border-pink/50"
+        aria-label={`Konto-Menü von ${user.username}`}
+        className="flex items-center gap-2 rounded-full border border-line bg-card p-1 text-sm transition hover:border-pink/50 md:pr-3"
       >
         <Avatar name={user.username} url={user.avatarUrl} size={30} />
-        <span className="max-w-[8rem] truncate font-medium">{user.username}</span>
-        <ChevronDown className="size-4 text-muted" aria-hidden="true" />
+        {/* Auf dem Handy nur das Profilbild, ab Tablet-Breite auch der Name */}
+        <span className="hidden max-w-[8rem] truncate font-medium md:inline">{user.username}</span>
+        <ChevronDown className="hidden size-4 text-muted md:block" aria-hidden="true" />
       </button>
       {open && (
         <div role="menu" className="surface absolute right-0 mt-2 w-56 overflow-hidden p-1.5">

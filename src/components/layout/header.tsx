@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Bell, LogIn, UserPlus, Users } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { LinkButton } from "@/components/ui/button";
+import { LinkButton, buttonClasses } from "@/components/ui/button";
 import { Logo } from "./logo";
 import { NavLinks } from "@/components/navigation/nav-links";
 import { MobileMenu } from "@/components/navigation/mobile-menu";
@@ -21,11 +21,11 @@ export async function Header() {
       <a href="#inhalt" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-pink focus:px-4 focus:py-2 focus:text-night">
         Zum Inhalt springen
       </a>
-      <Container className="flex h-16 items-center gap-3 sm:gap-4">
+      <Container className="flex h-16 items-center gap-2.5 sm:gap-4">
         <BackButton />
-        <Logo />
+        <Logo compactOnMobile />
         <NavLinks className="ml-2 hidden xl:flex" />
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
           <HeaderSearch />
           <Link href="/community" className="hidden items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-muted transition hover:bg-white/5 hover:text-white lg:inline-flex xl:hidden">
             <Users className="size-4" aria-hidden="true" /> Community
@@ -45,16 +45,28 @@ export async function Header() {
           {user ? (
             <UserMenu user={user} />
           ) : (
-            <div className="hidden items-center gap-2 md:flex">
-              <LinkButton href="/login" variant="ghost" size="sm">
-                <LogIn className="size-4" aria-hidden="true" /> Login
-              </LinkButton>
-              <LinkButton href="/registrieren" size="sm">
-                <UserPlus className="size-4" aria-hidden="true" /> Registrieren
-              </LinkButton>
-            </div>
+            <>
+              {/* Handy & kleines Tablet: kompakt, damit alles in eine Zeile passt */}
+              <div className="flex items-center gap-1.5 md:hidden">
+                <Link href="/login" className={buttonClasses("secondary", "xs", "max-[359px]:hidden")}>
+                  Login
+                </Link>
+                <Link href="/registrieren" className={buttonClasses("primary", "xs")}>
+                  Registrieren
+                </Link>
+              </div>
+              {/* ab Tablet-Breite: mit Symbolen */}
+              <div className="hidden items-center gap-2 md:flex">
+                <LinkButton href="/login" variant="ghost" size="sm">
+                  <LogIn className="size-4" aria-hidden="true" /> Login
+                </LinkButton>
+                <LinkButton href="/registrieren" size="sm">
+                  <UserPlus className="size-4" aria-hidden="true" /> Registrieren
+                </LinkButton>
+              </div>
+            </>
           )}
-          <MobileMenu loggedIn={Boolean(user)} />
+          <MobileMenu user={user} unread={unread} />
         </div>
       </Container>
     </header>

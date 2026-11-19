@@ -39,11 +39,12 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-export function Logo({ className }: { className?: string }) {
+/** `compactOnMobile`: Auf dem Handy nur das Zeichen zeigen, damit oben Platz für Login/Registrieren bleibt. */
+export function Logo({ className, compactOnMobile = false }: { className?: string; compactOnMobile?: boolean }) {
   return (
-    <Link href="/" className={cn("group flex items-center gap-2.5", className)} aria-label="5-Sterne-Kompass – zur Startseite">
+    <Link href="/" className={cn("group flex shrink-0 items-center gap-2.5", className)} aria-label="5-Sterne-Kompass – zur Startseite">
       <LogoMark className="transition-transform duration-300 group-hover:rotate-6" />
-      <span className="whitespace-nowrap font-display text-lg font-bold leading-none tracking-tight">
+      <span className={cn("whitespace-nowrap font-display text-lg font-bold leading-none tracking-tight", compactOnMobile && "hidden sm:inline")}>
         5-Sterne<span className="text-gradient">-Kompass</span>
       </span>
     </Link>
