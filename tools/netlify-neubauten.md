@@ -12,3 +12,6 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 - 18.11.: Neubau: Kanal-Links bei „GTA 6 Clips“, Knopf „Etwas mitteilen“, keine Mindestlänge mehr (Datenbank Teil 3 nötig)
 - 18.11.: Neubau: Knöpfe „Ich habe eine Frage…“ / „Ich möchte etwas mitteilen…“ auf Startseite, Community und Fragen
 - 19.11.: Neubau: Handy-/iPad-Menü repariert (Safari zeigte nur das Suchfeld), Login/Registrieren auf Handy und iPad sofort sichtbar → Stand geschätzt 12 von 12
+
+## Wartet auf den nächsten Neubau (schon im Code, noch nicht online)
+- 19.11.: Zurück-Knopf auf jeder Seite (auch Startseite, dort ausgegraut ohne vorherige Seite), ab Tablet mit Schrift „Zurück“ – mit [skip netlify] hochgeladen, geht beim nächsten Neubau mit online (oder sofort per Netlify „Trigger deploy“)

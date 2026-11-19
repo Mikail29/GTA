@@ -1,28 +1,52 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 // Merkt sich, welche Seiten man auf dieser Website nacheinander geöffnet hat.
 const trail: string[] = [];
+const listeners = new Set<() => void>();
+const subscribe = (cb: () => void) => {
+  listeners.add(cb);
+  return () => {
+    listeners.delete(cb);
+  };
+};
+const snapshot = () => trail.join("\n");
 
-/** Knopf oben links: geht pro Klick eine Seite zurück. Auf der Startseite ausgeblendet. */
+function record(path: string) {
+  if (trail[trail.length - 1] === path) return;
+  if (trail[trail.length - 2] === path) trail.pop(); // man ist zurückgegangen
+  else trail.push(path);
+  listeners.forEach((l) => l());
+}
+
+/** Gibt es von dieser Seite aus eine vorherige Seite auf dieser Website? */
+function hasPrevious(list: string[], path: string) {
+  if (list[list.length - 1] === path) return list.length > 1; // Seite ist schon gemerkt
+  if (list[list.length - 2] === path) return list.length > 2; // man ist gerade zurückgegangen
+  return list.length > 0; // neue Seite – die bisher letzte ist die vorherige
+}
+
+/**
+ * Knopf oben links: geht pro Klick eine Seite zurück – auf jeder Seite an derselben Stelle.
+ * Ohne vorherige Seite geht es zur Startseite; auf der Startseite ist er dann ausgegraut.
+ */
 export function BackButton() {
   const router = useRouter();
   const pathname = usePathname();
+  const saved = useSyncExternalStore(subscribe, snapshot, () => "");
 
   useEffect(() => {
-    if (trail[trail.length - 1] === pathname) return;
-    if (trail[trail.length - 2] === pathname) trail.pop(); // man ist zurückgegangen
-    else trail.push(pathname);
+    record(pathname);
   }, [pathname]);
 
-  if (pathname === "/") return null;
+  const canGoBack = hasPrevious(saved ? saved.split("\n") : [], pathname);
+  const disabled = pathname === "/" && !canGoBack;
 
   const goBack = () => {
-    // Gibt es auf dieser Website eine vorherige Seite, dorthin zurück – sonst zur Startseite.
-    if (trail.length > 1) router.back();
+    if (canGoBack) router.back();
     else router.push("/");
   };
 
@@ -30,11 +54,13 @@ export function BackButton() {
     <button
       type="button"
       onClick={goBack}
-      aria-label="Einen Schritt zurück"
-      title="Zurück"
-      className="grid size-10 shrink-0 place-items-center rounded-full border border-line bg-card text-muted transition hover:border-pink/50 hover:text-white"
+      disabled={disabled}
+      aria-label={disabled ? "Zurück – nicht möglich, du bist auf der Startseite" : "Einen Schritt zurück"}
+      title={disabled ? "Du bist schon auf der Startseite" : "Zurück"}
+      className="inline-flex h-10 min-w-10 shrink-0 items-center justify-center gap-1.5 rounded-full border border-line bg-card px-2.5 text-sm font-medium text-muted transition enabled:hover:border-pink/50 enabled:hover:text-white disabled:cursor-default disabled:opacity-40 md:pr-4"
     >
       <ArrowLeft className="size-4" aria-hidden="true" />
+      <span className="hidden md:inline">Zurück</span>
     </button>
   );
 }
