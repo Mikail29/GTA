@@ -8,6 +8,7 @@ export const news: NewsItem[] = [
     publishedAt: "2026-11-19",
     status: "verifiziert",
     sources: [
+      { label: "Rockstar Newswire: Grand Theft Auto VI Now Available", url: "https://www.rockstargames.com/newswire/article/39akk424a9oo53/grand-theft-auto-vi-now-available" },
       { label: "Rockstar Newswire: Grand Theft Auto VI is Now Set to Launch November 19, 2026", url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" },
       { label: "OpenCritic: GTA 6 Is Officially The Best-Reviewed Game Of All-Time On Metacritic", url: "https://opencritic.com/news/39914/gta-6-is-officially-the-best-reviewed-game-of-all-time-on-metacritic" },
       { label: "Technobezz: GTA 6 Scores 99 on Metacritic", url: "https://www.technobezz.com/news/gta-6-reviews-metacritic-opencritic-scores" },

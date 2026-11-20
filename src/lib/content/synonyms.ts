@@ -33,6 +33,8 @@ export const synonymGroups: string[][] = [
   ["treffermarker", "trefferanzeige", "hitmarker", "hit marker", "treffer", "fadenkreuz"],
   ["fokus", "focus", "zeitlupe", "slow motion"],
   ["ausdauer", "stamina", "sprint", "sprinten"],
+  ["werkstatt", "mechaniker", "reparatur", "reparieren", "lackierung", "abschleppen", "joey"],
+  ["musik", "rapper", "rap", "label", "plattenlabel", "only raw records", "real dimez"],
   ["gesundheit", "leben", "lebensenergie", "health", "herz"],
   ["sauerstoff", "luft", "atemluft", "lunge", "tauchen", "o2"],
 ];

@@ -18,3 +18,4 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 ## Wartet auf den nächsten Neubau (schon im Code, noch nicht online)
 - 19.11.: Quellen auf der Website ausgeblendet (Symbole, Personen, Missionen, News, Karte) – Wunsch des Betreibers; Quellen bleiben intern in den Daten. Mit [skip netlify] hochgeladen, geht beim nächsten Neubau online (oder sofort per Netlify „Trigger deploy“).
 - 19.11.: Prüfung der ganzen Seite: Beispiel-Geheimnisse entfernt (ehrlicher Hinweis statt Demo-Einträgen), doppelte Logo-IDs behoben, 404-Seite mit eigenem Titel, Überschriften-Reihenfolge für Screenreader, Beispiel-Fragen nur noch ohne Datenbank, zwei veraltete Texte angepasst. Mit [skip netlify] hochgeladen.
+- 20.11.: Tagesupdate: 7 neue Personen (Brian Heder, Cal Hampton, Boobie Ike, Dre'Quan Priest, Real Dimez, Raul Bautista, Mechaniker Joey), neue Mission „Just a Scratch“, Tipp zu „Lab Fees“, neue Suchbegriffe. Mit [skip netlify] hochgeladen.

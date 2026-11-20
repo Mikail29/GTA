@@ -2,8 +2,8 @@ import type { Category, Contact } from "@/types/content";
 
 /**
  * Personen & Kontakte im Spiel.
- * Bisher nur die beiden Hauptfiguren, die Rockstar offiziell vorgestellt hat.
- * Weitere Einträge folgen nach dem Release (19.11.2026), sobald sie geprüft sind.
+ * Figuren, die Rockstar offiziell vorgestellt hat, und Kontakte, die mehrere unabhängige
+ * Quellen aus dem Spiel bestätigen. Quellen nur intern (Feld source), nicht auf der Website.
  * Keine erfundenen Namen oder Telefonnummern eintragen! Texte immer in eigenen Worten.
  */
 export const contactCategories: Category[] = [
@@ -36,5 +36,67 @@ export const contacts: Contact[] = [
     location: "Spielbare Hauptfigur",
     status: "verifiziert",
     source: official,
+  },
+  {
+    slug: "brian-heder",
+    name: "Brian Heder",
+    category: "auftraggeber",
+    helpsWith: "Ein alter Schmuggler auf den Keys, für den Jason arbeitet. In der Mission „Lab Fees“ schickt er Jason los, um bei einem Laden die Miete einzutreiben.",
+    location: "Leonida Keys",
+    status: "verifiziert",
+    source: official,
+  },
+  {
+    slug: "cal-hampton",
+    name: "Cal Hampton",
+    category: "bekannte",
+    helpsWith: "Jasons Freund, der ebenfalls für Brian arbeitet. Er bleibt am liebsten zu Hause, hört den Funk der Küstenwache mit und glaubt an so manche Verschwörung. In „Gone Fishing“ fährt er mit Jason aufs Wasser.",
+    location: "Leonida Keys",
+    status: "verifiziert",
+    source: official,
+  },
+  {
+    slug: "boobie-ike",
+    name: "Boobie Ike",
+    category: "bekannte",
+    helpsWith: "Eine Legende in Vice City: Aus dem Straßengeschäft hat er ein eigenes Firmen-Reich gemacht – mit Häusern, dem Club „Jack of Hearts“ und dem Plattenlabel „Only Raw Records“.",
+    location: "Vice City",
+    status: "verifiziert",
+    source: official,
+  },
+  {
+    slug: "drequan-priest",
+    name: "Dre'Quan Priest",
+    category: "bekannte",
+    helpsWith: "Will ganz groß ins Musikgeschäft. Er arbeitet mit Boobie Ike zusammen und hat das Rap-Duo Real Dimez unter Vertrag genommen.",
+    location: "Vice City",
+    status: "verifiziert",
+    source: official,
+  },
+  {
+    slug: "real-dimez",
+    name: "Real Dimez",
+    category: "bekannte",
+    helpsWith: "Rap-Duo aus Bae-Luxe und Roxy, befreundet seit der Schulzeit. Mit viel Social-Media-Präsenz wollen sie groß rauskommen – unter Vertrag bei Only Raw Records.",
+    location: "Vice City",
+    status: "verifiziert",
+    source: official,
+  },
+  {
+    slug: "raul-bautista",
+    name: "Raul Bautista",
+    category: "bekannte",
+    helpsWith: "Ein erfahrener Bankräuber, der seine Überfälle plant wie Kunstwerke – und dafür immer wieder neue Leute sucht.",
+    status: "verifiziert",
+    source: official,
+  },
+  {
+    slug: "joey-mechaniker",
+    name: "Joey (Mechaniker)",
+    category: "helfer",
+    helpsWith: "Mechaniker bei Coastal Auto Care. Nach der Mission „Just a Scratch“ steht er in deinen Kontakten und hilft dir bei Reparaturen und beim Abschleppen.",
+    location: "Coastal Auto Care – freigeschaltet nach „Just a Scratch“",
+    status: "verifiziert",
+    source: { label: "GTA BOOM: Just a Scratch", url: "https://www.gtaboom.com/gta-6-just-a-scratch-mission-walkthrough-da82" },
   },
 ];
