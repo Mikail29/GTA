@@ -5,12 +5,14 @@ import { cn } from "@/lib/utils/cn";
 import type { Accent, IconName } from "@/types/content";
 
 const tiles: { href: string; title: string; text: string; icon: IconName; accent: Accent }[] = [
-  { href: "/karte", title: "Interaktive Karte", text: "Eigene Übersicht über Leonida mit allen Regionen – weitere geprüfte Orte folgen.", icon: "map", accent: "teal" },
+  { href: "/karte", title: "Interaktive Karte", text: "Eigene Karte von Leonida mit Regionen, Geheimnissen und Fundorten.", icon: "map", accent: "teal" },
   { href: "/community", title: "Community", text: "Fragen stellen, Antworten geben und gemeinsam rätseln.", icon: "users", accent: "pink" },
   { href: "/missionen", title: "Missionen", text: "Komplettlösungen Schritt für Schritt – mit Spoiler-Warnung.", icon: "target", accent: "sunset" },
   { href: "/personen", title: "Personen & Kontakte", text: "Wer dir im Spiel hilft – mit Telefonnummern im Spiel (wird gerade ergänzt).", icon: "users", accent: "violet" },
   { href: "/symbole", title: "Symbole", text: "Was bedeuten Fahndungssterne, Fokus & Co.? Die ersten Symbole sind schon erklärt – weitere folgen.", icon: "shapes", accent: "sunset" },
-  { href: "/geheimnisse", title: "Geheimnisse", text: "Easter Eggs, versteckte Orte und seltene Fahrzeuge – geprüfte Einträge folgen in Kürze.", icon: "key", accent: "violet" },
+  { href: "/geheimnisse", title: "Geheimnisse", text: "Skunk Ape, UFO & Co.: Easter Eggs und Sammelobjekte – mit Spoiler-Schutz.", icon: "key", accent: "violet" },
+  { href: "/fahrzeuge", title: "Fahrzeuge", text: "Autos, Motorräder und Werkstätten – und wo du sie bekommst.", icon: "car", accent: "teal" },
+  { href: "/waffen", title: "Waffen", text: "Pistolen, Schrotflinten, Gewehre und der erste Waffenladen.", icon: "crosshair", accent: "pink" },
 ];
 
 const accentStyles: Record<Accent, { icon: string; hover: string }> = {
@@ -22,7 +24,7 @@ const accentStyles: Record<Accent, { icon: string; hover: string }> = {
 
 export function QuickAccess() {
   return (
-    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {tiles.map((t) => (
         <li key={t.href}>
           <Link href={t.href} className={cn("surface group flex h-full items-start gap-3 p-4 transition duration-300 hover:-translate-y-0.5", accentStyles[t.accent].hover)}>

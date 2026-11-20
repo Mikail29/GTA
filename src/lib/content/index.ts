@@ -3,6 +3,8 @@ import { secrets } from "@/data/secrets";
 import { news } from "@/data/news";
 import { contacts } from "@/data/contacts";
 import { symbols } from "@/data/symbols";
+import { vehicles } from "@/data/vehicles";
+import { weapons } from "@/data/weapons";
 import { blocksToText, matchesQuery } from "@/lib/utils/format";
 import type { Mission, SearchResult, Secret, VerificationStatus } from "@/types/content";
 
@@ -75,6 +77,8 @@ const sitePages: { title: string; href: string; excerpt: string; keywords: strin
   { title: "Interaktive Karte", href: "/karte", excerpt: "Fundorte und Marker in Leonida.", keywords: "karte map orte fundorte leonida vice city" },
   { title: "Personen & Kontakte", href: "/personen", excerpt: "Hauptfiguren und Kontakte im Spiel.", keywords: "personen figuren charaktere kontakte jason lucia hauptfigur" },
   { title: "Symbole", href: "/symbole", excerpt: "Symbole auf Karte, Radar und Anzeige erklärt.", keywords: "symbol icon zeichen radar minimap hud anzeige" },
+  { title: "Fahrzeuge", href: "/fahrzeuge", excerpt: "Autos, Motorräder und Werkstätten im Spiel.", keywords: "fahrzeug auto autos motorrad werkstatt tuning lackierung garage" },
+  { title: "Waffen", href: "/waffen", excerpt: "Pistolen, Schrotflinten, Gewehre und Waffenläden.", keywords: "waffe waffen pistole revolver schrotflinte gewehr waffenladen munition" },
   { title: "News", href: "/news", excerpt: "Neuigkeiten rund um GTA 6.", keywords: "news neuigkeiten nachrichten aktuell release" },
   { title: "GTA Online", href: "/online", excerpt: "Infos zum Online-Modus (folgt).", keywords: "online multiplayer mehrspieler" },
   { title: "Community", href: "/community", excerpt: "Fragen stellen, antworten und mitdiskutieren.", keywords: "community forum fragen antworten hilfe diskussion" },
@@ -98,6 +102,10 @@ export function searchContent(q: string): SearchResult[] {
     results.push({ type: "Person", title: c.name, excerpt: c.helpsWith, href: `/personen#${c.category}`, status: c.status });
   for (const s of symbols.filter((s) => matchesQuery(q, s.name, s.meaning, s.looks, s.where)))
     results.push({ type: "Symbol", title: s.name, excerpt: s.meaning, href: `/symbole#${s.category}`, status: s.status });
+  for (const v of vehicles.filter((v) => matchesQuery(q, v.name, v.text, v.where)))
+    results.push({ type: "Fahrzeug", title: v.name, excerpt: v.text, href: `/fahrzeuge#${v.category}`, status: v.status });
+  for (const w of weapons.filter((w) => matchesQuery(q, w.name, w.text, w.where)))
+    results.push({ type: "Waffe", title: w.name, excerpt: w.text, href: `/waffen#${w.category}`, status: w.status });
   return results;
 }
 

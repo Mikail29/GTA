@@ -6,8 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   Bell,
+  Car,
   CircleHelp,
   CirclePlay,
+  Crosshair,
   Globe,
   House,
   KeyRound,
@@ -52,6 +54,8 @@ const groups: { title: string; links: MenuLink[] }[] = [
       { href: "/karte", label: "Interaktive Karte", icon: MapIcon },
       { href: "/personen", label: "Personen & Kontakte", icon: Users },
       { href: "/symbole", label: "Symbole", icon: Shapes },
+      { href: "/fahrzeuge", label: "Fahrzeuge", icon: Car },
+      { href: "/waffen", label: "Waffen", icon: Crosshair },
       { href: "/news", label: "News", icon: Newspaper },
       { href: "/clips", label: "GTA 6 Clips", icon: CirclePlay },
       { href: "/online", label: "GTA 6 Online", icon: Globe, soon: true },

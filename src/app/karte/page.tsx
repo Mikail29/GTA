@@ -9,7 +9,7 @@ import { param, type SearchParams } from "@/lib/utils/params";
 
 export const metadata: Metadata = {
   title: "Interaktive Karte",
-  description: "Die Karte vom 5-Sterne-Kompass: eine eigene Karte von Leonida im Stil der Spielkarte, mit den Regionen aus GTA 6 – weitere geprüfte Orte folgen.",
+  description: "Die Karte vom 5-Sterne-Kompass: eine eigene Karte von Leonida im Stil der Spielkarte, mit den Regionen aus GTA 6, ersten Geheimnissen und Fundorten.",
   alternates: { canonical: "/karte" },
 };
 
@@ -19,11 +19,11 @@ export default async function KartePage({ searchParams }: { searchParams: Search
 
   return (
     <>
-      <PageHeader eyebrow="Karte" title="Interaktive Karte" text="Wo liegen Vice City, die Keys und die anderen Regionen von Leonida? Marker antippen für Details – weitere geprüfte Orte folgen." crumbs={[{ label: "Karte" }]} />
+      <PageHeader eyebrow="Karte" title="Interaktive Karte" text="Wo liegen Vice City, die Keys und die anderen Regionen von Leonida – und wo findest du Bigfoot, das UFO oder den ersten Waffenladen? Marker antippen für Details." crumbs={[{ label: "Karte" }]} />
       <Container className="py-10">
         <Notice tone="info" title="Eigene Karte im Stil der Spielkarte" className="mb-6">
           Diese Karte haben wir selbst gestaltet: Die Küste beruht auf frei nutzbaren Kartendaten nach dem Vorbild Florida, auf dem Leonida beruht. Sie zeigt, wo die von
-          Rockstar genannten Regionen ungefähr liegen – nicht maßstabsgetreu und ohne Daten aus der Spielkarte. Wo die Lage noch nicht offiziell bestätigt ist, steht das beim Marker.
+          Rockstar genannten Regionen und die ersten Geheimnisse und Fundorte ungefähr liegen – nicht maßstabsgetreu und ohne Daten aus der Spielkarte. Wo die Lage noch nicht offiziell bestätigt ist, steht das beim Marker.
           Weitere Orte tragen wir ein, sobald sie geprüft sind.
         </Notice>
         <MapExplorer locations={mapLocations} imageUrl="/map/leonida.svg" initialMarker={initialMarker} />

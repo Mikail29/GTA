@@ -99,4 +99,15 @@ export const contacts: Contact[] = [
     status: "verifiziert",
     source: { label: "GTA BOOM: Just a Scratch", url: "https://www.gtaboom.com/gta-6-just-a-scratch-mission-walkthrough-da82" },
   },
+  {
+    slug: "kirk-skunk-ape",
+    name: "Kirk (Skunk-Ape-Jäger)",
+    category: "auftraggeber",
+    helpsWith:
+      "Kirk jagt den Skunk Ape – die Bigfoot-Legende von Leonida. Nach deiner ersten Begegnung mit dem Wesen hängen seine Flyer aus. Rufst du ihn an, startet eine eigene Auftragsreihe; die erste Suche geht nur nachts.",
+    location: "Über seine Flyer, z. B. in Skeeter's Bar in Hamlet",
+    mapLocationId: "geheimnis-skunk-ape",
+    status: "verifiziert",
+    source: { label: "GamerFuzion: Skunk Ape und Kirk", url: "https://www.gamerfuzion.com/gta-6-bigfoot-skunk-ape-easter-egg/" },
+  },
 ];

@@ -12,6 +12,8 @@ const columns = [
       { href: "/karte", label: "Interaktive Karte" },
       { href: "/personen", label: "Personen & Kontakte" },
       { href: "/symbole", label: "Symbole" },
+      { href: "/fahrzeuge", label: "Fahrzeuge" },
+      { href: "/waffen", label: "Waffen" },
       { href: "/news", label: "News" },
       { href: "/clips", label: "GTA 6 Clips" },
       { href: "/online", label: "GTA 6 Online (bald)" },

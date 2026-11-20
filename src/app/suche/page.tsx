@@ -13,11 +13,11 @@ import type { SearchResult } from "@/types/content";
 
 export const metadata: Metadata = {
   title: "Suche",
-  description: "Durchsuche Missionen, Geheimnisse, News, Personen, Symbole und Community-Fragen auf dem 5-Sterne-Kompass.",
+  description: "Durchsuche Missionen, Geheimnisse, News, Personen, Symbole, Fahrzeuge, Waffen und Community-Fragen auf dem 5-Sterne-Kompass.",
   robots: { index: false, follow: true },
 };
 
-const typeAccent = { Seite: "pink", Mission: "teal", Geheimnis: "violet", News: "sunset", Frage: "teal", Person: "violet", Symbol: "sunset" } as const;
+const typeAccent = { Seite: "pink", Mission: "teal", Geheimnis: "violet", News: "sunset", Frage: "teal", Person: "violet", Symbol: "sunset", Fahrzeug: "teal", Waffe: "pink" } as const;
 
 export default async function SearchPage({ searchParams }: { searchParams: SearchParams }) {
   const q = param((await searchParams).q)?.trim() ?? "";

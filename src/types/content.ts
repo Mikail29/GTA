@@ -117,6 +117,29 @@ export interface Secret {
   mapLocationId?: string;
   blocks: ContentBlock[];
   publishedAt: string;
+  /** Quellen (nur intern, werden nicht angezeigt). */
+  sources?: { label: string; url: string }[];
+}
+
+/**
+ * Eintrag für Verzeichnisse wie Fahrzeuge und Waffen.
+ * Texte in eigenen Worten; Quellen nur intern (werden nicht angezeigt).
+ */
+export interface WorldItem {
+  slug: string;
+  name: string;
+  category: string;
+  /** Kurz erklärt, was es ist bzw. wofür es gut ist. */
+  text: string;
+  /** Wo bzw. wie man es bekommt. */
+  where?: string;
+  /** Eigene Zeichnung im Spiel-Look (Schlüssel aus symbol-art.tsx), optional. */
+  art?: string;
+  icon?: IconName;
+  /** Verknüpfung zur interaktiven Karte (map_locations.id), optional. */
+  mapLocationId?: string;
+  status: VerificationStatus;
+  sources?: { label: string; url: string }[];
 }
 
 export interface NewsItem {
@@ -145,7 +168,7 @@ export interface MapLocation {
 
 /** Suchergebnis über alle Rubriken hinweg. */
 export interface SearchResult {
-  type: "Seite" | "Mission" | "Geheimnis" | "News" | "Frage" | "Person" | "Symbol";
+  type: "Seite" | "Mission" | "Geheimnis" | "News" | "Frage" | "Person" | "Symbol" | "Fahrzeug" | "Waffe";
   title: string;
   excerpt: string;
   href: string;

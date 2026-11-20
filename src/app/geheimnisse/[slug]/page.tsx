@@ -72,7 +72,7 @@ export default async function SecretPage({ params }: Props) {
                 {secret.status === "demo" ? "Dieser Eintrag ist eine Vorlage. Fundort und Beschreibung sind Platzhalter." : "Dieser Hinweis ist noch nicht durch die Redaktion bestätigt."}
               </Notice>
             )}
-            <div className="mt-8">{secret.spoiler ? <SpoilerGate level="leicht">{details}</SpoilerGate> : details}</div>
+            <div className="mt-8">{secret.spoiler ? <SpoilerGate level="leicht" what="Dieser Beitrag">{details}</SpoilerGate> : details}</div>
             <div className="mt-8 grid gap-4">
               <Rating id={`geheimnis:${secret.slug}`} />
               <ShareButtons title={secret.title} path={`/geheimnisse/${secret.slug}`} />

@@ -2,6 +2,37 @@ import type { NewsItem } from "@/types/content";
 
 export const news: NewsItem[] = [
   {
+    slug: "bigfoot-ufo-und-ostereier-erste-geheimnisse",
+    title: "Bigfoot, UFO und Ostereier: Die ersten Geheimnisse in GTA 6",
+    excerpt: "Spieler haben schon die ersten Easter Eggs gefunden – vom Skunk Ape in den Sümpfen bis zum UFO bei Port Gellhorn. Dazu neu bei uns: Fahrzeuge und Waffen.",
+    publishedAt: "2026-11-20",
+    status: "verifiziert",
+    sources: [
+      { label: "GameSpot: GTA 6 Easter Eggs", url: "https://www.gamespot.com/articles/gta-6-easter-eggs-list-and-locations/" },
+      { label: "GameSpot: GTA 6 Has A Hilarious Riff On Easter Eggs", url: "https://www.gamespot.com/articles/gta-6-has-a-hilarious-riff-on-easter-eggs/" },
+      { label: "Kotaku: GTA 6 Launch Live Updates", url: "https://kotaku.com/live-updates-on-gta-6-the-biggest-launch-in-gaming-history-2000758030" },
+      { label: "Game8: Bigfoot Sighting Easter Egg", url: "https://game8.co/games/GTA-6/archives/638054" },
+      { label: "WikiGTAVI: Easter Eggs Day One", url: "https://www.wikigtavi.com/guides/gta-6-easter-eggs-secrets" },
+    ],
+    blocks: [
+      { type: "p", text: "Kaum ist GTA 6 erschienen, haben Spieler schon die ersten Geheimnisse entdeckt. Ein Easter Egg ist eine versteckte Überraschung, die die Macher absichtlich ins Spiel gepackt haben. Wir haben die bekanntesten Funde geprüft und eingetragen." },
+      { type: "h2", id: "funde", text: "Die bekanntesten Funde" },
+      {
+        type: "ul",
+        items: [
+          "Skunk Ape: Die Bigfoot-Legende von Leonida lebt in den Sümpfen von Grassrivers – und startet eine eigene Auftragsreihe.",
+          "Ostereier auf dem Funkturm: Oben auf dem höchsten Funkturm wartet ein Nest mit echten Eiern.",
+          "UFO bei Port Gellhorn: Nachts entführt ein UFO im Wald jemanden – dafür gibt es eine versteckte Trophäe.",
+          "Dexter-Anspielung: Ein Wohnhaus in Vice City heißt „Trinity Apartments“.",
+        ],
+      },
+      { type: "p", text: "Dazu kommen Sammelobjekte wie Sammelkarten, Meteoriten-Stücke und Wahrzeichen zum Scannen. Alles findest du unter „Geheimnisse“ – die Fundorte auch auf unserer Karte." },
+      { type: "note", tone: "research", title: "Noch nicht sicher", text: "Ein Hund auf einem Jetski, der Schwimmer rettet, und ein grünes Auto aus „The Fast and the Furious“: Diese Funde haben wir als „Unbestätigt“ markiert, bis mehr Quellen sie bestätigen." },
+      { type: "h2", id: "neu", text: "Neu bei uns: Fahrzeuge und Waffen" },
+      { type: "p", text: "Unter „Fahrzeuge“ und „Waffen“ siehst du ab sofort, was bisher bestätigt ist und wo du es bekommst. Außerdem gibt es zwei neue Missionen: „Unwanted Attention“ und „Pipework“." },
+    ],
+  },
+  {
     slug: "gta-6-ist-da-99-punkte-bei-metacritic",
     title: "GTA 6 ist da – und holt 99 von 100 Punkten",
     excerpt: "Seit dem 19. November ist GTA 6 für PlayStation 5 und Xbox Series X|S erhältlich. Bei Metacritic steht es bei 99 Punkten – gleichauf mit dem bisherigen Rekord.",

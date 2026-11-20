@@ -30,6 +30,8 @@ export const mainNav: NavItem[] = [
       { href: "/karte", label: "Interaktive Karte", description: "Fundorte und Marker" },
       { href: "/personen", label: "Personen & Kontakte", description: "Wer dir im Spiel hilft" },
       { href: "/symbole", label: "Symbole", description: "Karte, Radar und Anzeige erklärt" },
+      { href: "/fahrzeuge", label: "Fahrzeuge", description: "Autos und Werkstätten" },
+      { href: "/waffen", label: "Waffen", description: "Waffen und Waffenläden" },
     ],
   },
   { href: "/news", label: "News" },
