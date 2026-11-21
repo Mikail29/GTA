@@ -25,6 +25,11 @@ const Q = {
   skycoach: { label: "Skycoach", url: "https://skycoach.gg/blog/gta-6/articles/wanted-system-guide" },
   kuber: { label: "kuber.studio", url: "https://gta.kuber.studio/gameplay/gta-6-wanted-system-and-heat" },
   gtaBase: { label: "GTA Base", url: "https://www.gtabase.com/de/artikel/gta-6/gta-6-wanted-level-explained-police-system-guide" },
+  // Stand: 21.11.2026
+  mobalytics: { label: "Mobalytics: How to lose cops", url: "https://mobalytics.gg/gamebase/guides/grand-theft-auto-6-how-to-lose-cops" },
+  gamesGgPolizei: { label: "games.gg: Wanted levels – how to lose the police", url: "https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-wanted-levels-how-to-lose-the-police/" },
+  dexertoPolizei: { label: "Dexerto: How to lose the police", url: "https://www.dexerto.com/wikis/gta-6/how-to-lose-the-police/" },
+  playerOne: { label: "Player.One: Police markers removed from the minimap", url: "https://www.player.one/gta-6-removing-police-markers-minimap-during-chases-164450" },
 };
 
 export const symbolCategories: Category[] = [
@@ -170,6 +175,17 @@ export const symbols: GameSymbol[] = [
     where: "Oben rechts",
     status: "verifiziert",
     sources: [Q.beebomFahndung, Q.grandTheft, Q.gamesRadarFahndung],
+  },
+  {
+    slug: "suchgebiet-polizei",
+    name: "Suchgebiet der Polizei",
+    category: "fahndung",
+    icon: "mappin",
+    looks: "Ein roter Bereich auf der Minikarte, meist mit hellerem Rand. Einzelne Polizisten als Punkte gibt es dort nicht mehr.",
+    meaning: "Hier sucht die Polizei nach dir. Bleib außer Sicht und verlass das markierte Gebiet – so hängst du sie ab. Wo genau Polizisten sind, zeigt dir die Minikarte nicht.",
+    where: "Minikarte, während einer Fahndung",
+    status: "verifiziert",
+    sources: [Q.mobalytics, Q.gamesGgPolizei, Q.dexertoPolizei, Q.playerOne],
   },
 
   // ---- Fahndung & Polizei: was die Polizei über dich weiß ----

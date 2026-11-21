@@ -100,6 +100,16 @@ export const contacts: Contact[] = [
     source: { label: "GTA BOOM: Just a Scratch", url: "https://www.gtaboom.com/gta-6-just-a-scratch-mission-walkthrough-da82" },
   },
   {
+    slug: "donnie",
+    name: "Donnie",
+    category: "auftraggeber",
+    helpsWith:
+      "Der Pilot bei Brians Schmuggel-Geschäft. In „Gone Fishing“ wirft er aus seinem Flugzeug die Pakete ab – danach muss Jason ihn aus den Händen der Kingfishers holen. Später meldet er sich per Telefon mit neuen Aufträgen.",
+    location: "Leonida Keys",
+    status: "verifiziert",
+    source: { label: "Video Games Chronicle: Gone Fishing", url: "https://www.videogameschronicle.com/guide/gta-6-gone-fishing-mission-walkthrough/" },
+  },
+  {
     slug: "kirk-skunk-ape",
     name: "Kirk (Skunk-Ape-Jäger)",
     category: "auftraggeber",

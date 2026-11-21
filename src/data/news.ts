@@ -2,6 +2,27 @@ import type { NewsItem } from "@/types/content";
 
 export const news: NewsItem[] = [
   {
+    slug: "gta-6-verkaufszahlen-schaetzungen",
+    title: "Wie oft wurde GTA 6 schon verkauft?",
+    excerpt: "Offizielle Zahlen gibt es noch nicht. Ein Marktforschungs-Unternehmen schätzt aber: rund 17 bis 19 Millionen Exemplare bis zum Start.",
+    publishedAt: "2026-11-21",
+    status: "unbestaetigt",
+    sources: [
+      { label: "GGRecon: GTA 6 has reportedly sold 17 million copies (Sensor Tower)", url: "https://www.ggrecon.com/articles/gta-6-17-million-sales-sensor-tower/" },
+      { label: "80.lv: GTA 6 generated nearly $2B in sales by launch day", url: "https://80.lv/articles/report-gta-6-generated-nearly-usd2b-in-sales-by-launch-day" },
+      { label: "esports.gg: Revenue hits $1.84 billion on release day", url: "https://esports.gg/news/grand-theft-auto-6/how-much-money-has-gta-6-made-so-far-revenue-hits-1-84-billion-on-release-day/" },
+      { label: "GamingBolt: Pre-orders „unprecedented“ (Take-Two)", url: "https://gamingbolt.com/grand-theft-auto-6-pre-orders-are-unprecedented-and-astonishing-as-says-take-two-ceo" },
+    ],
+    blocks: [
+      { type: "p", text: "Rockstar und die Muttergesellschaft Take-Two haben noch keine Verkaufszahlen zu GTA 6 genannt. Take-Two will sich dazu äußern, sobald es erste Erfahrungen nach dem Start gibt. Die Vorbestellungen nannte der Chef von Take-Two schon vorher „beispiellos“." },
+      { type: "h2", id: "schaetzung", text: "Was die Schätzungen sagen" },
+      { type: "p", text: "Das Marktforschungs-Unternehmen Sensor Tower schätzt, dass GTA 6 bis zum Start rund 17 bis 19 Millionen Mal verkauft wurde. Das wären Einnahmen von etwa 1,7 bis 2 Milliarden US-Dollar." },
+      { type: "note", tone: "research", title: "Nur eine Schätzung", text: "Diese Zahlen stammen nicht von Rockstar oder Take-Two. Sobald es offizielle Zahlen gibt, tragen wir sie hier nach." },
+      { type: "h2", id: "vergleich", text: "Zum Vergleich" },
+      { type: "p", text: "Den bisherigen Rekord hält GTA 5: Es wurde in den ersten 24 Stunden 11,21 Millionen Mal verkauft." },
+    ],
+  },
+  {
     slug: "bigfoot-ufo-und-ostereier-erste-geheimnisse",
     title: "Bigfoot, UFO und Ostereier: Die ersten Geheimnisse in GTA 6",
     excerpt: "Spieler haben schon die ersten Easter Eggs gefunden – vom Skunk Ape in den Sümpfen bis zum UFO bei Port Gellhorn. Dazu neu bei uns: Fahrzeuge und Waffen.",

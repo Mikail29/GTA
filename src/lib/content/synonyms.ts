@@ -18,7 +18,7 @@ export const synonymGroups: string[][] = [
   ["edition", "ultimate", "standard", "vorbestellen", "vorbestellung", "pre-order", "preorder", "bonus", "preis", "kaufen"],
   ["fahrzeug", "auto", "wagen", "car", "motorrad", "boot", "flugzeug", "helikopter"],
   ["waffe", "weapon", "gewehr", "pistole", "revolver", "schrotflinte", "flinte", "shotgun", "sturmgewehr", "scharfschutzengewehr", "sniper", "waffenladen", "munition", "waffenrad"],
-  ["polizei", "fahndung", "sterne", "stern", "wanted", "cops", "fahndungsstufe", "fahndungslevel", "merkmal", "erkennungsmerkmal"],
+  ["polizei", "fahndung", "sterne", "stern", "wanted", "cops", "fahndungsstufe", "fahndungslevel", "merkmal", "erkennungsmerkmal", "suchgebiet", "abhangen"],
   ["geld", "dollar", "cash", "verdienen", "bank", "konto", "bankguthaben", "bargeld"],
   ["online", "multiplayer", "mehrspieler", "gta online"],
   ["community", "forum", "frage", "fragen", "diskussion"],
@@ -42,5 +42,7 @@ export const synonymGroups: string[][] = [
   ["funkturm", "radioturm", "sendemast", "nest", "eier"],
   ["sammelkarte", "sammelkarten", "trading card", "pfandhaus"],
   ["meteorit", "meteoriten", "meteorite"],
+  ["gefangnis", "knast", "haft", "hamlet correctional", "freilassung"],
+  ["verkaufszahlen", "verkauft", "verkaufe", "rekord", "umsatz", "sales"],
   ["ultimate edition", "vorbesteller", "bonus", "vintage vice city pack", "stanier", "cheetah"],
 ];

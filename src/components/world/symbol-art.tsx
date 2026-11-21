@@ -211,6 +211,16 @@ const art: Record<string, React.ReactNode> = {
   "sterne-weiss": <Stars fill={W} stroke={W} />,
   "sterne-blinkend": <Stars fill={W} stroke={W} className="hud-blink" />,
   "sterne-rot": <Stars fill={RED} stroke="#ff8a96" strokeWidth={1} />,
+  "suchgebiet-polizei": (
+    <g>
+      <circle cx="48" cy="28" r="24" fill="#1d2440" stroke="#8e8c9c" strokeWidth="1.6" />
+      <path d="M27 20 H69 M27 34 H69 M44 6 V50" stroke="#34416e" strokeWidth="2.4" />
+      <path d="M53 7.5 L64 44" stroke="#34416e" strokeWidth="1.6" />
+      <circle cx="42" cy="26" r="16.5" fill="none" stroke="#ff3b4e" strokeOpacity="0.28" strokeWidth="4" />
+      <circle cx="42" cy="26" r="12.5" fill="#ff3b4e" fillOpacity="0.38" stroke="#ff8a96" strokeWidth="1.4" />
+      <path d="M59.6 43 L70 36.4 L67.4 48 L64.8 42.8 Z" fill={W} stroke="#15132a" strokeWidth="0.8" strokeLinejoin="round" />
+    </g>
+  ),
 
   // ---- Fahndung: Merkmale ----
   "merkmal-kleidung": (
