@@ -388,6 +388,14 @@ def main():
         i = int(max(0, e["t"]) * SR)
         m = min(len(st), len(fx) - i)
         fx[i : i + m] += st[:m] * e.get("gain", 1.0)
+    # Original-Ton aus eigenen Clips (falls gewünscht)
+    for c in tl.get("clips", []):
+        x = read_wav_mono(c["file"])[: int(c.get("dur", 30) * SR)]
+        fade = np.minimum(1, np.minimum(np.arange(len(x)) / (0.15 * SR), (len(x) - np.arange(len(x))) / (0.25 * SR)))
+        i = int(c["t"] * SR)
+        m = min(len(x), len(fx) - i)
+        if m > 0:
+            fx[i : i + m] += np.stack([x[:m], x[:m]], axis=1) * fade[:m, None] * c.get("gain", 0.8)
     fx = fx[:n]
     peak = np.max(np.abs(fx)) + 1e-9
     if peak > 0.95:

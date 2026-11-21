@@ -76,10 +76,10 @@
       const words = [...lines.querySelectorAll('.w')];
       const tail = s.tail ? el('div', 'ab tail', r, wordsHTML(s.tail)) : null;
       let box = null, glow = null, art = null;
-      if (s.art) {
+      if (s.art || s.emoji) {
         box = el('div', 'ab artbox', r);
         glow = el('div', 'glow', box);
-        art = el('div', 'svgbox', box, s.art);
+        art = s.emoji ? el('div', 'svgbox emoji', box, esc(s.emoji)) : el('div', 'svgbox', box, s.art);
       }
       const step = s.step || 0.13;
       const tWords = 0.14;
@@ -252,9 +252,10 @@
 
   T.drop = {
     build(s, r) {
-      const target = el('div', 'ab target', r, `<div class="svgbox">${s.target || ''}</div>`);
-      const obj = el('div', 'ab obj', r, `<div class="svgbox">${s.object || ''}</div>`);
-      const splat = el('div', 'ab splat', r, `<div class="svgbox">${s.splat || ''}</div>`);
+      const box = (v, fs) => (String(v || '').trim().startsWith('<svg') ? `<div class="svgbox">${v}</div>` : `<div class="svgbox emoji" style="font-size:${fs}px">${esc(v || '')}</div>`);
+      const target = el('div', 'ab target', r, box(s.target, 330));
+      const obj = el('div', 'ab obj', r, box(s.object, 150));
+      const splat = el('div', 'ab splat', r, box(s.splat, 260));
       const word = el('div', 'ab center word outline', r, esc(s.word || 'PLATSCH!'));
       const tFall = 0.4, tHit = 1.1;
       sfx(s.start + 0.08, 'pop', 0.4);
@@ -283,7 +284,8 @@
     build(s, r) {
       const title = el('div', 'ab title', r, wordsHTML(s.title || ''));
       const rows = el('div', 'ab rows', r);
-      const items = (s.items || []).map((it) => el('div', 'row', rows, `<div class="ic">${it.art || ''}</div><div><div class="l">${esc(it.label || '')}</div>${it.sub ? `<div class="s">${esc(it.sub)}</div>` : ''}</div>`));
+      const ic = (it) => (it.emoji ? `<div class="ic emo">${esc(it.emoji)}</div>` : it.art ? `<div class="ic">${it.art}</div>` : '');
+      const items = (s.items || []).map((it) => el('div', 'row', rows, `${ic(it)}<div><div class="l">${esc(it.label || '')}</div>${it.sub ? `<div class="s">${esc(it.sub)}</div>` : ''}</div>`));
       const t0 = 0.4, step = s.step || 0.42;
       items.forEach((_, i) => sfx(s.start + t0 + i * step, 'tick', 0.55));
       sfx(s.start + 0.02, 'pop', 0.35);
@@ -399,7 +401,7 @@
     build(s, r) {
       const q = el('div', 'ab q', r, wordsHTML(s.question || ''));
       const opts = el('div', 'ab opts', r);
-      const items = (s.options || []).map((o, i) => el('div', 'opt', opts, `<div class="ic">${o.art || ''}</div><div>${esc(o.label)}</div><div class="n">${i + 1}</div>`));
+      const items = (s.options || []).map((o, i) => el('div', 'opt', opts, `${o.emoji ? `<div class="ic emo">${esc(o.emoji)}</div>` : `<div class="ic">${o.art || ''}</div>`}<div>${esc(o.label)}</div><div class="n">${i + 1}</div>`));
       const hint = el('div', 'ab center hint', r, esc(s.hint || 'Schreib’s in die Kommentare!'));
       const handle = el('div', 'ab center handle', r, `<span class="pill pink">${esc(D.handle)}</span>`);
       const site = el('div', 'ab center site', r, `<span class="acc">${esc(D.site)}</span>`);
@@ -420,6 +422,159 @@
       appear(o.site, lt, o.tSite, 0.35, { dy: 30, s0: 0.8 });
       const pl = appear(o.logo, lt, o.tSite + 0.15, 0.45, { dy: 0, s0: 0.2, rot: -180 });
       if (pl >= 1) o.logo.style.transform = `rotate(${Math.sin(lt * 2) * 6}deg) scale(${1 + 0.06 * c.beat})`;
+    },
+  };
+
+  // Handgezeichnete Markierung um/unter ein Akzent-Wort
+  function markPath(kind, w, h) {
+    if (kind === 'circle') return `M ${w * 0.06} ${h * 0.62} C ${w * 0.0} ${h * 0.05}, ${w * 0.92} ${-h * 0.1}, ${w * 1.02} ${h * 0.42} C ${w * 1.1} ${h * 0.95}, ${w * 0.12} ${h * 1.12}, ${-w * 0.02} ${h * 0.52} C ${-w * 0.04} ${h * 0.3}, ${w * 0.2} ${h * 0.08}, ${w * 0.4} ${h * 0.04}`;
+    return `M 0 ${h * 0.94} Q ${w * 0.25} ${h * 1.04} ${w * 0.5} ${h * 0.92} T ${w} ${h * 0.95}`;
+  }
+  function addMark(r, target, kind, color) {
+    const rr = r.getBoundingClientRect(), tr = target.getBoundingClientRect();
+    const padX = kind === 'circle' ? 34 : 4, padY = kind === 'circle' ? 26 : 0;
+    const w = tr.width + padX * 2, h = tr.height + padY * 2;
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('class', 'mark');
+    svg.setAttribute('width', w); svg.setAttribute('height', h + 30);
+    svg.style.left = (tr.left - rr.left - padX) + 'px'; svg.style.top = (tr.top - rr.top - padY) + 'px';
+    const path = document.createElementNS(svgNS, 'path');
+    path.setAttribute('d', markPath(kind, w, h));
+    path.setAttribute('fill', 'none'); path.setAttribute('stroke', color || '#ffd23f');
+    path.setAttribute('stroke-width', kind === 'circle' ? 9 : 12); path.setAttribute('stroke-linecap', 'round');
+    path.style.filter = 'drop-shadow(0 0 12px rgba(255,210,63,.6))';
+    svg.appendChild(path); r.appendChild(svg);
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = len; path.style.strokeDashoffset = len;
+    return { path, len };
+  }
+
+  T.text = {
+    build(s, r) {
+      const k = s.kicker ? el('div', 'ab center kicker', r, `<span class="pill ${s.kickerColor || ''}">${esc(s.kicker)}</span>`) : null;
+      const lines = el('div', 'ab lines', r);
+      (s.lines || []).forEach((ln) => { const small = ln.startsWith('~'); el('div', 'line' + (small ? ' klein' : ''), lines, wordsHTML(small ? ln.slice(1) : ln)); });
+      const words = [...lines.querySelectorAll('.w')];
+      const emo = s.emoji ? el('div', 'ab emo', r, esc(s.emoji)) : null;
+      const step = s.step || 0.09, t0 = 0.12;
+      const tEmo = t0 + words.length * step + 0.05, tMark = tEmo + 0.25;
+      sfx(s.start + 0.02, 'pop', 0.4);
+      if (emo) sfx(s.start + tEmo, 'hit', 0.55);
+      if (s.mark) sfx(s.start + tMark, 'whoosh', 0.3);
+      return { k, lines, words, emo, step, t0, tEmo, tMark, r };
+    },
+    layout(s, o) {
+      const h = o.lines.getBoundingClientRect().height;
+      if (o.emo) o.emo.style.top = Math.min(360 + h + 30, 1000) + 'px';
+      const acc = o.words.find((w) => w.classList.contains('acc'));
+      if (s.mark && acc) o.mk = addMark(o.r, acc, s.mark, s.markColor);
+    },
+    update(s, o, lt, c) {
+      if (o.k) appear(o.k, lt, 0.0, 0.3, { dy: -30 });
+      popWords(o.words, lt, o.t0, o.step, { dy: 70, s0: 0.3, rot: -5 });
+      if (o.emo) {
+        const p = P(lt, o.tEmo, 0.4);
+        o.emo.style.opacity = clamp(p * 4);
+        o.emo.style.transform = `translateY(${Math.sin(lt * 2.6) * 14}px) scale(${lerp(0.2, 1, E.outBack(p)) * (1 + 0.06 * c.beat)}) rotate(${(1 - p) * -30 + Math.sin(lt * 2) * 6}deg)`;
+      }
+      if (o.mk) o.mk.path.style.strokeDashoffset = o.mk.len * (1 - E.outCubic(P(lt, o.tMark, 0.4)));
+    },
+  };
+
+  T.fact = {
+    build(s, r) {
+      const k = s.kicker ? el('div', 'ab center kicker', r, `<span class="pill gold">${esc(s.kicker)}</span>`) : null;
+      const val = el('div', 'ab val acc', r, esc(s.value || ''));
+      const unit = s.unit ? el('div', 'ab unit', r, esc(s.unit)) : null;
+      const txt = s.text ? el('div', 'ab txt', r, wordsHTML(s.text)) : null;
+      const emo = s.emoji ? el('div', 'ab emo', r, esc(s.emoji)) : null;
+      const num = /^\d+$/.test(String(s.value)) ? parseInt(s.value, 10) : null;
+      sfx(s.start + 0.05, 'riser', 0.3);
+      sfx(s.start + 0.62, 'hit', 0.85);
+      shake(s.start + 0.64, 18, 0.35);
+      if (emo) sfx(s.start + 1.0, 'pop', 0.5);
+      return { k, val, unit, txt, words: txt ? [...txt.querySelectorAll('.w')] : [], emo, num };
+    },
+    update(s, o, lt, c) {
+      if (o.k) appear(o.k, lt, 0.0, 0.3, { dy: -30 });
+      const p = P(lt, 0.05, 0.6);
+      if (o.num != null) o.val.textContent = Math.round(o.num * E.outCubic(p)).toLocaleString('de-DE');
+      o.val.style.opacity = clamp(p * 4);
+      o.val.style.transform = `scale(${lerp(0.4, 1, E.outBack(P(lt, 0.05, 0.62))) * (1 + 0.04 * c.beat)})`;
+      if (o.unit) appear(o.unit, lt, 0.62, 0.3, { dy: 40, s0: 1.6, ease: E.outCubic });
+      popWords(o.words, lt, 0.8, 0.06, { dy: 40, s0: 0.5 });
+      if (o.emo) { const q = appear(o.emo, lt, 1.0, 0.4, { dy: 80, s0: 0.2, rot: -25 }); if (q >= 1) o.emo.style.transform = `translateY(${Math.sin(lt * 2.4) * 12}px) rotate(${Math.sin(lt * 1.8) * 6}deg)`; }
+    },
+  };
+
+  T.chat = {
+    build(s, r) {
+      const head = s.title ? el('div', 'ab head', r, `<span class="pill">${esc(s.title)}</span>`) : null;
+      const list = el('div', 'ab list', r);
+      const gap = s.gap || 1.15;
+      const msgs = [];
+      (s.messages || []).forEach((m, i) => {
+        const t = 0.35 + i * gap;
+        let typing = null;
+        if (m.from !== 'du') { typing = el('div', 'typing', list, '<i></i><i></i><i></i>'); }
+        const who = m.from === 'du' ? (s.du || 'Du') : (s.name || '5-Sterne-Kompass');
+        const msg = el('div', 'msg ' + (m.from === 'du' ? 'du' : 'k'), list, `<div class="who">${esc(who)}</div>${esc(m.text)}`);
+        msgs.push({ msg, typing, t });
+        sfx(s.start + t, m.from === 'du' ? 'pop' : 'tick', m.from === 'du' ? 0.5 : 0.6);
+      });
+      return { head, msgs };
+    },
+    update(s, o, lt) {
+      if (o.head) appear(o.head, lt, 0.0, 0.3, { dy: -30 });
+      o.msgs.forEach(({ msg, typing, t }) => {
+        if (typing) {
+          const on = lt >= t - 0.55 && lt < t;
+          typing.style.display = on ? 'flex' : 'none';
+          [...typing.children].forEach((d, j) => (d.style.transform = `translateY(${Math.sin(lt * 12 - j) * 6}px)`));
+        }
+        const p = P(lt, t, 0.3);
+        msg.style.display = lt >= t ? 'block' : 'none';
+        msg.style.opacity = clamp(p * 3);
+        msg.style.transform = `scale(${lerp(0.5, 1, E.outBack(p))})`;
+      });
+    },
+  };
+
+  T.shot = {
+    build(s, r) {
+      const m = s.media || {};
+      const media = el('div', 'media', r);
+      let bg = null;
+      if (s.fit === 'contain') { bg = el('img', 'blur', media); bg.src = m.kind === 'clip' ? m.base + 'f00001.jpg' : m.url; }
+      const img = el('img', s.fit === 'contain' ? 'fit' : '', media);
+      img.src = m.kind === 'clip' ? m.base + 'f00001.jpg' : m.url;
+      el('div', 'shade', r);
+      const tag = s.tag ? el('div', 'ab tag', r, `<span class="pill">${esc(s.tag)}</span>`) : null;
+      const live = s.live ? el('div', 'ab live', r, `<i></i>${esc(s.live)}`) : null;
+      const title = s.title ? el('div', 'ab title outline', r, wordsHTML(s.title)) : null;
+      if (s.credit) el('div', 'ab credit', r, esc(s.credit));
+      sfx(s.start + 0.02, 'whoosh', 0.35);
+      return { m, img, bg, tag, live, words: title ? [...title.querySelectorAll('.w')] : [], last: 0 };
+    },
+    async update(s, o, lt, c) {
+      const z = s.zoom || 'in';
+      const k = clamp(lt / Math.max(1, s.dur));
+      const sc = z === 'out' ? lerp(1.18, 1.0, k) : lerp(1.0, 1.16, k);
+      const px = z === 'pan' ? lerp(-40, 40, k) : 0;
+      o.img.style.transform = `translateX(${px}px) scale(${sc})`;
+      if (o.m.kind === 'clip') {
+        const n = clamp(Math.floor(Math.max(0, lt) * 30) + 1, 1, o.m.n);
+        if (n !== o.last) {
+          o.last = n;
+          const src = o.m.base + 'f' + String(n).padStart(5, '0') + '.jpg';
+          o.img.src = src; if (o.bg) o.bg.src = src;
+          try { await o.img.decode(); } catch (e) {}
+        }
+      }
+      if (o.tag) appear(o.tag, lt, 0.1, 0.3, { dx: -200, dy: 0, s0: 1 });
+      if (o.live) { o.live.style.opacity = Math.floor(lt * 2) % 2 ? 1 : 0.55; }
+      popWords(o.words, lt, 0.25, 0.08, { dy: 50, s0: 0.4 });
     },
   };
 
@@ -530,7 +685,8 @@
   };
 
   // ------------------------------------------------------------------ Bild für Bild
-  window.renderFrame = function (t) {
+  window.renderFrame = async function (t) {
+    const waits = [];
     frameNo = Math.round(t * 30);
     const beatPh = ((t * D.bpm) / 60) % 1;
     const beat = Math.exp(-beatPh * 5.5);
@@ -571,7 +727,8 @@
       x.r.style.transform = tf + `scale(${push})`;
       x.r.style.filter = filter;
       x.r.style.opacity = op;
-      x.tpl.update(s, x.o, lt, { beat, t }, frameNo);
+      const ret = x.tpl.update(s, x.o, lt, { beat, t }, frameNo);
+      if (ret && ret.then) waits.push(ret);
     });
 
     // Kamera: Wackeln
@@ -612,6 +769,7 @@
       capWords.forEach((n, i) => { n.classList.toggle('on', i === on); n.style.transform = i === on ? 'scale(1.1)' : ''; });
     }
     progEl.style.width = (clamp(t / D.total) * 100).toFixed(2) + '%';
+    if (waits.length) await Promise.all(waits);
     return true;
   };
 })();

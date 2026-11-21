@@ -71,6 +71,7 @@ function art(ref) {
   else if (base.startsWith('symbol:')) { symbolArt = symbolArt || loadSymbolArt(); out = symbolArt(base.slice(7)); }
   else if (base.startsWith('ill:')) { const f = ill[base.slice(4)]; if (!f) throw new Error('Zeichnung fehlt: ' + base); out = f(); }
   else if (base.startsWith('initials:')) { const [t, c1, c2] = base.slice(9).split(','); out = initials(t, c1 || '#ff9b68', c2 || '#ff55b8'); }
+  else if (!base.includes('<') && !/^[a-z]+:/.test(base)) return base; // Emoji oder kurzer Text
   else throw new Error('Unbekannte Grafik: ' + base);
   for (const rc of recolors) { const [a, b] = rc.split('>'); out = out.split(a).join(b); }
   return out;
@@ -98,7 +99,7 @@ function tts(text) {
   return f;
 }
 
-const MIN = { hook: 2.4, map: 2.9, art: 2.3, flyer: 2.4, phone: 2.6, drop: 2.6, list: 1.3, duo: 2.4, step: 2.3, title: 2.8, cta: 3.9 };
+const MIN = { hook: 2.4, map: 2.9, art: 2.3, flyer: 2.4, phone: 2.6, drop: 2.6, list: 1.3, duo: 2.4, step: 2.3, title: 2.8, cta: 3.9, text: 2.2, fact: 2.6, chat: 1.0, shot: 2.6 };
 const q = 60 / BPM / 2;
 let t = 0;
 const scenes = sb.scenes.map((s0, i) => {
@@ -113,6 +114,7 @@ const scenes = sb.scenes.map((s0, i) => {
   let min = MIN[s.type] || 2.2;
   if (s.type === 'list') min += 0.42 * (s.items || []).length;
   if (s.type === 'cta') min += 0.28 * (s.options || []).length;
+  if (s.type === 'chat') min += (s.gap || 1.15) * (s.messages || []).length + 0.6;
   const dur = Math.max(min, s.minDur || 0, lead + speech + 0.38);
   t = Math.ceil((s.start + dur) / q) * q;
   s.dur = +(t - s.start).toFixed(3);
@@ -151,6 +153,32 @@ function captionsFor(s) {
 }
 const captions = scenes.flatMap(captionsFor);
 
+// ------------------------------------------------------------ Eigene Aufnahmen (Screenshots / Clips)
+const ASSETS = path.join(WORK, 'assets');
+fs.mkdirSync(ASSETS, { recursive: true });
+const clipAudio = [];
+scenes.forEach((s, i) => {
+  if (s.type !== 'shot' || !s.media) return;
+  const src = path.resolve(path.dirname(sbFile), s.media);
+  if (!fs.existsSync(src)) throw new Error('Aufnahme nicht gefunden: ' + src);
+  const ext = path.extname(src).toLowerCase();
+  if (['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) {
+    fs.copyFileSync(src, path.join(ASSETS, `m${i}${ext}`));
+    s.media = { kind: 'img', url: `https://kurz.local/m${i}${ext}` };
+  } else {
+    const dir = path.join(ASSETS, `c${i}`);
+    fs.mkdirSync(dir);
+    const from = String(s.from || 0), len = String(s.dur + 1);
+    execFileSync('ffmpeg', ['-loglevel', 'error', '-ss', from, '-t', len, '-i', src, '-vf', 'fps=30,scale=1080:-2', '-q:v', '3', path.join(dir, 'f%05d.jpg')]);
+    const n = fs.readdirSync(dir).length;
+    s.media = { kind: 'clip', base: `https://kurz.local/c${i}/`, n };
+    if (s.ton) {
+      const wav = path.join(WORK, `c${i}.wav`);
+      try { execFileSync('ffmpeg', ['-loglevel', 'error', '-ss', from, '-t', len, '-i', src, '-vn', '-ac', '2', '-ar', '44100', wav]); clipAudio.push({ file: wav, t: s.start, gain: s.tonGain || 0.8, dur: s.dur }); } catch (e) { console.warn('Clip ohne Ton:', src); }
+    }
+  }
+});
+
 // ------------------------------------------------------------ Seite bauen
 const b64 = (f) => fs.readFileSync(f).toString('base64');
 const fontDir = path.join(ROOT, 'node_modules/@fontsource-variable');
@@ -169,7 +197,15 @@ const data = {
 async function openPage(browser) {
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
   page.on('pageerror', (e) => console.error('Seitenfehler:', e.message));
-  await page.setContent(html, { waitUntil: 'load' });
+  await page.route('https://kurz.local/**', (route) => {
+    const u = new URL(route.request().url());
+    if (u.pathname === '/') return route.fulfill({ body: html, contentType: 'text/html; charset=utf-8' });
+    const f = path.join(ASSETS, decodeURIComponent(u.pathname));
+    if (!f.startsWith(ASSETS) || !fs.existsSync(f)) return route.fulfill({ status: 404, body: '' });
+    return route.fulfill({ path: f });
+  });
+  await page.goto('https://kurz.local/', { waitUntil: 'load' });
+  await page.evaluate(() => Promise.all([document.fonts.load('900 100px InterV'), document.fonts.load('800 50px InterV'), document.fonts.load('600 30px InterV'), document.fonts.load('100px "Noto Color Emoji"', '👀')]));
   await page.evaluate(() => document.fonts.ready);
   const info = await page.evaluate((d) => window.setup(d), data);
   await page.evaluate(() => document.fonts.ready);
@@ -216,6 +252,7 @@ function fmt(sec) { const m = Math.floor(sec / 60); return `${m}:${(sec - m * 60
     speech: scenes.filter((s) => s.say).map((s) => [s.speechStart, s.speechEnd]),
     events: info.events,
     voice: scenes.filter((s) => s.voice).map((s) => ({ file: s.voice, t: s.speechStart })),
+    clips: clipAudio,
   };
   fs.writeFileSync(path.join(WORK, 'timeline.json'), JSON.stringify(timeline));
   log('Ton: eigene Musik und Effekte …');

@@ -143,3 +143,41 @@ body { font-family: 'InterV', Inter, sans-serif; color: #fff; -webkit-font-smoot
 #flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
 #vig { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 44%, transparent 52%, rgba(0, 0, 0, .6) 100%); }
 #lines { position: absolute; inset: 0; background: repeating-linear-gradient(180deg, rgba(255, 255, 255, .03) 0 2px, transparent 2px 6px); }
+
+/* ---------- Schrift-Stil: Emojis als Gesten ---------- */
+.emoji, .emo { font-family: 'Noto Color Emoji', 'InterV', sans-serif; line-height: 1; }
+.svgbox.emoji { font-size: 300px; }
+.text .kicker { top: 250px; }
+.text .lines { left: 50px; right: 50px; top: 360px; text-align: center; }
+.text .line { font: 900 120px/1.02 'InterV'; letter-spacing: -3px; margin-bottom: 10px; }
+.text .line.klein { font: 800 64px/1.18 'InterV'; letter-spacing: -1px; color: #e4defc; }
+.text .emo { left: 0; right: 0; text-align: center; font-size: 240px; }
+.mark { position: absolute; overflow: visible; pointer-events: none; }
+.fact .kicker { top: 250px; }
+.fact .val { left: 0; right: 0; top: 360px; text-align: center; font: 900 290px/1 'InterV'; letter-spacing: -10px; }
+.fact .unit { left: 0; right: 0; top: 680px; text-align: center; font: 900 92px/1 'InterV'; text-transform: uppercase; letter-spacing: 3px; color: #ffd23f; }
+.fact .txt { left: 60px; right: 60px; top: 800px; text-align: center; font: 800 60px/1.2 'InterV'; color: #e4defc; }
+.fact .emo { left: 0; right: 0; top: 960px; text-align: center; font-size: 190px; }
+.chat .head { left: 0; right: 0; top: 215px; text-align: center; }
+.chat .list { left: 60px; right: 60px; top: 400px; display: flex; flex-direction: column; gap: 24px; }
+.chat .msg { max-width: 860px; padding: 28px 38px; border-radius: 46px; font: 800 60px/1.2 'InterV'; transform-origin: 100% 100%; }
+.chat .msg.du { align-self: flex-end; background: linear-gradient(135deg, #ff55b8, #9565ff); border-bottom-right-radius: 12px; }
+.chat .msg.k { align-self: flex-start; background: #2a2650; border: 3px solid rgba(66, 232, 213, .55); border-bottom-left-radius: 12px; transform-origin: 0 100%; }
+.chat .who { font: 700 28px/1 'InterV'; color: #cfc9ee; margin-bottom: 10px; letter-spacing: 1px; }
+.chat .typing { align-self: flex-start; padding: 26px 34px; border-radius: 42px; background: #2a2650; display: flex; gap: 12px; }
+.chat .typing i { width: 18px; height: 18px; border-radius: 50%; background: #cfc9ee; display: block; }
+.list .row .ic.emo { background: none; border: 0; display: grid; place-items: center; font-size: 96px; }
+.cta .opt .ic.emo { display: grid; place-items: center; font-size: 72px; }
+
+/* ---------- Echte Aufnahmen (eigene Screenshots / Clips) ---------- */
+.shot .media { position: absolute; inset: 0; overflow: hidden; background: #000; }
+.shot .media img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+.shot .media img.blur { filter: blur(42px) brightness(.55) saturate(1.2); transform: scale(1.25); }
+.shot .media img.fit { object-fit: contain; }
+.shot .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11, 10, 23, .62) 0%, transparent 18%, transparent 50%, rgba(11, 10, 23, .88) 80%); }
+.shot .tag { left: 50px; top: 200px; }
+.shot .title { left: 50px; right: 50px; top: 990px; text-align: center; font: 900 96px/1.04 'InterV'; letter-spacing: -2px; }
+.shot .credit { right: 36px; top: 1210px; font: 600 24px/1 'InterV'; color: rgba(255, 255, 255, .7); }
+.shot .live { left: 50px; top: 292px; display: inline-flex; align-items: center; gap: 12px; padding: 10px 22px; border-radius: 12px; background: rgba(255, 59, 78, .92); font: 900 30px/1 'InterV'; letter-spacing: 3px; }
+.shot .live i { width: 16px; height: 16px; border-radius: 50%; background: #fff; display: block; }
+.outline .acc { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: #ffd23f; }
