@@ -1,0 +1,248 @@
+{
+ "name": "unwanted-attention-guide",
+ "title": "Unwanted Attention – Schritt für Schritt (GTA 6)",
+ "bpm": 100,
+ "scenes": [
+  {
+   "type": "title",
+   "kicker": "GTA 6 · Missions-Guide",
+   "name": "Unwanted Attention",
+   "chip": "Schritt für Schritt · leichte Spoiler",
+   "art": "symbol:fahrzeug-phoenix",
+   "caps": false,
+   "say": "Anwonted Attenschen in G T A sechs. So holst du den roten Fiinix vom Abschlepphof der Polizei. Schritt für Schritt!",
+   "show": "Unwanted Attention in GTA 6: So holst du den roten Phoenix vom Abschlepphof der Polizei – Schritt für Schritt!"
+  },
+  {
+   "type": "duo",
+   "transition": "whip",
+   "title": "Der *Auftrag*",
+   "left": {
+    "art": "initials:BH,#ff9b68,#ff55b8",
+    "label": "Brian",
+    "sub": "will den Wagen"
+   },
+   "right": {
+    "art": "symbol:fahrzeug-phoenix",
+    "label": "Phoenix",
+    "sub": "steht beim Abschlepphof"
+   },
+   "mid": "→",
+   "say": "Der Auftrag kommt von Braien. Ein roter Imponte Fiinix steht auf dem Abschlepphof der Polizei, und du holst ihn zurück. Dein Kumpel Käl hilft dir dabei.",
+   "show": "Der Auftrag kommt von Brian: Ein roter Imponte Phoenix steht auf dem Abschlepphof der Polizei – und du holst ihn zurück. Dein Kumpel Cal hilft dir dabei."
+  },
+  {
+   "type": "art",
+   "transition": "zoom",
+   "chip": "Kurz erklärt",
+   "chipColor": "gold",
+   "art": "ill:abschlepp",
+   "title": "Was ist ein *Abschlepphof*?",
+   "glow": "gold",
+   "say": "Kurz erklärt: Ein Abschlepphof ist ein eingezäunter Platz, auf dem die Polizei abgeschleppte Autos abstellt. Genau dort steht der Fiinix.",
+   "show": "Kurz erklärt: Ein Abschlepphof ist ein eingezäunter Platz, auf dem die Polizei abgeschleppte Autos abstellt. Genau dort steht der Phoenix."
+  },
+  {
+   "type": "list",
+   "transition": "zoom",
+   "title": "Wann kommt die *Mission?*",
+   "items": [
+    {
+     "art": "ill:haken",
+     "label": "Nach den ersten Aufträgen",
+     "sub": "z. B. nach „Gone Fishing“"
+    },
+    {
+     "art": "ill:haken",
+     "label": "Reihenfolge teils frei",
+     "sub": "nächste Markierung nehmen"
+    }
+   ],
+   "say": "Wann kommt die Mission? Nach den ersten Aufträgen in Kapitel eins, zum Beispiel nach Gonn Fisching. Die Reihenfolge ist teils frei. Nimm einfach die Markierung, die am nächsten liegt.",
+   "show": "Wann kommt die Mission? Nach den ersten Aufträgen in Kapitel 1, zum Beispiel nach „Gone Fishing“. Die Reihenfolge ist teils frei – nimm einfach die Markierung, die am nächsten liegt."
+  },
+  {
+   "type": "step",
+   "transition": "flash",
+   "n": 1,
+   "chip": "Schritt 1 von 7",
+   "title": "Cal *treffen*",
+   "art": "initials:CH,#42e8d5,#9565ff",
+   "say": "Schritt eins: Käl angelt am Wasser im Norden von Ki Lento. Steig mit ihm ins Auto und fahr zur Markierung nach Hämlet.",
+   "show": "Schritt 1: Cal angelt am Wasser im Norden von Key Lento. Steig mit ihm ins Auto und fahr zur Markierung nach Hamlet."
+  },
+  {
+   "type": "duo",
+   "transition": "whip",
+   "title": "Schritt 2: Rein in den *Hof*",
+   "left": {
+    "art": "ill:zaun",
+    "label": "Weg 1",
+    "sub": "über Zaun und Container"
+   },
+   "right": {
+    "art": "ill:hebebuehne",
+    "label": "Weg 2",
+    "sub": "mit der Hebebühne hoch"
+   },
+   "mid": "ODER",
+   "say": "Schritt zwei: Der Hof ist gesichert. Kletter über Zaun und Container. Oder fahr mit der Hebebühne an der Mauer nach oben, und spring von dort in den Hof.",
+   "show": "Schritt 2: Der Hof ist gesichert. Kletter über Zaun und Container – oder fahr mit der Hebebühne an der Mauer nach oben und spring von dort in den Hof."
+  },
+  {
+   "type": "step",
+   "transition": "whip",
+   "n": 3,
+   "chip": "Schritt 3 von 7",
+   "title": "Den *Phoenix* holen",
+   "art": "ill:abschlepp",
+   "say": "Schritt drei: Der rote Fiinix steht auf einem Abschleppwagen. Steig in den Abschleppwagen, häng den Fiinix ab, und spring dann in den Fiinix.",
+   "show": "Schritt 3: Der rote Phoenix steht auf einem Abschleppwagen. Steig in den Abschleppwagen, häng den Phoenix ab und spring dann in den Phoenix."
+  },
+  {
+   "type": "art",
+   "transition": "glitch",
+   "chip": "Schritt 4 von 7",
+   "chipColor": "pink",
+   "art": "symbol:sterne-blinkend",
+   "title": "Flucht vor der *Polizei*",
+   "badge": "Gehört dazu!",
+   "fx": "shake",
+   "say": "Schritt vier: Beim Rausfahren entdeckt dich die Polizei. Das gehört zur Mission und lässt sich nicht vermeiden.",
+   "show": "Schritt 4: Beim Rausfahren entdeckt dich die Polizei. Das gehört zur Mission und lässt sich nicht vermeiden."
+  },
+  {
+   "type": "art",
+   "transition": "whip",
+   "chip": "So hängst du sie ab",
+   "art": "symbol:suchgebiet-polizei",
+   "title": "Raus aus dem *Suchgebiet*",
+   "badge": "Außer Sicht!",
+   "glow": "teal",
+   "say": "Häng sie ab, zum Beispiel über die Schnellstraße oder quer durch Zäune. Auf der Minikarte siehst du das rote Suchgebiet. Raus da, und außer Sicht bleiben!",
+   "show": "Häng sie ab, zum Beispiel über die Schnellstraße oder quer durch Zäune. Auf der Minikarte siehst du das rote Suchgebiet: Raus da und außer Sicht bleiben!"
+  },
+  {
+   "type": "list",
+   "transition": "up",
+   "title": "Was die Polizei *weiß*",
+   "items": [
+    {
+     "art": "symbol:merkmal-fahrzeug",
+     "label": "Dein Auto",
+     "sub": "rotes Symbol unter den Sternen"
+    },
+    {
+     "art": "symbol:merkmal-kleidung",
+     "label": "Deine Kleidung",
+     "sub": "auch das merkt sie sich"
+    }
+   ],
+   "say": "Gut zu wissen: Die roten Symbole unter den Sternen zeigen, was die Polizei über dich weiß. Zum Beispiel dein Auto oder deine Kleidung. Das passt zu den nächsten Schritten.",
+   "show": "Gut zu wissen: Die roten Symbole unter den Sternen zeigen, was die Polizei über dich weiß – zum Beispiel dein Auto oder deine Kleidung. Das passt zu den nächsten Schritten."
+  },
+  {
+   "type": "duo",
+   "transition": "flash",
+   "title": "Schritt 5: Neue *Farbe*",
+   "left": {
+    "art": "symbol:fahrzeug-phoenix",
+    "label": "Vorher"
+   },
+   "right": {
+    "art": "symbol:fahrzeug-phoenix|#d62839>#3ee0c5|#8f1424>#1f8f80",
+    "label": "Nachher",
+    "sub": "bei Pay ’n’ Spray"
+   },
+   "mid": "→",
+   "say": "Schritt fünf: Fahr zur Lackiererei Pey en Sprey, und lass den Fiinix umlackieren.",
+   "show": "Schritt 5: Fahr zur Lackiererei Pay ’n’ Spray und lass den Phoenix umlackieren."
+  },
+  {
+   "type": "step",
+   "transition": "whip",
+   "n": 6,
+   "chip": "Schritt 6 von 7",
+   "title": "Ab in *Brians Garage*",
+   "art": "ill:garage",
+   "say": "Schritt sechs: Bring den Wagen in Braiens Garage, ebenfalls in Hämlet, und park ihn drinnen.",
+   "show": "Schritt 6: Bring den Wagen in Brians Garage – ebenfalls in Hamlet – und park ihn drinnen."
+  },
+  {
+   "type": "art",
+   "transition": "zoom",
+   "chip": "Schritt 7 von 7",
+   "art": "ill:hutBrille",
+   "title": "Neues *Aussehen*",
+   "badge": "Geschafft!",
+   "badgeAt": 1.6,
+   "say": "Schritt sieben: Zum Schluss wechselt Dschejsen Hut, Brille und Kleidung, damit ihn niemand wiedererkennt. Dann ist die Mission geschafft!",
+   "show": "Schritt 7: Zum Schluss wechselt Jason Hut, Brille und Kleidung, damit ihn niemand wiedererkennt. Dann ist die Mission geschafft!"
+  },
+  {
+   "type": "list",
+   "transition": "whip",
+   "title": "3 *Profi-Tipps*",
+   "items": [
+    {
+     "art": "ill:haken",
+     "label": "Polizei-Jagd gehört dazu",
+     "sub": "nicht vermeidbar"
+    },
+    {
+     "art": "ill:haken",
+     "label": "Phoenix heil lassen",
+     "sub": "Nebenstraßen helfen"
+    },
+    {
+     "art": "ill:haken",
+     "label": "Letzter Schritt hängt?",
+     "sub": "Mission neu starten"
+    }
+   ],
+   "say": "Drei Profi Tipps: Die Polizei Jagd lässt sich nicht vermeiden. Fahr vorsichtig, der Fiinix soll möglichst heil bei Braien ankommen. Und klappt der letzte Schritt nicht, hilft oft ein Neustart der Mission.",
+   "show": "Drei Profi-Tipps: Die Polizei-Jagd lässt sich nicht vermeiden. Fahr vorsichtig – der Phoenix soll möglichst heil bei Brian ankommen. Und klappt der letzte Schritt nicht, hilft oft ein Neustart der Mission."
+  },
+  {
+   "type": "duo",
+   "transition": "whip",
+   "title": "Wie geht’s *weiter?*",
+   "left": {
+    "art": "ill:rohr",
+    "label": "Pipework",
+    "sub": "Mandys verstopfte Spüle"
+   },
+   "right": {
+    "art": "initials:A,#ff9b68,#ff55b8",
+    "label": "Hey Arnold!",
+    "sub": "Brians Partner ist weg"
+   },
+   "mid": "+",
+   "say": "Und wie geht es weiter? Danach warten Peipwörk und Hey Arnold auf dich. Beide findest du bei uns, ebenfalls Schritt für Schritt.",
+   "show": "Und wie geht’s weiter? Danach warten „Pipework“ und „Hey Arnold!“ auf dich – beide findest du bei uns, ebenfalls Schritt für Schritt."
+  },
+  {
+   "type": "cta",
+   "transition": "slam",
+   "question": "Welche Mission als *Nächstes?*",
+   "hint": "Schreib’s in die Kommentare!",
+   "caps": false,
+   "options": [
+    {
+     "art": "ill:rohr",
+     "label": "Pipework"
+    },
+    {
+     "art": "initials:A,#ff9b68,#ff55b8",
+     "label": "Hey Arnold!"
+    },
+    {
+     "art": "initials:LC,#ff55b8,#9565ff",
+     "label": "Coming Home"
+    }
+   ],
+   "say": "Welche Mission soll als Nächstes kommen? Schreib es in die Kommentare. Alle Missionen gibt es auf fünf Sterne Kompass Punkt D E.",
+   "show": "Welche Mission soll als Nächstes kommen? Schreib’s in die Kommentare! Alle Missionen gibt’s auf 5-sterne-kompass.de."
+  }
+ ]
+}

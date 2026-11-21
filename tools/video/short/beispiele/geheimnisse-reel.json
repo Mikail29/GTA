@@ -1,0 +1,139 @@
+{
+ "name": "geheimnisse-reel",
+ "title": "Bigfoot, UFO & Ostereier – die ersten Geheimnisse in GTA 6",
+ "bpm": 100,
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "GTA 6 · Geheimnis",
+   "lines": [
+    "In GTA 6",
+    "lebt *Bigfoot*."
+   ],
+   "art": "ill:fuss",
+   "tail": "… und das ist nicht mal das Verrückteste.",
+   "caps": false,
+   "say": "In G T A sechs lebt Bigfoot. Und das ist nicht mal das Verrückteste.",
+   "show": "In GTA 6 lebt Bigfoot. Und das ist nicht mal das Verrückteste."
+  },
+  {
+   "type": "map",
+   "transition": "zoom",
+   "x": 735,
+   "y": 768,
+   "zoom": 3.4,
+   "tag": "Fundort",
+   "label": "Grassrivers",
+   "sub": "Sümpfe rund um Cottonmouth Lake",
+   "say": "Er heißt Skunk Äip und lebt in den Sümpfen von Grass Rivers, rund um den Cottonmouth Lake.",
+   "show": "Er heißt Skunk Ape und lebt in den Sümpfen von Grassrivers – rund um den Cottonmouth Lake."
+  },
+  {
+   "type": "art",
+   "transition": "whip",
+   "chip": "Geheimnis 1/3",
+   "art": "ill:zweigfigur",
+   "title": "Folg ihm in den *Wald*",
+   "badge": "Untersuchen!",
+   "fx": "shake",
+   "say": "Folg ihm in den Wald. Dort hängt eine Figur aus Zweigen. Untersuch sie, und du wirst ohnmächtig.",
+   "show": "Folg ihm in den Wald. Dort hängt eine Figur aus Zweigen. Untersuch sie – und du wirst ohnmächtig."
+  },
+  {
+   "type": "flyer",
+   "transition": "glitch",
+   "head": "Skunk Ape gesehen???",
+   "art": "ill:fussSkizze",
+   "body": "Ruf Kirk an!",
+   "strip": "KIRK",
+   "say": "Danach tauchen Flyer von Kirk auf. Er jagt den Skunk Äip.",
+   "show": "Danach tauchen Flyer von Kirk auf. Er jagt den Skunk Ape."
+  },
+  {
+   "type": "phone",
+   "transition": "up",
+   "label": "Du rufst an",
+   "initials": "K",
+   "name": "Kirk",
+   "status": "Skunk-Ape-Jäger",
+   "c1": "#2fbf71",
+   "c2": "#42e8d5",
+   "say": "Ruf ihn an, dann startet eine eigene Jagd. Aber nur nachts.",
+   "show": "Ruf ihn an – dann startet eine eigene Jagd. Aber nur nachts!"
+  },
+  {
+   "type": "map",
+   "transition": "glitch",
+   "night": true,
+   "x": 320,
+   "y": 185,
+   "zoom": 3.0,
+   "tag": "Geheimnis 2/3",
+   "label": "Port Gellhorn",
+   "sub": "Landstraßen im Osten · nach 2 Uhr nachts",
+   "say": "Noch gruseliger: Fahr nachts nach zwei Uhr über die Landstraßen östlich von Port Gellhorn.",
+   "show": "Noch gruseliger: Fahr nachts nach 2 Uhr über die Landstraßen östlich von Port Gellhorn."
+  },
+  {
+   "type": "art",
+   "transition": "flash",
+   "night": true,
+   "art": "ill:ufo",
+   "title": "Ein echtes *UFO*",
+   "badge": "Geheime Trophäe",
+   "glow": "teal",
+   "fx": "pulse",
+   "say": "Ein Auto mit flackernden Lichtern führt dich in den Wald, zu einem Ufo. Dafür gibt es sogar eine geheime Trophäe.",
+   "show": "Ein Auto mit flackernden Lichtern führt dich in den Wald – zu einem UFO. Dafür gibt’s sogar eine geheime Trophäe."
+  },
+  {
+   "type": "art",
+   "transition": "whip",
+   "chip": "Geheimnis 3/3",
+   "art": "ill:turm",
+   "title": "Echte *Ostereier*",
+   "badge": "6–7 Min. klettern",
+   "fx": "tiltup",
+   "boxTop": 330,
+   "boxH": 700,
+   "badgeAt": 1.6,
+   "say": "Und auf dem höchsten Funkturm bei Vais Siti liegt ein Nest mit echten Eiern. Der Aufstieg dauert sechs bis sieben Minuten.",
+   "show": "Und auf dem höchsten Funkturm bei Vice City liegt ein Nest mit echten Eiern. Der Aufstieg dauert 6 bis 7 Minuten.",
+   "titleTop": 1070,
+   "badgePos": "mid"
+  },
+  {
+   "type": "drop",
+   "transition": "zoom",
+   "object": "ill:ei",
+   "target": "ill:scheibe",
+   "splat": "ill:splat",
+   "word": "PLATSCH!",
+   "say": "Wirf eins runter, und schau, wo es landet.",
+   "show": "Wirf eins runter – und schau, wo es landet."
+  },
+  {
+   "type": "cta",
+   "transition": "slam",
+   "question": "Welches Geheimnis suchst du *zuerst?*",
+   "hint": "Schreib’s in die Kommentare!",
+   "caps": false,
+   "options": [
+    {
+     "art": "ill:fuss",
+     "label": "Bigfoot"
+    },
+    {
+     "art": "ill:ufo",
+     "label": "UFO"
+    },
+    {
+     "art": "ill:nest",
+     "label": "Ostereier"
+    }
+   ],
+   "say": "Welches Geheimnis suchst du zuerst? Schreib es in die Kommentare. Alle Fundorte gibt es auf fünf Sterne Kompass Punkt D E.",
+   "show": "Welches Geheimnis suchst du zuerst? Schreib’s in die Kommentare! Alle Fundorte gibt’s auf 5-sterne-kompass.de."
+  }
+ ]
+}

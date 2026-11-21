@@ -1,5 +1,8 @@
 # Videos für Social Media
 
+> **Neu (21.11.2026): Für alle Tagesvideos `tools/video/short/` verwenden** – mit Effekten, eigener Musik, Soundeffekten,
+> Kamerafahrten und großen Untertiteln. Anleitung: `tools/video/short/README.md`. Die Werkzeuge unten sind die alte, einfache Variante.
+
 Hochkant-Videos (1080 × 1920) im Design des 5-Sterne-Kompass – nur eigene Grafiken, Texte und eine freie Computerstimme, ohne Rockstar-Material.
 
 ## Info-Reel ohne Stimme
