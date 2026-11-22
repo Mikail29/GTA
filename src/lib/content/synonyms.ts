@@ -42,6 +42,8 @@ export const synonymGroups: string[][] = [
   ["funkturm", "radioturm", "sendemast", "nest", "eier"],
   ["sammelkarte", "sammelkarten", "trading card", "pfandhaus"],
   ["meteorit", "meteoriten", "meteorite"],
+  ["minispiel", "minigame", "konsolenspiel", "zocken", "videospiel", "street trash", "tenebrae lux", "spielkonsole"],
+  ["propellerboot", "sumpfboot", "airboat", "fan boat"],
   ["gefangnis", "knast", "haft", "hamlet correctional", "freilassung"],
   ["verkaufszahlen", "verkauft", "verkaufe", "rekord", "umsatz", "sales"],
   ["ultimate edition", "vorbesteller", "bonus", "vintage vice city pack", "stanier", "cheetah"],

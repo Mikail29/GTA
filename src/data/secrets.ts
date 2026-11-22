@@ -98,19 +98,20 @@ export const secrets: Secret[] = [
   {
     slug: "fast-and-furious-auto",
     title: "Das grüne Sportauto aus „The Fast and the Furious“",
-    excerpt: "In der Garage einer Villa steht ein Nachbau des grünen 90er-Sportwagens mit Neonlicht, den Paul Walker im ersten „Fast & Furious“-Film fuhr.",
+    excerpt: "In einer Garage steht ein Nachbau des grünen 90er-Sportwagens mit Neonlicht, den Paul Walker im ersten „Fast & Furious“-Film fuhr.",
     category: "seltene-fahrzeuge",
-    status: "unbestaetigt",
+    status: "verifiziert",
     spoiler: false,
-    location: "Garage einer Villa in Vice City (genaue Lage noch nicht sicher)",
+    location: "Laut Guides: in einer Garage auf Vespucci Island",
     blocks: [
-      { type: "p", text: "Laut Spielern steht in der Garage einer Villa ein grüner Sportwagen aus den 90ern mit Neon-Unterbodenbeleuchtung – eine Verbeugung vor Paul Walkers Auto aus „The Fast and the Furious“ (2001)." },
-      { type: "note", tone: "research", title: "Noch nicht sicher", text: "Den genauen Ort beschreiben die Quellen unterschiedlich. Hast du das Auto gefunden? Schreib uns in der Community, wo genau." },
+      { type: "p", text: "Laut Spielern steht in einer Garage ein grüner Sportwagen aus den 90ern mit Neon-Unterbodenbeleuchtung – eine Verbeugung vor Paul Walkers Auto aus „The Fast and the Furious“ (2001)." },
+      { type: "p", text: "Laut den Guides steht das Auto in einer Garage auf Vespucci Island. Hast du es gefunden? Schreib uns in der Community, wie du hingekommen bist." },
     ],
     publishedAt: "2026-11-20",
     sources: [
       { label: "ComicBook: GTA 6 Easter Eggs after launch", url: "https://comicbook.com/gaming/list/5-most-exciting-gta-6-easter-eggs-players-have-found-after-launch-day/" },
       { label: "Leonida Verse: Easter Eggs", url: "https://leonidaverse.com/en/codex/gta-6-easter-eggs" },
+      { label: "BGR: Hidden Fast and Furious Easter Egg", url: "https://www.bgr.com/2322463/gta-6-hidden-fast-and-furious-paul-walker-car/" },
     ],
   },
   {

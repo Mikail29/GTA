@@ -104,7 +104,7 @@ export const contacts: Contact[] = [
     name: "Donnie",
     category: "auftraggeber",
     helpsWith:
-      "Der Pilot bei Brians Schmuggel-Geschäft. In „Gone Fishing“ wirft er aus seinem Flugzeug die Pakete ab – danach muss Jason ihn aus den Händen der Kingfishers holen. Später meldet er sich per Telefon mit neuen Aufträgen.",
+      "Der Pilot bei Brians Schmuggel-Geschäft. In „Gone Fishing“ wirft er aus seinem Flugzeug die Pakete ab – danach muss Jason ihn aus den Händen der Kingfishers holen. Später meldet er sich per Telefon mit neuen Aufträgen, zum Beispiel in „Clean Up After Donnie“.",
     location: "Leonida Keys",
     status: "verifiziert",
     source: { label: "Video Games Chronicle: Gone Fishing", url: "https://www.videogameschronicle.com/guide/gta-6-gone-fishing-mission-walkthrough/" },
