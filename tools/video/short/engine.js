@@ -327,7 +327,7 @@
       const chip = el('div', 'ab chip', r, `<span class="pill">${esc(s.chip || 'Schritt ' + s.n)}</span>`);
       const title = el('div', 'ab title', r, wordsHTML(s.title || ''));
       let box = null, glow = null, holder = null, items = [];
-      if (s.art) { box = el('div', 'ab box', r); glow = el('div', 'glow teal', box); holder = el('div', 'svgbox', box, s.art); }
+      if (s.art || s.emoji) { box = el('div', 'ab box', r); glow = el('div', 'glow teal', box); holder = s.emoji ? el('div', 'svgbox emoji', box, esc(s.emoji)) : el('div', 'svgbox', box, s.art); }
       if (s.items) { const wrap = el('div', 'ab items', r); items = s.items.map((it, i) => el('div', 'item', wrap, `<div class="k">${i + 1}</div><div>${esc(it)}</div>`)); }
       sfx(s.start + 0.04, 'hit', 0.6);
       if (box) sfx(s.start + 0.42, 'pop', 0.5);
@@ -364,7 +364,7 @@
       const bar = el('div', 'ab bar', r);
       const chip = s.chip ? el('div', 'ab center chip2', r, `<span class="pill">${esc(s.chip)}</span>`) : null;
       let box = null, holder = null;
-      if (s.art) { box = el('div', 'ab box', r); el('div', 'glow', box); holder = el('div', 'svgbox', box, s.art); }
+      if (s.art || s.emoji) { box = el('div', 'ab box', r); el('div', 'glow', box); holder = s.emoji ? el('div', 'svgbox emoji', box, esc(s.emoji)) : el('div', 'svgbox', box, s.art); }
       const tC = 0.25, step = 0.035, tEnd = tC + chars.length * step + 0.1;
       sfx(s.start + 0.0, 'riser', 0.45);
       sfx(s.start + tEnd, 'boom', 0.9);

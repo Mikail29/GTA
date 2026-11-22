@@ -1,0 +1,291 @@
+{
+ "name": "zwei-missionen-guide",
+ "title": "Feng Shui & Clean Up After Donnie – Schritt für Schritt (GTA 6)",
+ "bpm": 100,
+ "keep": [
+  "Clean Up After Donnie",
+  "Coming Home",
+  "Feng Shui",
+  "Island Dreams",
+  "Key Lento",
+  "Tenebrae Lux",
+  "Street Trash 3: Dezombifier"
+ ],
+ "scenes": [
+  {
+   "type": "title",
+   "kicker": "GTA 6 · Missions-Guide",
+   "name": "2 Missionen, 1 Guide",
+   "chip": "Feng Shui · Clean Up After Donnie",
+   "emoji": "🎮",
+   "caps": false,
+   "say": "Zwei Missionen, ein Guide: Feng Schui und Klien App After Donnie in G T A sechs. Schritt für Schritt!",
+   "show": "Zwei Missionen, ein Guide: „Feng Shui“ und „Clean Up After Donnie“ in GTA 6 – Schritt für Schritt!"
+  },
+  {
+   "type": "text",
+   "transition": "zoom",
+   "kicker": "Teil 1",
+   "lines": [
+    "*Feng Shui*",
+    "~Wohnung umräumen und zocken"
+   ],
+   "emoji": "🛋️",
+   "say": "Teil eins: Feng Schui. Eine ruhige Mission bei Jason zu Hause.",
+   "show": "Teil 1: „Feng Shui“. Eine ruhige Mission bei Jason zu Hause."
+  },
+  {
+   "type": "step",
+   "transition": "whip",
+   "n": 1,
+   "chip": "Feng Shui · Schritt 1 von 4",
+   "title": "Nach *Hause*",
+   "emoji": "🏠",
+   "say": "Schritt eins: Nach der Mission Eiländ Driems schreibt dir Käl. Die Markierung erscheint an Jasons Haus in Ki Lento.",
+   "show": "Schritt 1: Nach der Mission „Island Dreams“ schreibt dir Cal. Die Markierung erscheint an Jasons Haus in Key Lento."
+  },
+  {
+   "type": "step",
+   "transition": "whip",
+   "n": 2,
+   "chip": "Feng Shui · Schritt 2 von 4",
+   "title": "*Umräumen*",
+   "emoji": "📺",
+   "say": "Schritt zwei: Stell die Möbel um. Erst den Fernseher, dann den Couchtisch, danach Sofa und Sessel. Das Spiel zeigt dir jeweils, wohin.",
+   "show": "Schritt 2: Stell die Möbel um – erst den Fernseher, dann den Couchtisch, danach Sofa und Sessel. Das Spiel zeigt dir jeweils, wohin."
+  },
+  {
+   "type": "step",
+   "transition": "glitch",
+   "n": 3,
+   "chip": "Feng Shui · Schritt 3 von 4",
+   "title": "*Zocken*",
+   "emoji": "🕹️",
+   "say": "Schritt drei: Jetzt wird gezockt. Erst Tenebrä Lux, dann Striet Träsch drei, Disombifaier. Gewinnen musst du laut den Guides nicht.",
+   "show": "Schritt 3: Jetzt wird gezockt – erst „Tenebrae Lux“, dann „Street Trash 3: Dezombifier“. Gewinnen musst du laut den Guides nicht."
+  },
+  {
+   "type": "step",
+   "transition": "whip",
+   "n": 4,
+   "chip": "Feng Shui · Schritt 4 von 4",
+   "title": "Der *Anruf*",
+   "emoji": "📞",
+   "say": "Schritt vier: Am Ende kommt ein Anruf wegen Lussia. Damit ist die Mission geschafft.",
+   "show": "Schritt 4: Am Ende kommt ein Anruf wegen Lucia. Damit ist die Mission geschafft."
+  },
+  {
+   "type": "text",
+   "transition": "zoom",
+   "kicker": "Gut zu wissen",
+   "kickerColor": "gold",
+   "lines": [
+    "Kein Zeitlimit.",
+    "Kein *Scheitern*.",
+    "~Keine Belohnung – zählt aber für 100 %"
+   ],
+   "emoji": "😌",
+   "say": "Gut zu wissen: Kein Zeitlimit, kein Scheitern. Eine Belohnung gibt es nicht, aber die Mission zählt für hundert Prozent.",
+   "show": "Gut zu wissen: Kein Zeitlimit, kein Scheitern. Eine Belohnung gibt es nicht, aber die Mission zählt für 100 Prozent."
+  },
+  {
+   "type": "text",
+   "transition": "flash",
+   "kicker": "Teil 2",
+   "kickerColor": "pink",
+   "lines": [
+    "*Clean Up*",
+    "*After Donnie*"
+   ],
+   "emoji": "📦",
+   "say": "Teil zwei: Klien App After Donnie. Jetzt wird es actionreich.",
+   "show": "Teil 2: „Clean Up After Donnie“. Jetzt wird es actionreich."
+  },
+  {
+   "type": "chat",
+   "transition": "whip",
+   "title": "Worum geht’s?",
+   "caps": false,
+   "gap": 1.8,
+   "messages": [
+    {
+     "from": "du",
+     "text": "Wer ist eigentlich Donnie? 🤔"
+    },
+    {
+     "from": "k",
+     "text": "Der Pilot bei Brians Schmuggel-Geschäft. Sein Paket ist weg – und du sollst es finden. ✈️"
+    }
+   ],
+   "say": "Wer ist Donnie? Er ist der Pilot bei Braiens Schmuggel Geschäft. Sein Paket ist verschwunden, und du sollst es finden.",
+   "show": "Wer ist Donnie? Er ist der Pilot bei Brians Schmuggel-Geschäft. Sein Paket ist verschwunden – und du sollst es finden."
+  },
+  {
+   "type": "text",
+   "transition": "zoom",
+   "kicker": "Wann?",
+   "lines": [
+    "Nach",
+    "*Coming Home*"
+   ],
+   "emoji": "☀️",
+   "mark": "underline",
+   "say": "Die Mission startet am Morgen nach Comming Home: Donnie ruft mit einem neuen Auftrag an.",
+   "show": "Die Mission startet am Morgen nach „Coming Home“: Donnie ruft mit einem neuen Auftrag an."
+  },
+  {
+   "type": "step",
+   "transition": "flash",
+   "n": 1,
+   "chip": "Donnie · Schritt 1 von 4",
+   "title": "Zum *Flussufer*",
+   "emoji": "🌿",
+   "say": "Schritt eins: Fahr zur Markierung an einem Flussufer in den Sümpfen südwestlich von Hämlet. Dort sollte das Paket liegen.",
+   "show": "Schritt 1: Fahr zur Markierung an einem Flussufer in den Sümpfen südwestlich von Hamlet. Dort sollte das Paket liegen."
+  },
+  {
+   "type": "text",
+   "transition": "glitch",
+   "kicker": "Huch!",
+   "kickerColor": "pink",
+   "lines": [
+    "Das Paket",
+    "ist *weg*!"
+   ],
+   "emoji": "😱",
+   "mark": "circle",
+   "say": "Doch das Paket ist weg! Die Spur führt flussabwärts.",
+   "show": "Doch das Paket ist weg! Die Spur führt flussabwärts."
+  },
+  {
+   "type": "step",
+   "transition": "whip",
+   "n": 2,
+   "chip": "Donnie · Schritt 2 von 4",
+   "title": "Mit dem *Propellerboot* los",
+   "emoji": "🚤",
+   "say": "Schritt zwei: Folge dem Fluss mit dem Propellerboot flussabwärts, bis zu einer Hütte.",
+   "show": "Schritt 2: Folge dem Fluss mit dem Propellerboot flussabwärts – bis zu einer Hütte."
+  },
+  {
+   "type": "text",
+   "transition": "zoom",
+   "kicker": "Kurz erklärt",
+   "kickerColor": "gold",
+   "lines": [
+    "*Propellerboot*",
+    "~flaches Boot mit großem Propeller hinten"
+   ],
+   "emoji": "🌀",
+   "say": "Kurz erklärt: Ein Propellerboot ist ein flaches Boot mit einem großen Propeller hinten. Damit gleitest du auch über flaches Sumpfwasser.",
+   "show": "Kurz erklärt: Ein Propellerboot ist ein flaches Boot mit einem großen Propeller hinten. Damit gleitest du auch über flaches Sumpfwasser."
+  },
+  {
+   "type": "step",
+   "transition": "glitch",
+   "n": 3,
+   "chip": "Donnie · Schritt 3 von 4",
+   "title": "Schießerei an der *Hütte*",
+   "emoji": "💥",
+   "say": "Schritt drei: An der Hütte wird geschossen. Das lässt sich nicht vermeiden. Nimm eine Waffe mit, denn das Boot bietet kaum Deckung.",
+   "show": "Schritt 3: An der Hütte wird geschossen – das lässt sich nicht vermeiden. Nimm eine Waffe mit, denn das Boot bietet kaum Deckung."
+  },
+  {
+   "type": "step",
+   "transition": "whip",
+   "n": 4,
+   "chip": "Donnie · Schritt 4 von 4",
+   "title": "Ab zu *Donnie*",
+   "emoji": "🚐",
+   "say": "Schritt vier: Nimm das Paket mit und bring es zu Donnies Wohnwagen in Ki Lento. Geschafft!",
+   "show": "Schritt 4: Nimm das Paket mit und bring es zu Donnies Wohnwagen in Key Lento. Geschafft!"
+  },
+  {
+   "type": "fact",
+   "transition": "flash",
+   "kicker": "Belohnung",
+   "value": "600",
+   "unit": "Dollar",
+   "text": "landen *später* im Briefkasten",
+   "emoji": "📬",
+   "say": "Die Belohnung: sechshundert Dollar. Die kommen aber nicht sofort, sondern laut den Guides später in den Briefkasten an Jasons Haus.",
+   "show": "Die Belohnung: 600 Dollar. Die kommen aber nicht sofort, sondern laut den Guides später in den Briefkasten an Jasons Haus."
+  },
+  {
+   "type": "list",
+   "transition": "whip",
+   "title": "3 *Profi-Tipps*",
+   "items": [
+    {
+     "emoji": "🎯",
+     "label": "Gute Waffe mitnehmen",
+     "sub": "auf dem Boot kaum Deckung"
+    },
+    {
+     "emoji": "🧭",
+     "label": "Hinweisen im Spiel folgen",
+     "sub": "wenn etwas anders aussieht"
+    },
+    {
+     "emoji": "📬",
+     "label": "Briefkasten checken",
+     "sub": "dort landen die 600 $"
+    }
+   ],
+   "say": "Drei Profi Tipps: Nimm eine gute Waffe mit. Folge im Zweifel den Hinweisen im Spiel. Und schau später in den Briefkasten.",
+   "show": "Drei Profi-Tipps: Nimm eine gute Waffe mit. Folge im Zweifel den Hinweisen im Spiel. Und schau später in den Briefkasten."
+  },
+  {
+   "type": "list",
+   "transition": "up",
+   "title": "Kurz *zusammengefasst*",
+   "items": [
+    {
+     "emoji": "🌿",
+     "label": "Flussufer",
+     "sub": "südwestlich von Hamlet"
+    },
+    {
+     "emoji": "🚤",
+     "label": "Flussabwärts",
+     "sub": "mit dem Propellerboot"
+    },
+    {
+     "emoji": "💥",
+     "label": "Schießerei an der Hütte",
+     "sub": "Waffe mitnehmen"
+    },
+    {
+     "emoji": "🚐",
+     "label": "Paket zu Donnie",
+     "sub": "Wohnwagen in Key Lento"
+    }
+   ],
+   "say": "Kurz zusammengefasst: zum Flussufer, mit dem Propellerboot flussabwärts, Schießerei an der Hütte, und das Paket zu Donnies Wohnwagen.",
+   "show": "Kurz zusammengefasst: zum Flussufer, mit dem Propellerboot flussabwärts, Schießerei an der Hütte – und das Paket zu Donnies Wohnwagen."
+  },
+  {
+   "type": "cta",
+   "transition": "slam",
+   "question": "Welche Mission als *Nächstes?*",
+   "hint": "Schreib’s in die Kommentare! 👇",
+   "caps": false,
+   "options": [
+    {
+     "emoji": "🛋️",
+     "label": "Feng Shui"
+    },
+    {
+     "emoji": "🔓",
+     "label": "Coming Home"
+    },
+    {
+     "emoji": "🏃",
+     "label": "Hey Arnold!"
+    }
+   ],
+   "say": "Welche Mission soll als Nächstes kommen? Schreib es in die Kommentare. Alle Missionen gibt es auf fünf Sterne Kompass Punkt D E.",
+   "show": "Welche Mission soll als Nächstes kommen? Schreib’s in die Kommentare! Alle Missionen gibt’s auf 5-sterne-kompass.de."
+  }
+ ]
+}
