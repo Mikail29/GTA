@@ -133,7 +133,7 @@ body { font-family: 'InterV', Inter, sans-serif; color: #fff; -webkit-font-smoot
 /* Untertitel, Rahmen */
 #caps { position: absolute; left: 40px; right: 40px; top: 1256px; height: 230px; display: flex; align-items: flex-start; justify-content: center; text-align: center; }
 #caps .c { font: 900 64px/1.15 'InterV'; letter-spacing: -.5px; transform-origin: 50% 50%; }
-#caps .cw { display: inline-block; margin: 0 .12em; }
+#caps .cw { display: inline-block; margin: 0 .17em; }
 #caps .cw.on { color: #ffd23f; }
 #prog { position: absolute; left: 0; top: 0; height: 10px; background: linear-gradient(90deg, #ff9b68, #ff55b8, #9565ff); box-shadow: 0 0 24px rgba(255, 85, 184, .9); }
 #brand { position: absolute; left: 50px; top: 62px; display: flex; align-items: center; gap: 16px; font: 800 36px/1 'InterV'; opacity: .95; }
