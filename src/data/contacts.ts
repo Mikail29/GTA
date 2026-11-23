@@ -110,6 +110,15 @@ export const contacts: Contact[] = [
     source: { label: "Video Games Chronicle: Gone Fishing", url: "https://www.videogameschronicle.com/guide/gta-6-gone-fishing-mission-walkthrough/" },
   },
   {
+    slug: "kenton-rees",
+    name: "Kenton Rees",
+    category: "auftraggeber",
+    helpsWith: "Betreibt den Tauchladen „Island Dreams“ in Key Lento. In der gleichnamigen Mission schickt er Jason auf einen Tauchgang zu einem Schiffswrack.",
+    location: "Tauchladen „Island Dreams“, Key Lento",
+    status: "verifiziert",
+    source: { label: "Video Games Chronicle: Island Dreams", url: "https://www.videogameschronicle.com/guide/gta-6-island-dreams-walkthrough/" },
+  },
+  {
     slug: "kirk-skunk-ape",
     name: "Kirk (Skunk-Ape-Jäger)",
     category: "auftraggeber",
