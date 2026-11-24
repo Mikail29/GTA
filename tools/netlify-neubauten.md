@@ -23,3 +23,4 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 - 21.11.: Tagesupdate: Missionen „Hey Arnold!“ und „Coming Home“, neues Symbol „Suchgebiet der Polizei“, Kontakt Donnie, News zu den (geschätzten) Verkaufszahlen, neue Suchbegriffe. Mit [skip netlify] hochgeladen.
 - 22.11.: Tagesupdate: Missionen „Feng Shui“ und „Clean Up After Donnie“, Fast-&-Furious-Auto jetzt bestätigt (Garage auf Vespucci Island), Donnie ergänzt, neue Suchbegriffe. Mit [skip netlify] hochgeladen.
 - 23.11.: Tagesupdate: Mission „Island Dreams“ (Tauchgang, Schatzsuche, Hai), Kontakt Kenton Rees, neue Suchbegriffe. Mit [skip netlify] hochgeladen.
+- 24.11.: Tagesupdate: Mission „Tourist Trap“ (starke Spoiler, Warnung: vorher speichern und Bargeld ausgeben), neue Suchbegriffe. Mit [skip netlify] hochgeladen.

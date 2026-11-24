@@ -45,6 +45,8 @@ export const synonymGroups: string[][] = [
   ["minispiel", "minigame", "konsolenspiel", "zocken", "videospiel", "street trash", "tenebrae lux", "spielkonsole"],
   ["propellerboot", "sumpfboot", "airboat", "fan boat"],
   ["tauchgang", "taucher", "tauchladen", "wrack", "schiffswrack", "schatz", "schatzsuche", "hai", "harpune", "diving"],
+  ["kapitel", "chapter", "story", "hauptstory", "handlung"],
+  ["besucherzentrum", "visitor center", "schliessfach", "spind"],
   ["gefangnis", "knast", "haft", "hamlet correctional", "freilassung"],
   ["verkaufszahlen", "verkauft", "verkaufe", "rekord", "umsatz", "sales"],
   ["ultimate edition", "vorbesteller", "bonus", "vintage vice city pack", "stanier", "cheetah"],

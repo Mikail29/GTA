@@ -345,4 +345,32 @@ export const missions: Mission[] = [
       { label: "Beebom: Island Dreams", url: "https://beebom.com/gta-6-island-dreams-mission/" },
     ],
   },
+  {
+    slug: "tourist-trap",
+    title: "Tourist Trap",
+    excerpt: "Ein Auftrag von Mattia am Ende von Kapitel 1 – mit Folgen. Wichtig: Vorher speichern und Bargeld ausgeben!",
+    category: "hauptstory",
+    difficulty: "schwer",
+    status: "verifiziert",
+    spoiler: "stark",
+    requirements: ["Ende von Kapitel 1 – laut den Guides beginnt danach eine Reihe von Missionen ohne Pause"],
+    steps: [
+      { title: "Mattias Auftrag", text: "Die Mission startet mit einem Auftrag von Mattia. Laut den Guides solltest du vorher speichern." },
+      { title: "Die Tasche holen", text: "Hol eine Tasche aus einem Schließfach im Besucherzentrum." },
+      { title: "Ärger mit Polizisten", text: "Danach kommt es zum Kampf mit korrupten Polizisten. Überleb die Auseinandersetzung." },
+      { title: "Flucht übers Wasser", text: "Flieh mit dem Boot. Dabei musst du Jason stützen und beschützen, bis ihr am Boot seid. Lucia kann unterwegs mit ihrer Pistole schießen." },
+    ],
+    tips: [
+      "Achtung: Laut den Guides führt dich diese Mission ohne Pause durch die nächsten Story-Missionen. Ins freie Spiel kommst du erst in Kapitel 2 zurück.",
+      "Gib vorher dein Bargeld aus: Laut einer Anleitung geht das Geld in deinen Taschen bei den folgenden Ereignissen verloren.",
+      "Laut einer Anleitung lohnt es sich, vorher noch offene Nebenaufträge zu erledigen.",
+    ],
+    related: ["coming-home", "clean-up-after-donnie", "island-dreams"],
+    publishedAt: "2026-11-24",
+    sources: [
+      { label: "Video Games Chronicle: Tourist Trap Walkthrough", url: "https://www.videogameschronicle.com/guide/gta-6-tourist-trap-mission-walkthrough/" },
+      { label: "PowerPyx: Tourist Trap", url: "https://www.powerpyx.com/?p=369750" },
+      { label: "TheClick: Tourist Trap", url: "https://www.theclick.gg/?p=119130" },
+    ],
+  },
 ];
