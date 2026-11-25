@@ -28,7 +28,7 @@ export const secrets: Secret[] = [
         ],
       },
       { type: "h2", id: "kirk", text: "Danach: Kirks Aufträge" },
-      { type: "p", text: "Nach der ersten Begegnung hängen in Leonida Flyer eines Mannes namens Kirk aus. Lies einen davon und ruf Kirk an – so startet die Nebenmission „Search for the Skunk Ape“, die nur nachts geht. Danach folgen weitere Aufträge rund um den Skunk Ape." },
+      { type: "p", text: "Nach der ersten Begegnung hängen in Leonida Flyer eines Mannes namens Kirk aus. Lies einen davon und ruf Kirk an – so startet die Nebenmission „Search for the Skunk Ape“, die nur nachts geht. Danach folgen weitere Aufträge rund um den Skunk Ape. Die Nebenmission findest du bei uns unter „Missionen“." },
       { type: "note", tone: "info", title: "Belohnung", text: "Die Guides nennen unterschiedliche Geldbeträge als Belohnung – deshalb geben wir hier noch keine Summe an." },
     ],
     publishedAt: "2026-11-20",

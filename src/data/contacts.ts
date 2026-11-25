@@ -119,6 +119,15 @@ export const contacts: Contact[] = [
     source: { label: "Video Games Chronicle: Island Dreams", url: "https://www.videogameschronicle.com/guide/gta-6-island-dreams-walkthrough/" },
   },
   {
+    slug: "shirley",
+    name: "Shirley",
+    category: "bekannte",
+    helpsWith: "Jasons Nachbarin in Key Lento. Sie hat kleine Aufträge für ihn: erst Rum aus dem Laden holen, dann einen Roller besorgen. Laut den Guides darfst du danach ihr Auto benutzen.",
+    location: "Key Lento, neben Jasons Haus",
+    status: "verifiziert",
+    source: { label: "Push Square: Get Shirley's Rum", url: "https://www.pushsquare.com/guides/gta-6-get-shirleys-rum-walkthrough" },
+  },
+  {
     slug: "kirk-skunk-ape",
     name: "Kirk (Skunk-Ape-Jäger)",
     category: "auftraggeber",
