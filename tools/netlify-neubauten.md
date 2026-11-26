@@ -25,3 +25,4 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 - 23.11.: Tagesupdate: Mission „Island Dreams“ (Tauchgang, Schatzsuche, Hai), Kontakt Kenton Rees, neue Suchbegriffe. Mit [skip netlify] hochgeladen.
 - 24.11.: Tagesupdate: Mission „Tourist Trap“ (starke Spoiler, Warnung: vorher speichern und Bargeld ausgeben), neue Suchbegriffe. Mit [skip netlify] hochgeladen.
 - 25.11.: Tagesupdate: erste Nebenmissionen („Get Shirley's Rum“, „Steal the Scooter“, „Search for the Skunk Ape“ – letztere unbestätigt), Kontakt Shirley, Hinweis im Skunk-Ape-Geheimnis, neue Suchbegriffe. Mit [skip netlify] hochgeladen.
+- 26.11.: Tagesupdate: Nebenmission „Search for Tree Effigies“, Ratgeber „Speichern, schlafen, Unterschlupf“ (News), neue Suchbegriffe. Mit [skip netlify] hochgeladen.

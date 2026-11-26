@@ -2,6 +2,44 @@ import type { NewsItem } from "@/types/content";
 
 export const news: NewsItem[] = [
   {
+    slug: "speichern-schlafen-unterschlupf",
+    title: "Speichern, schlafen, Unterschlupf: So funktioniert’s in GTA 6",
+    excerpt: "Du kannst fast überall speichern, im Bett die Zeit vorspulen und im Unterschlupf Autos abstellen. Die wichtigsten Grundlagen – einfach erklärt.",
+    publishedAt: "2026-11-26",
+    status: "verifiziert",
+    sources: [
+      { label: "KeenGamer: How to save in GTA 6", url: "https://www.keengamer.com/articles/guides/how-to-save-in-gta-6-manual-saves-autosave-and-safehouses/" },
+      { label: "KeenGamer: How to skip time and sleep", url: "https://www.keengamer.com/articles/guides/how-to-skip-time-and-sleep-in-gta-6-day-length-and-best-time-for-crimes/" },
+      { label: "AltChar: How to save your game", url: "https://www.altchar.com/guides/grand-theft-auto-6-how-to-save-your-game-accYt7D9h9l4" },
+      { label: "IBTimes AU: 15 manual slots", url: "https://www.ibtimes.com.au/gta-6-how-save-game-manual-autosave-1878933" },
+      { label: "Gfinity: How do safehouses work", url: "https://www.gfinityesports.com/article/how-do-safehouses-work-in-gta-6-customization-supplies-activities-explained" },
+    ],
+    blocks: [
+      { type: "p", text: "Gerade am Anfang fragen sich viele: Wie speichere ich eigentlich – und wozu ist das Bett gut? Hier sind die Grundlagen." },
+      { type: "h2", id: "speichern", text: "Speichern" },
+      {
+        type: "ul",
+        items: [
+          "Du kannst fast überall speichern: Öffne das Pause-Menü und wähle dort „Speichern“.",
+          "Es gibt 15 Plätze für eigene Spielstände und einen extra Platz für das automatische Speichern.",
+          "Laut einer Anleitung speichert das Spiel außerdem automatisch nach Missionen und wenn du im Bett schläfst.",
+        ],
+      },
+      { type: "note", tone: "info", title: "Tipp", text: "Missionen lassen sich laut den Guides nicht wiederholen. Speichere deshalb vor wichtigen Missionen in einem eigenen Platz." },
+      { type: "h2", id: "schlafen", text: "Schlafen" },
+      {
+        type: "ul",
+        items: [
+          "Im Bett deines Unterschlupfs kannst du schlafen und so die Zeit vorspulen – praktisch für Aufträge, die nur nachts gehen.",
+          "Laut einer Anleitung kannst du dabei sogar wählen, wann du aufwachst.",
+          "Laut einer Anleitung füllt Schlafen außerdem Gesundheit und Ausdauer wieder auf.",
+        ],
+      },
+      { type: "h2", id: "unterschlupf", text: "Unterschlupf" },
+      { type: "p", text: "Ein Unterschlupf (englisch „Safehouse“) ist ein Zuhause im Spiel. Dort kannst du schlafen, speichern, dich umziehen und Autos abstellen. Jasons erstes Zuhause ist sein Haus in Key Lento – du bekommst es nach der Mission „Gone Fishing“." },
+    ],
+  },
+  {
     slug: "gta-6-verkaufszahlen-schaetzungen",
     title: "Wie oft wurde GTA 6 schon verkauft?",
     excerpt: "Offizielle Zahlen gibt es noch nicht. Ein Marktforschungs-Unternehmen schätzt aber: rund 17 bis 19 Millionen Exemplare bis zum Start.",
