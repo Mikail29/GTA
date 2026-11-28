@@ -27,3 +27,4 @@ Die echten Zahlen stehen bei Netlify unter Team settings → Billing → Usage (
 - 25.11.: Tagesupdate: erste Nebenmissionen („Get Shirley's Rum“, „Steal the Scooter“, „Search for the Skunk Ape“ – letztere unbestätigt), Kontakt Shirley, Hinweis im Skunk-Ape-Geheimnis, neue Suchbegriffe. Mit [skip netlify] hochgeladen.
 - 26.11.: Tagesupdate: Nebenmission „Search for Tree Effigies“, Ratgeber „Speichern, schlafen, Unterschlupf“ (News), neue Suchbegriffe. Mit [skip netlify] hochgeladen.
 - 27.11.: Tagesupdate: erste Aktivität „Angeln“, Nebenmission „Help Kirk Find Mr. Mangrove“ (unbestätigt, starke Spoiler), neue Suchbegriffe. Mit [skip netlify] hochgeladen.
+- 28.11.: Tagesupdate: Kapitel 1 komplett – Missionen „Home Sweet Home“ und „Discharge Time“ (starke Spoiler), Kontakt Andy, neue Suchbegriffe (Krankenhaus, Fokus, Feuer). Mit [skip netlify] hochgeladen.

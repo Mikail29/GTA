@@ -128,6 +128,15 @@ export const contacts: Contact[] = [
     source: { label: "Push Square: Get Shirley's Rum", url: "https://www.pushsquare.com/guides/gta-6-get-shirleys-rum-walkthrough" },
   },
   {
+    slug: "andy",
+    name: "Andy",
+    category: "bekannte",
+    helpsWith: "Lucias Freundin. Sie arbeitet in der Bar „Manatee's Rest“ in den Keys und leiht Lucia nach ihrer Entlassung Kleidung. Laut den Guides hilft sie Lucia später auch in einer Notlage.",
+    location: "Bar „Manatee's Rest“ in den Keys",
+    status: "verifiziert",
+    source: { label: "MeowDB: Andy", url: "https://meowdb.com/gta6/npcs/andy" },
+  },
+  {
     slug: "kirk-skunk-ape",
     name: "Kirk (Skunk-Ape-Jäger)",
     category: "auftraggeber",
